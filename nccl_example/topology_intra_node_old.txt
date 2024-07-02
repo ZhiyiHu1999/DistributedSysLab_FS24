@@ -1,0 +1,10 @@
+<system version="1">
+  <cpu numaid="0" affinity="ffffff" arch="x86_64" vendor="GenuineIntel" familyid="6" modelid="63">
+    <pci busid="0000:02:00.0" class="0x030200" vendor="0x10de" device="0x15f8" subsystem_vendor="0x10de" subsystem_device="0x118f" link_speed="8 GT/s" link_width="16">
+      <gpu dev="0" sm="60" rank="0" gdr="1"/>
+    </pci>
+    <nic>
+      <net name="ipogif0" dev="0" speed="10000" port="0" latency="0.000000" guid="0x0" maxconn="65536" gdr="0"/>
+    </nic>
+  </cpu>
+</system>

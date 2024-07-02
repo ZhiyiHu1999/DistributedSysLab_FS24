@@ -1,0 +1,17 @@
+<graphs version="1">
+  <graph id="0" pattern="4" crossnic="0" nchannels="1" speedintra="1.2" speedinter="1.2" latencyinter="0" typeintra="LOC" typeinter="PHB" samechannels="1">
+    <channel>
+      <net dev="0"/>
+      <gpu dev="0"/>
+      <net dev="0"/>
+    </channel>
+  </graph>
+  <graph id="1" pattern="3" crossnic="0" nchannels="1" speedintra="2.4" speedinter="1.2" latencyinter="0" typeintra="LOC" typeinter="PHB" samechannels="1">
+    <channel>
+      <net dev="0"/>
+      <gpu dev="0"/>
+      <net dev="0"/>
+    </channel>
+  </graph>
+  <graph id="2" pattern="3" crossnic="0" nchannels="0" speedintra="0" speedinter="0" latencyinter="0" typeintra="LOC" typeinter="PIX" samechannels="1"/>
+</graphs>

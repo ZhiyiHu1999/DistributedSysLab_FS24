@@ -21,12 +21,14 @@ export NCCL_ROOT=/users/zhu/nccl_npkit/nccl/build
 export LD_LIBRARY_PATH=$CRAY_MPICH_DIR/lib:$NCCL_ROOT/lib:$LD_LIBRARY_PATH
 nvcc -I${CRAY_MPICH_DIR}/include -L${CRAY_MPICH_DIR}/lib -lmpich -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_2.cu -o example_2
 
-export NCCL_ALGO=Tree
-export NCCL_PROTO=LL128
+export NCCL_ALGO=Ring
+export NCCL_PROTO=LL
 export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
 export NCCL_GRAPH_DUMP_FILE="Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
 export NCCL_PROXY_PROFILE="Proxy.txt"
+export NPKIT_NET_CHECK_LATENCY_THRESHOLD=1
+export NPKIT_NUM_WARMUP_OPS=1
 
 export NPKIT_RUN_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/npkit_run"
 # Tag of this NPKit run.

@@ -164,18 +164,14 @@ import re
 import sys
 from collections import defaultdict
 
-# 检查命令行参数
 if len(sys.argv) != 2:
     print("Usage: python3 count_net_event_pairs.py <file_name>")
     sys.exit(1)
 
-# 获取文件名
 file_path = sys.argv[1]
 
-# 初始化计数字典
 event_counts = {entry: defaultdict(lambda: defaultdict(lambda: defaultdict(int))) for entry in ["NET SEND ENTRY", "NET SEND EXIT", "NET RECV ENTRY", "NET RECV EXIT"]}
 
-# 解析文件
 with open(file_path, 'r') as file:
     for line in file:
         if "NET SEND ENTRY" in line:
@@ -211,7 +207,6 @@ with open(file_path, 'r') as file:
                 channel_id = int(match.group(4))
                 event_counts["NET RECV EXIT"][(receiver_rank, sender_rank)][channel_id][size] += 1
 
-# 打印结果
 for event, pairs in event_counts.items():
     print(f"{event}:")
     for pair, channels in pairs.items():

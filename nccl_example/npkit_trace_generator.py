@@ -127,6 +127,7 @@ def parse_cpu_event_file(npkit_dump_dir, npkit_event_def, rank, channel, cpu_clo
                 'ts': parsed_cpu_event['timestamp'] / cpu_clock_scale,
                 'pid': rank
             })
+            # print(f"parsed_cpu_event['timestamp']: {parsed_cpu_event['timestamp']}, cpu_clock_scale: {cpu_clock_scale}, ts: {parsed_cpu_event['timestamp'] / cpu_clock_scale}")  # Debug timestamp
             slot = parsed_cpu_event['slot']
             if phase == 'B':
                 # Open fiber event

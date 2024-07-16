@@ -1,8 +1,10 @@
 import json
 import re
+import sys
 
 NPKIT_TRACE_FILE = "./npkit_run/npkit_trace/job_example_2/npkit_event_trace.json"
-INFO_TRACE_FILE = "./example_2.54393168.o"
+INFO_TRACE_FILE = sys.argv[1]
+# INFO_TRACE_FILE = "./example_2.54409157.o"
 MERGE_FILE = "./npkit_run/npkit_trace/job_example_2/merged_trace.json"
 
 try:
@@ -11,41 +13,72 @@ try:
 except FileNotFoundError:
     pass
 
-with open(NPKIT_TRACE_FILE, 'r') as f1:
-    with open(MERGE_FILE, 'w') as mf:
-        mf.write(f1.read())
+with open(NPKIT_TRACE_FILE, 'r') as file:
+    data1 = json.load(file)
 
-send_entries = []
-recv_entries = []
+entries = []
 
 with open(INFO_TRACE_FILE, 'r') as f2:
     for line in f2:
-        send_match = re.search(r"NCCL INFO NET SEND ENTRY INFO: \(Sender_Global_Rank:([0-9]+), Receiver_Global_Rank:([0-9]+), Size:([0-9]+), Timestamp:([0-9]+)\)", line)
-        recv_match = re.search(r"NCCL INFO NET RECV ENTRY INFO: \(Receiver_Global_Rank:([0-9]+), Sender_Global_Rank:([0-9]+), Size:([0-9]+), Timestamp:([0-9]+)\)", line)
-        if send_match:
-            send_entries.append((int(send_match.group(1)), int(send_match.group(2)), int(send_match.group(3)), int(send_match.group(4))))
-        elif recv_match:
-            recv_entries.append((int(recv_match.group(1)), int(recv_match.group(2)), int(recv_match.group(3)), int(recv_match.group(4))))
+        send_entry_match = re.search(r"NCCL INFO NET SEND ENTRY INFO: \(Sender_Global_Rank:([0-9]+), Receiver_Global_Rank:([0-9]+), Size:([0-9]+), Channel_Id:([0-9]+), Timestamp:([0-9]+)\)", line)
+        send_exit_match = re.search(r"NCCL INFO NET SEND EXIT INFO: \(Sender_Global_Rank:([0-9]+), Receiver_Global_Rank:([0-9]+), Size:([0-9]+), Channel_Id:([0-9]+), Timestamp:([0-9]+)\)", line)
+        recv_entry_match = re.search(r"NCCL INFO NET RECV ENTRY INFO: \(Receiver_Global_Rank:([0-9]+), Sender_Global_Rank:([0-9]+), Size:([0-9]+), Channel_Id:([0-9]+), Timestamp:([0-9]+)\)", line)
+        recv_exit_match = re.search(r"NCCL INFO NET RECV EXIT INFO: \(Receiver_Global_Rank:([0-9]+), Sender_Global_Rank:([0-9]+), Size:([0-9]+), Channel_Id:([0-9]+), Timestamp:([0-9]+)\)", line)
+        if send_entry_match:
+            entry = {
+                'Sender_Global_Rank': int(send_entry_match.group(1)),
+                'Receiver_Global_Rank': int(send_entry_match.group(2)),
+                'Size': int(send_entry_match.group(3)),
+                'Channel_Id': int(send_entry_match.group(4)),
+                'Timestamp': int(send_entry_match.group(5)) / 1000.0
+            }
+            entries.append(entry)
 
-with open(MERGE_FILE, 'r') as mf:
-    data = json.load(mf)
+        elif send_exit_match:
+            entry = {
+                'Sender_Global_Rank': int(send_exit_match.group(1)),
+                'Receiver_Global_Rank': int(send_exit_match.group(2)),
+                'Size': int(send_exit_match.group(3)),
+                'Channel_Id': int(send_exit_match.group(4)),
+                'Timestamp': int(send_exit_match.group(5)) / 1000.0
+            }
+            entries.append(entry)
 
-send_index = 0
-recv_index = 0
+        elif recv_entry_match:
+            entry = {
+                'Receiver_Global_Rank': int(recv_entry_match.group(1)),
+                'Sender_Global_Rank': int(recv_entry_match.group(2)),
+                'Size': int(recv_entry_match.group(3)),
+                'Channel_Id': int(recv_entry_match.group(4)),
+                'Timestamp': int(recv_entry_match.group(5)) / 1000.0
+            }
+            entries.append(entry)
 
-data["traceEvents"].sort(key=lambda event: event["ts"])
+        elif recv_exit_match:
+            entry = {
+                'Receiver_Global_Rank': int(recv_exit_match.group(1)),
+                'Sender_Global_Rank': int(recv_exit_match.group(2)),
+                'Size': int(recv_exit_match.group(3)),
+                'Channel_Id': int(recv_exit_match.group(4)),
+                'Timestamp': int(recv_exit_match.group(5)) / 1000.0
+            }
+            entries.append(entry)
+            
+# print(entries)
 
-for event in data["traceEvents"]:
-    if "name" in event and event["name"] == "NPKIT_EVENT_NET_SEND_ENTRY" and send_index < len(send_entries):
-        event["args"]["Sender_Global_Rank"] = send_entries[send_index][0]
-        event["args"]["Receiver_Global_Rank"] = send_entries[send_index][1]
-        send_index += 1
-    elif "name" in event and event["name"] == "NPKIT_EVENT_NET_RECV_ENTRY" and recv_index < len(recv_entries):
-        event["args"]["Receiver_Global_Rank"] = recv_entries[recv_index][0]
-        event["args"]["Sender_Global_Rank"] = recv_entries[recv_index][1]
-        recv_index += 1
+for event in data1['traceEvents']:
+    for entry in entries:
+        if event['ts'] == entry['Timestamp']: 
+            event['args'].update({
+                'Sender_Global_Rank_merged': entry['Sender_Global_Rank'],
+                'Receiver_Global_Rank_merged': entry['Receiver_Global_Rank'],
+                'Size_merged': entry['Size'],
+                'Channel_Id_merged': entry['Channel_Id'],
+                'Timestamp_merged': entry['Timestamp']
+            })
+            break
 
-with open(MERGE_FILE, 'w') as mf:
-    json.dump(data, mf, indent=2)
+with open(MERGE_FILE, 'w') as file:
+    json.dump(data1, file, indent=4)
 
 print("Two trace files have been successfully merged")

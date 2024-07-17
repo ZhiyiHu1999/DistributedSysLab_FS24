@@ -48,7 +48,9 @@ def parse_cpu_event(event_bytes):
         'id': int.from_bytes(event_bytes[0:1], byteorder='little', signed=False),
         'size': int.from_bytes(event_bytes[1:5], byteorder='little', signed=False),
         'slot': int.from_bytes(event_bytes[5:8], byteorder='little', signed=False),
-        'timestamp': int.from_bytes(event_bytes[8:16], byteorder='little', signed=False)
+        'timestamp': int.from_bytes(event_bytes[8:16], byteorder='little', signed=False),
+        'sender_rank': int.from_bytes(event_bytes[16:17], byteorder='little', signed=False),  ##
+        'receiver_rank': int.from_bytes(event_bytes[17:18], byteorder='little', signed=False)  ##
     }
 
 def parse_gpu_event_file(npkit_dump_dir, npkit_event_def, rank, buf_idx, gpu_clock_scale, cpu_clock_scale):
@@ -105,7 +107,8 @@ def parse_gpu_event_file(npkit_dump_dir, npkit_event_def, rank, buf_idx, gpu_clo
 
 def parse_cpu_event_file(npkit_dump_dir, npkit_event_def, rank, channel, cpu_clock_scale):
     cpu_event_file_path = os.path.join(npkit_dump_dir, 'cpu_events_rank_%d_channel_%d' % (rank, channel))
-    raw_event_size = 16
+    # raw_event_size = 16
+    raw_event_size = 18  ##
     cpu_events = []
     event_type_to_seq = {}
 
@@ -153,7 +156,9 @@ def parse_cpu_event_file(npkit_dump_dir, npkit_event_def, rank, channel, cpu_clo
                         'channel': channel,
                         'slot': parsed_cpu_event['slot'],
                         'seq': event_type_to_seq[event_type],
-                        'size_0': parsed_cpu_event['size']
+                        'size_0': parsed_cpu_event['size'],  ##
+                        'sender_rank': parsed_cpu_event['sender_rank'],  ##
+                        'receiver_rank': parsed_cpu_event['receiver_rank']  ##
                     }
                 })
                 event_type_to_seq[event_type] += 1
@@ -181,6 +186,10 @@ def convert_npkit_dump_to_trace(npkit_dump_dir, output_dir, npkit_event_def):
     ranks = list(set([int(x.split('_rank_')[1].split('_')[0]) for x in gpu_event_files]))
     buf_indices = list(set([int(x.split('_buf_')[1].split('_')[0]) for x in gpu_event_files]))
     channels = list(set([int(x.split('_channel_')[1].split('_')[0]) for x in cpu_event_files]))
+
+    print(ranks)
+    print(buf_indices)
+    print(channels)
 
     trace = {'traceEvents': []}
 

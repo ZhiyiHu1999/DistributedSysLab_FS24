@@ -1,0 +1,170 @@
+GPU 0: Tesla P100-PCIE-16GB (UUID: GPU-35f5a318-34ca-2cf0-da8b-832445973d1d)
+GPU 0: Tesla P100-PCIE-16GB (UUID: GPU-e70a0d0d-f1fc-0d62-1b93-ff132091c7cb)
+GPU 0: Tesla P100-PCIE-16GB (UUID: GPU-836df61e-d742-ee54-2ab9-af55ed561346)
+GPU 0: Tesla P100-PCIE-16GB (UUID: GPU-d0e2dd2e-7f11-e8e8-1e9d-8ad8a4a2b5c0)
+The local rank is: 0
+nid02589:2083:2083 [0] NCCL INFO Bootstrap : Using ipogif0:148.187.42.50<0>
+nid02589:2083:2083 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+nid02589:2083:2083 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+nid02589:2083:2083 [0] NCCL INFO cudaDriverVersion 11040
+NCCL version 2.17.1+cuda11.3
+The local rank is: 0
+nid02591:21201:21201 [0] NCCL INFO cudaDriverVersion 11040
+nid02591:21201:21201 [0] NCCL INFO Bootstrap : Using ipogif0:148.187.42.52<0>
+nid02591:21201:21201 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+nid02591:21201:21201 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+nid02591:21201:21201 [0] NCCL INFO NET/IB : No device found.
+nid02591:21201:21201 [0] NCCL INFO NET/Socket : Using [0]ipogif0:148.187.42.52<0>
+nid02591:21201:21201 [0] NCCL INFO Using network Socket
+nid02591:21201:21201 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+nid02591:21201:21201 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 1.200000/1.200000, type LOC/PHB, sameChannels 1
+nid02591:21201:21201 [0] NCCL INFO  0 : NET/0 GPU/2 NET/0
+nid02591:21201:21201 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 2.400000/1.200000, type LOC/PHB, sameChannels 1
+nid02591:21201:21201 [0] NCCL INFO  0 : NET/0 GPU/2 NET/0
+nid02591:21201:21201 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+nid02591:21201:21201 [0] NCCL INFO Ring 00 : 1 -> 2 -> 3
+nid02591:21201:21201 [0] NCCL INFO Ring 01 : 1 -> 2 -> 3
+nid02591:21201:21201 [0] NCCL INFO Trees [0] 1/3/-1->2->0 [1] -1/-1/-1->2->1
+nid02591:21201:21201 [0] NCCL INFO P2P Chunksize set to 131072
+nid02591:21201:21201 [0] NCCL INFO Channel 00/0 : 1[2000] -> 2[2000] [receive] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Channel 01/0 : 1[2000] -> 2[2000] [receive] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Channel 00/0 : 2[2000] -> 3[2000] [send] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Channel 01/0 : 2[2000] -> 3[2000] [send] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Connected all rings
+nid02591:21201:21201 [0] NCCL INFO Channel 00/0 : 0[2000] -> 2[2000] [receive] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Channel 00/0 : 2[2000] -> 0[2000] [send] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Channel 00/0 : 3[2000] -> 2[2000] [receive] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Channel 00/0 : 2[2000] -> 1[2000] [send] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Channel 01/0 : 2[2000] -> 1[2000] [send] via NET/Socket/0
+nid02591:21201:21201 [0] NCCL INFO Connected all trees
+nid02591:21201:21201 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+nid02591:21201:21201 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+nid02591:21201:21201 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid02591:21201:21201 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+nid02591:21201:21201 [0] NCCL INFO comm 0x4ed4150 rank 2 nranks 4 cudaDev 0 busId 2000 commId 0x586430a1168818b3 - Init COMPLETE
+nid02591:21201:21201 [0] NCCL INFO comm 0x4ed4150 rank 2 nranks 4 cudaDev 0 busId 2000 - Destroy COMPLETE
+[MPI Rank 2] Success 
+The local rank is: 0
+nid02592:27550:27550 [0] NCCL INFO cudaDriverVersion 11040
+nid02592:27550:27550 [0] NCCL INFO Bootstrap : Using ipogif0:148.187.42.53<0>
+nid02592:27550:27550 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+nid02592:27550:27550 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+nid02592:27550:27550 [0] NCCL INFO NET/IB : No device found.
+nid02592:27550:27550 [0] NCCL INFO NET/Socket : Using [0]ipogif0:148.187.42.53<0>
+nid02592:27550:27550 [0] NCCL INFO Using network Socket
+nid02592:27550:27550 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+nid02592:27550:27550 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 1.200000/1.200000, type LOC/PHB, sameChannels 1
+nid02592:27550:27550 [0] NCCL INFO  0 : NET/0 GPU/3 NET/0
+nid02592:27550:27550 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 2.400000/1.200000, type LOC/PHB, sameChannels 1
+nid02592:27550:27550 [0] NCCL INFO  0 : NET/0 GPU/3 NET/0
+nid02592:27550:27550 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+nid02592:27550:27550 [0] NCCL INFO Ring 00 : 2 -> 3 -> 0
+nid02592:27550:27550 [0] NCCL INFO Ring 01 : 2 -> 3 -> 0
+nid02592:27550:27550 [0] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] 1/-1/-1->3->-1
+nid02592:27550:27550 [0] NCCL INFO P2P Chunksize set to 131072
+nid02592:27550:27550 [0] NCCL INFO Channel 00/0 : 2[2000] -> 3[2000] [receive] via NET/Socket/0
+nid02592:27550:27550 [0] NCCL INFO Channel 01/0 : 2[2000] -> 3[2000] [receive] via NET/Socket/0
+nid02592:27550:27550 [0] NCCL INFO Channel 00/0 : 3[2000] -> 0[2000] [send] via NET/Socket/0
+nid02592:27550:27550 [0] NCCL INFO Channel 01/0 : 3[2000] -> 0[2000] [send] via NET/Socket/0
+nid02592:27550:27550 [0] NCCL INFO Connected all rings
+nid02592:27550:27550 [0] NCCL INFO Channel 01/0 : 1[2000] -> 3[2000] [receive] via NET/Socket/0
+nid02592:27550:27550 [0] NCCL INFO Channel 01/0 : 3[2000] -> 1[2000] [send] via NET/Socket/0
+nid02592:27550:27550 [0] NCCL INFO Channel 00/0 : 3[2000] -> 2[2000] [send] via NET/Socket/0
+nid02592:27550:27550 [0] NCCL INFO Connected all trees
+nid02592:27550:27550 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+nid02592:27550:27550 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+nid02592:27550:27550 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid02592:27550:27550 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+nid02592:27550:27550 [0] NCCL INFO comm 0x4ed4500 rank 3 nranks 4 cudaDev 0 busId 2000 commId 0x586430a1168818b3 - Init COMPLETE
+nid02592:27550:27550 [0] NCCL INFO comm 0x4ed4500 rank 3 nranks 4 cudaDev 0 busId 2000 - Destroy COMPLETE
+[MPI Rank 3] Success 
+The local rank is: 0
+nid02590:14699:14699 [0] NCCL INFO cudaDriverVersion 11040
+nid02590:14699:14699 [0] NCCL INFO Bootstrap : Using ipogif0:148.187.42.51<0>
+nid02590:14699:14699 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+nid02590:14699:14699 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+nid02590:14699:14699 [0] NCCL INFO NET/IB : No device found.
+nid02590:14699:14699 [0] NCCL INFO NET/Socket : Using [0]ipogif0:148.187.42.51<0>
+nid02590:14699:14699 [0] NCCL INFO Using network Socket
+nid02590:14699:14699 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+nid02590:14699:14699 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 1.200000/1.200000, type LOC/PHB, sameChannels 1
+nid02590:14699:14699 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+nid02590:14699:14699 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 2.400000/1.200000, type LOC/PHB, sameChannels 1
+nid02590:14699:14699 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+nid02590:14699:14699 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+nid02590:14699:14699 [0] NCCL INFO Ring 00 : 0 -> 1 -> 2
+nid02590:14699:14699 [0] NCCL INFO Ring 01 : 0 -> 1 -> 2
+nid02590:14699:14699 [0] NCCL INFO Trees [0] -1/-1/-1->1->2 [1] 2/0/-1->1->3
+nid02590:14699:14699 [0] NCCL INFO P2P Chunksize set to 131072
+nid02590:14699:14699 [0] NCCL INFO Channel 00/0 : 0[2000] -> 1[2000] [receive] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Channel 01/0 : 0[2000] -> 1[2000] [receive] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Channel 00/0 : 1[2000] -> 2[2000] [send] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Channel 01/0 : 1[2000] -> 2[2000] [send] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Connected all rings
+nid02590:14699:14699 [0] NCCL INFO Channel 01/0 : 3[2000] -> 1[2000] [receive] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Channel 01/0 : 1[2000] -> 3[2000] [send] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Channel 00/0 : 2[2000] -> 1[2000] [receive] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Channel 01/0 : 2[2000] -> 1[2000] [receive] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Channel 01/0 : 1[2000] -> 0[2000] [send] via NET/Socket/0
+nid02590:14699:14699 [0] NCCL INFO Connected all trees
+nid02590:14699:14699 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+nid02590:14699:14699 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+nid02590:14699:14699 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid02590:14699:14699 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+nid02590:14699:14699 [0] NCCL INFO comm 0x4ed4150 rank 1 nranks 4 cudaDev 0 busId 2000 commId 0x586430a1168818b3 - Init COMPLETE
+nid02590:14699:14699 [0] NCCL INFO comm 0x4ed4150 rank 1 nranks 4 cudaDev 0 busId 2000 - Destroy COMPLETE
+[MPI Rank 1] Success 
+nid02589:2083:2083 [0] NCCL INFO NET/IB : No device found.
+nid02589:2083:2083 [0] NCCL INFO NET/Socket : Using [0]ipogif0:148.187.42.50<0>
+nid02589:2083:2083 [0] NCCL INFO Using network Socket
+nid02589:2083:2083 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to Topology_Intra_Node.txt
+nid02589:2083:2083 [0] NCCL INFO Setting affinity for GPU 0 to ffffff
+nid02589:2083:2083 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 1.200000/1.200000, type LOC/PHB, sameChannels 1
+nid02589:2083:2083 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+nid02589:2083:2083 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 2.400000/1.200000, type LOC/PHB, sameChannels 1
+nid02589:2083:2083 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+nid02589:2083:2083 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+nid02589:2083:2083 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to Graph.txt
+nid02589:2083:2083 [0] NCCL INFO [0] Channel 0 P         3   0   1   2
+nid02589:2083:2083 [0] NCCL INFO [0] Channel 0 N         1   2   3   0
+nid02589:2083:2083 [0] NCCL INFO Channel 00/02 :    0   1   2   3
+nid02589:2083:2083 [0] NCCL INFO [0] Channel 1 P         3   0   1   2
+nid02589:2083:2083 [0] NCCL INFO [0] Channel 1 N         1   2   3   0
+nid02589:2083:2083 [0] NCCL INFO Channel 01/02 :    0   1   2   3
+nid02589:2083:2083 [0] NCCL INFO Ring 00 : 3 -> 0 -> 1
+nid02589:2083:2083 [0] NCCL INFO Ring 01 : 3 -> 0 -> 1
+nid02589:2083:2083 [0] NCCL INFO Trees [0] 2/-1/-1->0->-1 [1] -1/-1/-1->0->1
+nid02589:2083:2083 [0] NCCL INFO P2P Chunksize set to 131072
+nid02589:2083:2083 [0] NCCL INFO Channel 00/0 : 3[2000] -> 0[2000] [receive] via NET/Socket/0
+nid02589:2083:2083 [0] NCCL INFO Channel 01/0 : 3[2000] -> 0[2000] [receive] via NET/Socket/0
+nid02589:2083:2083 [0] NCCL INFO Channel 00/0 : 0[2000] -> 1[2000] [send] via NET/Socket/0
+nid02589:2083:2083 [0] NCCL INFO Channel 01/0 : 0[2000] -> 1[2000] [send] via NET/Socket/0
+nid02589:2083:2083 [0] NCCL INFO Connected all rings
+nid02589:2083:2083 [0] NCCL INFO Channel 00/0 : 2[2000] -> 0[2000] [receive] via NET/Socket/0
+nid02589:2083:2083 [0] NCCL INFO Channel 00/0 : 0[2000] -> 2[2000] [send] via NET/Socket/0
+nid02589:2083:2083 [0] NCCL INFO Channel 01/0 : 1[2000] -> 0[2000] [receive] via NET/Socket/0
+nid02589:2083:2083 [0] NCCL INFO Connected all trees
+nid02589:2083:2083 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+nid02589:2083:2083 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+nid02589:2083:2083 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+nid02589:2083:2083 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+nid02589:2083:2083 [0] NCCL INFO comm 0x4ed3aa0 rank 0 nranks 4 cudaDev 0 busId 2000 commId 0x586430a1168818b3 - Init COMPLETE
+nid02589:2083:2083 [0] NCCL INFO comm 0x4ed3aa0 rank 0 nranks 4 cudaDev 0 busId 2000 - Destroy COMPLETE
+[MPI Rank 0] Success 
+
+
+Batch Job Summary Report (version 21.01.1) for Job "nccl_example_2" (54557423) on daint
+
+Job information (1/2)
+-----------------------------------------------------------------------------------------------------
+             Submit            Eligible               Start                 End    Elapsed Time limit
+------------------- ------------------- ------------------- ------------------- ---------- ----------
+2024-07-17T20:43:22 2024-07-17T20:43:22 2024-07-17T20:43:25 2024-07-17T20:44:01   00:00:36   02:10:00
+-----------------------------------------------------------------------------------------------------
+
+Job information (2/2)
+-------------------------------------------------------------
+    Username      Account    Partition   NNodes        Energy
+------------ ------------ ------------ -------- -------------
+         zhu          g34       normal        4      9.940 kJ
+

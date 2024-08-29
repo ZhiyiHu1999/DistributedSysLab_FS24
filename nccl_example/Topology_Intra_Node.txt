@@ -4,11 +4,6 @@
       <gpu dev="0" sm="86" rank="0" gdr="0"/>
     </pci>
   </cpu>
-  <cpu numaid="7" affinity="ffff0000,00000000,00000000,00000000,ffff0000,00000000,00000000,00000000" arch="x86_64" vendor="AuthenticAMD" familyid="143" modelid="49">
-    <pci busid="0000:81:00.0" class="0x030000" vendor="0x10de" device="0x2204" subsystem_vendor="0x1458" subsystem_device="0x4043" link_speed="16.0 GT/s PCIe" link_width="16">
-      <gpu dev="1" sm="86" rank="1" gdr="0"/>
-    </pci>
-  </cpu>
   <cpu numaid="4" affinity="00000000,0000ffff,00000000,00000000,00000000,0000ffff,00000000,00000000" arch="x86_64" vendor="AuthenticAMD" familyid="143" modelid="49">
     <pci busid="0000:e1:00.1" class="0x020000" vendor="0x15b3" device="0x1013" subsystem_vendor="0x15b3" subsystem_device="0x0014" link_speed="8.0 GT/s PCIe" link_width="16">
       <nic>

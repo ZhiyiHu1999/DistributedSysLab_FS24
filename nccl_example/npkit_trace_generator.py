@@ -26,16 +26,14 @@ def parse_npkit_event_header(npkit_event_header_path):
 def parse_gpu_clock_scale(gpu_clock_file_path):
     with open(gpu_clock_file_path, 'r') as f:
         freq_in_khz = f.read()
-        # return float(freq_in_khz) * 1e3 / 1e6
-        return float(freq_in_khz) * 1e3 / 1e9
+        return float(freq_in_khz) * 1e3 / 1e6  ## The value in the trace must be time unit of 'microsecond', regardless of 'displayTimeUnit'
 
 def parse_cpu_clock_scale(cpu_clock_den_file_path, cpu_clock_num_file_path):
     with open(cpu_clock_num_file_path, 'r') as f:
         num = float(f.read())
     with open(cpu_clock_den_file_path, 'r') as f:
         den = float(f.read())
-    # return den / num / 1e6
-    return den / num / 1e9
+    return den / num / 1e6
 
 def parse_gpu_event(event_bytes):
     return {

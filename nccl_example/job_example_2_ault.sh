@@ -3,8 +3,8 @@
 #SBATCH --job-name="nccl_example_2"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[43,44]
-#SBATCH --ntasks-per-node=2
+#SBATCH --nodelist=ault[43-44]
+#SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=1    
 #SBATCH --output=example_2.%j.o
 #SBATCH --error=example_2.%j.e
@@ -16,7 +16,7 @@ module load cuda/12.1.1
 
 srun nvidia-smi -L
 
-export NCCL_ALGO=Tree
+export NCCL_ALGO=Ring
 export NCCL_PROTO=Simple
 export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);

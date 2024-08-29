@@ -1,0 +1,582 @@
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
+The local rank is: 0
+ault43:245348:245348 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
+ault43:245348:245348 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault43:245348:245348 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault43:245348:245348 [0] NCCL INFO cudaDriverVersion 12010
+NCCL version 2.17.1+cuda12.1
+The local rank is: 0
+ault44:161191:161191 [0] NCCL INFO cudaDriverVersion 12010
+ault44:161191:161191 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
+ault44:161191:161191 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault44:161191:161191 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault44:161191:161191 [0] NCCL INFO NET/IB : No device found.
+ault44:161191:161191 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
+ault44:161191:161191 [0] NCCL INFO Using network Socket
+ault44:161191:161191 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
+ault44:161191:161191 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+ault44:161191:161191 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
+ault44:161191:161191 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+ault43:245348:245348 [0] NCCL INFO NET/IB : No device found.
+ault43:245348:245348 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
+ault43:245348:245348 [0] NCCL INFO Using network Socket
+ault43:245348:245348 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to Topology_Intra_Node.txt
+ault43:245348:245348 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
+ault43:245348:245348 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+ault43:245348:245348 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
+ault43:245348:245348 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+ault43:245348:245348 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+ault43:245348:245348 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to Graph.txt
+ault43:245348:245348 [0] NCCL INFO [0] Channel 0 P         1   0
+ault43:245348:245348 [0] NCCL INFO [0] Channel 0 N         1   0
+ault44:161191:161191 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+ault44:161191:161191 [0] NCCL INFO Ring 00 : 0 -> 1 -> 0
+ault44:161191:161191 [0] NCCL INFO Ring 01 : 0 -> 1 -> 0
+ault44:161191:161191 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+ault44:161191:161191 [0] NCCL INFO P2P Chunksize set to 131072
+ault44:161191:161191 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
+ault44:161191:161191 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
+ault44:161191:161191 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:161191:161191 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:161191:161191 [0] NCCL INFO Connected all rings
+ault44:161191:161191 [0] NCCL INFO Connected all trees
+ault44:161191:161191 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault44:161191:161191 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault43:245348:245348 [0] NCCL INFO Channel 00/02 :    0   1
+ault43:245348:245348 [0] NCCL INFO [0] Channel 1 P         1   0
+ault43:245348:245348 [0] NCCL INFO [0] Channel 1 N         1   0
+ault43:245348:245348 [0] NCCL INFO Channel 01/02 :    0   1
+ault43:245348:245348 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+ault43:245348:245348 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+ault43:245348:245348 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+ault43:245348:245348 [0] NCCL INFO P2P Chunksize set to 131072
+ault43:245348:245348 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
+ault43:245348:245348 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
+ault43:245348:245348 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
+ault43:245348:245348 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
+ault43:245348:245348 [0] NCCL INFO Connected all rings
+ault43:245348:245348 [0] NCCL INFO Connected all trees
+ault44:161191:161191 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault44:161191:161191 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+CollectCpuEvent called with: type=84, size=0, rsvd=0, timestamp=6176838717840041, sender_rank=0, receiver_rank=0, channel_id=0, event_buffer_head=0
+CollectCpuEvent called with: type=85, size=0, rsvd=0, timestamp=6176838717849441, sender_rank=0, receiver_rank=0, channel_id=0, event_buffer_head=1
+ault44:161191:161191 [0] NCCL INFO comm 0x8df8060 rank 1 nranks 2 cudaDev 0 busId 41000 commId 0xc42b392bb06756ae - Init COMPLETE
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722032216)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686273038, timestamp=6176838722031476, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=2
+ault43:245348:245348 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault43:245348:245348 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault43:245348:245348 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault43:245348:245348 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+CollectCpuEvent called with: type=84, size=0, rsvd=0, timestamp=6176796813120129, sender_rank=0, receiver_rank=0, channel_id=0, event_buffer_head=0
+CollectCpuEvent called with: type=85, size=0, rsvd=0, timestamp=6176796813129749, sender_rank=0, receiver_rank=0, channel_id=0, event_buffer_head=1
+ault43:245348:245348 [0] NCCL INFO comm 0x8df73f0 rank 0 nranks 2 cudaDev 0 busId 41000 commId 0xc42b392bb06756ae - Init COMPLETE
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796817330230)
+
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686273038, timestamp=6176838722044426, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=3
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838722050127)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686275066, timestamp=6176838722049967, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=0
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686275066, timestamp=6176838722051347, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=1
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722055976)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677983758, timestamp=6176796817329730, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=2
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677983758, timestamp=6176796817341341, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=3
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796817347401)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677985786, timestamp=6176796817347161, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=0
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677985786, timestamp=6176796817348741, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=1
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686273040, timestamp=6176838722055916, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=4
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796817353611)
+
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686273040, timestamp=6176838722056996, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=5
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838722070036)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686275068, timestamp=6176838722069956, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=2
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686275068, timestamp=6176838722071127, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=3
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722072387)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677983760, timestamp=6176796817353561, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=4
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677983760, timestamp=6176796817354651, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=5
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796817377481)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677985788, timestamp=6176796817377411, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=2
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677985788, timestamp=6176796817378541, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=3
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686273042, timestamp=6176838722072347, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=6
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686273042, timestamp=6176838722073367, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=7
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838722074576)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686275070, timestamp=6176838722074536, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=4
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686275070, timestamp=6176838722075547, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=5
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796817379801)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677983762, timestamp=6176796817379751, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=6
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677983762, timestamp=6176796817380751, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=7
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796817381951)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677985790, timestamp=6176796817381921, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=4
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722076776)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686273044, timestamp=6176838722076727, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=8
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686273044, timestamp=6176838722077747, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=9
+ault44:161191:161206 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838722080676)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2686275072, timestamp=6176838722078916, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=6
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677985790, timestamp=6176796817382961, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=5
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796817384211)
+
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677983764, timestamp=6176796817384151, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=8
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677983764, timestamp=6176796817385141, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=9
+ault43:245348:245368 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796817387561)
+
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2686275072, timestamp=6176838722081636, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=7
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686274052, timestamp=6176838722099316, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=10
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686274052, timestamp=6176838722099687, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=11
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722101147, ts_net_isend_entry:6176838722099316, ts_net_isend_exit:6176838722099687, ts_now:6176838722101116)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686276080, timestamp=6176838722112027, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=8
+CollectCpuEvent called with: type=49, size=1048576, rsvd=2677985792, timestamp=6176796817386311, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=6
+CollectCpuEvent called with: type=50, size=1048576, rsvd=2677985792, timestamp=6176796817388521, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=7
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677984772, timestamp=6176796817650613, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=10
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677984772, timestamp=6176796817651273, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=11
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796817652913, ts_net_isend_entry:6176796817650613, ts_net_isend_exit:6176796817651273, ts_now:6176796817652873)
+
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686276080, timestamp=6176838722118007, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=9
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838722119177, ts_net_isend_entry:6176838722112027, ts_net_isend_exit:6176838722118007, ts_now:6176838722119157)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677986800, timestamp=6176796817822464, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=8
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677986800, timestamp=6176796817831084, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=9
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686274054, timestamp=6176838722123717, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=12
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796817832484, ts_net_isend_entry:6176796817822464, ts_net_isend_exit:6176796817831084, ts_now:6176796817832454)
+
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686274054, timestamp=6176838722123787, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=13
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722129067, ts_net_isend_entry:6176838722123717, ts_net_isend_exit:6176838722123787, ts_now:6176838722129037)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686276082, timestamp=6176838722133447, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=10
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686276082, timestamp=6176838722133487, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=11
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796818236557)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677983758, timestamp=6176796817834114, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=12
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677983758, timestamp=6176796818242077, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=13
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677984774, timestamp=6176796818242888, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=14
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677984774, timestamp=6176796818242968, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=15
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838722134667, ts_net_isend_entry:6176838722133447, ts_net_isend_exit:6176838722133487, ts_now:6176838722134637)
+
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722833509)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686274052, timestamp=6176838722798049, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=14
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722798049)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686274052, timestamp=6176838722833479, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=15
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796818244097, ts_net_isend_entry:6176796818242888, ts_net_isend_exit:6176796818242968, ts_now:6176796818244068)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677986802, timestamp=6176796818305778, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=10
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677986802, timestamp=6176796818305818, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=11
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796818307178, ts_net_isend_entry:6176796818305778, ts_net_isend_exit:6176796818305818, ts_now:6176796818307158)
+
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722833479)
+
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838723106060)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686274054, timestamp=6176838722844859, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=16
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838722844859)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686274054, timestamp=6176838723106030, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=17
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796818806112)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677983760, timestamp=6176796818308718, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=16
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677983760, timestamp=6176796818808441, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=17
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796819280875)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677985786, timestamp=6176796818938333, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=12
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838723106030)
+
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838723559052)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686276080, timestamp=6176838723509702, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=12
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838723509702)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686276080, timestamp=6176838723559022, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=13
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677985786, timestamp=6176796819283065, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=13
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796820126642)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677985788, timestamp=6176796819624218, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=14
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677985788, timestamp=6176796820128991, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=15
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796820289153)
+
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838723559022)
+
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838724053484)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677986800, timestamp=6176796820129662, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=16
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796820129662)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677986800, timestamp=6176796820289123, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=17
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686276082, timestamp=6176838724017884, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=14
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796820289123)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677984776, timestamp=6176796820881217, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=18
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677984776, timestamp=6176796820881297, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=19
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796820884527, ts_net_isend_entry:6176796820881217, ts_net_isend_exit:6176796820881297, ts_now:6176796820884497)
+
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796821547002)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677986802, timestamp=6176796821144219, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=18
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796821144219)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677986802, timestamp=6176796821546972, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=19
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796821546972)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677984778, timestamp=6176796821556282, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=20
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677984778, timestamp=6176796821556372, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=21
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796821557562, ts_net_isend_entry:6176796821556282, ts_net_isend_exit:6176796821556372, ts_now:6176796821557532)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677986804, timestamp=6176796821740574, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=20
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677986804, timestamp=6176796821740634, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=21
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796821742034, ts_net_isend_entry:6176796821740574, ts_net_isend_exit:6176796821740634, ts_now:6176796821742014)
+
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796821837834)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677984772, timestamp=6176796821746583, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=22
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796821746583)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677984772, timestamp=6176796821837804, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=23
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796821837804)
+
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796822137726)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677986804, timestamp=6176796821849154, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=22
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796821849154)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677986804, timestamp=6176796822137697, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=23
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796822137697)
+
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796822588170)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677984774, timestamp=6176796822151246, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=24
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796822151246)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677984774, timestamp=6176796822588140, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=25
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796822588140)
+
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796822731651)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677985790, timestamp=6176796822594350, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=24
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677985790, timestamp=6176796822733501, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=25
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2677986806, timestamp=6176796822734441, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=26
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2677986806, timestamp=6176796822734561, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=27
+ault43:245348:245368 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796822735701, ts_net_isend_entry:6176796822734441, ts_net_isend_exit:6176796822734561, ts_now:6176796822735681)
+
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796823038243)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677984776, timestamp=6176796822740471, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=26
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796822740471)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677984776, timestamp=6176796823038223, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=27
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796823038223)
+
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796823360366)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677986806, timestamp=6176796823048713, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=28
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796823048713)
+
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838724017884)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686276082, timestamp=6176838724053454, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=15
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838724053454)
+
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838725812000)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686275066, timestamp=6176838725366669, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=16
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686275066, timestamp=6176838725814580, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=17
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686276084, timestamp=6176838725962621, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=18
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686276084, timestamp=6176838725962721, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=19
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838725963971, ts_net_isend_entry:6176838725962621, ts_net_isend_exit:6176838725962721, ts_now:6176838725963951)
+
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838726242902)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686276084, timestamp=6176838725971361, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=20
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838725971361)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686276084, timestamp=6176838726242872, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=21
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838726242872)
+
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838726986125)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686275068, timestamp=6176838726359512, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=22
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686275068, timestamp=6176838726988895, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=23
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838727168215)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686273038, timestamp=6176838727014265, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=18
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686273038, timestamp=6176838727170405, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=19
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686276086, timestamp=6176838727651027, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=24
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686276086, timestamp=6176838727651157, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=25
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838727652617, ts_net_isend_entry:6176838727651027, ts_net_isend_exit:6176838727651157, ts_now:6176838727652587)
+
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838728180609)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686273040, timestamp=6176838727660617, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=20
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686273040, timestamp=6176838728183079, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=21
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838728326710)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686275070, timestamp=6176838728183909, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=26
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686275070, timestamp=6176838728328740, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=27
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838728756191)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686276086, timestamp=6176838728329450, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=28
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838728329450)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686276086, timestamp=6176838728756161, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=29
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838728756161)
+
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838729215913)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686273042, timestamp=6176838728760701, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=22
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686273042, timestamp=6176838729217933, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=23
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6176838720427330, SteadyClock:6176838729685135)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686275072, timestamp=6176838729218713, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=30
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686275072, timestamp=6176838729687205, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=31
+ault44:161191:161206 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838720427330, SteadyClock:6176838730119126)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2686273044, timestamp=6176838729687965, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=24
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2686273044, timestamp=6176838730121226, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=25
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686274056, timestamp=6176838732012263, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=26
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686274056, timestamp=6176838732012493, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=27
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677986806, timestamp=6176796823360335, sender_rank=0, receiver_rank=1, channel_id=1, event_buffer_head=29
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796823360335)
+
+ault43:245348:245368 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796823844429)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2677984778, timestamp=6176796823372855, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=28
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796823372855)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2677984778, timestamp=6176796823844399, sender_rank=0, receiver_rank=1, channel_id=0, event_buffer_head=29
+ault43:245348:245368 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796815667698, SteadyClock:6176796823844399)
+
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:6176796815667698, SteadyClock:6176796824636735)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677985792, timestamp=6176796824392123, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=30
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677985792, timestamp=6176796824638795, sender_rank=1, receiver_rank=0, channel_id=1, event_buffer_head=31
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796832999827, SteadyClock:6176796833481931)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677983762, timestamp=6176796833005087, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=30
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677983762, timestamp=6176796833483971, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=31
+ault43:245348:245368 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:6176796832999827, SteadyClock:6176796833992345)
+
+CollectCpuEvent called with: type=82, size=1048576, rsvd=2677983764, timestamp=6176796833930374, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=32
+CollectCpuEvent called with: type=83, size=1048576, rsvd=2677983764, timestamp=6176796833994765, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=33
+ault43:245348:245348 [0] NCCL INFO comm 0x8df73f0 rank 0 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+ault43:245348:245348 [0] NCCL INFO NPKit Dump Started
+[MPI Rank 0] Success 
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838732014903, SteadyClock:6176838732014903, ts_net_isend_entry:6176838732012263, ts_net_isend_exit:6176838732012493, ts_now:6176838732014873)
+
+CollectCpuEvent called with: type=47, size=1048576, rsvd=2686274058, timestamp=6176838732028964, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=28
+CollectCpuEvent called with: type=48, size=1048576, rsvd=2686274058, timestamp=6176838732029013, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=29
+ault44:161191:161206 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838732030164, SteadyClock:6176838732030184, ts_net_isend_entry:6176838732028964, ts_net_isend_exit:6176838732029013, ts_now:6176838732030153)
+
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838732325914, SteadyClock:6176838732325905)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686274056, timestamp=6176838732031433, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=30
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838732328065, SteadyClock:6176838732031433)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686274056, timestamp=6176838732325874, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=31
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838732329394, SteadyClock:6176838732325874)
+
+ault44:161191:161206 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838738452677, SteadyClock:6176838738452687)
+
+CollectCpuEvent called with: type=80, size=1048576, rsvd=2686274058, timestamp=6176838738217496, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=32
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838738455227, SteadyClock:6176838738217496)
+
+CollectCpuEvent called with: type=81, size=1048576, rsvd=2686274058, timestamp=6176838738452647, sender_rank=1, receiver_rank=0, channel_id=0, event_buffer_head=33
+ault44:161191:161206 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6176838738456797, SteadyClock:6176838738452647)
+
+ault44:161191:161191 [0] NCCL INFO comm 0x8df8060 rank 1 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+ault44:161191:161191 [0] NCCL INFO NPKit Dump Started
+[MPI Rank 1] Success 
+[0, 1]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+cpu_clock_scale: 1.0, timestamp: 6176796815657438, curr_cpu_base_time: 6176796815657438.0, rank: 0, buf_idx: 0
+gpu_clock_scale: 1.755, timestamp: 863280527253, curr_gpu_base_time: 491897736326.4957, rank: 0, buf_idx: 0
+cpu_clock_scale: 1.0, timestamp: 6176796815657548, curr_cpu_base_time: 6176796815657548.0, rank: 0, buf_idx: 1
+gpu_clock_scale: 1.755, timestamp: 868105136886, curr_gpu_base_time: 494646801644.44446, rank: 0, buf_idx: 1
+cpu_clock_scale: 1.0, timestamp: 6176838720418680, curr_cpu_base_time: 6176838720418680.0, rank: 1, buf_idx: 0
+gpu_clock_scale: 1.755, timestamp: 927787460074, curr_gpu_base_time: 528653823403.98865, rank: 1, buf_idx: 0
+cpu_clock_scale: 1.0, timestamp: 6176838720418520, curr_cpu_base_time: 6176838720418520.0, rank: 1, buf_idx: 1
+gpu_clock_scale: 1.755, timestamp: 913470640026, curr_gpu_base_time: 520496091182.906, rank: 1, buf_idx: 1
+Rank: 0
+  Channel: 0
+    Event: NPKIT_EVENT_NPKIT_INIT_ENTRY
+    Event: NPKIT_EVENT_NPKIT_INIT_EXIT
+    Event: NPKIT_EVENT_NET_RECV_ENTRY
+      {'seq': 0, 'ts': 4200, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4224, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 4250, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 4255, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_EXIT
+      {'seq': 0, 'ts': 4212, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4225, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 4251, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 4256, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_ENTRY
+      {'seq': 0, 'ts': 4521, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 5113, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 7752, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 8427, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_EXIT
+      {'seq': 0, 'ts': 4522, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 5113, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 7752, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 8427, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_ENTRY
+      {'seq': 0, 'ts': 4705, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 5179, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 19876, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 20801, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_EXIT
+      {'seq': 0, 'ts': 5113, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 5679, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 20354, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 20865, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_ENTRY
+      {'seq': 0, 'ts': 8617, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 9022, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 9611, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 10243, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_EXIT
+      {'seq': 0, 'ts': 8708, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 9459, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 9909, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 10715, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+  Channel: 1
+    Event: NPKIT_EVENT_NET_RECV_ENTRY
+      {'seq': 0, 'ts': 4218, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4248, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 4252, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 4257, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_EXIT
+      {'seq': 0, 'ts': 4219, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4249, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 4253, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 4259, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_ENTRY
+      {'seq': 0, 'ts': 4693, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 5176, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 8611, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 9605, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_EXIT
+      {'seq': 0, 'ts': 4702, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 5176, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 8611, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 9605, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_ENTRY
+      {'seq': 0, 'ts': 5809, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 6495, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 9465, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 11263, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_EXIT
+      {'seq': 0, 'ts': 6154, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 6999, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 9604, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 11509, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_ENTRY
+      {'seq': 0, 'ts': 7000, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 8015, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 8720, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 9919, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_EXIT
+      {'seq': 0, 'ts': 7160, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 8417, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 9008, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 10231, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+Rank: 1
+  Channel: 0
+    Event: NPKIT_EVENT_NPKIT_INIT_ENTRY
+    Event: NPKIT_EVENT_NPKIT_INIT_EXIT
+    Event: NPKIT_EVENT_NET_RECV_ENTRY
+      {'seq': 0, 'ts': 4182, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 4206, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 4223, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 4227, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_EXIT
+      {'seq': 0, 'ts': 4195, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 4207, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 4224, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 4228, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_ENTRY
+      {'seq': 0, 'ts': 4250, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4274, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 14163, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 14179, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_EXIT
+      {'seq': 0, 'ts': 4250, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4274, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 14163, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 14180, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_ENTRY
+      {'seq': 0, 'ts': 4949, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4995, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 14182, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 20368, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_EXIT
+      {'seq': 0, 'ts': 4984, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 5257, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 14476, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 20603, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_ENTRY
+      {'seq': 0, 'ts': 9165, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 9811, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 10911, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 11838, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_EXIT
+      {'seq': 0, 'ts': 9321, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 10334, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 11368, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 12272, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+  Channel: 1
+    Event: NPKIT_EVENT_NET_RECV_ENTRY
+      {'seq': 0, 'ts': 4200, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 4220, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 4225, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 4229, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_EXIT
+      {'seq': 0, 'ts': 4202, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 4222, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 4226, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 4232, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_ENTRY
+      {'seq': 0, 'ts': 4263, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4284, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 8113, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 9802, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_EXIT
+      {'seq': 0, 'ts': 4269, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 4284, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 8113, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 9802, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_ENTRY
+      {'seq': 0, 'ts': 5660, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 6168, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 8122, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 10480, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_SEND_TEST_EXIT
+      {'seq': 0, 'ts': 5710, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 1, 'ts': 6204, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 2, 'ts': 8393, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+      {'seq': 3, 'ts': 10907, 'sender_rank': 1, 'receiver_rank': 0, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_ENTRY
+      {'seq': 0, 'ts': 7517, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 8510, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 10334, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 11369, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+    Event: NPKIT_EVENT_NET_RECV_TEST_EXIT
+      {'seq': 0, 'ts': 7965, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 1, 'ts': 9139, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 2, 'ts': 10479, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}
+      {'seq': 3, 'ts': 11838, 'sender_rank': 0, 'receiver_rank': 1, 'size': 1048576}

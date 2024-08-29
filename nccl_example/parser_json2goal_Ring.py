@@ -15,7 +15,7 @@ def process_trace_events(json_file):
             event_name = event['name']
             event_info = {
                 'seq': event['args'].get('seq'),
-                'ts': int(event['ts'] // 1000),
+                'ts': int(event['ts'] // 1),  ## event['ts'] is in time unit of microsecond
                 'sender_rank': event['args'].get('sender_rank'),
                 'receiver_rank': event['args'].get('receiver_rank'),
                 'size': event['args'].get('size_0')
@@ -69,6 +69,7 @@ with open(goal_filename, 'w') as file:
                     task_counter += 1
                     file.write(f"l{task_counter}: calc {event['ts'] - ts_net_send_exit}\n")
                     file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                    file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
 
             if len(events['NPKIT_EVENT_NET_RECV_ENTRY']) > 0:
                 for i in range(len(events['NPKIT_EVENT_NET_RECV_ENTRY'])):
@@ -85,6 +86,7 @@ with open(goal_filename, 'w') as file:
                     task_counter += 1
                     file.write(f"l{task_counter}: calc {event['ts'] - ts_net_recv_entry}\n")
                     file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                    file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
             
         file.write("}\n")
                 

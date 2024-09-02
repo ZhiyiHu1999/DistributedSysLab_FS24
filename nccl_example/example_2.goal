@@ -1,199 +1,235 @@
 num_ranks 2
 
 rank 0 {
-l1: send 1048576b to 1 tag 0
-l2: calc 5042
-l1 requires l2
-l3: calc 1786
-l3 requires l2
-l3 irequires l1
-l4: send 1048576b to 1 tag 0
-l5: calc 5621
-l4 requires l5
-l6: calc 3334
-l6 requires l5
-l6 irequires l4
-l7: send 1048576b to 1 tag 0
-l8: calc 8357
-l7 requires l8
-l9: calc 635
-l9 requires l8
-l9 irequires l7
-l10: send 1048576b to 1 tag 0
-l11: calc 8659
-l10 requires l11
-l12: calc 1896
-l12 requires l11
-l12 irequires l10
-l13: recv 1048576b from 1 tag 0
-l14: calc 405
-l15: calc 4777
-l13 requires l15
-l14 requires l15
-l14 irequires l13
-l16: recv 1048576b from 1 tag 0
-l17: calc 886
-l18: calc 4801
-l16 requires l18
-l17 requires l18
-l17 irequires l16
-l19: recv 1048576b from 1 tag 0
-l20: calc 3049
-l21: calc 4803
-l19 requires l21
-l20 requires l21
-l20 irequires l19
-l22: recv 1048576b from 1 tag 0
-l23: calc 15657
-l24: calc 4805
-l22 requires l24
-l23 requires l24
-l23 irequires l22
-l25: send 1048576b to 1 tag 1
-l26: calc 5172
-l25 requires l26
-l27: calc 3184
-l27 requires l26
-l27 irequires l25
-l28: send 1048576b to 1 tag 1
-l29: calc 5686
-l28 requires l29
-l30: calc 2978
-l30 requires l29
-l30 irequires l28
-l31: send 1048576b to 1 tag 1
-l32: calc 8654
-l31 requires l32
-l33: calc 669
-l33 requires l32
-l33 irequires l31
-l34: send 1048576b to 1 tag 1
-l35: calc 8988
-l34 requires l35
-l36: calc 902
-l36 requires l35
-l36 irequires l34
-l37: recv 1048576b from 1 tag 1
-l38: calc 1559
-l39: calc 4793
-l37 requires l39
-l38 requires l39
-l38 irequires l37
-l40: recv 1048576b from 1 tag 1
-l41: calc 2251
-l42: calc 4802
-l40 requires l42
-l41 requires l42
-l41 irequires l40
-l43: recv 1048576b from 1 tag 1
-l44: calc 16298
-l45: calc 4804
-l43 requires l45
-l44 requires l45
-l44 irequires l43
-l46: recv 1048576b from 1 tag 1
-l47: calc 16614
-l48: calc 4807
-l46 requires l48
-l47 requires l48
-l47 irequires l46
+l2: send 1048576b to 1 tag 0
+l1: calc 0
+l3: calc 4466
+l2 requires l3
+l3 requires l1
+l4: calc 866
+l4 requires l3
+l4 irequires l2
+l5: send 1048576b to 1 tag 0
+l6: calc 5027
+l5 requires l6
+l6 requires l1
+l7: calc 1516
+l7 requires l6
+l7 irequires l5
+l8: send 1048576b to 1 tag 0
+l9: calc 10100
+l8 requires l9
+l9 requires l1
+l10: calc 403
+l10 requires l9
+l10 irequires l8
+l11: send 1048576b to 1 tag 0
+l12: calc 10416
+l11 requires l12
+l12 requires l1
+l13: calc 9769
+l13 requires l12
+l13 irequires l11
+l14: recv 1048576b from 1 tag 0
+l15: calc 917
+l16: calc 4179
+l14 requires l16
+l15 requires l16
+l15 irequires l14
+l16 requires l1
+l17: recv 1048576b from 1 tag 0
+l18: calc 1861
+l19: calc 4204
+l17 requires l19
+l18 requires l19
+l18 irequires l17
+l19 requires l1
+l20: recv 1048576b from 1 tag 0
+l21: calc 3258
+l22: calc 4210
+l20 requires l22
+l21 requires l22
+l21 irequires l20
+l22 requires l1
+l23: recv 1048576b from 1 tag 0
+l24: calc 4297
+l25: calc 4213
+l23 requires l25
+l24 requires l25
+l24 irequires l23
+l25 requires l1
+l27: send 1048576b to 1 tag 1
+l26: calc 0
+l28: calc 4662
+l27 requires l28
+l28 requires l26
+l29: calc 3828
+l29 requires l28
+l29 irequires l27
+l30: send 1048576b to 1 tag 1
+l31: calc 5094
+l30 requires l31
+l31 requires l26
+l32: calc 4154
+l32 requires l31
+l32 irequires l30
+l33: send 1048576b to 1 tag 1
+l34: calc 10096
+l33 requires l34
+l34 requires l26
+l35: calc 9
+l35 requires l34
+l35 irequires l33
+l36: send 1048576b to 1 tag 1
+l37: calc 10501
+l36 requires l37
+l37 requires l26
+l38: calc 9869
+l38 requires l37
+l38 irequires l36
+l39: recv 1048576b from 1 tag 1
+l40: calc 2576
+l41: calc 4199
+l39 requires l41
+l40 requires l41
+l40 irequires l39
+l41 requires l26
+l42: recv 1048576b from 1 tag 1
+l43: calc 3805
+l44: calc 4209
+l42 requires l44
+l43 requires l44
+l43 irequires l42
+l44 requires l26
+l45: recv 1048576b from 1 tag 1
+l46: calc 6206
+l47: calc 4212
+l45 requires l47
+l46 requires l47
+l46 irequires l45
+l47 requires l26
+l48: recv 1048576b from 1 tag 1
+l49: calc 7274
+l50: calc 4214
+l48 requires l50
+l49 requires l50
+l49 irequires l48
+l50 requires l26
 }
 
 rank 1 {
-l1: send 1048576b to 0 tag 0
-l2: calc 4186
-l1 requires l2
-l3: calc 825
-l3 requires l2
-l3 irequires l1
-l4: send 1048576b to 0 tag 0
-l5: calc 4221
-l4 requires l5
-l6: calc 1152
-l6 requires l5
-l6 irequires l4
-l7: send 1048576b to 0 tag 0
-l8: calc 7554
-l7 requires l8
-l9: calc 8
-l9 requires l8
-l9 irequires l7
-l10: send 1048576b to 0 tag 0
-l11: calc 11894
-l10 requires l11
-l12: calc 174
-l12 requires l11
-l12 irequires l10
-l13: recv 1048576b from 0 tag 0
-l14: calc 2682
-l15: calc 4139
-l13 requires l15
-l14 requires l15
-l14 irequires l13
-l16: recv 1048576b from 0 tag 0
-l17: calc 5425
-l18: calc 4160
-l16 requires l18
-l17 requires l18
-l17 irequires l16
-l19: recv 1048576b from 0 tag 0
-l20: calc 6437
-l21: calc 4162
-l19 requires l21
-l20 requires l21
-l20 irequires l19
-l22: recv 1048576b from 0 tag 0
-l23: calc 7824
-l24: calc 4164
-l22 requires l24
-l23 requires l24
-l23 irequires l22
-l25: send 1048576b to 0 tag 1
-l26: calc 4209
-l25 requires l26
-l27: calc 1442
-l27 requires l26
-l27 irequires l25
-l28: send 1048576b to 0 tag 1
-l29: calc 4229
-l28 requires l29
-l30: calc 3086
-l30 requires l29
-l30 irequires l28
-l31: send 1048576b to 0 tag 1
-l32: calc 10597
-l31 requires l32
-l33: calc 416
-l33 requires l32
-l33 irequires l31
-l34: send 1048576b to 0 tag 1
-l35: calc 11986
-l34 requires l35
-l36: calc 9086
-l36 requires l35
-l36 irequires l34
-l37: recv 1048576b from 0 tag 1
-l38: calc 4214
-l39: calc 4155
-l37 requires l39
-l38 requires l39
-l38 irequires l37
-l40: recv 1048576b from 0 tag 1
-l41: calc 4928
-l42: calc 4161
-l40 requires l42
-l41 requires l42
-l41 irequires l40
-l43: recv 1048576b from 0 tag 1
-l44: calc 6368
-l45: calc 4163
-l43 requires l45
-l44 requires l45
-l44 irequires l43
-l46: recv 1048576b from 0 tag 1
-l47: calc 7731
-l48: calc 4165
-l46 requires l48
-l47 requires l48
-l47 irequires l46
+l2: send 1048576b to 0 tag 0
+l1: calc 0
+l3: calc 4250
+l2 requires l3
+l3 requires l1
+l4: calc 752
+l4 requires l3
+l4 irequires l2
+l5: send 1048576b to 0 tag 0
+l6: calc 4285
+l5 requires l6
+l6 requires l1
+l7: calc 965
+l7 requires l6
+l7 irequires l5
+l8: send 1048576b to 0 tag 0
+l9: calc 7381
+l8 requires l9
+l9 requires l1
+l10: calc 93
+l10 requires l9
+l10 irequires l8
+l11: send 1048576b to 0 tag 0
+l12: calc 8096
+l11 requires l12
+l12 requires l1
+l13: calc 8
+l13 requires l12
+l13 irequires l11
+l14: recv 1048576b from 0 tag 0
+l15: calc 1400
+l16: calc 4157
+l14 requires l16
+l15 requires l16
+l15 irequires l14
+l16 requires l1
+l17: recv 1048576b from 0 tag 0
+l18: calc 2639
+l19: calc 4177
+l17 requires l19
+l18 requires l19
+l18 irequires l17
+l19 requires l1
+l20: recv 1048576b from 0 tag 0
+l21: calc 16022
+l22: calc 4179
+l20 requires l22
+l21 requires l22
+l21 irequires l20
+l22 requires l1
+l23: recv 1048576b from 0 tag 0
+l24: calc 16363
+l25: calc 4182
+l23 requires l25
+l24 requires l25
+l24 irequires l23
+l25 requires l1
+l27: send 1048576b to 0 tag 1
+l26: calc 0
+l28: calc 4274
+l27 requires l28
+l28 requires l26
+l29: calc 2239
+l29 requires l28
+l29 irequires l27
+l30: send 1048576b to 0 tag 1
+l31: calc 4289
+l30 requires l31
+l31 requires l26
+l32: calc 3152
+l32 requires l31
+l32 irequires l30
+l33: send 1048576b to 0 tag 1
+l34: calc 8884
+l33 requires l34
+l34 requires l26
+l35: calc 7
+l35 requires l34
+l35 irequires l33
+l36: send 1048576b to 0 tag 1
+l37: calc 10263
+l36 requires l37
+l37 requires l26
+l38: calc 460
+l38 requires l37
+l38 irequires l36
+l39: recv 1048576b from 0 tag 1
+l40: calc 4554
+l41: calc 4172
+l39 requires l41
+l40 requires l41
+l40 irequires l39
+l41 requires l26
+l42: recv 1048576b from 0 tag 1
+l43: calc 5868
+l44: calc 4178
+l42 requires l44
+l43 requires l44
+l43 irequires l42
+l44 requires l26
+l45: recv 1048576b from 0 tag 1
+l46: calc 16295
+l47: calc 4180
+l45 requires l47
+l46 requires l47
+l46 irequires l45
+l47 requires l26
+l48: recv 1048576b from 0 tag 1
+l49: calc 17202
+l50: calc 4183
+l48 requires l50
+l49 requires l50
+l49 irequires l48
+l50 requires l26
 }

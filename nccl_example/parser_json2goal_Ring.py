@@ -55,16 +55,21 @@ def main():
             file.write(" {\n")
             for channel, events in channels.items():
                 if len(events['NPKIT_EVENT_NET_SEND_ENTRY']) > 0:
+                    task_counter += 1
+                    task_counter_init = task_counter
                     for i in range(len(events['NPKIT_EVENT_NET_SEND_ENTRY'])):
                         event = events['NPKIT_EVENT_NET_SEND_EXIT'][i]
                         task_counter += 1
                         file.write(f"l{task_counter}: send {event['size']}b to {event['receiver_rank']} tag {channel}\n")
                         ts_net_send_exit = event['ts']
+                        if task_counter - task_counter_init == 1:
+                            file.write(f"l{task_counter_init}: calc 0\n")
 
                         event = events['NPKIT_EVENT_NET_SEND_ENTRY'][i]
                         task_counter += 1
                         file.write(f"l{task_counter}: calc {event['ts']}\n")
                         file.write(f"l{task_counter - 1} requires l{task_counter}\n")
+                        file.write(f"l{task_counter} requires l{task_counter_init}\n")
 
                         event = events["NPKIT_EVENT_NET_SEND_TEST_ENTRY"][i]
                         task_counter += 1
@@ -89,6 +94,7 @@ def main():
                         file.write(f"l{task_counter - 2} requires l{task_counter}\n")
                         file.write(f"l{task_counter - 1} requires l{task_counter}\n")
                         file.write(f"l{task_counter - 1} irequires l{task_counter - 2}\n")
+                        file.write(f"l{task_counter} requires l{task_counter_init}\n")
                 
             file.write("}\n")
                 

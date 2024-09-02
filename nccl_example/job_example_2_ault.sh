@@ -12,7 +12,8 @@
 
 module load openmpi/4.1.1
 # module load cuda/11.6.2
-module load cuda/12.1.1
+module load cuda/11.8.0
+# module load cuda/12.1.1
 
 srun nvidia-smi -L
 
@@ -24,8 +25,8 @@ export NCCL_GRAPH_DUMP_FILE="Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_
 
 export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4.1.1-epxpvnwjl2smjwuwqg67h2wrmdxw6nhj
 
-# export NCCL_ROOT=/users/zhu/nccl_npkit/nccl/build
-export NCCL_ROOT=/users/zhu/nccl_npkit_2.22.3-1/nccl/build
+export NCCL_ROOT=/users/zhu/nccl_npkit/nccl/build
+# export NCCL_ROOT=/users/zhu/nccl_npkit_2.22.3-1/nccl/build
 
 export LD_LIBRARY_PATH=/users/zhu/nccl_npkit/nccl/build/lib:$LD_LIBRARY_PATH
 

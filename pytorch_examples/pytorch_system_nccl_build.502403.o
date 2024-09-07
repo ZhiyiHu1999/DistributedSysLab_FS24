@@ -1,0 +1,36 @@
+M	caffe2/CMakeLists.txt
+Looking in indexes: https://download.pytorch.org/whl/cu118
+Collecting torchvision
+  Using cached https://download.pytorch.org/whl/cu118/torchvision-0.19.1%2Bcu118-cp38-cp38-linux_x86_64.whl (6.3 MB)
+Collecting torchaudio
+  Using cached https://download.pytorch.org/whl/cu118/torchaudio-2.4.1%2Bcu118-cp38-cp38-linux_x86_64.whl (3.3 MB)
+Requirement already satisfied: numpy in /users/zhu/.local/lib/python3.8/site-packages (from torchvision) (1.24.1)
+Collecting torch==2.4.1 (from torchvision)
+  Using cached https://download.pytorch.org/whl/cu118/torch-2.4.1%2Bcu118-cp38-cp38-linux_x86_64.whl (857.6 MB)
+Requirement already satisfied: pillow!=8.3.*,>=5.3.0 in /users/zhu/.local/lib/python3.8/site-packages (from torchvision) (10.2.0)
+Requirement already satisfied: filelock in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (3.13.1)
+Requirement already satisfied: typing-extensions>=4.8.0 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (4.9.0)
+Requirement already satisfied: sympy in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (1.12.1)
+Requirement already satisfied: networkx in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (3.0)
+Requirement already satisfied: jinja2 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (3.1.3)
+Requirement already satisfied: fsspec in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (2024.2.0)
+Requirement already satisfied: nvidia-cuda-nvrtc-cu11==11.8.89 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (11.8.89)
+Requirement already satisfied: nvidia-cuda-runtime-cu11==11.8.89 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (11.8.89)
+Requirement already satisfied: nvidia-cuda-cupti-cu11==11.8.87 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (11.8.87)
+Requirement already satisfied: nvidia-cudnn-cu11==9.1.0.70 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (9.1.0.70)
+Requirement already satisfied: nvidia-cublas-cu11==11.11.3.6 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (11.11.3.6)
+Requirement already satisfied: nvidia-cufft-cu11==10.9.0.58 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (10.9.0.58)
+Requirement already satisfied: nvidia-curand-cu11==10.3.0.86 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (10.3.0.86)
+Requirement already satisfied: nvidia-cusolver-cu11==11.4.1.48 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (11.4.1.48)
+Requirement already satisfied: nvidia-cusparse-cu11==11.7.5.86 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (11.7.5.86)
+Requirement already satisfied: nvidia-nccl-cu11==2.20.5 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (2.20.5)
+Requirement already satisfied: nvidia-nvtx-cu11==11.8.86 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (11.8.86)
+Requirement already satisfied: triton==3.0.0 in /users/zhu/.local/lib/python3.8/site-packages (from torch==2.4.1->torchvision) (3.0.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /users/zhu/.local/lib/python3.8/site-packages (from jinja2->torch==2.4.1->torchvision) (2.1.5)
+Requirement already satisfied: mpmath<1.4.0,>=1.1.0 in /users/zhu/.local/lib/python3.8/site-packages (from sympy->torch==2.4.1->torchvision) (1.3.0)
+Installing collected packages: torch, torchvision, torchaudio
+  Attempting uninstall: torch
+    Found existing installation: torch 2.4.0a0+gitee1b680
+    Uninstalling torch-2.4.0a0+gitee1b680:
+      Successfully uninstalled torch-2.4.0a0+gitee1b680
+Successfully installed torch-2.4.1+cu118 torchaudio-2.4.1+cu118 torchvision-0.19.1+cu118

@@ -1,0 +1,196 @@
+M	caffe2/CMakeLists.txt
+[0/1] Install the project...
+-- Install configuration: "Release"
+Building wheel torch-2.4.0a0+gitee1b680
+-- Building version 2.4.0a0+gitee1b680
+cmake --build . --target install --config Release
+running install
+running build
+running build_py
+copying torchgen/packaged/ATen/native/tags.yaml -> build/lib.linux-x86_64-3.8/torchgen/packaged/ATen/native
+copying torchgen/packaged/ATen/native/native_functions.yaml -> build/lib.linux-x86_64-3.8/torchgen/packaged/ATen/native
+running build_ext
+-- Building with NumPy bindings
+-- Not using cuDNN
+-- Detected CUDA at /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml
+-- Not using XPU
+-- Using MKLDNN
+-- Not using Compute Library for the Arm architecture with MKLDNN
+-- Not using CBLAS in MKLDNN
+-- Using system provided NCCL library at /users/zhu/nccl_npkit/nccl/build/lib/libnccl.so, /users/zhu/nccl_npkit/nccl/build/include
+-- Building with distributed package: 
+  -- USE_TENSORPIPE=True
+  -- USE_GLOO=True
+  -- USE_MPI=False
+-- Building Executorch
+-- Using ITT
+Copying functorch._C from functorch/functorch.so to /users/zhu/pytorch/build/lib.linux-x86_64-3.8/functorch/_C.cpython-38-x86_64-linux-gnu.so
+running install_lib
+creating /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cow_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_registry_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_cub_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/reduce_ops_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_Metaprogramming_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_complex_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/dlconvertor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDAAssertionsTest_multiple_writes_from_same_block -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/xla_tensor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/scalar_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/kernel_lambda_legacy_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_flags_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_lazy_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/legacy_vmap_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/basic -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_distributions_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_string_view_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_string_util_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cpu_rng_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_irange_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/thread_init_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/ivalue_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/MaybeOwned_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/StorageUtils_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/dispatch_key_set_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_ThreadLocal_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/operators_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/undefined_tensor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_StreamGuard_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_dlconvertor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_DeviceGuard_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_TypeTraits_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_half_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/math_kernel_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_generator_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_device_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_Half_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_bfloat16_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_complex_math_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_tempfile_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/type_ptr_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_Synchronized_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_TypeIndex_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_typeid_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDAAssertionsTest_catches_stream -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_Scalar_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDATest -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_bit_cast_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDAAssertionsTest_catches_thread_and_block_and_device -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/op_registration_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/tensor_iterator_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/op_allowlist_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_exception_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/Dimname_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_SymInt_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDAAssertionsTest_1_var_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDAAssertionsTest_multiple_writes_from_blocks_and_threads -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_ssize_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_CompileTimeFunctionPointer_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/KernelFunction_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/reportMemoryUsage_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/CppSignature_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_allocatorTraceTracker_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_logging_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/weakref_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/kernel_stackbased_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/type_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_SizesAndStrides_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/lazy_tensor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/kernel_function_legacy_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_optional_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/packedtensoraccessor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_complex_math_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/half_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_DeadlockDetection_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/test_parallel -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/atest -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_stream_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_Bitset_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_small_vector_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/apply_utils_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/memory_overlapping_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_allocator_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_Device_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/kernel_function_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/broadcast_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/operator_name_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_packedtensoraccessor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_complex_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/quantized_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_ConstexprCrc_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/verify_api_visibility -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cpu_allocator_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_vectorized_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_TypeList_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_InlineStreamGuard_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_intrusive_ptr_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/wrapdim_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/IListRef_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/pow_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/stride_properties_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/memory_format_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cpu_profiling_allocator_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_apply_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/scalar_tensor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_ordered_preserving_dict_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_reportMemoryUsage_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDAAssertionsTest_multiple_writes_from_multiple_blocks -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_DispatchKeySet_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/List_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_generic_math_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_cuda_CUDAAssertionsTest_from_2_processes -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/make_boxed_from_unboxed_functor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/Dict_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_LeftRight_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_optional_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/extension_backend_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/mobile_memory_cleanup -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_InlineDeviceGuard_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_caching_host_allocator_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_integer_divider_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/kernel_lambda_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/native_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_accumulate_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/backend_fallback_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/inline_container_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/NamedTensor_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/c10_intrusive_ptr_benchmark -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cpu_generator_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/test/cuda_atomic_ops_test -> /users/zhu/.local/lib/python3.8/site-packages/torch/test
+copying build/lib.linux-x86_64-3.8/torch/lib/libtorchbind_test.so -> /users/zhu/.local/lib/python3.8/site-packages/torch/lib
+copying build/lib.linux-x86_64-3.8/torch/lib/libjitbackend_test.so -> /users/zhu/.local/lib/python3.8/site-packages/torch/lib
+copying build/lib.linux-x86_64-3.8/torch/lib/libbackend_with_compiler.so -> /users/zhu/.local/lib/python3.8/site-packages/torch/lib
+copying build/lib.linux-x86_64-3.8/torch/lib/libc10d_cuda_test.so -> /users/zhu/.local/lib/python3.8/site-packages/torch/lib
+copying build/lib.linux-x86_64-3.8/torch/bin/test_lazy -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/ProcessGroupNCCLErrorsTest -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/FileStoreTest -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/tutorial_tensorexpr -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/test_tensorexpr -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/HashStoreTest -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/test_edge_op_registration -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/test_api -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/test_jit -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/test_cpp_rpc -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/ProcessGroupGlooTest -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/test_dist_autograd -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/TCPStoreTest -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torch/bin/ProcessGroupNCCLTest -> /users/zhu/.local/lib/python3.8/site-packages/torch/bin
+copying build/lib.linux-x86_64-3.8/torchgen/packaged/ATen/native/tags.yaml -> /users/zhu/.local/lib/python3.8/site-packages/torchgen/packaged/ATen/native
+copying build/lib.linux-x86_64-3.8/torchgen/packaged/ATen/native/native_functions.yaml -> /users/zhu/.local/lib/python3.8/site-packages/torchgen/packaged/ATen/native
+running install_egg_info
+running egg_info
+writing torch.egg-info/PKG-INFO
+writing dependency_links to torch.egg-info/dependency_links.txt
+writing entry points to torch.egg-info/entry_points.txt
+writing requirements to torch.egg-info/requires.txt
+writing top-level names to torch.egg-info/top_level.txt
+adding license file 'LICENSE' (matched pattern 'LICEN[CS]E*')
+adding license file 'NOTICE' (matched pattern 'NOTICE*')
+reading manifest file 'torch.egg-info/SOURCES.txt'
+reading manifest template 'MANIFEST.in'
+writing manifest file 'torch.egg-info/SOURCES.txt'
+Copying torch.egg-info to /users/zhu/.local/lib/python3.8/site-packages/torch-2.4.0a0+gitee1b680-py3.8.egg-info
+running install_scripts
+Installing convert-caffe2-to-onnx script to /users/zhu/.local/bin
+Installing convert-onnx-to-caffe2 script to /users/zhu/.local/bin
+Installing torchrun script to /users/zhu/.local/bin

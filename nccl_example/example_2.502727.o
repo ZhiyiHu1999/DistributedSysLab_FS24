@@ -1,0 +1,75 @@
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
+The local rank is: 0
+ault42:135494:135494 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
+ault42:135494:135494 [0] NCCL INFO cudaDriverVersion 12010
+ault42:135494:135494 [0] NCCL INFO NCCL version 2.22.3+cuda11.8
+ault42:135494:135494 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so. Using internal network plugin.
+ault42:135494:135494 [0] NCCL INFO NET/IB : No device found.
+ault42:135494:135494 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
+ault42:135494:135494 [0] NCCL INFO Using network Socket
+ault42:135494:135494 [0] NCCL INFO ncclCommInitRank comm 0x449b9e0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xabaad52132e08c05 - Init START
+ault42:135494:135494 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to Topology_Intra_Node.txt
+ault42:135494:135494 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to Graph.txt
+ault42:135494:135494 [0] NCCL INFO comm 0x449b9e0 rank 0 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+The local rank is: 0
+ault43:321698:321698 [0] NCCL INFO cudaDriverVersion 12010
+ault43:321698:321698 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
+ault43:321698:321698 [0] NCCL INFO NCCL version 2.22.3+cuda11.8
+ault43:321698:321698 [0] NCCL INFO NET/Plugin: Could not find: libnccl-net.so. Using internal network plugin.
+ault43:321698:321698 [0] NCCL INFO NET/IB : No device found.
+ault43:321698:321698 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
+ault43:321698:321698 [0] NCCL INFO Using network Socket
+ault43:321698:321698 [0] NCCL INFO ncclCommInitRank comm 0x449b760 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xabaad52132e08c05 - Init START
+ault43:321698:321698 [0] NCCL INFO comm 0x449b760 rank 1 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+ault43:321698:321698 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+ault43:321698:321698 [0] NCCL INFO P2P Chunksize set to 131072
+ault42:135494:135494 [0] NCCL INFO Channel 00/02 :    0   1
+ault42:135494:135494 [0] NCCL INFO Channel 01/02 :    0   1
+ault42:135494:135494 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+ault42:135494:135494 [0] NCCL INFO P2P Chunksize set to 131072
+ault42:135494:135494 [0] NCCL INFO Channel 00/0 : 1[0] -> 0[0] [receive] via NET/Socket/0
+ault42:135494:135494 [0] NCCL INFO Channel 01/0 : 1[0] -> 0[0] [receive] via NET/Socket/0
+ault42:135494:135494 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[0] [send] via NET/Socket/0
+ault42:135494:135494 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[0] [send] via NET/Socket/0
+ault42:135494:135494 [0] NCCL INFO Connected all rings
+ault42:135494:135494 [0] NCCL INFO Connected all trees
+ault42:135494:135494 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault42:135494:135494 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault42:135494:135494 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault42:135494:135494 [0] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault42:135494:135494 [0] NCCL INFO CC Off, Multi-GPU CC Off, workFifoBytes 1048576
+ault42:135494:135494 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so libnccl-net.so. Using internal tuner plugin.
+ault42:135494:135494 [0] NCCL INFO ncclCommInitRank comm 0x449b9e0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xabaad52132e08c05 - Init COMPLETE
+ault42:135494:135494 [0] NCCL INFO Init timings: rank 0 nranks 2 total 0.08 (kernels 0.00, bootstrap 0.04, allgathers 0.00, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+ault43:321698:321698 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[0] [receive] via NET/Socket/0
+ault43:321698:321698 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[0] [receive] via NET/Socket/0
+ault43:321698:321698 [0] NCCL INFO Channel 00/0 : 1[0] -> 0[0] [send] via NET/Socket/0
+ault43:321698:321698 [0] NCCL INFO Channel 01/0 : 1[0] -> 0[0] [send] via NET/Socket/0
+ault43:321698:321698 [0] NCCL INFO Connected all rings
+ault43:321698:321698 [0] NCCL INFO Connected all trees
+ault43:321698:321698 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault43:321698:321698 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault43:321698:321698 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault43:321698:321698 [0] NCCL INFO 2 coll channels, 2 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault43:321698:321698 [0] NCCL INFO TUNER/Plugin: Could not find: libnccl-tuner.so libnccl-net.so. Using internal tuner plugin.
+ault43:321698:321698 [0] NCCL INFO ncclCommInitRank comm 0x449b760 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xabaad52132e08c05 - Init COMPLETE
+ault43:321698:321698 [0] NCCL INFO Init timings: rank 1 nranks 2 total 0.07 (kernels 0.00, bootstrap 0.03, allgathers 0.01, topo 0.01, graphs 0.00, connections 0.02, rest 0.00)
+ault42:135494:135494 [0] NCCL INFO comm 0x449b9e0 rank 0 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+[MPI Rank 0] Success 
+ault43:321698:321698 [0] NCCL INFO comm 0x449b760 rank 1 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+[MPI Rank 1] Success 
+Collecting data...
+Generating '/tmp/nsys-report-10ca.qdstrm'
+Collecting data...
+Generating '/tmp/nsys-report-66a1.qdstrm'
+[1/1] [0%                          ] example_2_nsys_report.nsys-rep[1/1] [0%                          ] example_2_nsys_report.nsys-rep[1/1] [=15%                        ] example_2_nsys_report.nsys-rep[1/1] [=========45%                ] example_2_nsys_report.nsys-rep[1/1] [==================75%       ] example_2_nsys_report.nsys-rep[1/1] [===================79%      ] example_2_nsys_report.nsys-rep[1/1] [====================84%     ] example_2_nsys_report.nsys-rep[1/1] [====================85%     ] example_2_nsys_report.nsys-rep[1/1] [=====================86%    ] example_2_nsys_report.nsys-rep[1/1] [======================91%   ] example_2_nsys_report.nsys-rep[1/1] [======================92%   ] example_2_nsys_report.nsys-rep[1/1] [=======================93%  ] example_2_nsys_report.nsys-rep[1/1] [=======================95%  ] example_2_nsys_report.nsys-rep[1/1] [=======================96%  ] example_2_nsys_report.nsys-rep[1/1] [========================100%] example_2_nsys_report.nsys-rep[1/1] [========================100%] example_2_nsys_report.nsys-rep
+[1/1] [0%                          ] example_2_nsys_report.nsys-rep[1/1] [0%                          ] example_2_nsys_report.nsys-rep[1/1] [=16%                        ] example_2_nsys_report.nsys-rep[1/1] [=========45%                ] example_2_nsys_report.nsys-rep[1/1] [=================74%        ] example_2_nsys_report.nsys-rep[1/1] [===================79%      ] example_2_nsys_report.nsys-rep[1/1] [====================83%     ] example_2_nsys_report.nsys-rep[1/1] [====================84%     ] example_2_nsys_report.nsys-rep[1/1] [====================85%     ] example_2_nsys_report.nsys-rep[1/1] [======================90%   ] example_2_nsys_report.nsys-rep[1/1] [======================91%   ] example_2_nsys_report.nsys-rep[1/1] [=======================94%  ] example_2_nsys_report.nsys-rep[1/1] [=======================96%  ] example_2_nsys_report.nsys-rep[1/1] [========================100%] example_2_nsys_report.nsys-rep[1/1] [========================100%] example_2_nsys_report.nsys-rep[1/1] [========================100%] example_2_nsys_report.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/nccl_example/example_2_nsys_report.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/nccl_example/example_2_nsys_report.qdstrm

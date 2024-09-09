@@ -1,0 +1,1027 @@
+M	caffe2/CMakeLists.txt
+Ignoring setuptools: markers 'python_version >= "3.12"' don't match your environment
+Requirement already satisfied: astunparse in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 2)) (1.6.3)
+Requirement already satisfied: expecttest!=0.2.0 in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 3)) (0.2.1)
+Requirement already satisfied: hypothesis in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 4)) (6.111.2)
+Requirement already satisfied: numpy in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 5)) (1.24.1)
+Requirement already satisfied: psutil in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 6)) (6.0.0)
+Requirement already satisfied: pyyaml in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 7)) (6.0.2)
+Requirement already satisfied: requests in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 8)) (2.32.3)
+Requirement already satisfied: setuptools in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 9)) (56.0.0)
+Requirement already satisfied: types-dataclasses in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 10)) (0.6.6)
+Requirement already satisfied: typing-extensions>=4.8.0 in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 11)) (4.9.0)
+Requirement already satisfied: sympy in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 12)) (1.12.1)
+Requirement already satisfied: filelock in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 13)) (3.13.1)
+Requirement already satisfied: networkx in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 14)) (3.0)
+Requirement already satisfied: jinja2 in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 15)) (3.1.3)
+Requirement already satisfied: fsspec in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 16)) (2024.2.0)
+Requirement already satisfied: lintrunner in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 17)) (0.12.5)
+Requirement already satisfied: ninja in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 18)) (1.11.1.1)
+Requirement already satisfied: packaging in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 21)) (24.1)
+Requirement already satisfied: optree>=0.11.0 in /users/zhu/.local/lib/python3.8/site-packages (from -r requirements.txt (line 22)) (0.12.1)
+Requirement already satisfied: wheel<1.0,>=0.23.0 in /users/zhu/.local/lib/python3.8/site-packages (from astunparse->-r requirements.txt (line 2)) (0.44.0)
+Requirement already satisfied: six<2.0,>=1.6.1 in /users/zhu/.local/lib/python3.8/site-packages (from astunparse->-r requirements.txt (line 2)) (1.16.0)
+Requirement already satisfied: attrs>=22.2.0 in /users/zhu/.local/lib/python3.8/site-packages (from hypothesis->-r requirements.txt (line 4)) (24.2.0)
+Requirement already satisfied: sortedcontainers<3.0.0,>=2.1.0 in /users/zhu/.local/lib/python3.8/site-packages (from hypothesis->-r requirements.txt (line 4)) (2.4.0)
+Requirement already satisfied: exceptiongroup>=1.0.0 in /users/zhu/.local/lib/python3.8/site-packages (from hypothesis->-r requirements.txt (line 4)) (1.2.2)
+Requirement already satisfied: charset-normalizer<4,>=2 in /users/zhu/.local/lib/python3.8/site-packages (from requests->-r requirements.txt (line 8)) (3.3.2)
+Requirement already satisfied: idna<4,>=2.5 in /users/zhu/.local/lib/python3.8/site-packages (from requests->-r requirements.txt (line 8)) (3.8)
+Requirement already satisfied: urllib3<3,>=1.21.1 in /users/zhu/.local/lib/python3.8/site-packages (from requests->-r requirements.txt (line 8)) (2.2.2)
+Requirement already satisfied: certifi>=2017.4.17 in /users/zhu/.local/lib/python3.8/site-packages (from requests->-r requirements.txt (line 8)) (2024.8.30)
+Requirement already satisfied: mpmath<1.4.0,>=1.1.0 in /users/zhu/.local/lib/python3.8/site-packages (from sympy->-r requirements.txt (line 12)) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in /users/zhu/.local/lib/python3.8/site-packages (from jinja2->-r requirements.txt (line 15)) (2.1.5)
+Building wheel torch-2.4.0a0+gitee1b680
+running clean
+-- The CXX compiler identification is GNU 10.2.0
+-- The C compiler identification is GNU 10.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/g++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Detecting C compiler ABI info
+-- Detecting C compiler ABI info - done
+-- Check for working C compiler: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/gcc - skipped
+-- Detecting C compile features
+-- Detecting C compile features - done
+-- /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/g++ /users/zhu/pytorch/torch/abi-check.cpp -o /users/zhu/pytorch/build/abi-check
+-- Determined _GLIBCXX_USE_CXX11_ABI=1
+-- Not forcing any particular BLAS to be found
+-- Could not find ccache. Consider installing ccache to speed up compilation.
+-- Performing Test C_HAS_AVX_1
+-- Performing Test C_HAS_AVX_1 - Failed
+-- Performing Test C_HAS_AVX_2
+-- Performing Test C_HAS_AVX_2 - Success
+-- Performing Test C_HAS_AVX2_1
+-- Performing Test C_HAS_AVX2_1 - Failed
+-- Performing Test C_HAS_AVX2_2
+-- Performing Test C_HAS_AVX2_2 - Success
+-- Performing Test C_HAS_AVX512_1
+-- Performing Test C_HAS_AVX512_1 - Failed
+-- Performing Test C_HAS_AVX512_2
+-- Performing Test C_HAS_AVX512_2 - Success
+-- Performing Test CXX_HAS_AVX_1
+-- Performing Test CXX_HAS_AVX_1 - Failed
+-- Performing Test CXX_HAS_AVX_2
+-- Performing Test CXX_HAS_AVX_2 - Success
+-- Performing Test CXX_HAS_AVX2_1
+-- Performing Test CXX_HAS_AVX2_1 - Failed
+-- Performing Test CXX_HAS_AVX2_2
+-- Performing Test CXX_HAS_AVX2_2 - Success
+-- Performing Test CXX_HAS_AVX512_1
+-- Performing Test CXX_HAS_AVX512_1 - Failed
+-- Performing Test CXX_HAS_AVX512_2
+-- Performing Test CXX_HAS_AVX512_2 - Success
+-- Current compiler supports avx2 extension. Will build perfkernels.
+-- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS
+-- Performing Test CAFFE2_COMPILER_SUPPORTS_AVX512_EXTENSIONS - Success
+-- Current compiler supports avx512f extension. Will build fbgemm.
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_VISIBILITY - Success
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY
+-- Performing Test COMPILER_SUPPORTS_HIDDEN_INLINE_VISIBILITY - Success
+-- Performing Test COMPILER_SUPPORTS_RDYNAMIC
+-- Performing Test COMPILER_SUPPORTS_RDYNAMIC - Success
+-- Found CUDA: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml (found version "11.8") 
+-- The CUDA compiler identification is NVIDIA 11.8.89
+-- Detecting CUDA compiler ABI info
+-- Detecting CUDA compiler ABI info - done
+-- Check for working CUDA compiler: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/bin/nvcc - skipped
+-- Detecting CUDA compile features
+-- Detecting CUDA compile features - done
+-- Found CUDAToolkit: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/include (found version "11.8.89") 
+-- Looking for pthread.h
+-- Looking for pthread.h - found
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Failed
+-- Check if compiler accepts -pthread
+-- Check if compiler accepts -pthread - yes
+-- Found Threads: TRUE  
+-- Caffe2: CUDA detected: 11.8
+-- Caffe2: CUDA nvcc is: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/bin/nvcc
+-- Caffe2: CUDA toolkit directory: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml
+-- Caffe2: Header version is: 11.8
+-- /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libnvrtc.so shorthash is 672ee683
+-- Could NOT find CUDNN (missing: CUDNN_LIBRARY_PATH CUDNN_INCLUDE_PATH) 
+-- Could NOT find CUSPARSELT (missing: CUSPARSELT_LIBRARY_PATH CUSPARSELT_INCLUDE_PATH) 
+-- Autodetected CUDA architecture(s):  8.6 8.6 8.6
+-- Added CUDA NVCC flags for: -gencode;arch=compute_86,code=sm_86
+-- Building using own protobuf under third_party per request.
+-- Use custom protobuf build.
+-- 
+-- 3.13.0.0
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS
+-- Performing Test protobuf_HAVE_BUILTIN_ATOMICS - Success
+-- Caffe2 protobuf include directory: $<BUILD_INTERFACE:/users/zhu/pytorch/third_party/protobuf/src>$<INSTALL_INTERFACE:include>
+-- Trying to find preferred BLAS backend of choice: MKL
+-- MKL_THREADING = OMP
+-- Looking for sys/types.h
+-- Looking for sys/types.h - found
+-- Looking for stdint.h
+-- Looking for stdint.h - found
+-- Looking for stddef.h
+-- Looking for stddef.h - found
+-- Check size of void*
+-- Check size of void* - done
+-- MKL_THREADING = OMP
+-- MKL_THREADING = OMP
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Checking for [Accelerate]
+--   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+-- Checking for [vecLib]
+--   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+-- Checking for [flexiblas]
+--   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+-- Checking for [openblas]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m - gomp]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran - pthread]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [acml - gfortran]
+--   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+-- Checking for [ptf77blas - atlas - gfortran]
+--   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+-- Checking for []
+-- Looking for sgemm_
+-- Looking for sgemm_ - not found
+-- Cannot find a library with BLAS API. Not using BLAS.
+-- Using pocketfft in directory: /users/zhu/pytorch/third_party/pocketfft/
+-- The ASM compiler identification is GNU
+-- Found assembler: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/gcc
+-- Brace yourself, we are building NNPACK
+-- Performing Test NNPACK_ARCH_IS_X86_32
+-- Performing Test NNPACK_ARCH_IS_X86_32 - Failed
+-- Found PythonInterp: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python (found version "3.8.12") 
+-- NNPACK backend is x86-64
+-- Downloading six (Python package) to /users/zhu/pytorch/build/confu-srcs/six (define PYTHON_SIX_SOURCE_DIR to avoid it)
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /users/zhu/pytorch/build/confu-deps/six-download
+[1/9] Creating directories for 'six'
+[2/9] Performing download step (download, verify and extract) for 'six'
+-- Downloading...
+   dst='/users/zhu/pytorch/build/confu-deps/six-download/six-prefix/src/six-1.11.0.tar.gz'
+   timeout='none'
+   inactivity timeout='none'
+-- Using src='https://pypi.python.org/packages/16/d8/bc6316cf98419719bd59c91742194c111b6f2e85abac88e496adefaf7afe/six-1.11.0.tar.gz'
+-- [download 100% complete]
+-- [download 34% complete]
+-- [download 48% complete]
+-- [download 67% complete]
+-- [download 85% complete]
+-- [download 100% complete]
+-- verifying file...
+       file='/users/zhu/pytorch/build/confu-deps/six-download/six-prefix/src/six-1.11.0.tar.gz'
+-- Downloading... done
+-- extracting...
+     src='/users/zhu/pytorch/build/confu-deps/six-download/six-prefix/src/six-1.11.0.tar.gz'
+     dst='/users/zhu/pytorch/build/confu-srcs/six'
+-- extracting... [tar xfz]
+-- extracting... [analysis]
+-- extracting... [rename]
+-- extracting... [clean up]
+-- extracting... done
+[3/9] No update step for 'six'
+[4/9] No patch step for 'six'
+[5/9] No configure step for 'six'
+[6/9] No build step for 'six'
+[7/9] No install step for 'six'
+[8/9] No test step for 'six'
+[9/9] Completed 'six'
+-- Found Python: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python3 (found version "3.8.12") found components: Interpreter 
+-- Failed to find LLVM FileCheck
+-- Found Git: /usr/bin/git (found version "2.27.0") 
+-- git version: v1.6.1 normalized to 1.6.1
+-- Version: 1.6.1
+-- Looking for shm_open in rt
+-- Looking for shm_open in rt - found
+-- Performing Test HAVE_CXX_FLAG_STD_CXX11
+-- Performing Test HAVE_CXX_FLAG_STD_CXX11 - Success
+-- Performing Test HAVE_CXX_FLAG_WALL
+-- Performing Test HAVE_CXX_FLAG_WALL - Success
+-- Performing Test HAVE_CXX_FLAG_WEXTRA
+-- Performing Test HAVE_CXX_FLAG_WEXTRA - Success
+-- Performing Test HAVE_CXX_FLAG_WSHADOW
+-- Performing Test HAVE_CXX_FLAG_WSHADOW - Success
+-- Performing Test HAVE_CXX_FLAG_WERROR
+-- Performing Test HAVE_CXX_FLAG_WERROR - Success
+-- Performing Test HAVE_CXX_FLAG_WSUGGEST_OVERRIDE
+-- Performing Test HAVE_CXX_FLAG_WSUGGEST_OVERRIDE - Success
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC - Success
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS
+-- Performing Test HAVE_CXX_FLAG_PEDANTIC_ERRORS - Success
+-- Performing Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32
+-- Performing Test HAVE_CXX_FLAG_WSHORTEN_64_TO_32 - Failed
+-- Performing Test HAVE_CXX_FLAG_FSTRICT_ALIASING
+-- Performing Test HAVE_CXX_FLAG_FSTRICT_ALIASING - Success
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED_DECLARATIONS
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED_DECLARATIONS - Success
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED
+-- Performing Test HAVE_CXX_FLAG_WNO_DEPRECATED - Success
+-- Performing Test HAVE_CXX_FLAG_WSTRICT_ALIASING
+-- Performing Test HAVE_CXX_FLAG_WSTRICT_ALIASING - Success
+-- Performing Test HAVE_CXX_FLAG_WD654
+-- Performing Test HAVE_CXX_FLAG_WD654 - Failed
+-- Performing Test HAVE_CXX_FLAG_WTHREAD_SAFETY
+-- Performing Test HAVE_CXX_FLAG_WTHREAD_SAFETY - Failed
+-- Performing Test HAVE_CXX_FLAG_COVERAGE
+-- Performing Test HAVE_CXX_FLAG_COVERAGE - Success
+-- Performing Test HAVE_STD_REGEX
+-- Performing Test HAVE_STD_REGEX
+-- Performing Test HAVE_STD_REGEX -- success
+-- Performing Test HAVE_GNU_POSIX_REGEX
+-- Performing Test HAVE_GNU_POSIX_REGEX
+-- Performing Test HAVE_GNU_POSIX_REGEX -- failed to compile
+-- Performing Test HAVE_POSIX_REGEX
+-- Performing Test HAVE_POSIX_REGEX
+-- Performing Test HAVE_POSIX_REGEX -- success
+-- Performing Test HAVE_STEADY_CLOCK
+-- Performing Test HAVE_STEADY_CLOCK
+-- Performing Test HAVE_STEADY_CLOCK -- success
+-- Performing Test COMPILER_SUPPORTS_AVX512
+-- Performing Test COMPILER_SUPPORTS_AVX512 - Success
+-- MKL_THREADING = OMP
+-- Check OMP with lib /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/lib64/libgomp.so and flags -fopenmp -v
+-- MKL_THREADING = OMP
+-- Check OMP with lib /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/lib64/libgomp.so and flags -fopenmp -v
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Performing Test __CxxFlag__fno_threadsafe_statics
+-- Performing Test __CxxFlag__fno_threadsafe_statics - Success
+-- Performing Test __CxxFlag__fno_semantic_interposition
+-- Performing Test __CxxFlag__fno_semantic_interposition - Success
+-- Performing Test __CxxFlag__fmerge_all_constants
+-- Performing Test __CxxFlag__fmerge_all_constants - Success
+-- Performing Test __CxxFlag__fno_enforce_eh_specs
+-- Performing Test __CxxFlag__fno_enforce_eh_specs - Success
+-- Found Numa: /usr/include  
+-- Found Numa  (include: /usr/include, library: /usr/lib64/libnuma.so)
+-- Using third party subdirectory Eigen.
+-- Found Python: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python3 (found version "3.8.12") found components: Interpreter Development.Module NumPy 
+-- Using third_party/pybind11.
+-- pybind11 include dirs: /users/zhu/pytorch/cmake/../third_party/pybind11/include
+-- Could NOT find OpenTelemetryApi (missing: OpenTelemetryApi_INCLUDE_DIRS) 
+-- Using third_party/opentelemetry-cpp.
+-- opentelemetry api include dirs: /users/zhu/pytorch/cmake/../third_party/opentelemetry-cpp/api/include
+-- Could NOT find MPI_C (missing: MPI_C_LIB_NAMES MPI_C_HEADER_DIR MPI_C_WORKS) 
+-- Could NOT find MPI_CXX (missing: MPI_CXX_LIB_NAMES MPI_CXX_HEADER_DIR MPI_CXX_WORKS) 
+-- Could NOT find MPI (missing: MPI_C_FOUND MPI_CXX_FOUND) 
+-- Found OpenMP_C: -fopenmp  
+-- Found OpenMP_CXX: -fopenmp  
+-- Found OpenMP: TRUE   
+-- Adding OpenMP CXX_FLAGS: -fopenmp
+-- Will link against OpenMP libraries: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/lib64/libgomp.so
+-- Found NCCL: /users/zhu/nccl_nvtx/nccl/build/include  
+-- Determining NCCL version from /users/zhu/nccl_nvtx/nccl/build/include/nccl.h...
+-- Looking for NCCL_VERSION_CODE
+-- Looking for NCCL_VERSION_CODE - not found
+-- NCCL version < 2.3.5-5
+-- Found NCCL (include: /users/zhu/nccl_nvtx/nccl/build/include, library: /users/zhu/nccl_nvtx/nccl/build/lib/libnccl.so)
+-- Found CUB: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/include  
+-- Converting CMAKE_CUDA_FLAGS to CUDA_NVCC_FLAGS:
+    CUDA_NVCC_FLAGS                = -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS;-D_GLIBCXX_USE_CXX11_ABI=1;-Xfatbin;-compress-all;-DONNX_NAMESPACE=onnx_torch;-gencode;arch=compute_86,code=sm_86;-Xcudafe;--diag_suppress=cc_clobber_ignored,--diag_suppress=field_without_dll_interface,--diag_suppress=base_class_has_different_dll_interface,--diag_suppress=dll_interface_conflict_none_assumed,--diag_suppress=dll_interface_conflict_dllexport_assumed,--diag_suppress=bad_friend_decl;--expt-relaxed-constexpr;--expt-extended-lambda
+    CUDA_NVCC_FLAGS_DEBUG          = -g
+    CUDA_NVCC_FLAGS_RELEASE        = -O3;-DNDEBUG
+    CUDA_NVCC_FLAGS_RELWITHDEBINFO = -O2;-g;-DNDEBUG
+    CUDA_NVCC_FLAGS_MINSIZEREL     = -O1;-DNDEBUG
+-- Performing Test UV_LINT_W4
+-- Performing Test UV_LINT_W4 - Failed
+-- Performing Test UV_LINT_NO_UNUSED_PARAMETER_MSVC
+-- Performing Test UV_LINT_NO_UNUSED_PARAMETER_MSVC - Failed
+-- Performing Test UV_LINT_NO_CONDITIONAL_CONSTANT_MSVC
+-- Performing Test UV_LINT_NO_CONDITIONAL_CONSTANT_MSVC - Failed
+-- Performing Test UV_LINT_NO_NONSTANDARD_MSVC
+-- Performing Test UV_LINT_NO_NONSTANDARD_MSVC - Failed
+-- Performing Test UV_LINT_NO_NONSTANDARD_EMPTY_TU_MSVC
+-- Performing Test UV_LINT_NO_NONSTANDARD_EMPTY_TU_MSVC - Failed
+-- Performing Test UV_LINT_NO_NONSTANDARD_FILE_SCOPE_MSVC
+-- Performing Test UV_LINT_NO_NONSTANDARD_FILE_SCOPE_MSVC - Failed
+-- Performing Test UV_LINT_NO_NONSTANDARD_NONSTATIC_DLIMPORT_MSVC
+-- Performing Test UV_LINT_NO_NONSTANDARD_NONSTATIC_DLIMPORT_MSVC - Failed
+-- Performing Test UV_LINT_NO_HIDES_LOCAL
+-- Performing Test UV_LINT_NO_HIDES_LOCAL - Failed
+-- Performing Test UV_LINT_NO_HIDES_PARAM
+-- Performing Test UV_LINT_NO_HIDES_PARAM - Failed
+-- Performing Test UV_LINT_NO_HIDES_GLOBAL
+-- Performing Test UV_LINT_NO_HIDES_GLOBAL - Failed
+-- Performing Test UV_LINT_NO_CONDITIONAL_ASSIGNMENT_MSVC
+-- Performing Test UV_LINT_NO_CONDITIONAL_ASSIGNMENT_MSVC - Failed
+-- Performing Test UV_LINT_NO_UNSAFE_MSVC
+-- Performing Test UV_LINT_NO_UNSAFE_MSVC - Failed
+-- Performing Test UV_LINT_WALL
+-- Performing Test UV_LINT_WALL - Success
+-- Performing Test UV_LINT_NO_UNUSED_PARAMETER
+-- Performing Test UV_LINT_NO_UNUSED_PARAMETER - Success
+-- Performing Test UV_LINT_STRICT_PROTOTYPES
+-- Performing Test UV_LINT_STRICT_PROTOTYPES - Success
+-- Performing Test UV_LINT_EXTRA
+-- Performing Test UV_LINT_EXTRA - Success
+-- Performing Test UV_LINT_UTF8_MSVC
+-- Performing Test UV_LINT_UTF8_MSVC - Failed
+-- Performing Test UV_F_STRICT_ALIASING
+-- Performing Test UV_F_STRICT_ALIASING - Success
+-- summary of build options:
+    Install prefix:  /users/zhu/pytorch/torch
+    Target system:   Linux
+    Compiler:
+      C compiler:    /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/gcc
+      CFLAGS:         
+
+-- Found uv: 1.38.1 (found version "1.38.1") 
+-- Gloo build as SHARED library
+-- Found CUDAToolkit: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/include (found suitable version "11.8.89", minimum required is "7.0") 
+-- CUDA detected: 11.8.89
+-- Could NOT find NCCL (missing: NCCL_INCLUDE_DIR) 
+-- 
+-- ******** Summary ********
+--   CMake version                     : 3.21.3
+--   CMake command                     : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cmake-3.21.3-zt24jfeuemvwweacziyho6ccdsdn2w4s/bin/cmake
+--   System                            : Linux
+--   C++ compiler                      : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/g++
+--   C++ compiler version              : 10.2.0
+--   CXX flags                         :  -D_GLIBCXX_USE_CXX11_ABI=1 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -Wnon-virtual-dtor
+--   Build type                        : Release
+--   Compile definitions               : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1;__STDC_FORMAT_MACROS
+--   CMAKE_PREFIX_PATH                 : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/lib/python3.8/site-packages;/users/zhu/nccl_nvtx/nccl/build:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml:/apps/ault/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/libxml2-2.9.10-h3m7abg7kljuxzw2jnpgceqsnxor5bav:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/ninja-1.10.2-wdynop4omsowbsqvfv6gvco6dxqkdvgh:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cmake-3.21.3-zt24jfeuemvwweacziyho6ccdsdn2w4s:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml
+--   CMAKE_INSTALL_PREFIX              : /users/zhu/pytorch/torch
+--   CMAKE_MODULE_PATH                 : /users/zhu/pytorch/cmake/Modules;/users/zhu/pytorch/cmake/public/../Modules_CUDA_fix
+-- 
+--   ONNX version                      : 1.16.0
+--   ONNX NAMESPACE                    : onnx_torch
+--   ONNX_USE_LITE_PROTO               : OFF
+--   USE_PROTOBUF_SHARED_LIBS          : OFF
+--   Protobuf_USE_STATIC_LIBS          : ON
+--   ONNX_DISABLE_EXCEPTIONS           : OFF
+--   ONNX_DISABLE_STATIC_REGISTRATION  : OFF
+--   ONNX_WERROR                       : OFF
+--   ONNX_BUILD_TESTS                  : OFF
+--   ONNX_BUILD_BENCHMARKS             : OFF
+--   ONNX_BUILD_SHARED_LIBS            : 
+--   BUILD_SHARED_LIBS                 : OFF
+-- 
+--   Protobuf compiler                 : 
+--   Protobuf includes                 : 
+--   Protobuf libraries                : 
+--   BUILD_ONNX_PYTHON                 : OFF
+-- 
+-- ******** Summary ********
+--   CMake version         : 3.21.3
+--   CMake command         : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cmake-3.21.3-zt24jfeuemvwweacziyho6ccdsdn2w4s/bin/cmake
+--   System                : Linux
+--   C++ compiler          : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/g++
+--   C++ compiler version  : 10.2.0
+--   CXX flags             :  -D_GLIBCXX_USE_CXX11_ABI=1 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -Wnon-virtual-dtor
+--   Build type            : Release
+--   Compile definitions   : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1
+--   CMAKE_PREFIX_PATH     : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/lib/python3.8/site-packages;/users/zhu/nccl_nvtx/nccl/build:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml:/apps/ault/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/libxml2-2.9.10-h3m7abg7kljuxzw2jnpgceqsnxor5bav:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/ninja-1.10.2-wdynop4omsowbsqvfv6gvco6dxqkdvgh:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cmake-3.21.3-zt24jfeuemvwweacziyho6ccdsdn2w4s:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml
+--   CMAKE_INSTALL_PREFIX  : /users/zhu/pytorch/torch
+--   CMAKE_MODULE_PATH     : /users/zhu/pytorch/cmake/Modules;/users/zhu/pytorch/cmake/public/../Modules_CUDA_fix
+-- 
+--   ONNX version          : 1.4.1
+--   ONNX NAMESPACE        : onnx_torch
+--   ONNX_BUILD_TESTS      : OFF
+--   ONNX_BUILD_BENCHMARKS : OFF
+--   ONNX_USE_LITE_PROTO   : OFF
+--   ONNXIFI_DUMMY_BACKEND : 
+-- 
+--   Protobuf compiler     : 
+--   Protobuf includes     : 
+--   Protobuf libraries    : 
+--   BUILD_ONNX_PYTHON     : OFF
+-- Found CUDA with FP16 support, compiling with torch.cuda.HalfTensor
+-- Adding -DNDEBUG to compile flags
+-- Checking prototype magma_get_sgeqrf_nb for MAGMA_V2
+-- Checking prototype magma_get_sgeqrf_nb for MAGMA_V2 - False
+-- MAGMA not found. Compiling without MAGMA support
+-- Could not find hardware support for NEON on this machine.
+-- No OMAP3 processor on this machine.
+-- No OMAP4 processor on this machine.
+-- MKL_THREADING = OMP
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Checking for [Accelerate]
+--   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+-- Checking for [vecLib]
+--   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+-- Checking for [flexiblas]
+--   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+-- Checking for [openblas]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m - gomp]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran - pthread]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [acml - gfortran]
+--   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+-- Checking for [ptf77blas - atlas - gfortran]
+--   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+-- Checking for []
+-- Cannot find a library with BLAS API. Not using BLAS.
+-- LAPACK requires BLAS
+-- Cannot find a library with LAPACK API. Not using LAPACK.
+-- MIOpen not found. Compiling without MIOpen support
+-- MKL_THREADING = OMP
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel_lp64 - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_intel - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf_lp64 - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_gnu_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_gf - mkl_intel_thread - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_sequential - mkl_core - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - gomp - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - iomp5 - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl_intel_lp64 - mkl_core - pthread - m - dl]
+--   Library mkl_intel_lp64: not found
+-- Checking for [mkl_intel - mkl_core - pthread - m - dl]
+--   Library mkl_intel: not found
+-- Checking for [mkl_gf_lp64 - mkl_core - pthread - m - dl]
+--   Library mkl_gf_lp64: not found
+-- Checking for [mkl_gf - mkl_core - pthread - m - dl]
+--   Library mkl_gf: not found
+-- Checking for [mkl - guide - pthread - m]
+--   Library mkl: not found
+-- MKL library not found
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Checking for [Accelerate]
+--   Library Accelerate: BLAS_Accelerate_LIBRARY-NOTFOUND
+-- Checking for [vecLib]
+--   Library vecLib: BLAS_vecLib_LIBRARY-NOTFOUND
+-- Checking for [flexiblas]
+--   Library flexiblas: BLAS_flexiblas_LIBRARY-NOTFOUND
+-- Checking for [openblas]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [openblas - pthread - m - gomp]
+--   Library openblas: BLAS_openblas_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [goto2 - gfortran - pthread]
+--   Library goto2: BLAS_goto2_LIBRARY-NOTFOUND
+-- Checking for [acml - gfortran]
+--   Library acml: BLAS_acml_LIBRARY-NOTFOUND
+-- Checking for [blis]
+--   Library blis: BLAS_blis_LIBRARY-NOTFOUND
+-- Could NOT find Atlas (missing: Atlas_CBLAS_INCLUDE_DIR Atlas_CLAPACK_INCLUDE_DIR Atlas_CBLAS_LIBRARY Atlas_BLAS_LIBRARY Atlas_LAPACK_LIBRARY) 
+-- Checking for [ptf77blas - atlas - gfortran]
+--   Library ptf77blas: BLAS_ptf77blas_LIBRARY-NOTFOUND
+-- Checking for []
+-- Cannot find a library with BLAS API. Not using BLAS.
+-- MKLDNN_CPU_RUNTIME = OMP
+-- DNNL_TARGET_ARCH: X64
+-- DNNL_LIBRARY_NAME: dnnl
+-- Found OpenMP_C: -fopenmp  
+-- Found OpenMP_CXX: -fopenmp  
+-- Could NOT find Doxyrest (missing: DOXYREST_EXECUTABLE) 
+-- Found PythonInterp: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python (found suitable version "3.8.12", minimum required is "2.7") 
+-- Could NOT find Sphinx (missing: SPHINX_EXECUTABLE) 
+-- Enabled testing coverage: CI
+-- Enabled workload: TRAINING
+-- Enabled primitives: ALL
+-- Enabled primitive CPU ISA: ALL
+-- Enabled primitive GPU ISA: ALL
+-- Enabled GeMM kernels ISA: ALL
+-- Primitive cache is enabled
+-- Graph component is enabled
+-- Graph compiler backend is disabled.
+-- Found MKL-DNN: TRUE
+-- Looking for clock_gettime in rt
+-- Looking for clock_gettime in rt - found
+-- Looking for mmap
+-- Looking for mmap - found
+-- Looking for shm_open
+-- Looking for shm_open - found
+-- Looking for shm_unlink
+-- Looking for shm_unlink - found
+-- Looking for malloc_usable_size
+-- Looking for malloc_usable_size - found
+-- Performing Test COMPILE_OUT_ZVECTOR
+-- Performing Test COMPILE_OUT_ZVECTOR - Failed
+-- Version: 10.2.1
+-- Build type: Release
+-- Using Kineto with CUPTI support
+-- Configuring Kineto dependency:
+--   KINETO_SOURCE_DIR = /users/zhu/pytorch/third_party/kineto/libkineto
+--   KINETO_BUILD_TESTS = OFF
+--   KINETO_LIBRARY_TYPE = static
+--   CUDA_SOURCE_DIR = /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml
+--   CUDA_INCLUDE_DIRS = /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/include
+--   CUPTI_INCLUDE_DIR = /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/extras/CUPTI/include
+--   CUDA_cupti_LIBRARY = /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/extras/CUPTI/lib64/libcupti.so
+-- Found CUPTI
+-- Found PythonInterp: /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python (found version "3.8.12") 
+-- Kineto: FMT_SOURCE_DIR = /users/zhu/pytorch/third_party/fmt
+-- Kineto: FMT_INCLUDE_DIR = /users/zhu/pytorch/third_party/fmt/include
+-- Configured Kineto
+-- GCC 10.2.0: Adding gcc and gcc_s libs to link line
+-- Performing Test HAS_WERROR_RETURN_TYPE
+-- Performing Test HAS_WERROR_RETURN_TYPE - Success
+-- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR
+-- Performing Test HAS_WERROR_NON_VIRTUAL_DTOR - Success
+-- Performing Test HAS_WERROR_BRACED_SCALAR_INIT
+-- Performing Test HAS_WERROR_BRACED_SCALAR_INIT - Failed
+-- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT
+-- Performing Test HAS_WERROR_RANGE_LOOP_CONSTRUCT - Failed
+-- Performing Test HAS_WERROR_BOOL_OPERATION
+-- Performing Test HAS_WERROR_BOOL_OPERATION - Success
+-- Performing Test HAS_WNARROWING
+-- Performing Test HAS_WNARROWING - Success
+-- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS
+-- Performing Test HAS_WNO_MISSING_FIELD_INITIALIZERS - Success
+-- Performing Test HAS_WNO_TYPE_LIMITS
+-- Performing Test HAS_WNO_TYPE_LIMITS - Success
+-- Performing Test HAS_WNO_ARRAY_BOUNDS
+-- Performing Test HAS_WNO_ARRAY_BOUNDS - Success
+-- Performing Test HAS_WNO_UNKNOWN_PRAGMAS
+-- Performing Test HAS_WNO_UNKNOWN_PRAGMAS - Success
+-- Performing Test HAS_WNO_UNUSED_PARAMETER
+-- Performing Test HAS_WNO_UNUSED_PARAMETER - Success
+-- Performing Test HAS_WNO_UNUSED_FUNCTION
+-- Performing Test HAS_WNO_UNUSED_FUNCTION - Success
+-- Performing Test HAS_WNO_UNUSED_RESULT
+-- Performing Test HAS_WNO_UNUSED_RESULT - Success
+-- Performing Test HAS_WNO_STRICT_OVERFLOW
+-- Performing Test HAS_WNO_STRICT_OVERFLOW - Success
+-- Performing Test HAS_WNO_STRICT_ALIASING
+-- Performing Test HAS_WNO_STRICT_ALIASING - Success
+-- Performing Test HAS_WNO_STRINGOP_OVERFLOW
+-- Performing Test HAS_WNO_STRINGOP_OVERFLOW - Success
+-- Performing Test HAS_WVLA_EXTENSION
+-- Performing Test HAS_WVLA_EXTENSION - Failed
+-- Performing Test HAS_WSUGGEST_OVERRIDE
+-- Performing Test HAS_WSUGGEST_OVERRIDE - Success
+-- Performing Test HAS_WNEWLINE_EOF
+-- Performing Test HAS_WNEWLINE_EOF - Failed
+-- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE
+-- Performing Test HAS_WINCONSISTENT_MISSING_OVERRIDE - Failed
+-- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE
+-- Performing Test HAS_WINCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE - Failed
+-- Performing Test HAS_WNO_ERROR_PEDANTIC
+-- Performing Test HAS_WNO_ERROR_PEDANTIC - Success
+-- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST
+-- Performing Test HAS_WNO_ERROR_OLD_STYLE_CAST - Success
+-- Performing Test HAS_WNO_ERROR_INCONSISTENT_MISSING_OVERRIDE
+-- Performing Test HAS_WNO_ERROR_INCONSISTENT_MISSING_OVERRIDE - Failed
+-- Performing Test HAS_WNO_ERROR_INCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE
+-- Performing Test HAS_WNO_ERROR_INCONSISTENT_MISSING_DESTRUCTOR_OVERRIDE - Failed
+-- Performing Test HAS_WCONSTANT_CONVERSION
+-- Performing Test HAS_WCONSTANT_CONVERSION - Failed
+-- Performing Test HAS_WNO_INVALID_PARTIAL_SPECIALIZATION
+-- Performing Test HAS_WNO_INVALID_PARTIAL_SPECIALIZATION - Failed
+-- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE
+-- Performing Test HAS_WNO_ALIGNED_ALLOCATION_UNAVAILABLE - Failed
+-- Performing Test HAS_WNO_MISSING_BRACES
+-- Performing Test HAS_WNO_MISSING_BRACES - Success
+-- Performing Test HAS_QUNUSED_ARGUMENTS
+-- Performing Test HAS_QUNUSED_ARGUMENTS - Failed
+-- Performing Test HAS_FDIAGNOSTICS_COLOR_ALWAYS
+-- Performing Test HAS_FDIAGNOSTICS_COLOR_ALWAYS - Success
+-- Performing Test HAS_FALIGNED_NEW
+-- Performing Test HAS_FALIGNED_NEW - Success
+-- Performing Test HAS_WNO_UNUSED_BUT_SET_VARIABLE
+-- Performing Test HAS_WNO_UNUSED_BUT_SET_VARIABLE - Success
+-- Performing Test HAS_WNO_MAYBE_UNINITIALIZED
+-- Performing Test HAS_WNO_MAYBE_UNINITIALIZED - Success
+-- Performing Test HAS_FSTANDALONE_DEBUG
+-- Performing Test HAS_FSTANDALONE_DEBUG - Failed
+-- Performing Test HAS_FNO_MATH_ERRNO
+-- Performing Test HAS_FNO_MATH_ERRNO - Success
+-- Performing Test HAS_FNO_TRAPPING_MATH
+-- Performing Test HAS_FNO_TRAPPING_MATH - Success
+-- Performing Test HAS_WERROR_FORMAT
+-- Performing Test HAS_WERROR_FORMAT - Success
+-- Performing Test HAS_WDEPRECATED
+-- Performing Test HAS_WDEPRECATED - Success
+-- NUMA paths:
+-- /usr/include
+-- /usr/lib64/libnuma.so
+-- Looking for backtrace
+-- Looking for backtrace - found
+-- backtrace facility detected in default set of libraries
+-- Found Backtrace: /usr/include  
+-- headers outputs: 
+-- sources outputs: 
+-- declarations_yaml outputs: 
+-- Performing Test COMPILER_SUPPORTS_NO_AVX256_SPLIT
+-- Performing Test COMPILER_SUPPORTS_NO_AVX256_SPLIT - Success
+-- Using ATen parallel backend: OMP
+-- Found OpenSSL: /usr/lib64/libcrypto.so (found version "1.1.1k")  
+-- Check size of long double
+-- Check size of long double - done
+-- Performing Test COMPILER_SUPPORTS_LONG_DOUBLE
+-- Performing Test COMPILER_SUPPORTS_LONG_DOUBLE - Success
+-- Performing Test COMPILER_SUPPORTS_FLOAT128
+-- Performing Test COMPILER_SUPPORTS_FLOAT128 - Success
+-- Performing Test COMPILER_SUPPORTS_SSE2
+-- Performing Test COMPILER_SUPPORTS_SSE2 - Success
+-- Performing Test COMPILER_SUPPORTS_SSE4
+-- Performing Test COMPILER_SUPPORTS_SSE4 - Success
+-- Performing Test COMPILER_SUPPORTS_AVX
+-- Performing Test COMPILER_SUPPORTS_AVX - Success
+-- Performing Test COMPILER_SUPPORTS_FMA4
+-- Performing Test COMPILER_SUPPORTS_FMA4 - Success
+-- Performing Test COMPILER_SUPPORTS_AVX2
+-- Performing Test COMPILER_SUPPORTS_AVX2 - Success
+-- Performing Test COMPILER_SUPPORTS_AVX512F
+-- Performing Test COMPILER_SUPPORTS_AVX512F - Success
+-- Found OpenMP_C: -fopenmp (found version "4.5") 
+-- Found OpenMP_CXX: -fopenmp (found version "4.5") 
+-- Found OpenMP: TRUE (found version "4.5")  
+-- Performing Test COMPILER_SUPPORTS_OPENMP
+-- Performing Test COMPILER_SUPPORTS_OPENMP - Success
+-- Performing Test COMPILER_SUPPORTS_OMP_SIMD
+-- Performing Test COMPILER_SUPPORTS_OMP_SIMD - Success
+-- Performing Test COMPILER_SUPPORTS_WEAK_ALIASES
+-- Performing Test COMPILER_SUPPORTS_WEAK_ALIASES - Success
+-- Performing Test COMPILER_SUPPORTS_BUILTIN_MATH
+-- Performing Test COMPILER_SUPPORTS_BUILTIN_MATH - Success
+-- Performing Test COMPILER_SUPPORTS_SYS_GETRANDOM
+-- Performing Test COMPILER_SUPPORTS_SYS_GETRANDOM - Success
+-- Configuring build for SLEEF-v3.6.0
+-- Using option `-Wall -Wno-unused-function -Wno-attributes -Wno-unused-result -Wno-psabi -ffp-contract=off -fno-math-errno -fno-trapping-math` to compile libsleef
+-- Building shared libs : OFF
+-- Building static test bins: OFF
+-- MPFR : LIB_MPFR-NOTFOUND
+-- GMP : LIBGMP-NOTFOUND
+-- RT : /usr/lib64/librt.so
+-- FFTW3 : LIBFFTW3-NOTFOUND
+-- OPENSSL : 1.1.1k
+-- SDE : SDE_COMMAND-NOTFOUND
+-- COMPILER_SUPPORTS_OPENMP : 1
+-- Performing Test HAS_WNO_DEPRECATED_COPY
+-- Performing Test HAS_WNO_DEPRECATED_COPY - Success
+-- Performing Test HAS_WNO_UNUSED_PRIVATE_FIELD
+-- Performing Test HAS_WNO_UNUSED_PRIVATE_FIELD - Failed
+-- Generating sources for unboxing kernels /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python3;-m;torchgen.gen_executorch;--source-path=/users/zhu/pytorch/test/edge/../../test/edge;--install-dir=/users/zhu/pytorch/build/out;--tags-path=/users/zhu/pytorch/test/edge/../../aten/src/ATen/native/tags.yaml;--aten-yaml-path=/users/zhu/pytorch/test/edge/../../aten/src/ATen/native/native_functions.yaml;--use-aten-lib;--op-selection-yaml-path=/users/zhu/pytorch/test/edge/../../test/edge/selected_operators.yaml;--custom-ops-yaml-path=/users/zhu/pytorch/test/edge/../../test/edge/custom_ops.yaml
+-- Performing Test HAS_WNO_UNUSED_BUT_SET_PARAMETER
+-- Performing Test HAS_WNO_UNUSED_BUT_SET_PARAMETER - Success
+-- _GLIBCXX_USE_CXX11_ABI=1 is already defined as a cmake variable
+-- Autodetected CUDA architecture(s):  8.6 8.6 8.6
+-- 
+-- ******** Summary ********
+-- General:
+--   CMake version         : 3.21.3
+--   CMake command         : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cmake-3.21.3-zt24jfeuemvwweacziyho6ccdsdn2w4s/bin/cmake
+--   System                : Linux
+--   C++ compiler          : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi/bin/g++
+--   C++ compiler id       : GNU
+--   C++ compiler version  : 10.2.0
+--   Using ccache if found : ON
+--   Found ccache          : CCACHE_PROGRAM-NOTFOUND
+--   CXX flags             :  -D_GLIBCXX_USE_CXX11_ABI=1 -fvisibility-inlines-hidden -DUSE_PTHREADPOOL -DNDEBUG -DUSE_KINETO -DLIBKINETO_NOROCTRACER -DUSE_FBGEMM -DUSE_PYTORCH_QNNPACK -DUSE_XNNPACK -DSYMBOLICATE_MOBILE_DEBUG_HANDLE -O2 -fPIC -Wall -Wextra -Werror=return-type -Werror=non-virtual-dtor -Werror=bool-operation -Wnarrowing -Wno-missing-field-initializers -Wno-type-limits -Wno-array-bounds -Wno-unknown-pragmas -Wno-unused-parameter -Wno-unused-function -Wno-unused-result -Wno-strict-overflow -Wno-strict-aliasing -Wno-stringop-overflow -Wsuggest-override -Wno-psabi -Wno-error=pedantic -Wno-error=old-style-cast -Wno-missing-braces -fdiagnostics-color=always -faligned-new -Wno-unused-but-set-variable -Wno-maybe-uninitialized -fno-math-errno -fno-trapping-math -Werror=format -Wno-stringop-overflow
+--   Shared LD flags       :  -Wl,--no-as-needed  -rdynamic
+--   Static LD flags       : 
+--   Module LD flags       : 
+--   Build type            : Release
+--   Compile definitions   : ONNX_ML=1;ONNXIFI_ENABLE_EXT=1;ONNX_NAMESPACE=onnx_torch;HAVE_MMAP=1;_FILE_OFFSET_BITS=64;HAVE_SHM_OPEN=1;HAVE_SHM_UNLINK=1;HAVE_MALLOC_USABLE_SIZE=1;USE_EXTERNAL_MZCRC;MINIZ_DISABLE_ZIP_READER_CRC32_CHECKS;FLASHATTENTION_DISABLE_ALIBI
+--   CMAKE_PREFIX_PATH     : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/lib/python3.8/site-packages;/users/zhu/nccl_nvtx/nccl/build:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml:/apps/ault/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/libxml2-2.9.10-h3m7abg7kljuxzw2jnpgceqsnxor5bav:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/ninja-1.10.2-wdynop4omsowbsqvfv6gvco6dxqkdvgh:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cmake-3.21.3-zt24jfeuemvwweacziyho6ccdsdn2w4s:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml
+--   CMAKE_INSTALL_PREFIX  : /users/zhu/pytorch/torch
+--   USE_GOLD_LINKER       : OFF
+-- 
+--   TORCH_VERSION         : 2.4.0
+--   BUILD_STATIC_RUNTIME_BENCHMARK: OFF
+--   BUILD_BINARY          : OFF
+--   BUILD_CUSTOM_PROTOBUF : ON
+--     Link local protobuf : ON
+--   BUILD_DOCS            : OFF
+--   BUILD_PYTHON          : True
+--     Python version      : 3.8.12
+--     Python executable   : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python3
+--     Python library      : 
+--     Python includes     : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/include/python3.8
+--     Python site-package : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/lib/python3.8/site-packages
+--   BUILD_SHARED_LIBS     : ON
+--   CAFFE2_USE_MSVC_STATIC_RUNTIME     : OFF
+--   BUILD_TEST            : True
+--   BUILD_JNI             : OFF
+--   BUILD_MOBILE_AUTOGRAD : OFF
+--   BUILD_LITE_INTERPRETER: OFF
+--   INTERN_BUILD_MOBILE   : 
+--   TRACING_BASED         : OFF
+--   USE_BLAS              : 0
+--   USE_LAPACK            : 0
+--   USE_ASAN              : OFF
+--   USE_TSAN              : OFF
+--   USE_CPP_CODE_COVERAGE : OFF
+--   USE_CUDA              : ON
+--     Split CUDA          : 
+--     CUDA static link    : OFF
+--     USE_CUDNN           : OFF
+--     USE_CUSPARSELT      : OFF
+--     CUDA version        : 11.8
+--     USE_FLASH_ATTENTION : ON
+--     USE_MEM_EFF_ATTENTION : ON
+--     CUDA root directory : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml
+--     CUDA library        : /usr/lib64/libcuda.so
+--     cudart library      : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libcudart.so
+--     cublas library      : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libcublas.so
+--     cufft library       : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libcufft.so
+--     curand library      : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libcurand.so
+--     cusparse library    : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libcusparse.so
+--     nvrtc               : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libnvrtc.so
+--     CUDA include path   : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/include
+--     NVCC executable     : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/bin/nvcc
+--     CUDA compiler       : /apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/bin/nvcc
+--     CUDA flags          :  -DLIBCUDACXX_ENABLE_SIMPLIFIED_COMPLEX_OPERATIONS -D_GLIBCXX_USE_CXX11_ABI=1 -Xfatbin -compress-all -DONNX_NAMESPACE=onnx_torch -gencode arch=compute_86,code=sm_86 -Xcudafe --diag_suppress=cc_clobber_ignored,--diag_suppress=field_without_dll_interface,--diag_suppress=base_class_has_different_dll_interface,--diag_suppress=dll_interface_conflict_none_assumed,--diag_suppress=dll_interface_conflict_dllexport_assumed,--diag_suppress=bad_friend_decl --expt-relaxed-constexpr --expt-extended-lambda  -Wno-deprecated-gpu-targets --expt-extended-lambda -DCUB_WRAPPED_NAMESPACE=at_cuda_detail -DCUDA_HAS_FP16=1 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__
+--     CUDA host compiler  : 
+--     CUDA --device-c     : OFF
+--     USE_TENSORRT        : 
+--   USE_XPU               : 0
+--   USE_ROCM              : 0
+--   BUILD_NVFUSER         : 
+--   USE_EIGEN_FOR_BLAS    : ON
+--   USE_FBGEMM            : ON
+--     USE_FAKELOWP          : OFF
+--   USE_KINETO            : ON
+--   USE_GFLAGS            : OFF
+--   USE_GLOG              : OFF
+--   USE_LITE_PROTO        : OFF
+--   USE_PYTORCH_METAL     : OFF
+--   USE_PYTORCH_METAL_EXPORT     : OFF
+--   USE_MPS               : OFF
+--   USE_MKL               : OFF
+--   USE_MKLDNN            : ON
+--   USE_MKLDNN_ACL        : OFF
+--   USE_MKLDNN_CBLAS      : OFF
+--   USE_UCC               : OFF
+--   USE_ITT               : ON
+--   USE_NCCL              : ON
+--     USE_SYSTEM_NCCL     : 1
+--   USE_NNPACK            : ON
+--   USE_NUMPY             : ON
+--   USE_OBSERVERS         : ON
+--   USE_OPENCL            : OFF
+--   USE_OPENMP            : ON
+--   USE_MIMALLOC          : OFF
+--   USE_VULKAN            : OFF
+--   USE_PROF              : OFF
+--   USE_PYTORCH_QNNPACK   : ON
+--   USE_XNNPACK           : ON
+--   USE_DISTRIBUTED       : ON
+--     USE_MPI               : OFF
+--     USE_GLOO              : ON
+--     USE_GLOO_WITH_OPENSSL : OFF
+--     USE_TENSORPIPE        : ON
+--   Public Dependencies  : 
+--   Private Dependencies : Threads::Threads;pthreadpool;cpuinfo;pytorch_qnnpack;nnpack;XNNPACK;fbgemm;ittnotify;fp16;caffe2::openmp;tensorpipe;gloo;foxi_loader;rt;fmt::fmt-header-only;kineto;gcc_s;gcc;dl
+--   Public CUDA Deps.    : 
+--   Private CUDA Deps.   : caffe2::curand;caffe2::cufft;caffe2::cublas;__caffe2_nccl;tensorpipe_cuda;gloo_cuda;/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64/libcudart.so;CUDA::cusparse;CUDA::cufft;ATEN_CUDA_FILES_GEN_LIB
+--   USE_COREML_DELEGATE     : OFF
+--   BUILD_LAZY_TS_BACKEND   : ON
+--   USE_ROCM_KERNEL_ASSERT : OFF
+-- Performing Test HAS_WMISSING_PROTOTYPES
+-- Performing Test HAS_WMISSING_PROTOTYPES - Failed
+-- Performing Test HAS_WERROR_MISSING_PROTOTYPES
+-- Performing Test HAS_WERROR_MISSING_PROTOTYPES - Failed
+-- Configuring done
+Building wheel torch-2.4.0a0+gitee1b680
+-- Building version 2.4.0a0+gitee1b680
+cmake -GNinja -DBUILD_PYTHON=True -DBUILD_TEST=True -DCMAKE_BUILD_TYPE=Release -DCMAKE_INSTALL_PREFIX=/users/zhu/pytorch/torch -DCMAKE_PREFIX_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/lib/python3.8/site-packages;/users/zhu/nccl_nvtx/nccl/build:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml:/apps/ault/spack/opt/spack/linux-centos8-zen2/gcc-10.2.0/libxml2-2.9.10-h3m7abg7kljuxzw2jnpgceqsnxor5bav:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/ninja-1.10.2-wdynop4omsowbsqvfv6gvco6dxqkdvgh:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/gcc-10.2.0-fqf4ze2mfclmx6e7ehrjckznpoqnevmi:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cmake-3.21.3-zt24jfeuemvwweacziyho6ccdsdn2w4s:/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv -DPython_EXECUTABLE=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/python-3.8.12-dhpibk3qutj5jasu4ygzx5lqfctlhcdv/bin/python3 -DTORCH_BUILD_VERSION=2.4.0a0+gitee1b680 -DUSE_NUMPY=True -DUSE_ROCM=0 -DUSE_SYSTEM_NCCL=1 -DUSE_XPU=0 /users/zhu/pytorch

@@ -1,9 +1,661 @@
-num_ranks 6
+num_ranks 2
 
 rank 0 {
-l1: recv 350208b from 5 tag 0
-l2: calc 813
-l3: calc 80330
-l1 requires l3
-l2 requires l3
-l2 irequires l1
+l1: calc 0
+l2: calc 1194860
+l2 requires l1
+l3: calc 0
+l4: calc 1667
+l4 requires l2
+l5: send 1048576b to 1 tag 0
+l5 requires l4
+l6: calc 3034
+l6 requires l4
+l6 irequires l5
+l7: calc 7217
+l7 requires l6
+l3 requires l7
+l8: calc 1607
+l8 requires l2
+l9: recv 1048576b from 1 tag 1
+l9 requires l8
+l10: calc 5715
+l10 requires l8
+l10 irequires l9
+l11: calc 4597
+l11 requires l10
+l3 requires l11
+l12: calc 1679
+l12 requires l2
+l13: send 1048576b to 1 tag 1
+l13 requires l12
+l14: calc 3299
+l14 requires l12
+l14 irequires l13
+l15: calc 6940
+l15 requires l14
+l3 requires l15
+l16: calc 1632
+l16 requires l2
+l17: recv 1048576b from 1 tag 0
+l17 requires l16
+l18: calc 6432
+l18 requires l16
+l18 irequires l17
+l19: calc 3855
+l19 requires l18
+l3 requires l19
+l20: calc 1684
+l20 requires l2
+l21: send 1048576b to 1 tag 0
+l21 requires l20
+l22: calc 4615
+l22 requires l20
+l22 irequires l21
+l23: calc 5620
+l23 requires l22
+l3 requires l23
+l24: calc 1637
+l24 requires l2
+l25: recv 1048576b from 1 tag 0
+l25 requires l24
+l26: calc 6471
+l26 requires l24
+l26 irequires l25
+l27: calc 3811
+l27 requires l26
+l3 requires l27
+l28: calc 1689
+l28 requires l2
+l29: send 1048576b to 1 tag 1
+l29 requires l28
+l30: calc 5548
+l30 requires l28
+l30 irequires l29
+l31: calc 4682
+l31 requires l30
+l3 requires l31
+l32: calc 1639
+l32 requires l2
+l33: recv 1048576b from 1 tag 0
+l33 requires l32
+l34: calc 7138
+l34 requires l32
+l34 irequires l33
+l35: calc 3142
+l35 requires l34
+l3 requires l35
+l36: calc 8776
+l36 requires l2
+l37: send 1048576b to 1 tag 1
+l37 requires l36
+l38: calc 1689
+l38 requires l36
+l38 irequires l37
+l39: calc 1454
+l39 requires l38
+l3 requires l39
+l40: calc 1640
+l40 requires l2
+l41: recv 1048576b from 1 tag 1
+l41 requires l40
+l42: calc 7668
+l42 requires l40
+l42 irequires l41
+l43: calc 2611
+l43 requires l42
+l3 requires l43
+l44: calc 10658
+l44 requires l2
+l45: send 1048576b to 1 tag 1
+l45 requires l44
+l46: calc 441
+l46 requires l44
+l46 irequires l45
+l47: calc 819
+l47 requires l46
+l3 requires l47
+l48: calc 1641
+l48 requires l2
+l49: recv 1048576b from 1 tag 0
+l49 requires l48
+l50: calc 7871
+l50 requires l48
+l50 irequires l49
+l51: calc 2407
+l51 requires l50
+l3 requires l51
+l52: calc 11592
+l52 requires l2
+l53: send 1048576b to 1 tag 0
+l53 requires l52
+l54: calc 114
+l54 requires l52
+l54 irequires l53
+l55: calc 213
+l55 requires l54
+l3 requires l55
+l56: calc 1642
+l56 requires l2
+l57: recv 1048576b from 1 tag 1
+l57 requires l56
+l58: calc 8937
+l58 requires l56
+l58 irequires l57
+l59: calc 1340
+l59 requires l58
+l3 requires l59
+l60: calc 11705
+l60 requires l2
+l61: send 1048576b to 1 tag 0
+l61 requires l60
+l62: calc 365
+l62 requires l60
+l62 irequires l61
+l63: calc -152
+l63 requires l62
+l3 requires l63
+l64: calc 1644
+l64 requires l2
+l65: recv 1048576b from 1 tag 1
+l65 requires l64
+l66: calc 9949
+l66 requires l64
+l66 irequires l65
+l67: calc 326
+l67 requires l66
+l3 requires l67
+l68: calc 3195139
+l68 requires l3
+l69: calc 0
+l70: calc 3133
+l70 requires l68
+l71: send 1048576b to 1 tag 0
+l71 requires l70
+l72: calc 2297
+l72 requires l70
+l72 irequires l71
+l73: calc 6815
+l73 requires l72
+l69 requires l73
+l74: calc 3092
+l74 requires l68
+l75: recv 1048576b from 1 tag 1
+l75 requires l74
+l76: calc 42
+l76 requires l74
+l76 irequires l75
+l77: calc 9112
+l77 requires l76
+l69 requires l77
+l78: calc 3895
+l78 requires l68
+l79: send 1048576b to 1 tag 1
+l79 requires l78
+l80: calc 2043
+l80 requires l78
+l80 irequires l79
+l81: calc 6307
+l81 requires l80
+l69 requires l81
+l82: calc 3104
+l82 requires l68
+l83: recv 1048576b from 1 tag 0
+l83 requires l82
+l84: calc 793
+l84 requires l82
+l84 irequires l83
+l85: calc 8349
+l85 requires l84
+l69 requires l85
+l86: calc 4452
+l86 requires l68
+l87: send 1048576b to 1 tag 0
+l87 requires l86
+l88: calc 1802
+l88 requires l86
+l88 irequires l87
+l89: calc 5991
+l89 requires l88
+l69 requires l89
+l90: calc 3106
+l90 requires l68
+l91: recv 1048576b from 1 tag 0
+l91 requires l90
+l92: calc 1779
+l92 requires l90
+l92 irequires l91
+l93: calc 7361
+l93 requires l92
+l69 requires l93
+l94: calc 4884
+l94 requires l68
+l95: send 1048576b to 1 tag 1
+l95 requires l94
+l96: calc 1841
+l96 requires l94
+l96 irequires l95
+l97: calc 5520
+l97 requires l96
+l69 requires l97
+l98: calc 3108
+l98 requires l68
+l99: recv 1048576b from 1 tag 1
+l99 requires l98
+l100: calc 2657
+l100 requires l98
+l100 irequires l99
+l101: calc 6481
+l101 requires l100
+l69 requires l101
+l102: calc 5931
+l102 requires l68
+l103: send 1048576b to 1 tag 1
+l103 requires l102
+l104: calc 1157
+l104 requires l102
+l104 irequires l103
+l105: calc 5156
+l105 requires l104
+l69 requires l105
+l106: calc 3109
+l106 requires l68
+l107: recv 1048576b from 1 tag 0
+l107 requires l106
+l108: calc 4755
+l108 requires l106
+l108 irequires l107
+l109: calc 4382
+l109 requires l108
+l69 requires l109
+l110: calc 6715
+l110 requires l68
+l111: send 1048576b to 1 tag 0
+l111 requires l110
+l112: calc 738
+l112 requires l110
+l112 irequires l111
+l113: calc 4792
+l113 requires l112
+l69 requires l113
+l114: calc 3110
+l114 requires l68
+l115: recv 1048576b from 1 tag 0
+l115 requires l114
+l116: calc 7119
+l116 requires l114
+l116 irequires l115
+l117: calc 2017
+l117 requires l116
+l69 requires l117
+l118: calc 6721
+l118 requires l68
+l119: send 1048576b to 1 tag 1
+l119 requires l118
+l120: calc 1852
+l120 requires l118
+l120 irequires l119
+l121: calc 3673
+l121 requires l120
+l69 requires l121
+l122: calc 3112
+l122 requires l68
+l123: recv 1048576b from 1 tag 1
+l123 requires l122
+l124: calc 8287
+l124 requires l122
+l124 irequires l123
+l125: calc 847
+l125 requires l124
+l69 requires l125
+l126: calc 7440
+l126 requires l68
+l127: send 1048576b to 1 tag 0
+l127 requires l126
+l128: calc 2169
+l128 requires l126
+l128 irequires l127
+l129: calc 2636
+l129 requires l128
+l69 requires l129
+l130: calc 3114
+l130 requires l68
+l131: recv 1048576b from 1 tag 1
+l131 requires l130
+l132: calc 8446
+l132 requires l130
+l132 irequires l131
+l133: calc 686
+l133 requires l132
+l69 requires l133
+}
+
+rank 1 {
+l134: calc 0
+l135: calc 1184518
+l135 requires l134
+l136: calc 0
+l137: calc 1920
+l137 requires l135
+l138: send 1048576b to 0 tag 0
+l138 requires l137
+l139: calc 2565
+l139 requires l137
+l139 irequires l138
+l140: calc 5658
+l140 requires l139
+l136 requires l140
+l141: calc 1637
+l141 requires l135
+l142: recv 1048576b from 0 tag 0
+l142 requires l141
+l143: calc 406
+l143 requires l141
+l143 irequires l142
+l144: calc 8101
+l144 requires l143
+l136 requires l144
+l145: calc 2042
+l145 requires l135
+l146: send 1048576b to 0 tag 1
+l146 requires l145
+l147: calc 2694
+l147 requires l145
+l147 irequires l146
+l148: calc 5407
+l148 requires l147
+l136 requires l148
+l149: calc 1665
+l149 requires l135
+l150: recv 1048576b from 0 tag 0
+l150 requires l149
+l151: calc 1026
+l151 requires l149
+l151 irequires l150
+l152: calc 7453
+l152 requires l151
+l136 requires l152
+l153: calc 2633
+l153 requires l135
+l154: send 1048576b to 0 tag 0
+l154 requires l153
+l155: calc 2208
+l155 requires l153
+l155 irequires l154
+l156: calc 5302
+l156 requires l155
+l136 requires l156
+l157: calc 1671
+l157 requires l135
+l158: recv 1048576b from 0 tag 1
+l158 requires l157
+l159: calc 1930
+l159 requires l157
+l159 irequires l158
+l160: calc 6543
+l160 requires l159
+l136 requires l160
+l161: calc 2691
+l161 requires l135
+l162: send 1048576b to 0 tag 1
+l162 requires l161
+l163: calc 2433
+l163 requires l161
+l163 irequires l162
+l164: calc 5020
+l164 requires l163
+l136 requires l164
+l165: calc 1672
+l165 requires l135
+l166: recv 1048576b from 0 tag 1
+l166 requires l165
+l167: calc 3130
+l167 requires l165
+l167 irequires l166
+l168: calc 5342
+l168 requires l167
+l136 requires l168
+l169: calc 4134
+l169 requires l135
+l170: send 1048576b to 0 tag 0
+l170 requires l169
+l171: calc 1588
+l171 requires l169
+l171 irequires l170
+l172: calc 4421
+l172 requires l171
+l136 requires l172
+l173: calc 1673
+l173 requires l135
+l174: recv 1048576b from 0 tag 1
+l174 requires l173
+l175: calc 6075
+l175 requires l173
+l175 irequires l174
+l176: calc 2396
+l176 requires l175
+l136 requires l176
+l177: calc 4577
+l177 requires l135
+l178: send 1048576b to 0 tag 0
+l178 requires l177
+l179: calc 1469
+l179 requires l177
+l179 irequires l178
+l180: calc 4098
+l180 requires l179
+l136 requires l180
+l181: calc 1675
+l181 requires l135
+l182: recv 1048576b from 0 tag 1
+l182 requires l181
+l183: calc 7343
+l183 requires l181
+l183 irequires l182
+l184: calc 1126
+l184 requires l183
+l136 requires l184
+l185: calc 4733
+l185 requires l135
+l186: send 1048576b to 0 tag 1
+l186 requires l185
+l187: calc 1829
+l187 requires l185
+l187 irequires l186
+l188: calc 3582
+l188 requires l187
+l136 requires l188
+l189: calc 1676
+l189 requires l135
+l190: recv 1048576b from 0 tag 0
+l190 requires l189
+l191: calc 7412
+l191 requires l189
+l191 irequires l190
+l192: calc 1056
+l192 requires l191
+l136 requires l192
+l193: calc 5915
+l193 requires l135
+l194: send 1048576b to 0 tag 1
+l194 requires l193
+l195: calc 1733
+l195 requires l193
+l195 irequires l194
+l196: calc 2496
+l196 requires l195
+l136 requires l196
+l197: calc 1678
+l197 requires l135
+l198: recv 1048576b from 0 tag 0
+l198 requires l197
+l199: calc 7859
+l199 requires l197
+l199 irequires l198
+l200: calc 607
+l200 requires l199
+l136 requires l200
+l201: calc 3184742
+l201 requires l136
+l202: calc 0
+l203: calc 143
+l203 requires l201
+l204: send 1048576b to 0 tag 1
+l204 requires l203
+l205: calc 10
+l205 requires l203
+l205 irequires l204
+l206: calc 8030
+l206 requires l205
+l202 requires l206
+l207: calc 55
+l207 requires l201
+l208: recv 1048576b from 0 tag 0
+l208 requires l207
+l209: calc 2671
+l209 requires l207
+l209 irequires l208
+l210: calc 5457
+l210 requires l209
+l202 requires l210
+l211: calc 148
+l211 requires l201
+l212: send 1048576b to 0 tag 0
+l212 requires l211
+l213: calc 348
+l213 requires l211
+l213 irequires l212
+l214: calc 7686
+l214 requires l213
+l202 requires l214
+l215: calc 103
+l215 requires l201
+l216: recv 1048576b from 0 tag 0
+l216 requires l215
+l217: calc 3300
+l217 requires l215
+l217 irequires l216
+l218: calc 4780
+l218 requires l217
+l202 requires l218
+l219: calc 488
+l219 requires l201
+l220: send 1048576b to 0 tag 0
+l220 requires l219
+l221: calc 404
+l221 requires l219
+l221 irequires l220
+l222: calc 7291
+l222 requires l221
+l202 requires l222
+l223: calc 106
+l223 requires l201
+l224: recv 1048576b from 0 tag 1
+l224 requires l223
+l225: calc 3851
+l225 requires l223
+l225 irequires l224
+l226: calc 4226
+l226 requires l225
+l202 requires l226
+l227: calc 493
+l227 requires l201
+l228: send 1048576b to 0 tag 1
+l228 requires l227
+l229: calc 726
+l229 requires l227
+l229 irequires l228
+l230: calc 6964
+l230 requires l229
+l202 requires l230
+l231: calc 108
+l231 requires l201
+l232: recv 1048576b from 0 tag 0
+l232 requires l231
+l233: calc 4475
+l233 requires l231
+l233 irequires l232
+l234: calc 3600
+l234 requires l233
+l202 requires l234
+l235: calc 3956
+l235 requires l201
+l236: send 1048576b to 0 tag 0
+l236 requires l235
+l237: calc 1141
+l237 requires l235
+l237 irequires l236
+l238: calc 3086
+l238 requires l237
+l202 requires l238
+l239: calc 111
+l239 requires l201
+l240: recv 1048576b from 0 tag 1
+l240 requires l239
+l241: calc 5267
+l241 requires l239
+l241 irequires l240
+l242: calc 2805
+l242 requires l241
+l202 requires l242
+l243: calc 7434
+l243 requires l201
+l244: send 1048576b to 0 tag 0
+l244 requires l243
+l245: calc 4
+l245 requires l243
+l245 irequires l244
+l246: calc 745
+l246 requires l245
+l202 requires l246
+l247: calc 112
+l247 requires l201
+l248: recv 1048576b from 0 tag 0
+l248 requires l247
+l249: calc 5857
+l249 requires l247
+l249 irequires l248
+l250: calc 2214
+l250 requires l249
+l202 requires l250
+l251: calc 8018
+l251 requires l201
+l252: send 1048576b to 0 tag 1
+l252 requires l251
+l253: calc 2
+l253 requires l251
+l253 irequires l252
+l254: calc 163
+l254 requires l253
+l202 requires l254
+l255: calc 114
+l255 requires l201
+l256: recv 1048576b from 0 tag 1
+l256 requires l255
+l257: calc 6365
+l257 requires l255
+l257 irequires l256
+l258: calc 1704
+l258 requires l257
+l202 requires l258
+l259: calc 8019
+l259 requires l201
+l260: send 1048576b to 0 tag 1
+l260 requires l259
+l261: calc 346
+l261 requires l259
+l261 irequires l260
+l262: calc -183
+l262 requires l261
+l202 requires l262
+l263: calc 115
+l263 requires l201
+l264: recv 1048576b from 0 tag 1
+l264 requires l263
+l265: calc 7721
+l265 requires l263
+l265 irequires l264
+l266: calc 347
+l266 requires l265
+l202 requires l266
+}

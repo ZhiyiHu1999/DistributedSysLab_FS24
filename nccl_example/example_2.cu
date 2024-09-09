@@ -60,7 +60,7 @@ static void getHostName(char* hostname, int maxlen) {
 int main(int argc, char* argv[])
 {
   int size = 2*1024*1024;
-  // int size = 32*1024*1024;
+  // int size = 1024*1024*1024;
 
 
   int myRank, nRanks, localRank = 0;
@@ -115,9 +115,9 @@ int main(int argc, char* argv[])
   //communicating using NCCL
   NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
 
-  // sleep(2);
+  sleep(2);
 
-  // NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
+  NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
 
   //completing NCCL operation by synchronizing on the CUDA stream
   CUDACHECK(cudaStreamSynchronize(s));

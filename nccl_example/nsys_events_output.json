@@ -1,0 +1,1090 @@
+{
+    "0": [
+        {
+            "event_name": "ncclKernel_AllReduce_RING_LL_Sum_float(ncclDevComm *, unsigned long, ncclWork *)",
+            "timestamp_start": 1194860,
+            "timestamp_end": 1206779,
+            "net_events": {
+                "NVTX_EVENT_NET_ISEND": [
+                    {
+                        "ts_start": 1196527,
+                        "ts_end": 1196528,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1196539,
+                        "ts_end": 1196540,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1196544,
+                        "ts_end": 1196544,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1196549,
+                        "ts_end": 1196549,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1203636,
+                        "ts_end": 1203636,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1205518,
+                        "ts_end": 1205519,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1206452,
+                        "ts_end": 1206452,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1206565,
+                        "ts_end": 1206566,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    }
+                ],
+                "NVTX_EVENT_NET_IRECV": [
+                    {
+                        "ts_start": 1196467,
+                        "ts_end": 1196489,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1196492,
+                        "ts_end": 1196493,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1196497,
+                        "ts_end": 1196498,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1196499,
+                        "ts_end": 1196500,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1196500,
+                        "ts_end": 1196501,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1196501,
+                        "ts_end": 1196502,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1196502,
+                        "ts_end": 1196503,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1196504,
+                        "ts_end": 1196507,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_SEND_TEST": [
+                    {
+                        "ts_start": 1199562,
+                        "ts_end": 1199610,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1199839,
+                        "ts_end": 1199994,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1201159,
+                        "ts_end": 1201187,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1202097,
+                        "ts_end": 1202179,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1205325,
+                        "ts_end": 1205433,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1205960,
+                        "ts_end": 1206451,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1206566,
+                        "ts_end": 1206931,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1206931,
+                        "ts_end": 1207179,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    }
+                ],
+                "NVTX_EVENT_NET_RECV_TEST": [
+                    {
+                        "ts_start": 1202182,
+                        "ts_end": 1202461,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1202924,
+                        "ts_end": 1202938,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1202968,
+                        "ts_end": 1203484,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1203637,
+                        "ts_end": 1204168,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1204168,
+                        "ts_end": 1204221,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1204372,
+                        "ts_end": 1204872,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1205439,
+                        "ts_end": 1205518,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1206453,
+                        "ts_end": 1206565,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ]
+            }
+        },
+        {
+            "event_name": "ncclKernel_AllReduce_RING_LL_Sum_float(ncclDevComm *, unsigned long, ncclWork *)",
+            "timestamp_start": 3195139,
+            "timestamp_end": 3207385,
+            "net_events": {
+                "NVTX_EVENT_NET_ISEND": [
+                    {
+                        "ts_start": 3198272,
+                        "ts_end": 3198273,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3199034,
+                        "ts_end": 3199035,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3199591,
+                        "ts_end": 3199592,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3200023,
+                        "ts_end": 3200024,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3201070,
+                        "ts_end": 3201072,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3201854,
+                        "ts_end": 3201855,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3201860,
+                        "ts_end": 3201860,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3202579,
+                        "ts_end": 3202580,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    }
+                ],
+                "NVTX_EVENT_NET_IRECV": [
+                    {
+                        "ts_start": 3198231,
+                        "ts_end": 3198242,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3198243,
+                        "ts_end": 3198244,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3198245,
+                        "ts_end": 3198246,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3198247,
+                        "ts_end": 3198248,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3198248,
+                        "ts_end": 3198249,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3198249,
+                        "ts_end": 3198251,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3198251,
+                        "ts_end": 3198252,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3198253,
+                        "ts_end": 3198254,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_SEND_TEST": [
+                    {
+                        "ts_start": 3200570,
+                        "ts_end": 3200903,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3201078,
+                        "ts_end": 3201386,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3201394,
+                        "ts_end": 3201722,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3201865,
+                        "ts_end": 3202224,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3202229,
+                        "ts_end": 3202574,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3202593,
+                        "ts_end": 3202770,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3203712,
+                        "ts_end": 3204010,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3204749,
+                        "ts_end": 3204889,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_RECV_TEST": [
+                    {
+                        "ts_start": 3198273,
+                        "ts_end": 3199033,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3199036,
+                        "ts_end": 3199590,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3200024,
+                        "ts_end": 3200570,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3200904,
+                        "ts_end": 3201070,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3203003,
+                        "ts_end": 3203707,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3205368,
+                        "ts_end": 3206070,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3206538,
+                        "ts_end": 3206699,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3206699,
+                        "ts_end": 3207259,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ]
+            }
+        }
+    ],
+    "1": [
+        {
+            "event_name": "ncclKernel_AllReduce_RING_LL_Sum_float(ncclDevComm *, unsigned long, ncclWork *)",
+            "timestamp_start": 1184518,
+            "timestamp_end": 1194662,
+            "net_events": {
+                "NVTX_EVENT_NET_ISEND": [
+                    {
+                        "ts_start": 1186438,
+                        "ts_end": 1186439,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1186560,
+                        "ts_end": 1186561,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1187151,
+                        "ts_end": 1187152,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1187209,
+                        "ts_end": 1187209,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1188652,
+                        "ts_end": 1188653,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1189095,
+                        "ts_end": 1189095,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1189251,
+                        "ts_end": 1189251,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1190433,
+                        "ts_end": 1190433,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_IRECV": [
+                    {
+                        "ts_start": 1186155,
+                        "ts_end": 1186180,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1186183,
+                        "ts_end": 1186185,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1186189,
+                        "ts_end": 1186190,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1186190,
+                        "ts_end": 1186191,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1186191,
+                        "ts_end": 1186192,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1186193,
+                        "ts_end": 1186194,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1186194,
+                        "ts_end": 1186195,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1186196,
+                        "ts_end": 1186202,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_SEND_TEST": [
+                    {
+                        "ts_start": 1189004,
+                        "ts_end": 1189090,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1189255,
+                        "ts_end": 1189319,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1189360,
+                        "ts_end": 1189638,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1189642,
+                        "ts_end": 1190056,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1190241,
+                        "ts_end": 1190428,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1190564,
+                        "ts_end": 1190737,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1191080,
+                        "ts_end": 1191229,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1192166,
+                        "ts_end": 1192262,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_RECV_TEST": [
+                    {
+                        "ts_start": 1186561,
+                        "ts_end": 1187150,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1187209,
+                        "ts_end": 1187624,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1188119,
+                        "ts_end": 1188491,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1189320,
+                        "ts_end": 1189360,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1192266,
+                        "ts_end": 1192423,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1193536,
+                        "ts_end": 1193606,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 1193606,
+                        "ts_end": 1194054,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 1194055,
+                        "ts_end": 1194527,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    }
+                ]
+            }
+        },
+        {
+            "event_name": "ncclKernel_AllReduce_RING_LL_Sum_float(ncclDevComm *, unsigned long, ncclWork *)",
+            "timestamp_start": 3184742,
+            "timestamp_end": 3192925,
+            "net_events": {
+                "NVTX_EVENT_NET_ISEND": [
+                    {
+                        "ts_start": 3184885,
+                        "ts_end": 3184885,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3184890,
+                        "ts_end": 3184891,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3185230,
+                        "ts_end": 3185230,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3185235,
+                        "ts_end": 3185235,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3188698,
+                        "ts_end": 3188698,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3192176,
+                        "ts_end": 3192176,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3192760,
+                        "ts_end": 3192760,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3192761,
+                        "ts_end": 3192762,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_IRECV": [
+                    {
+                        "ts_start": 3184797,
+                        "ts_end": 3184844,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3184845,
+                        "ts_end": 3184847,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3184848,
+                        "ts_end": 3184850,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3184850,
+                        "ts_end": 3184852,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3184853,
+                        "ts_end": 3184854,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3184854,
+                        "ts_end": 3184855,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3184856,
+                        "ts_end": 3184857,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3184857,
+                        "ts_end": 3184858,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_SEND_TEST": [
+                    {
+                        "ts_start": 3184895,
+                        "ts_end": 3185224,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3185239,
+                        "ts_end": 3185630,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3185634,
+                        "ts_end": 3185918,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3185961,
+                        "ts_end": 3186246,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3189839,
+                        "ts_end": 3190120,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3192180,
+                        "ts_end": 3192577,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3192762,
+                        "ts_end": 3193105,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3193108,
+                        "ts_end": 3193574,
+                        "sender_rank": "1",
+                        "receiver_rank": "0",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ],
+                "NVTX_EVENT_NET_RECV_TEST": [
+                    {
+                        "ts_start": 3187468,
+                        "ts_end": 3188123,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3188145,
+                        "ts_end": 3188697,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3188699,
+                        "ts_end": 3189325,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3189325,
+                        "ts_end": 3189838,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3190120,
+                        "ts_end": 3190711,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3190711,
+                        "ts_end": 3191221,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "0"
+                    },
+                    {
+                        "ts_start": 3191221,
+                        "ts_end": 3191802,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    },
+                    {
+                        "ts_start": 3192578,
+                        "ts_end": 3192754,
+                        "sender_rank": "0",
+                        "receiver_rank": "1",
+                        "data_size": "1048576",
+                        "channel_id": "1"
+                    }
+                ]
+            }
+        }
+    ]
+}

@@ -4,7 +4,7 @@
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
 #SBATCH --nodelist=ault[42,44]
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=2
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_2.%j.o
 #SBATCH --error=example_2.%j.e
@@ -81,6 +81,6 @@ done
 #                                  --npkit_event_header_path="/users/zhu/nccl_npkit/nccl/src/include/npkit/npkit_event.h"\
 #                                  --output_dir=$npkit_trace_dir
 
-# python3 parser_json2goal_Ring.py
+python3 parser_sqlite2goal.py
 
-# python3 goal2dot.py
+python3 goal2dot.py

@@ -112,7 +112,7 @@ def get_sqlite_events(dir_path):
             # print(json.dumps(cupti_kernel_data, indent=8))
 
         # Fill in traced_events[file_rank]
-        for cupti_event in cupti_kernel_data:
+        for cupti_event_seq, cupti_event in enumerate(cupti_kernel_data):
             paired_nvtx_events_data = {
                 "NVTX_EVENT_NET_ISEND": [],
                 "NVTX_EVENT_NET_IRECV": [],
@@ -123,31 +123,39 @@ def get_sqlite_events(dir_path):
             cupti_event_name = cupti_event["event_name"]
             cupti_event_timestamp_start = cupti_event["timestamp_start"]
             cupti_event_timestamp_end = cupti_event["timestamp_end"]
+            if cupti_event_seq + 1 < len(cupti_kernel_data):
+                next_cupti_event_timestamp_start = cupti_kernel_data[cupti_event_seq + 1]["timestamp_start"]
+            else:
+                next_cupti_event_timestamp_start = 1e31
+
+            # seq_paired = 0
+            # for seq, nvtx_event in enumerate(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"]):
+            #     if seq >= seq_paired and nvtx_event["ts_start"] > cupti_event_timestamp_start and nvtx_event["ts_end"] < cupti_event_timestamp_end:
+            #         paired_nvtx_events_data["NVTX_EVENT_NET_ISEND"].append(nvtx_events_data["NVTX_EVENT_NET_ISEND"][seq])
+            #         paired_nvtx_events_data["NVTX_EVENT_NET_IRECV"].append(nvtx_events_data["NVTX_EVENT_NET_IRECV"][seq])
+            #         paired_nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"][seq])
+            #         paired_nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"][seq])
+            #         seq_paired += 1
 
             seq_paired = 0
-            for seq, nvtx_event in enumerate(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"]):
-                if seq >= seq_paired and nvtx_event["ts_start"] > cupti_event_timestamp_start and nvtx_event["ts_end"] < cupti_event_timestamp_end:
-                    paired_nvtx_events_data["NVTX_EVENT_NET_ISEND"].append(nvtx_events_data["NVTX_EVENT_NET_ISEND"][seq])
-                    paired_nvtx_events_data["NVTX_EVENT_NET_IRECV"].append(nvtx_events_data["NVTX_EVENT_NET_IRECV"][seq])
-                    paired_nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"][seq])
-                    paired_nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"][seq])
-                    seq_paired += 1
+            if len(nvtx_events_data["NVTX_EVENT_NET_ISEND"]) > 0:
+                for seq, nvtx_event in enumerate(nvtx_events_data["NVTX_EVENT_NET_ISEND"]):
+                    if seq >= seq_paired and nvtx_event["ts_start"] > cupti_event_timestamp_start and nvtx_event["ts_start"] < next_cupti_event_timestamp_start:
+                        paired_nvtx_events_data["NVTX_EVENT_NET_ISEND"].append(nvtx_events_data["NVTX_EVENT_NET_ISEND"][seq])
+                        paired_nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"][seq])
+                        seq_paired += 1
+                        cupti_event_timestamp_start = min(nvtx_events_data["NVTX_EVENT_NET_ISEND"][seq]["ts_start"], cupti_event_timestamp_start)
+                        cupti_event_timestamp_end = max(nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"][seq]["ts_end"], cupti_event_timestamp_end)
 
-            # seq_paired = 0
-            # if len(nvtx_events_data["NVTX_EVENT_NET_ISEND"]) > 0:
-            #     for seq, nvtx_event in enumerate(nvtx_events_data["NVTX_EVENT_NET_ISEND"]):
-            #         if seq >= seq_paired and nvtx_event["ts_start"] > cupti_event_timestamp_start and nvtx_event["ts_end"] < cupti_event_timestamp_end:
-            #             paired_nvtx_events_data["NVTX_EVENT_NET_ISEND"].append(nvtx_events_data["NVTX_EVENT_NET_ISEND"][seq])
-            #             paired_nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_SEND_TEST"][seq])
-            #             seq_paired += 1
-
-            # seq_paired = 0
-            # if len(nvtx_events_data["NVTX_EVENT_NET_IRECV"]) > 0:
-            #     for seq, nvtx_event in enumerate(nvtx_events_data["NVTX_EVENT_NET_IRECV"]):
-            #         if seq >= seq_paired and nvtx_event["ts_start"] > cupti_event_timestamp_start and nvtx_event["ts_end"] < cupti_event_timestamp_end:
-            #             paired_nvtx_events_data["NVTX_EVENT_NET_IRECV"].append(nvtx_events_data["NVTX_EVENT_NET_IRECV"][seq])
-            #             paired_nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"][seq])
-            #             seq_paired += 1
+            seq_paired = 0
+            if len(nvtx_events_data["NVTX_EVENT_NET_IRECV"]) > 0:
+                for seq, nvtx_event in enumerate(nvtx_events_data["NVTX_EVENT_NET_IRECV"]):
+                    if seq >= seq_paired and nvtx_event["ts_start"] > cupti_event_timestamp_start and nvtx_event["ts_end"] < next_cupti_event_timestamp_start:
+                        paired_nvtx_events_data["NVTX_EVENT_NET_IRECV"].append(nvtx_events_data["NVTX_EVENT_NET_IRECV"][seq])
+                        paired_nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"].append(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"][seq])
+                        seq_paired += 1
+                        cupti_event_timestamp_start = min(nvtx_events_data["NVTX_EVENT_NET_IRECV"][seq]["ts_start"], cupti_event_timestamp_start)
+                        cupti_event_timestamp_end = max(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"][seq]["ts_end"], cupti_event_timestamp_end)
 
             traced_events[file_rank].append({
                 "event_name": cupti_event_name,
@@ -163,7 +171,7 @@ def get_sqlite_events(dir_path):
 
 def get_goal_file(events, goal_file_name):
     num_ranks = len(events)
-    goal_rank = 0
+    # goal_rank = 0
     task_counter = 0
     with open(goal_file_name, 'w') as file:
         file.write(f"num_ranks {num_ranks}\n")
@@ -176,7 +184,8 @@ def get_goal_file(events, goal_file_name):
                     net_event_pair_num_max = net_event_pair_num
 
             if net_event_pair_num_max > 0:  ## The rank has net events
-                file.write(f"\nrank {goal_rank}")
+                # file.write(f"\nrank {goal_rank}")
+                file.write(f"\nrank {real_rank}")
                 file.write(" {\n")
 
                 for gpu_event_id, gpu_event in enumerate(nccl_kernel_events):
@@ -197,52 +206,55 @@ def get_goal_file(events, goal_file_name):
 
                     net_event_pair_num = max(len(gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"]), len(gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"]))
                     for i in range(net_event_pair_num):
-                        ####
-                        net_event = gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"][i]
-                        task_counter += 1
-                        file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
-                        file.write(f"l{task_counter} requires l{start_calc_id}\n")
+                        if len(gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"]) > 0:
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{start_calc_id}\n")
 
-                        task_counter += 1
-                        file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {net_event["channel_id"]}\n')
-                        file.write(f"l{task_counter} requires l{task_counter - 1}\n")
-                        ts_net_isend_end = net_event["ts_end"]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {net_event["channel_id"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            ts_net_isend_end = net_event["ts_end"]
 
-                        ####
-                        net_event = gpu_event["net_events"]["NVTX_EVENT_NET_SEND_TEST"][i]
-                        task_counter += 1
-                        file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
-                        file.write(f"l{task_counter} requires l{task_counter - 2}\n")
-                        file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_SEND_TEST"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                            file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
 
-                        task_counter +=1
-                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_start"]}\n')
-                        file.write(f"l{task_counter} requires l{task_counter - 1}\n")
-                        file.write(f"l{end_calc_id} requires l{task_counter}\n")
+                            task_counter +=1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_start"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            file.write(f"l{end_calc_id} requires l{task_counter}\n")
 
-                        ####
-                        net_event = gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"][i]
-                        task_counter += 1
-                        file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
-                        file.write(f"l{task_counter} requires l{start_calc_id}\n")
-                        ts_net_irecv_start = net_event["ts_start"]
+                        if len(gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"]) > 0:
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{start_calc_id}\n")
+                            ts_net_irecv_start = net_event["ts_start"]
 
-                        net_event = gpu_event["net_events"]["NVTX_EVENT_NET_RECV_TEST"][i]
-                        task_counter += 1
-                        file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {net_event["channel_id"]}\n')
-                        file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_RECV_TEST"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {net_event["channel_id"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
 
-                        task_counter += 1
-                        file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
-                        file.write(f"l{task_counter} requires l{task_counter - 2}\n")
-                        file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                            file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
 
-                        task_counter += 1
-                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_start"]}\n')
-                        file.write(f"l{task_counter} requires l{task_counter - 1}\n")
-                        file.write(f"l{end_calc_id} requires l{task_counter}\n")
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_start"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            file.write(f"l{end_calc_id} requires l{task_counter}\n")
 
-            goal_rank += 1
+            # goal_rank += 1
 
             file.write("}\n")
 

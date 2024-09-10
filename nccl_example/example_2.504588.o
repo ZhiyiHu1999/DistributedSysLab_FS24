@@ -1,0 +1,2136 @@
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
+The local rank is: 0
+ault42:190148:190148 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
+ault42:190148:190148 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault42:190148:190148 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault42:190148:190148 [0] NCCL INFO cudaDriverVersion 12010
+NCCL version 2.17.1+cuda11.8
+The local rank is: 1
+ault44:622048:622048 [1] NCCL INFO cudaDriverVersion 12010
+ault44:622048:622048 [1] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
+ault44:622048:622048 [1] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault44:622048:622048 [1] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault44:622048:622048 [1] NCCL INFO NET/IB : No device found.
+ault44:622048:622048 [1] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
+ault44:622048:622048 [1] NCCL INFO Using network Socket
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190148:190148 [0] NCCL INFO NET/IB : No device found.
+ault42:190148:190148 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
+ault42:190148:190148 [0] NCCL INFO Using network Socket
+ault42:190148:190148 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to Topology_Intra_Node.txt
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190148:190148 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to Graph.txt
+ault42:190148:190148 [0] NCCL INFO Channel 00/02 :    0   1   2   3
+ault42:190148:190148 [0] NCCL INFO Channel 01/02 :    0   1   2   3
+ault42:190148:190148 [0] NCCL INFO Trees [0] 1/2/-1->0->-1 [1] 1/-1/-1->0->2
+ault42:190148:190148 [0] NCCL INFO P2P Chunksize set to 131072
+ault42:190148:190148 [0] NCCL INFO Channel 00/0 : 3[81000] -> 0[41000] [receive] via NET/Socket/0
+ault42:190148:190148 [0] NCCL INFO Channel 01/0 : 3[81000] -> 0[41000] [receive] via NET/Socket/0
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190148:190148 [0] NCCL INFO Channel 00 : 0[41000] -> 1[81000] via SHM/direct/direct
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190148:190148 [0] NCCL INFO Channel 01 : 0[41000] -> 1[81000] via SHM/direct/direct
+ault42:190148:190148 [0] NCCL INFO Connected all rings
+ault42:190148:190148 [0] NCCL INFO Channel 00/0 : 2[41000] -> 0[41000] [receive] via NET/Socket/0
+ault42:190148:190148 [0] NCCL INFO Channel 01/0 : 2[41000] -> 0[41000] [receive] via NET/Socket/0
+ault42:190148:190148 [0] NCCL INFO Channel 00/0 : 0[41000] -> 2[41000] [send] via NET/Socket/0
+ault42:190148:190148 [0] NCCL INFO Channel 01/0 : 0[41000] -> 2[41000] [send] via NET/Socket/0
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190148:190148 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190148:190148 [0] NCCL INFO Connected all trees
+ault42:190148:190148 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault42:190148:190148 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault42:190148:190148 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ault42:190148:190148 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault42:190148:190148 [0] NCCL INFO comm 0x56b0fe0 rank 0 nranks 4 cudaDev 0 busId 41000 commId 0xb597d906042ef738 - Init COMPLETE
+ault42:190148:190148 [0] NCCL INFO comm 0x56b0fe0 rank 0 nranks 4 cudaDev 0 busId 41000 - Destroy COMPLETE
+[MPI Rank 0] Success 
+The local rank is: 1
+ault42:190146:190146 [1] NCCL INFO cudaDriverVersion 12010
+ault42:190146:190146 [1] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
+ault42:190146:190146 [1] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault42:190146:190146 [1] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault42:190146:190146 [1] NCCL INFO NET/IB : No device found.
+ault42:190146:190146 [1] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
+ault42:190146:190146 [1] NCCL INFO Using network Socket
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault42:190146:190146 [1] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] -1/-1/-1->1->0
+ault42:190146:190146 [1] NCCL INFO P2P Chunksize set to 131072
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190146:190146 [1] NCCL INFO Channel 00/0 : 1[81000] -> 2[41000] [send] via NET/Socket/0
+ault42:190146:190146 [1] NCCL INFO Channel 01/0 : 1[81000] -> 2[41000] [send] via NET/Socket/0
+ault42:190146:190146 [1] NCCL INFO Connected all rings
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190146:190146 [1] NCCL INFO Channel 00 : 1[81000] -> 0[41000] via SHM/direct/direct
+ault42:190146:190146 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault42:190146:190146 [1] NCCL INFO Channel 01 : 1[81000] -> 0[41000] via SHM/direct/direct
+ault42:190146:190146 [1] NCCL INFO Connected all trees
+ault42:190146:190146 [1] NCCL INFO NCCL_PROTO set by environment to Simple
+ault42:190146:190146 [1] NCCL INFO NCCL_ALGO set by environment to Ring
+ault42:190146:190146 [1] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ault42:190146:190146 [1] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault42:190146:190146 [1] NCCL INFO comm 0x56b0310 rank 1 nranks 4 cudaDev 1 busId 81000 commId 0xb597d906042ef738 - Init COMPLETE
+ault42:190146:190146 [1] NCCL INFO comm 0x56b0310 rank 1 nranks 4 cudaDev 1 busId 81000 - Destroy COMPLETE
+[MPI Rank 1] Success 
+ault44:622048:622048 [1] NCCL INFO Trees [0] -1/-1/-1->3->2 [1] -1/-1/-1->3->2
+ault44:622048:622048 [1] NCCL INFO P2P Chunksize set to 131072
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622048:622048 [1] NCCL INFO Channel 00/0 : 3[81000] -> 0[41000] [send] via NET/Socket/0
+ault44:622048:622048 [1] NCCL INFO Channel 01/0 : 3[81000] -> 0[41000] [send] via NET/Socket/0
+ault44:622048:622048 [1] NCCL INFO Connected all rings
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622048:622048 [1] NCCL INFO Channel 00 : 3[81000] -> 2[41000] via SHM/direct/direct
+ault44:622048:622048 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622048:622048 [1] NCCL INFO Channel 01 : 3[81000] -> 2[41000] via SHM/direct/direct
+ault44:622048:622048 [1] NCCL INFO Connected all trees
+ault44:622048:622048 [1] NCCL INFO NCCL_PROTO set by environment to Simple
+ault44:622048:622048 [1] NCCL INFO NCCL_ALGO set by environment to Ring
+ault44:622048:622048 [1] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ault44:622048:622048 [1] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault44:622048:622048 [1] NCCL INFO comm 0x56b2960 rank 3 nranks 4 cudaDev 1 busId 81000 commId 0xb597d906042ef738 - Init COMPLETE
+ault44:622048:622048 [1] NCCL INFO comm 0x56b2960 rank 3 nranks 4 cudaDev 1 busId 81000 - Destroy COMPLETE
+[MPI Rank 3] Success 
+The local rank is: 0
+ault44:622044:622044 [0] NCCL INFO cudaDriverVersion 12010
+ault44:622044:622044 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
+ault44:622044:622044 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault44:622044:622044 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault44:622044:622044 [0] NCCL INFO NET/IB : No device found.
+ault44:622044:622044 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
+ault44:622044:622044 [0] NCCL INFO Using network Socket
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault44:622044:622044 [0] NCCL INFO Trees [0] 3/-1/-1->2->0 [1] 3/0/-1->2->-1
+ault44:622044:622044 [0] NCCL INFO P2P Chunksize set to 131072
+ault44:622044:622044 [0] NCCL INFO Channel 00/0 : 1[81000] -> 2[41000] [receive] via NET/Socket/0
+ault44:622044:622044 [0] NCCL INFO Channel 01/0 : 1[81000] -> 2[41000] [receive] via NET/Socket/0
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault44:622044:622044 [0] NCCL INFO Channel 00 : 2[41000] -> 3[81000] via SHM/direct/direct
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault44:622044:622044 [0] NCCL INFO Channel 01 : 2[41000] -> 3[81000] via SHM/direct/direct
+ault44:622044:622044 [0] NCCL INFO Connected all rings
+ault44:622044:622044 [0] NCCL INFO Channel 00/0 : 0[41000] -> 2[41000] [receive] via NET/Socket/0
+ault44:622044:622044 [0] NCCL INFO Channel 01/0 : 0[41000] -> 2[41000] [receive] via NET/Socket/0
+ault44:622044:622044 [0] NCCL INFO Channel 00/0 : 2[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:622044:622044 [0] NCCL INFO Channel 01/0 : 2[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault44:622044:622044 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
+ault44:622044:622044 [0] NCCL INFO Connected all trees
+ault44:622044:622044 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault44:622044:622044 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault44:622044:622044 [0] NCCL INFO threadThresholds 8/8/64 | 32/8/64 | 512 | 512
+ault44:622044:622044 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault44:622044:622044 [0] NCCL INFO comm 0x56b1230 rank 2 nranks 4 cudaDev 0 busId 41000 commId 0xb597d906042ef738 - Init COMPLETE
+ault44:622044:622044 [0] NCCL INFO comm 0x56b1230 rank 2 nranks 4 cudaDev 0 busId 41000 - Destroy COMPLETE
+[MPI Rank 2] Success 
+Collecting data...
+Generating '/tmp/nsys-report-5503.qdstrm'
+Collecting data...
+Generating '/tmp/nsys-report-f6c1.qdstrm'
+Collecting data...
+Generating '/tmp/nsys-report-e23a.qdstrm'
+Collecting data...
+Generating '/tmp/nsys-report-1f16.qdstrm'
+[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [==19%                       ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [=======39%                  ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [=============60%            ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [====================84%     ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [====================85%     ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [=====================86%    ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [========================97% ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [==============62%         [1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [13%                         ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [====25%                     ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [========40%                 ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [============56%             ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [============57%             ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [=============58%            ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [=============59%            ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [=================73%        ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [====================85%     ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [=====================86%    ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [=====================89%    ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [======================92%   ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [========================99% ] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep
+[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [8%                          ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [=16%                        ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [====25%                     ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [======35%                   ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [=======36%                  ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [================70%         ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [============54%             ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [===============65%          ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [====================85%     ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [=====================88%    ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [=======================93%  ] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep
+[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [7%                          ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [14%                         ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [===22%                      ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [=====30%                    ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [=====31%                    ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [===============67%          ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [===========53%              ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [==============64%           ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [====================84%     ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [=====================88%    ] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep
+  ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [=====================87%    ] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep
+Exported /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault42.cscs.ch_190146.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault42.cscs.ch_190146.sqlite
+Exported /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault42.cscs.ch_190148.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault42.cscs.ch_190148.sqlite
+Exported /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault44.cscs.ch_622044.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault44.cscs.ch_622044.sqlite
+Exported /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault44.cscs.ch_622048.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports/example_2_nsys_report_ault44.cscs.ch_622048.sqlite
+Nsys_Events has been exported to nsys_events_output.json
+Goal file has been generated
+(rank 1):
+    nodes:
+        l38
+        l59
+        l85
+        l47
+        l70
+        l129
+        l159
+        l41
+        l143
+        l122
+        l175
+        l144
+        l73
+        l54
+        l192
+        l69
+        l71
+        l186
+        l19
+        l109
+        l91
+        l99
+        l142
+        l44
+        l180
+        l171
+        l48
+        l20
+        l128
+        l42
+        l161
+        l68
+        l118
+        l8
+        l22
+        l77
+        l164
+        l66
+        l136
+        l177
+        l24
+        l133
+        l63
+        l134
+        l57
+        l132
+        l87
+        l130
+        l104
+        l176
+        l37
+        l150
+        l9
+        l27
+        l81
+        l124
+        l43
+        l155
+        l185
+        l197
+        l25
+        l11
+        l170
+        l191
+        l169
+        l138
+        l147
+        l139
+        l1
+        l35
+        l10
+        l58
+        l67
+        l140
+        l92
+        l3
+        l96
+        l55
+        l157
+        l189
+        l62
+        l156
+        l51
+        l16
+        l93
+        l23
+        l7
+        l102
+        l105
+        l184
+        l80
+        l126
+        l13
+        l173
+        l166
+        l187
+        l26
+        l4
+        l127
+        l88
+        l76
+        l162
+        l36
+        l90
+        l98
+        l172
+        l165
+        l119
+        l45
+        l61
+        l131
+        l116
+        l82
+        l149
+        l135
+        l151
+        l40
+        l83
+        l17
+        l28
+        l79
+        l163
+        l110
+        l125
+        l111
+        l117
+        l148
+        l168
+        l46
+        l39
+        l49
+        l113
+        l2
+        l114
+        l174
+        l179
+        l153
+        l154
+        l181
+        l60
+        l30
+        l188
+        l21
+        l72
+        l120
+        l29
+        l106
+        l141
+        l152
+        l56
+        l6
+        l15
+        l78
+        l112
+        l167
+        l182
+        l115
+        l12
+        l193
+        l100
+        l101
+        l121
+        l194
+        l94
+        l64
+        l178
+        l32
+        l145
+        l5
+        l107
+        l52
+        l89
+        l146
+        l183
+        l14
+        l65
+        l160
+        l158
+        l84
+        l74
+        l123
+        l195
+        l108
+        l103
+        l190
+        l75
+        l50
+        l196
+        l33
+        l137
+        l31
+        l34
+        l18
+        l53
+        l97
+        l95
+        l86
+    edges:
+        ('l2', 'l1', 'requires')
+        ('l4', 'l2', 'requires')
+        ('l5', 'l4', 'requires')
+        ('l6', 'l4', 'requires')
+        ('l6', 'l5', 'irequires')
+        ('l7', 'l6', 'requires')
+        ('l3', 'l7', 'requires')
+        ('l8', 'l2', 'requires')
+        ('l9', 'l8', 'requires')
+        ('l10', 'l8', 'requires')
+        ('l10', 'l9', 'irequires')
+        ('l11', 'l10', 'requires')
+        ('l3', 'l11', 'requires')
+        ('l12', 'l2', 'requires')
+        ('l13', 'l12', 'requires')
+        ('l14', 'l12', 'requires')
+        ('l14', 'l13', 'irequires')
+        ('l15', 'l14', 'requires')
+        ('l3', 'l15', 'requires')
+        ('l16', 'l2', 'requires')
+        ('l17', 'l16', 'requires')
+        ('l18', 'l16', 'requires')
+        ('l18', 'l17', 'irequires')
+        ('l19', 'l18', 'requires')
+        ('l3', 'l19', 'requires')
+        ('l20', 'l2', 'requires')
+        ('l21', 'l20', 'requires')
+        ('l22', 'l20', 'requires')
+        ('l22', 'l21', 'irequires')
+        ('l23', 'l22', 'requires')
+        ('l3', 'l23', 'requires')
+        ('l24', 'l2', 'requires')
+        ('l25', 'l24', 'requires')
+        ('l26', 'l24', 'requires')
+        ('l26', 'l25', 'irequires')
+        ('l27', 'l26', 'requires')
+        ('l3', 'l27', 'requires')
+        ('l28', 'l2', 'requires')
+        ('l29', 'l28', 'requires')
+        ('l30', 'l28', 'requires')
+        ('l30', 'l29', 'irequires')
+        ('l31', 'l30', 'requires')
+        ('l3', 'l31', 'requires')
+        ('l32', 'l2', 'requires')
+        ('l33', 'l32', 'requires')
+        ('l34', 'l32', 'requires')
+        ('l34', 'l33', 'irequires')
+        ('l35', 'l34', 'requires')
+        ('l3', 'l35', 'requires')
+        ('l36', 'l2', 'requires')
+        ('l37', 'l36', 'requires')
+        ('l38', 'l36', 'requires')
+        ('l38', 'l37', 'irequires')
+        ('l39', 'l38', 'requires')
+        ('l3', 'l39', 'requires')
+        ('l40', 'l2', 'requires')
+        ('l41', 'l40', 'requires')
+        ('l42', 'l40', 'requires')
+        ('l42', 'l41', 'irequires')
+        ('l43', 'l42', 'requires')
+        ('l3', 'l43', 'requires')
+        ('l44', 'l2', 'requires')
+        ('l45', 'l44', 'requires')
+        ('l46', 'l44', 'requires')
+        ('l46', 'l45', 'irequires')
+        ('l47', 'l46', 'requires')
+        ('l3', 'l47', 'requires')
+        ('l48', 'l2', 'requires')
+        ('l49', 'l48', 'requires')
+        ('l50', 'l48', 'requires')
+        ('l50', 'l49', 'irequires')
+        ('l51', 'l50', 'requires')
+        ('l3', 'l51', 'requires')
+        ('l52', 'l2', 'requires')
+        ('l53', 'l52', 'requires')
+        ('l54', 'l52', 'requires')
+        ('l54', 'l53', 'irequires')
+        ('l55', 'l54', 'requires')
+        ('l3', 'l55', 'requires')
+        ('l56', 'l2', 'requires')
+        ('l57', 'l56', 'requires')
+        ('l58', 'l56', 'requires')
+        ('l58', 'l57', 'irequires')
+        ('l59', 'l58', 'requires')
+        ('l3', 'l59', 'requires')
+        ('l60', 'l2', 'requires')
+        ('l61', 'l60', 'requires')
+        ('l62', 'l60', 'requires')
+        ('l62', 'l61', 'irequires')
+        ('l63', 'l62', 'requires')
+        ('l3', 'l63', 'requires')
+        ('l64', 'l2', 'requires')
+        ('l65', 'l64', 'requires')
+        ('l66', 'l64', 'requires')
+        ('l66', 'l65', 'irequires')
+        ('l67', 'l66', 'requires')
+        ('l3', 'l67', 'requires')
+        ('l68', 'l2', 'requires')
+        ('l69', 'l68', 'requires')
+        ('l70', 'l68', 'requires')
+        ('l70', 'l69', 'irequires')
+        ('l71', 'l70', 'requires')
+        ('l3', 'l71', 'requires')
+        ('l72', 'l2', 'requires')
+        ('l73', 'l72', 'requires')
+        ('l74', 'l72', 'requires')
+        ('l74', 'l73', 'irequires')
+        ('l75', 'l74', 'requires')
+        ('l3', 'l75', 'requires')
+        ('l76', 'l2', 'requires')
+        ('l77', 'l76', 'requires')
+        ('l78', 'l76', 'requires')
+        ('l78', 'l77', 'irequires')
+        ('l79', 'l78', 'requires')
+        ('l3', 'l79', 'requires')
+        ('l80', 'l2', 'requires')
+        ('l81', 'l80', 'requires')
+        ('l82', 'l80', 'requires')
+        ('l82', 'l81', 'irequires')
+        ('l83', 'l82', 'requires')
+        ('l3', 'l83', 'requires')
+        ('l84', 'l2', 'requires')
+        ('l85', 'l84', 'requires')
+        ('l86', 'l84', 'requires')
+        ('l86', 'l85', 'irequires')
+        ('l87', 'l86', 'requires')
+        ('l3', 'l87', 'requires')
+        ('l88', 'l2', 'requires')
+        ('l89', 'l88', 'requires')
+        ('l90', 'l88', 'requires')
+        ('l90', 'l89', 'irequires')
+        ('l91', 'l90', 'requires')
+        ('l3', 'l91', 'requires')
+        ('l92', 'l2', 'requires')
+        ('l93', 'l92', 'requires')
+        ('l94', 'l92', 'requires')
+        ('l94', 'l93', 'irequires')
+        ('l95', 'l94', 'requires')
+        ('l3', 'l95', 'requires')
+        ('l96', 'l2', 'requires')
+        ('l97', 'l96', 'requires')
+        ('l98', 'l96', 'requires')
+        ('l98', 'l97', 'irequires')
+        ('l99', 'l98', 'requires')
+        ('l3', 'l99', 'requires')
+        ('l100', 'l3', 'requires')
+        ('l102', 'l100', 'requires')
+        ('l103', 'l102', 'requires')
+        ('l104', 'l102', 'requires')
+        ('l104', 'l103', 'irequires')
+        ('l105', 'l104', 'requires')
+        ('l101', 'l105', 'requires')
+        ('l106', 'l100', 'requires')
+        ('l107', 'l106', 'requires')
+        ('l108', 'l106', 'requires')
+        ('l108', 'l107', 'irequires')
+        ('l109', 'l108', 'requires')
+        ('l101', 'l109', 'requires')
+        ('l110', 'l100', 'requires')
+        ('l111', 'l110', 'requires')
+        ('l112', 'l110', 'requires')
+        ('l112', 'l111', 'irequires')
+        ('l113', 'l112', 'requires')
+        ('l101', 'l113', 'requires')
+        ('l114', 'l100', 'requires')
+        ('l115', 'l114', 'requires')
+        ('l116', 'l114', 'requires')
+        ('l116', 'l115', 'irequires')
+        ('l117', 'l116', 'requires')
+        ('l101', 'l117', 'requires')
+        ('l118', 'l100', 'requires')
+        ('l119', 'l118', 'requires')
+        ('l120', 'l118', 'requires')
+        ('l120', 'l119', 'irequires')
+        ('l121', 'l120', 'requires')
+        ('l101', 'l121', 'requires')
+        ('l122', 'l100', 'requires')
+        ('l123', 'l122', 'requires')
+        ('l124', 'l122', 'requires')
+        ('l124', 'l123', 'irequires')
+        ('l125', 'l124', 'requires')
+        ('l101', 'l125', 'requires')
+        ('l126', 'l100', 'requires')
+        ('l127', 'l126', 'requires')
+        ('l128', 'l126', 'requires')
+        ('l128', 'l127', 'irequires')
+        ('l129', 'l128', 'requires')
+        ('l101', 'l129', 'requires')
+        ('l130', 'l100', 'requires')
+        ('l131', 'l130', 'requires')
+        ('l132', 'l130', 'requires')
+        ('l132', 'l131', 'irequires')
+        ('l133', 'l132', 'requires')
+        ('l101', 'l133', 'requires')
+        ('l134', 'l100', 'requires')
+        ('l135', 'l134', 'requires')
+        ('l136', 'l134', 'requires')
+        ('l136', 'l135', 'irequires')
+        ('l137', 'l136', 'requires')
+        ('l101', 'l137', 'requires')
+        ('l138', 'l100', 'requires')
+        ('l139', 'l138', 'requires')
+        ('l140', 'l138', 'requires')
+        ('l140', 'l139', 'irequires')
+        ('l141', 'l140', 'requires')
+        ('l101', 'l141', 'requires')
+        ('l142', 'l100', 'requires')
+        ('l143', 'l142', 'requires')
+        ('l144', 'l142', 'requires')
+        ('l144', 'l143', 'irequires')
+        ('l145', 'l144', 'requires')
+        ('l101', 'l145', 'requires')
+        ('l146', 'l100', 'requires')
+        ('l147', 'l146', 'requires')
+        ('l148', 'l146', 'requires')
+        ('l148', 'l147', 'irequires')
+        ('l149', 'l148', 'requires')
+        ('l101', 'l149', 'requires')
+        ('l150', 'l100', 'requires')
+        ('l151', 'l150', 'requires')
+        ('l152', 'l150', 'requires')
+        ('l152', 'l151', 'irequires')
+        ('l153', 'l152', 'requires')
+        ('l101', 'l153', 'requires')
+        ('l154', 'l100', 'requires')
+        ('l155', 'l154', 'requires')
+        ('l156', 'l154', 'requires')
+        ('l156', 'l155', 'irequires')
+        ('l157', 'l156', 'requires')
+        ('l101', 'l157', 'requires')
+        ('l158', 'l100', 'requires')
+        ('l159', 'l158', 'requires')
+        ('l160', 'l158', 'requires')
+        ('l160', 'l159', 'irequires')
+        ('l161', 'l160', 'requires')
+        ('l101', 'l161', 'requires')
+        ('l162', 'l100', 'requires')
+        ('l163', 'l162', 'requires')
+        ('l164', 'l162', 'requires')
+        ('l164', 'l163', 'irequires')
+        ('l165', 'l164', 'requires')
+        ('l101', 'l165', 'requires')
+        ('l166', 'l100', 'requires')
+        ('l167', 'l166', 'requires')
+        ('l168', 'l166', 'requires')
+        ('l168', 'l167', 'irequires')
+        ('l169', 'l168', 'requires')
+        ('l101', 'l169', 'requires')
+        ('l170', 'l100', 'requires')
+        ('l171', 'l170', 'requires')
+        ('l172', 'l170', 'requires')
+        ('l172', 'l171', 'irequires')
+        ('l173', 'l172', 'requires')
+        ('l101', 'l173', 'requires')
+        ('l174', 'l100', 'requires')
+        ('l175', 'l174', 'requires')
+        ('l176', 'l174', 'requires')
+        ('l176', 'l175', 'irequires')
+        ('l177', 'l176', 'requires')
+        ('l101', 'l177', 'requires')
+        ('l178', 'l100', 'requires')
+        ('l179', 'l178', 'requires')
+        ('l180', 'l178', 'requires')
+        ('l180', 'l179', 'irequires')
+        ('l181', 'l180', 'requires')
+        ('l101', 'l181', 'requires')
+        ('l182', 'l100', 'requires')
+        ('l183', 'l182', 'requires')
+        ('l184', 'l182', 'requires')
+        ('l184', 'l183', 'irequires')
+        ('l185', 'l184', 'requires')
+        ('l101', 'l185', 'requires')
+        ('l186', 'l100', 'requires')
+        ('l187', 'l186', 'requires')
+        ('l188', 'l186', 'requires')
+        ('l188', 'l187', 'irequires')
+        ('l189', 'l188', 'requires')
+        ('l101', 'l189', 'requires')
+        ('l190', 'l100', 'requires')
+        ('l191', 'l190', 'requires')
+        ('l192', 'l190', 'requires')
+        ('l192', 'l191', 'irequires')
+        ('l193', 'l192', 'requires')
+        ('l101', 'l193', 'requires')
+        ('l194', 'l100', 'requires')
+        ('l195', 'l194', 'requires')
+        ('l196', 'l194', 'requires')
+        ('l196', 'l195', 'irequires')
+        ('l197', 'l196', 'requires')
+        ('l101', 'l197', 'requires')
+(rank 2):
+    nodes:
+        l210
+        l343
+        l259
+        l292
+        l331
+        l211
+        l359
+        l312
+        l378
+        l337
+        l207
+        l215
+        l345
+        l338
+        l202
+        l366
+        l385
+        l328
+        l290
+        l295
+        l206
+        l291
+        l351
+        l380
+        l336
+        l282
+        l268
+        l238
+        l242
+        l277
+        l321
+        l239
+        l260
+        l319
+        l225
+        l283
+        l243
+        l253
+        l294
+        l371
+        l233
+        l342
+        l302
+        l379
+        l358
+        l330
+        l346
+        l222
+        l389
+        l288
+        l298
+        l301
+        l349
+        l204
+        l270
+        l315
+        l213
+        l224
+        l314
+        l377
+        l394
+        l340
+        l266
+        l307
+        l304
+        l357
+        l361
+        l217
+        l199
+        l249
+        l203
+        l214
+        l254
+        l326
+        l280
+        l386
+        l387
+        l247
+        l360
+        l279
+        l344
+        l334
+        l201
+        l348
+        l258
+        l353
+        l275
+        l347
+        l317
+        l209
+        l311
+        l251
+        l362
+        l373
+        l372
+        l212
+        l216
+        l310
+        l252
+        l367
+        l272
+        l264
+        l324
+        l390
+        l250
+        l237
+        l318
+        l305
+        l309
+        l296
+        l297
+        l234
+        l392
+        l267
+        l198
+        l381
+        l285
+        l261
+        l281
+        l308
+        l341
+        l228
+        l393
+        l208
+        l265
+        l332
+        l230
+        l232
+        l255
+        l262
+        l369
+        l322
+        l383
+        l329
+        l306
+        l363
+        l276
+        l325
+        l299
+        l374
+        l293
+        l223
+        l370
+        l221
+        l303
+        l350
+        l269
+        l323
+        l226
+        l271
+        l327
+        l229
+        l236
+        l335
+        l256
+        l368
+        l218
+        l257
+        l286
+        l289
+        l205
+        l300
+        l273
+        l278
+        l364
+        l227
+        l388
+        l316
+        l219
+        l246
+        l365
+        l391
+        l248
+        l274
+        l320
+        l339
+        l375
+        l235
+        l244
+        l220
+        l245
+        l313
+        l384
+        l352
+        l240
+        l241
+        l382
+        l376
+        l287
+        l354
+        l263
+        l231
+        l356
+        l200
+        l355
+        l284
+        l333
+    edges:
+        ('l199', 'l198', 'requires')
+        ('l201', 'l199', 'requires')
+        ('l202', 'l201', 'requires')
+        ('l203', 'l201', 'requires')
+        ('l203', 'l202', 'irequires')
+        ('l204', 'l203', 'requires')
+        ('l200', 'l204', 'requires')
+        ('l205', 'l199', 'requires')
+        ('l206', 'l205', 'requires')
+        ('l207', 'l205', 'requires')
+        ('l207', 'l206', 'irequires')
+        ('l208', 'l207', 'requires')
+        ('l200', 'l208', 'requires')
+        ('l209', 'l199', 'requires')
+        ('l210', 'l209', 'requires')
+        ('l211', 'l209', 'requires')
+        ('l211', 'l210', 'irequires')
+        ('l212', 'l211', 'requires')
+        ('l200', 'l212', 'requires')
+        ('l213', 'l199', 'requires')
+        ('l214', 'l213', 'requires')
+        ('l215', 'l213', 'requires')
+        ('l215', 'l214', 'irequires')
+        ('l216', 'l215', 'requires')
+        ('l200', 'l216', 'requires')
+        ('l217', 'l199', 'requires')
+        ('l218', 'l217', 'requires')
+        ('l219', 'l217', 'requires')
+        ('l219', 'l218', 'irequires')
+        ('l220', 'l219', 'requires')
+        ('l200', 'l220', 'requires')
+        ('l221', 'l199', 'requires')
+        ('l222', 'l221', 'requires')
+        ('l223', 'l221', 'requires')
+        ('l223', 'l222', 'irequires')
+        ('l224', 'l223', 'requires')
+        ('l200', 'l224', 'requires')
+        ('l225', 'l199', 'requires')
+        ('l226', 'l225', 'requires')
+        ('l227', 'l225', 'requires')
+        ('l227', 'l226', 'irequires')
+        ('l228', 'l227', 'requires')
+        ('l200', 'l228', 'requires')
+        ('l229', 'l199', 'requires')
+        ('l230', 'l229', 'requires')
+        ('l231', 'l229', 'requires')
+        ('l231', 'l230', 'irequires')
+        ('l232', 'l231', 'requires')
+        ('l200', 'l232', 'requires')
+        ('l233', 'l199', 'requires')
+        ('l234', 'l233', 'requires')
+        ('l235', 'l233', 'requires')
+        ('l235', 'l234', 'irequires')
+        ('l236', 'l235', 'requires')
+        ('l200', 'l236', 'requires')
+        ('l237', 'l199', 'requires')
+        ('l238', 'l237', 'requires')
+        ('l239', 'l237', 'requires')
+        ('l239', 'l238', 'irequires')
+        ('l240', 'l239', 'requires')
+        ('l200', 'l240', 'requires')
+        ('l241', 'l199', 'requires')
+        ('l242', 'l241', 'requires')
+        ('l243', 'l241', 'requires')
+        ('l243', 'l242', 'irequires')
+        ('l244', 'l243', 'requires')
+        ('l200', 'l244', 'requires')
+        ('l245', 'l199', 'requires')
+        ('l246', 'l245', 'requires')
+        ('l247', 'l245', 'requires')
+        ('l247', 'l246', 'irequires')
+        ('l248', 'l247', 'requires')
+        ('l200', 'l248', 'requires')
+        ('l249', 'l199', 'requires')
+        ('l250', 'l249', 'requires')
+        ('l251', 'l249', 'requires')
+        ('l251', 'l250', 'irequires')
+        ('l252', 'l251', 'requires')
+        ('l200', 'l252', 'requires')
+        ('l253', 'l199', 'requires')
+        ('l254', 'l253', 'requires')
+        ('l255', 'l253', 'requires')
+        ('l255', 'l254', 'irequires')
+        ('l256', 'l255', 'requires')
+        ('l200', 'l256', 'requires')
+        ('l257', 'l199', 'requires')
+        ('l258', 'l257', 'requires')
+        ('l259', 'l257', 'requires')
+        ('l259', 'l258', 'irequires')
+        ('l260', 'l259', 'requires')
+        ('l200', 'l260', 'requires')
+        ('l261', 'l199', 'requires')
+        ('l262', 'l261', 'requires')
+        ('l263', 'l261', 'requires')
+        ('l263', 'l262', 'irequires')
+        ('l264', 'l263', 'requires')
+        ('l200', 'l264', 'requires')
+        ('l265', 'l199', 'requires')
+        ('l266', 'l265', 'requires')
+        ('l267', 'l265', 'requires')
+        ('l267', 'l266', 'irequires')
+        ('l268', 'l267', 'requires')
+        ('l200', 'l268', 'requires')
+        ('l269', 'l199', 'requires')
+        ('l270', 'l269', 'requires')
+        ('l271', 'l269', 'requires')
+        ('l271', 'l270', 'irequires')
+        ('l272', 'l271', 'requires')
+        ('l200', 'l272', 'requires')
+        ('l273', 'l199', 'requires')
+        ('l274', 'l273', 'requires')
+        ('l275', 'l273', 'requires')
+        ('l275', 'l274', 'irequires')
+        ('l276', 'l275', 'requires')
+        ('l200', 'l276', 'requires')
+        ('l277', 'l199', 'requires')
+        ('l278', 'l277', 'requires')
+        ('l279', 'l277', 'requires')
+        ('l279', 'l278', 'irequires')
+        ('l280', 'l279', 'requires')
+        ('l200', 'l280', 'requires')
+        ('l281', 'l199', 'requires')
+        ('l282', 'l281', 'requires')
+        ('l283', 'l281', 'requires')
+        ('l283', 'l282', 'irequires')
+        ('l284', 'l283', 'requires')
+        ('l200', 'l284', 'requires')
+        ('l285', 'l199', 'requires')
+        ('l286', 'l285', 'requires')
+        ('l287', 'l285', 'requires')
+        ('l287', 'l286', 'irequires')
+        ('l288', 'l287', 'requires')
+        ('l200', 'l288', 'requires')
+        ('l289', 'l199', 'requires')
+        ('l290', 'l289', 'requires')
+        ('l291', 'l289', 'requires')
+        ('l291', 'l290', 'irequires')
+        ('l292', 'l291', 'requires')
+        ('l200', 'l292', 'requires')
+        ('l293', 'l199', 'requires')
+        ('l294', 'l293', 'requires')
+        ('l295', 'l293', 'requires')
+        ('l295', 'l294', 'irequires')
+        ('l296', 'l295', 'requires')
+        ('l200', 'l296', 'requires')
+        ('l297', 'l200', 'requires')
+        ('l299', 'l297', 'requires')
+        ('l300', 'l299', 'requires')
+        ('l301', 'l299', 'requires')
+        ('l301', 'l300', 'irequires')
+        ('l302', 'l301', 'requires')
+        ('l298', 'l302', 'requires')
+        ('l303', 'l297', 'requires')
+        ('l304', 'l303', 'requires')
+        ('l305', 'l303', 'requires')
+        ('l305', 'l304', 'irequires')
+        ('l306', 'l305', 'requires')
+        ('l298', 'l306', 'requires')
+        ('l307', 'l297', 'requires')
+        ('l308', 'l307', 'requires')
+        ('l309', 'l307', 'requires')
+        ('l309', 'l308', 'irequires')
+        ('l310', 'l309', 'requires')
+        ('l298', 'l310', 'requires')
+        ('l311', 'l297', 'requires')
+        ('l312', 'l311', 'requires')
+        ('l313', 'l311', 'requires')
+        ('l313', 'l312', 'irequires')
+        ('l314', 'l313', 'requires')
+        ('l298', 'l314', 'requires')
+        ('l315', 'l297', 'requires')
+        ('l316', 'l315', 'requires')
+        ('l317', 'l315', 'requires')
+        ('l317', 'l316', 'irequires')
+        ('l318', 'l317', 'requires')
+        ('l298', 'l318', 'requires')
+        ('l319', 'l297', 'requires')
+        ('l320', 'l319', 'requires')
+        ('l321', 'l319', 'requires')
+        ('l321', 'l320', 'irequires')
+        ('l322', 'l321', 'requires')
+        ('l298', 'l322', 'requires')
+        ('l323', 'l297', 'requires')
+        ('l324', 'l323', 'requires')
+        ('l325', 'l323', 'requires')
+        ('l325', 'l324', 'irequires')
+        ('l326', 'l325', 'requires')
+        ('l298', 'l326', 'requires')
+        ('l327', 'l297', 'requires')
+        ('l328', 'l327', 'requires')
+        ('l329', 'l327', 'requires')
+        ('l329', 'l328', 'irequires')
+        ('l330', 'l329', 'requires')
+        ('l298', 'l330', 'requires')
+        ('l331', 'l297', 'requires')
+        ('l332', 'l331', 'requires')
+        ('l333', 'l331', 'requires')
+        ('l333', 'l332', 'irequires')
+        ('l334', 'l333', 'requires')
+        ('l298', 'l334', 'requires')
+        ('l335', 'l297', 'requires')
+        ('l336', 'l335', 'requires')
+        ('l337', 'l335', 'requires')
+        ('l337', 'l336', 'irequires')
+        ('l338', 'l337', 'requires')
+        ('l298', 'l338', 'requires')
+        ('l339', 'l297', 'requires')
+        ('l340', 'l339', 'requires')
+        ('l341', 'l339', 'requires')
+        ('l341', 'l340', 'irequires')
+        ('l342', 'l341', 'requires')
+        ('l298', 'l342', 'requires')
+        ('l343', 'l297', 'requires')
+        ('l344', 'l343', 'requires')
+        ('l345', 'l343', 'requires')
+        ('l345', 'l344', 'irequires')
+        ('l346', 'l345', 'requires')
+        ('l298', 'l346', 'requires')
+        ('l347', 'l297', 'requires')
+        ('l348', 'l347', 'requires')
+        ('l349', 'l347', 'requires')
+        ('l349', 'l348', 'irequires')
+        ('l350', 'l349', 'requires')
+        ('l298', 'l350', 'requires')
+        ('l351', 'l297', 'requires')
+        ('l352', 'l351', 'requires')
+        ('l353', 'l351', 'requires')
+        ('l353', 'l352', 'irequires')
+        ('l354', 'l353', 'requires')
+        ('l298', 'l354', 'requires')
+        ('l355', 'l297', 'requires')
+        ('l356', 'l355', 'requires')
+        ('l357', 'l355', 'requires')
+        ('l357', 'l356', 'irequires')
+        ('l358', 'l357', 'requires')
+        ('l298', 'l358', 'requires')
+        ('l359', 'l297', 'requires')
+        ('l360', 'l359', 'requires')
+        ('l361', 'l359', 'requires')
+        ('l361', 'l360', 'irequires')
+        ('l362', 'l361', 'requires')
+        ('l298', 'l362', 'requires')
+        ('l363', 'l297', 'requires')
+        ('l364', 'l363', 'requires')
+        ('l365', 'l363', 'requires')
+        ('l365', 'l364', 'irequires')
+        ('l366', 'l365', 'requires')
+        ('l298', 'l366', 'requires')
+        ('l367', 'l297', 'requires')
+        ('l368', 'l367', 'requires')
+        ('l369', 'l367', 'requires')
+        ('l369', 'l368', 'irequires')
+        ('l370', 'l369', 'requires')
+        ('l298', 'l370', 'requires')
+        ('l371', 'l297', 'requires')
+        ('l372', 'l371', 'requires')
+        ('l373', 'l371', 'requires')
+        ('l373', 'l372', 'irequires')
+        ('l374', 'l373', 'requires')
+        ('l298', 'l374', 'requires')
+        ('l375', 'l297', 'requires')
+        ('l376', 'l375', 'requires')
+        ('l377', 'l375', 'requires')
+        ('l377', 'l376', 'irequires')
+        ('l378', 'l377', 'requires')
+        ('l298', 'l378', 'requires')
+        ('l379', 'l297', 'requires')
+        ('l380', 'l379', 'requires')
+        ('l381', 'l379', 'requires')
+        ('l381', 'l380', 'irequires')
+        ('l382', 'l381', 'requires')
+        ('l298', 'l382', 'requires')
+        ('l383', 'l297', 'requires')
+        ('l384', 'l383', 'requires')
+        ('l385', 'l383', 'requires')
+        ('l385', 'l384', 'irequires')
+        ('l386', 'l385', 'requires')
+        ('l298', 'l386', 'requires')
+        ('l387', 'l297', 'requires')
+        ('l388', 'l387', 'requires')
+        ('l389', 'l387', 'requires')
+        ('l389', 'l388', 'irequires')
+        ('l390', 'l389', 'requires')
+        ('l298', 'l390', 'requires')
+        ('l391', 'l297', 'requires')
+        ('l392', 'l391', 'requires')
+        ('l393', 'l391', 'requires')
+        ('l393', 'l392', 'irequires')
+        ('l394', 'l393', 'requires')
+        ('l298', 'l394', 'requires')
+(rank 3):
+    nodes:
+        l420
+        l429
+        l569
+        l507
+        l504
+        l468
+        l490
+        l550
+        l474
+        l415
+        l565
+        l591
+        l478
+        l397
+        l427
+        l499
+        l512
+        l548
+        l480
+        l403
+        l544
+        l514
+        l553
+        l407
+        l562
+        l558
+        l526
+        l542
+        l589
+        l494
+        l471
+        l530
+        l421
+        l412
+        l492
+        l537
+        l418
+        l431
+        l532
+        l456
+        l489
+        l434
+        l588
+        l493
+        l508
+        l525
+        l557
+        l556
+        l515
+        l574
+        l485
+        l502
+        l529
+        l426
+        l406
+        l445
+        l476
+        l547
+        l477
+        l472
+        l425
+        l424
+        l430
+        l487
+        l533
+        l419
+        l555
+        l571
+        l534
+        l543
+        l455
+        l540
+        l464
+        l528
+        l506
+        l585
+        l578
+        l437
+        l531
+        l475
+        l399
+        l402
+        l452
+        l561
+        l563
+        l549
+        l482
+        l473
+        l570
+        l538
+        l449
+        l513
+        l470
+        l447
+        l522
+        l488
+        l410
+        l408
+        l576
+        l568
+        l444
+        l527
+        l448
+        l411
+        l460
+        l428
+        l584
+        l500
+        l433
+        l443
+        l446
+        l497
+        l432
+        l466
+        l496
+        l414
+        l539
+        l459
+        l484
+        l586
+        l398
+        l442
+        l467
+        l520
+        l551
+        l516
+        l560
+        l573
+        l519
+        l457
+        l536
+        l438
+        l417
+        l440
+        l582
+        l541
+        l451
+        l554
+        l505
+        l509
+        l510
+        l461
+        l436
+        l481
+        l521
+        l439
+        l483
+        l567
+        l581
+        l422
+        l454
+        l564
+        l566
+        l590
+        l583
+        l435
+        l400
+        l575
+        l587
+        l423
+        l580
+        l404
+        l453
+        l535
+        l416
+        l579
+        l450
+        l465
+        l479
+        l495
+        l524
+        l552
+        l405
+        l469
+        l559
+        l546
+        l409
+        l462
+        l517
+        l395
+        l518
+        l523
+        l441
+        l572
+        l545
+        l498
+        l491
+        l396
+        l503
+        l486
+        l401
+        l501
+        l463
+        l511
+        l413
+        l458
+        l577
+    edges:
+        ('l396', 'l395', 'requires')
+        ('l398', 'l396', 'requires')
+        ('l399', 'l398', 'requires')
+        ('l400', 'l398', 'requires')
+        ('l400', 'l399', 'irequires')
+        ('l401', 'l400', 'requires')
+        ('l397', 'l401', 'requires')
+        ('l402', 'l396', 'requires')
+        ('l403', 'l402', 'requires')
+        ('l404', 'l402', 'requires')
+        ('l404', 'l403', 'irequires')
+        ('l405', 'l404', 'requires')
+        ('l397', 'l405', 'requires')
+        ('l406', 'l396', 'requires')
+        ('l407', 'l406', 'requires')
+        ('l408', 'l406', 'requires')
+        ('l408', 'l407', 'irequires')
+        ('l409', 'l408', 'requires')
+        ('l397', 'l409', 'requires')
+        ('l410', 'l396', 'requires')
+        ('l411', 'l410', 'requires')
+        ('l412', 'l410', 'requires')
+        ('l412', 'l411', 'irequires')
+        ('l413', 'l412', 'requires')
+        ('l397', 'l413', 'requires')
+        ('l414', 'l396', 'requires')
+        ('l415', 'l414', 'requires')
+        ('l416', 'l414', 'requires')
+        ('l416', 'l415', 'irequires')
+        ('l417', 'l416', 'requires')
+        ('l397', 'l417', 'requires')
+        ('l418', 'l396', 'requires')
+        ('l419', 'l418', 'requires')
+        ('l420', 'l418', 'requires')
+        ('l420', 'l419', 'irequires')
+        ('l421', 'l420', 'requires')
+        ('l397', 'l421', 'requires')
+        ('l422', 'l396', 'requires')
+        ('l423', 'l422', 'requires')
+        ('l424', 'l422', 'requires')
+        ('l424', 'l423', 'irequires')
+        ('l425', 'l424', 'requires')
+        ('l397', 'l425', 'requires')
+        ('l426', 'l396', 'requires')
+        ('l427', 'l426', 'requires')
+        ('l428', 'l426', 'requires')
+        ('l428', 'l427', 'irequires')
+        ('l429', 'l428', 'requires')
+        ('l397', 'l429', 'requires')
+        ('l430', 'l396', 'requires')
+        ('l431', 'l430', 'requires')
+        ('l432', 'l430', 'requires')
+        ('l432', 'l431', 'irequires')
+        ('l433', 'l432', 'requires')
+        ('l397', 'l433', 'requires')
+        ('l434', 'l396', 'requires')
+        ('l435', 'l434', 'requires')
+        ('l436', 'l434', 'requires')
+        ('l436', 'l435', 'irequires')
+        ('l437', 'l436', 'requires')
+        ('l397', 'l437', 'requires')
+        ('l438', 'l396', 'requires')
+        ('l439', 'l438', 'requires')
+        ('l440', 'l438', 'requires')
+        ('l440', 'l439', 'irequires')
+        ('l441', 'l440', 'requires')
+        ('l397', 'l441', 'requires')
+        ('l442', 'l396', 'requires')
+        ('l443', 'l442', 'requires')
+        ('l444', 'l442', 'requires')
+        ('l444', 'l443', 'irequires')
+        ('l445', 'l444', 'requires')
+        ('l397', 'l445', 'requires')
+        ('l446', 'l396', 'requires')
+        ('l447', 'l446', 'requires')
+        ('l448', 'l446', 'requires')
+        ('l448', 'l447', 'irequires')
+        ('l449', 'l448', 'requires')
+        ('l397', 'l449', 'requires')
+        ('l450', 'l396', 'requires')
+        ('l451', 'l450', 'requires')
+        ('l452', 'l450', 'requires')
+        ('l452', 'l451', 'irequires')
+        ('l453', 'l452', 'requires')
+        ('l397', 'l453', 'requires')
+        ('l454', 'l396', 'requires')
+        ('l455', 'l454', 'requires')
+        ('l456', 'l454', 'requires')
+        ('l456', 'l455', 'irequires')
+        ('l457', 'l456', 'requires')
+        ('l397', 'l457', 'requires')
+        ('l458', 'l396', 'requires')
+        ('l459', 'l458', 'requires')
+        ('l460', 'l458', 'requires')
+        ('l460', 'l459', 'irequires')
+        ('l461', 'l460', 'requires')
+        ('l397', 'l461', 'requires')
+        ('l462', 'l396', 'requires')
+        ('l463', 'l462', 'requires')
+        ('l464', 'l462', 'requires')
+        ('l464', 'l463', 'irequires')
+        ('l465', 'l464', 'requires')
+        ('l397', 'l465', 'requires')
+        ('l466', 'l396', 'requires')
+        ('l467', 'l466', 'requires')
+        ('l468', 'l466', 'requires')
+        ('l468', 'l467', 'irequires')
+        ('l469', 'l468', 'requires')
+        ('l397', 'l469', 'requires')
+        ('l470', 'l396', 'requires')
+        ('l471', 'l470', 'requires')
+        ('l472', 'l470', 'requires')
+        ('l472', 'l471', 'irequires')
+        ('l473', 'l472', 'requires')
+        ('l397', 'l473', 'requires')
+        ('l474', 'l396', 'requires')
+        ('l475', 'l474', 'requires')
+        ('l476', 'l474', 'requires')
+        ('l476', 'l475', 'irequires')
+        ('l477', 'l476', 'requires')
+        ('l397', 'l477', 'requires')
+        ('l478', 'l396', 'requires')
+        ('l479', 'l478', 'requires')
+        ('l480', 'l478', 'requires')
+        ('l480', 'l479', 'irequires')
+        ('l481', 'l480', 'requires')
+        ('l397', 'l481', 'requires')
+        ('l482', 'l396', 'requires')
+        ('l483', 'l482', 'requires')
+        ('l484', 'l482', 'requires')
+        ('l484', 'l483', 'irequires')
+        ('l485', 'l484', 'requires')
+        ('l397', 'l485', 'requires')
+        ('l486', 'l396', 'requires')
+        ('l487', 'l486', 'requires')
+        ('l488', 'l486', 'requires')
+        ('l488', 'l487', 'irequires')
+        ('l489', 'l488', 'requires')
+        ('l397', 'l489', 'requires')
+        ('l490', 'l396', 'requires')
+        ('l491', 'l490', 'requires')
+        ('l492', 'l490', 'requires')
+        ('l492', 'l491', 'irequires')
+        ('l493', 'l492', 'requires')
+        ('l397', 'l493', 'requires')
+        ('l494', 'l397', 'requires')
+        ('l496', 'l494', 'requires')
+        ('l497', 'l496', 'requires')
+        ('l498', 'l496', 'requires')
+        ('l498', 'l497', 'irequires')
+        ('l499', 'l498', 'requires')
+        ('l495', 'l499', 'requires')
+        ('l500', 'l494', 'requires')
+        ('l501', 'l500', 'requires')
+        ('l502', 'l500', 'requires')
+        ('l502', 'l501', 'irequires')
+        ('l503', 'l502', 'requires')
+        ('l495', 'l503', 'requires')
+        ('l504', 'l494', 'requires')
+        ('l505', 'l504', 'requires')
+        ('l506', 'l504', 'requires')
+        ('l506', 'l505', 'irequires')
+        ('l507', 'l506', 'requires')
+        ('l495', 'l507', 'requires')
+        ('l508', 'l494', 'requires')
+        ('l509', 'l508', 'requires')
+        ('l510', 'l508', 'requires')
+        ('l510', 'l509', 'irequires')
+        ('l511', 'l510', 'requires')
+        ('l495', 'l511', 'requires')
+        ('l512', 'l494', 'requires')
+        ('l513', 'l512', 'requires')
+        ('l514', 'l512', 'requires')
+        ('l514', 'l513', 'irequires')
+        ('l515', 'l514', 'requires')
+        ('l495', 'l515', 'requires')
+        ('l516', 'l494', 'requires')
+        ('l517', 'l516', 'requires')
+        ('l518', 'l516', 'requires')
+        ('l518', 'l517', 'irequires')
+        ('l519', 'l518', 'requires')
+        ('l495', 'l519', 'requires')
+        ('l520', 'l494', 'requires')
+        ('l521', 'l520', 'requires')
+        ('l522', 'l520', 'requires')
+        ('l522', 'l521', 'irequires')
+        ('l523', 'l522', 'requires')
+        ('l495', 'l523', 'requires')
+        ('l524', 'l494', 'requires')
+        ('l525', 'l524', 'requires')
+        ('l526', 'l524', 'requires')
+        ('l526', 'l525', 'irequires')
+        ('l527', 'l526', 'requires')
+        ('l495', 'l527', 'requires')
+        ('l528', 'l494', 'requires')
+        ('l529', 'l528', 'requires')
+        ('l530', 'l528', 'requires')
+        ('l530', 'l529', 'irequires')
+        ('l531', 'l530', 'requires')
+        ('l495', 'l531', 'requires')
+        ('l532', 'l494', 'requires')
+        ('l533', 'l532', 'requires')
+        ('l534', 'l532', 'requires')
+        ('l534', 'l533', 'irequires')
+        ('l535', 'l534', 'requires')
+        ('l495', 'l535', 'requires')
+        ('l536', 'l494', 'requires')
+        ('l537', 'l536', 'requires')
+        ('l538', 'l536', 'requires')
+        ('l538', 'l537', 'irequires')
+        ('l539', 'l538', 'requires')
+        ('l495', 'l539', 'requires')
+        ('l540', 'l494', 'requires')
+        ('l541', 'l540', 'requires')
+        ('l542', 'l540', 'requires')
+        ('l542', 'l541', 'irequires')
+        ('l543', 'l542', 'requires')
+        ('l495', 'l543', 'requires')
+        ('l544', 'l494', 'requires')
+        ('l545', 'l544', 'requires')
+        ('l546', 'l544', 'requires')
+        ('l546', 'l545', 'irequires')
+        ('l547', 'l546', 'requires')
+        ('l495', 'l547', 'requires')
+        ('l548', 'l494', 'requires')
+        ('l549', 'l548', 'requires')
+        ('l550', 'l548', 'requires')
+        ('l550', 'l549', 'irequires')
+        ('l551', 'l550', 'requires')
+        ('l495', 'l551', 'requires')
+        ('l552', 'l494', 'requires')
+        ('l553', 'l552', 'requires')
+        ('l554', 'l552', 'requires')
+        ('l554', 'l553', 'irequires')
+        ('l555', 'l554', 'requires')
+        ('l495', 'l555', 'requires')
+        ('l556', 'l494', 'requires')
+        ('l557', 'l556', 'requires')
+        ('l558', 'l556', 'requires')
+        ('l558', 'l557', 'irequires')
+        ('l559', 'l558', 'requires')
+        ('l495', 'l559', 'requires')
+        ('l560', 'l494', 'requires')
+        ('l561', 'l560', 'requires')
+        ('l562', 'l560', 'requires')
+        ('l562', 'l561', 'irequires')
+        ('l563', 'l562', 'requires')
+        ('l495', 'l563', 'requires')
+        ('l564', 'l494', 'requires')
+        ('l565', 'l564', 'requires')
+        ('l566', 'l564', 'requires')
+        ('l566', 'l565', 'irequires')
+        ('l567', 'l566', 'requires')
+        ('l495', 'l567', 'requires')
+        ('l568', 'l494', 'requires')
+        ('l569', 'l568', 'requires')
+        ('l570', 'l568', 'requires')
+        ('l570', 'l569', 'irequires')
+        ('l571', 'l570', 'requires')
+        ('l495', 'l571', 'requires')
+        ('l572', 'l494', 'requires')
+        ('l573', 'l572', 'requires')
+        ('l574', 'l572', 'requires')
+        ('l574', 'l573', 'irequires')
+        ('l575', 'l574', 'requires')
+        ('l495', 'l575', 'requires')
+        ('l576', 'l494', 'requires')
+        ('l577', 'l576', 'requires')
+        ('l578', 'l576', 'requires')
+        ('l578', 'l577', 'irequires')
+        ('l579', 'l578', 'requires')
+        ('l495', 'l579', 'requires')
+        ('l580', 'l494', 'requires')
+        ('l581', 'l580', 'requires')
+        ('l582', 'l580', 'requires')
+        ('l582', 'l581', 'irequires')
+        ('l583', 'l582', 'requires')
+        ('l495', 'l583', 'requires')
+        ('l584', 'l494', 'requires')
+        ('l585', 'l584', 'requires')
+        ('l586', 'l584', 'requires')
+        ('l586', 'l585', 'irequires')
+        ('l587', 'l586', 'requires')
+        ('l495', 'l587', 'requires')
+        ('l588', 'l494', 'requires')
+        ('l589', 'l588', 'requires')
+        ('l590', 'l588', 'requires')
+        ('l590', 'l589', 'irequires')
+        ('l591', 'l590', 'requires')
+        ('l495', 'l591', 'requires')
+(rank 0):
+    nodes:
+        l777
+        l605
+        l704
+        l599
+        l626
+        l634
+        l653
+        l636
+        l703
+        l687
+        l712
+        l604
+        l616
+        l744
+        l782
+        l610
+        l769
+        l776
+        l710
+        l660
+        l621
+        l617
+        l648
+        l788
+        l685
+        l729
+        l733
+        l781
+        l602
+        l647
+        l783
+        l754
+        l592
+        l688
+        l780
+        l747
+        l692
+        l748
+        l595
+        l624
+        l643
+        l652
+        l683
+        l701
+        l714
+        l773
+        l623
+        l727
+        l723
+        l606
+        l752
+        l603
+        l732
+        l778
+        l632
+        l728
+        l726
+        l758
+        l666
+        l615
+        l699
+        l771
+        l629
+        l756
+        l767
+        l716
+        l642
+        l700
+        l720
+        l770
+        l612
+        l697
+        l774
+        l785
+        l702
+        l722
+        l600
+        l657
+        l682
+        l715
+        l768
+        l711
+        l772
+        l639
+        l664
+        l734
+        l619
+        l708
+        l667
+        l674
+        l593
+        l677
+        l649
+        l622
+        l598
+        l751
+        l631
+        l743
+        l679
+        l693
+        l737
+        l759
+        l787
+        l741
+        l762
+        l718
+        l775
+        l655
+        l656
+        l644
+        l698
+        l739
+        l755
+        l597
+        l724
+        l689
+        l594
+        l669
+        l654
+        l757
+        l753
+        l725
+        l684
+        l706
+        l707
+        l731
+        l658
+        l779
+        l786
+        l766
+        l614
+        l640
+        l784
+        l736
+        l681
+        l719
+        l630
+        l671
+        l686
+        l611
+        l672
+        l696
+        l691
+        l709
+        l713
+        l735
+        l641
+        l738
+        l608
+        l760
+        l635
+        l596
+        l638
+        l721
+        l680
+        l625
+        l646
+        l675
+        l746
+        l765
+        l705
+        l670
+        l717
+        l690
+        l761
+        l694
+        l665
+        l650
+        l651
+        l745
+        l601
+        l645
+        l668
+        l609
+        l607
+        l627
+        l659
+        l618
+        l637
+        l633
+        l695
+        l678
+        l749
+        l740
+        l620
+        l613
+        l662
+        l663
+        l763
+        l673
+        l764
+        l661
+        l628
+        l676
+        l730
+        l742
+        l750
+    edges:
+        ('l593', 'l592', 'requires')
+        ('l595', 'l593', 'requires')
+        ('l596', 'l595', 'requires')
+        ('l597', 'l595', 'requires')
+        ('l597', 'l596', 'irequires')
+        ('l598', 'l597', 'requires')
+        ('l594', 'l598', 'requires')
+        ('l599', 'l593', 'requires')
+        ('l600', 'l599', 'requires')
+        ('l601', 'l599', 'requires')
+        ('l601', 'l600', 'irequires')
+        ('l602', 'l601', 'requires')
+        ('l594', 'l602', 'requires')
+        ('l603', 'l593', 'requires')
+        ('l604', 'l603', 'requires')
+        ('l605', 'l603', 'requires')
+        ('l605', 'l604', 'irequires')
+        ('l606', 'l605', 'requires')
+        ('l594', 'l606', 'requires')
+        ('l607', 'l593', 'requires')
+        ('l608', 'l607', 'requires')
+        ('l609', 'l607', 'requires')
+        ('l609', 'l608', 'irequires')
+        ('l610', 'l609', 'requires')
+        ('l594', 'l610', 'requires')
+        ('l611', 'l593', 'requires')
+        ('l612', 'l611', 'requires')
+        ('l613', 'l611', 'requires')
+        ('l613', 'l612', 'irequires')
+        ('l614', 'l613', 'requires')
+        ('l594', 'l614', 'requires')
+        ('l615', 'l593', 'requires')
+        ('l616', 'l615', 'requires')
+        ('l617', 'l615', 'requires')
+        ('l617', 'l616', 'irequires')
+        ('l618', 'l617', 'requires')
+        ('l594', 'l618', 'requires')
+        ('l619', 'l593', 'requires')
+        ('l620', 'l619', 'requires')
+        ('l621', 'l619', 'requires')
+        ('l621', 'l620', 'irequires')
+        ('l622', 'l621', 'requires')
+        ('l594', 'l622', 'requires')
+        ('l623', 'l593', 'requires')
+        ('l624', 'l623', 'requires')
+        ('l625', 'l623', 'requires')
+        ('l625', 'l624', 'irequires')
+        ('l626', 'l625', 'requires')
+        ('l594', 'l626', 'requires')
+        ('l627', 'l593', 'requires')
+        ('l628', 'l627', 'requires')
+        ('l629', 'l627', 'requires')
+        ('l629', 'l628', 'irequires')
+        ('l630', 'l629', 'requires')
+        ('l594', 'l630', 'requires')
+        ('l631', 'l593', 'requires')
+        ('l632', 'l631', 'requires')
+        ('l633', 'l631', 'requires')
+        ('l633', 'l632', 'irequires')
+        ('l634', 'l633', 'requires')
+        ('l594', 'l634', 'requires')
+        ('l635', 'l593', 'requires')
+        ('l636', 'l635', 'requires')
+        ('l637', 'l635', 'requires')
+        ('l637', 'l636', 'irequires')
+        ('l638', 'l637', 'requires')
+        ('l594', 'l638', 'requires')
+        ('l639', 'l593', 'requires')
+        ('l640', 'l639', 'requires')
+        ('l641', 'l639', 'requires')
+        ('l641', 'l640', 'irequires')
+        ('l642', 'l641', 'requires')
+        ('l594', 'l642', 'requires')
+        ('l643', 'l593', 'requires')
+        ('l644', 'l643', 'requires')
+        ('l645', 'l643', 'requires')
+        ('l645', 'l644', 'irequires')
+        ('l646', 'l645', 'requires')
+        ('l594', 'l646', 'requires')
+        ('l647', 'l593', 'requires')
+        ('l648', 'l647', 'requires')
+        ('l649', 'l647', 'requires')
+        ('l649', 'l648', 'irequires')
+        ('l650', 'l649', 'requires')
+        ('l594', 'l650', 'requires')
+        ('l651', 'l593', 'requires')
+        ('l652', 'l651', 'requires')
+        ('l653', 'l651', 'requires')
+        ('l653', 'l652', 'irequires')
+        ('l654', 'l653', 'requires')
+        ('l594', 'l654', 'requires')
+        ('l655', 'l593', 'requires')
+        ('l656', 'l655', 'requires')
+        ('l657', 'l655', 'requires')
+        ('l657', 'l656', 'irequires')
+        ('l658', 'l657', 'requires')
+        ('l594', 'l658', 'requires')
+        ('l659', 'l593', 'requires')
+        ('l660', 'l659', 'requires')
+        ('l661', 'l659', 'requires')
+        ('l661', 'l660', 'irequires')
+        ('l662', 'l661', 'requires')
+        ('l594', 'l662', 'requires')
+        ('l663', 'l593', 'requires')
+        ('l664', 'l663', 'requires')
+        ('l665', 'l663', 'requires')
+        ('l665', 'l664', 'irequires')
+        ('l666', 'l665', 'requires')
+        ('l594', 'l666', 'requires')
+        ('l667', 'l593', 'requires')
+        ('l668', 'l667', 'requires')
+        ('l669', 'l667', 'requires')
+        ('l669', 'l668', 'irequires')
+        ('l670', 'l669', 'requires')
+        ('l594', 'l670', 'requires')
+        ('l671', 'l593', 'requires')
+        ('l672', 'l671', 'requires')
+        ('l673', 'l671', 'requires')
+        ('l673', 'l672', 'irequires')
+        ('l674', 'l673', 'requires')
+        ('l594', 'l674', 'requires')
+        ('l675', 'l593', 'requires')
+        ('l676', 'l675', 'requires')
+        ('l677', 'l675', 'requires')
+        ('l677', 'l676', 'irequires')
+        ('l678', 'l677', 'requires')
+        ('l594', 'l678', 'requires')
+        ('l679', 'l593', 'requires')
+        ('l680', 'l679', 'requires')
+        ('l681', 'l679', 'requires')
+        ('l681', 'l680', 'irequires')
+        ('l682', 'l681', 'requires')
+        ('l594', 'l682', 'requires')
+        ('l683', 'l593', 'requires')
+        ('l684', 'l683', 'requires')
+        ('l685', 'l683', 'requires')
+        ('l685', 'l684', 'irequires')
+        ('l686', 'l685', 'requires')
+        ('l594', 'l686', 'requires')
+        ('l687', 'l593', 'requires')
+        ('l688', 'l687', 'requires')
+        ('l689', 'l687', 'requires')
+        ('l689', 'l688', 'irequires')
+        ('l690', 'l689', 'requires')
+        ('l594', 'l690', 'requires')
+        ('l691', 'l594', 'requires')
+        ('l693', 'l691', 'requires')
+        ('l694', 'l693', 'requires')
+        ('l695', 'l693', 'requires')
+        ('l695', 'l694', 'irequires')
+        ('l696', 'l695', 'requires')
+        ('l692', 'l696', 'requires')
+        ('l697', 'l691', 'requires')
+        ('l698', 'l697', 'requires')
+        ('l699', 'l697', 'requires')
+        ('l699', 'l698', 'irequires')
+        ('l700', 'l699', 'requires')
+        ('l692', 'l700', 'requires')
+        ('l701', 'l691', 'requires')
+        ('l702', 'l701', 'requires')
+        ('l703', 'l701', 'requires')
+        ('l703', 'l702', 'irequires')
+        ('l704', 'l703', 'requires')
+        ('l692', 'l704', 'requires')
+        ('l705', 'l691', 'requires')
+        ('l706', 'l705', 'requires')
+        ('l707', 'l705', 'requires')
+        ('l707', 'l706', 'irequires')
+        ('l708', 'l707', 'requires')
+        ('l692', 'l708', 'requires')
+        ('l709', 'l691', 'requires')
+        ('l710', 'l709', 'requires')
+        ('l711', 'l709', 'requires')
+        ('l711', 'l710', 'irequires')
+        ('l712', 'l711', 'requires')
+        ('l692', 'l712', 'requires')
+        ('l713', 'l691', 'requires')
+        ('l714', 'l713', 'requires')
+        ('l715', 'l713', 'requires')
+        ('l715', 'l714', 'irequires')
+        ('l716', 'l715', 'requires')
+        ('l692', 'l716', 'requires')
+        ('l717', 'l691', 'requires')
+        ('l718', 'l717', 'requires')
+        ('l719', 'l717', 'requires')
+        ('l719', 'l718', 'irequires')
+        ('l720', 'l719', 'requires')
+        ('l692', 'l720', 'requires')
+        ('l721', 'l691', 'requires')
+        ('l722', 'l721', 'requires')
+        ('l723', 'l721', 'requires')
+        ('l723', 'l722', 'irequires')
+        ('l724', 'l723', 'requires')
+        ('l692', 'l724', 'requires')
+        ('l725', 'l691', 'requires')
+        ('l726', 'l725', 'requires')
+        ('l727', 'l725', 'requires')
+        ('l727', 'l726', 'irequires')
+        ('l728', 'l727', 'requires')
+        ('l692', 'l728', 'requires')
+        ('l729', 'l691', 'requires')
+        ('l730', 'l729', 'requires')
+        ('l731', 'l729', 'requires')
+        ('l731', 'l730', 'irequires')
+        ('l732', 'l731', 'requires')
+        ('l692', 'l732', 'requires')
+        ('l733', 'l691', 'requires')
+        ('l734', 'l733', 'requires')
+        ('l735', 'l733', 'requires')
+        ('l735', 'l734', 'irequires')
+        ('l736', 'l735', 'requires')
+        ('l692', 'l736', 'requires')
+        ('l737', 'l691', 'requires')
+        ('l738', 'l737', 'requires')
+        ('l739', 'l737', 'requires')
+        ('l739', 'l738', 'irequires')
+        ('l740', 'l739', 'requires')
+        ('l692', 'l740', 'requires')
+        ('l741', 'l691', 'requires')
+        ('l742', 'l741', 'requires')
+        ('l743', 'l741', 'requires')
+        ('l743', 'l742', 'irequires')
+        ('l744', 'l743', 'requires')
+        ('l692', 'l744', 'requires')
+        ('l745', 'l691', 'requires')
+        ('l746', 'l745', 'requires')
+        ('l747', 'l745', 'requires')
+        ('l747', 'l746', 'irequires')
+        ('l748', 'l747', 'requires')
+        ('l692', 'l748', 'requires')
+        ('l749', 'l691', 'requires')
+        ('l750', 'l749', 'requires')
+        ('l751', 'l749', 'requires')
+        ('l751', 'l750', 'irequires')
+        ('l752', 'l751', 'requires')
+        ('l692', 'l752', 'requires')
+        ('l753', 'l691', 'requires')
+        ('l754', 'l753', 'requires')
+        ('l755', 'l753', 'requires')
+        ('l755', 'l754', 'irequires')
+        ('l756', 'l755', 'requires')
+        ('l692', 'l756', 'requires')
+        ('l757', 'l691', 'requires')
+        ('l758', 'l757', 'requires')
+        ('l759', 'l757', 'requires')
+        ('l759', 'l758', 'irequires')
+        ('l760', 'l759', 'requires')
+        ('l692', 'l760', 'requires')
+        ('l761', 'l691', 'requires')
+        ('l762', 'l761', 'requires')
+        ('l763', 'l761', 'requires')
+        ('l763', 'l762', 'irequires')
+        ('l764', 'l763', 'requires')
+        ('l692', 'l764', 'requires')
+        ('l765', 'l691', 'requires')
+        ('l766', 'l765', 'requires')
+        ('l767', 'l765', 'requires')
+        ('l767', 'l766', 'irequires')
+        ('l768', 'l767', 'requires')
+        ('l692', 'l768', 'requires')
+        ('l769', 'l691', 'requires')
+        ('l770', 'l769', 'requires')
+        ('l771', 'l769', 'requires')
+        ('l771', 'l770', 'irequires')
+        ('l772', 'l771', 'requires')
+        ('l692', 'l772', 'requires')
+        ('l773', 'l691', 'requires')
+        ('l774', 'l773', 'requires')
+        ('l775', 'l773', 'requires')
+        ('l775', 'l774', 'irequires')
+        ('l776', 'l775', 'requires')
+        ('l692', 'l776', 'requires')
+        ('l777', 'l691', 'requires')
+        ('l778', 'l777', 'requires')
+        ('l779', 'l777', 'requires')
+        ('l779', 'l778', 'irequires')
+        ('l780', 'l779', 'requires')
+        ('l692', 'l780', 'requires')
+        ('l781', 'l691', 'requires')
+        ('l782', 'l781', 'requires')
+        ('l783', 'l781', 'requires')
+        ('l783', 'l782', 'irequires')
+        ('l784', 'l783', 'requires')
+        ('l692', 'l784', 'requires')
+        ('l785', 'l691', 'requires')
+        ('l786', 'l785', 'requires')
+        ('l787', 'l785', 'requires')
+        ('l787', 'l786', 'irequires')
+        ('l788', 'l787', 'requires')
+        ('l692', 'l788', 'requires')
+Graphviz output written to example_2.dot

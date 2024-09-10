@@ -21,7 +21,7 @@ module load ninja/1.10.2
 module load cuda/11.8.0
 
 # export PYTORCH_VERSION=2.4.1
-export TORCH_BUILD_VERSION=2.4.1
+# export TORCH_BUILD_VERSION=2.4.1
 
 export USE_ROCM=0
 export USE_XPU=0

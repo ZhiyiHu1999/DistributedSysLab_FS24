@@ -5,6 +5,9 @@ import json
 
 def get_sqlite_events(dir_path):
     traced_events = {}
+    FileRank_To_GoalRank  = {}
+    HostName_To_GoalRank = {}
+    pattern_HostName = r'nsys_report_([^.]+)\.'
 
     for file_name in os.listdir(dir_path):
         nvtx_events_data = {
@@ -19,6 +22,17 @@ def get_sqlite_events(dir_path):
         if file_name.endswith('.sqlite'):
             file_path = os.path.join(dir_path, file_name)
             file_rank = -1
+
+            match = re.search(pattern_HostName, file_name)
+            if match:
+                host_name = match.group(1)
+                print(f"Host Name: {host_name}")
+
+            if host_name in HostName_To_GoalRank:
+                goal_rank = HostName_To_GoalRank[host_name]
+            else:
+                goal_rank = len(HostName_To_GoalRank)
+                HostName_To_GoalRank[host_name] = goal_rank
             
             conn = sqlite3.connect(file_path)
             cursor = conn.cursor()
@@ -157,19 +171,87 @@ def get_sqlite_events(dir_path):
                         cupti_event_timestamp_start = min(nvtx_events_data["NVTX_EVENT_NET_IRECV"][seq]["ts_start"], cupti_event_timestamp_start)
                         cupti_event_timestamp_end = max(nvtx_events_data["NVTX_EVENT_NET_RECV_TEST"][seq]["ts_end"], cupti_event_timestamp_end)
 
-            traced_events[file_rank].append({
-                "event_name": cupti_event_name,
-                "timestamp_start": cupti_event_timestamp_start,
-                "timestamp_end": cupti_event_timestamp_end,
-                "net_events": paired_nvtx_events_data
-            })
+            if file_rank != -1:  ## No net events happens if file_rank == -1
+                traced_events[file_rank].append({
+                    "event_name": cupti_event_name,
+                    "timestamp_start": cupti_event_timestamp_start,
+                    "timestamp_end": cupti_event_timestamp_end,
+                    "net_events": paired_nvtx_events_data
+                })
+
+                FileRank_To_GoalRank[file_rank] = goal_rank
 
     # print(f"traced_events: {json.dumps(traced_events, indent=4)}")
 
-    return traced_events
+    return traced_events, FileRank_To_GoalRank, HostName_To_GoalRank
 
 
-def get_goal_file(events, goal_file_name):
+def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank):
+    num_ranks = len(HostName_To_GoalRank)
+    merged_events = {}
+    for goal_rank in range(num_ranks):
+        merged_events[goal_rank] = []
+
+        for file_rank_, nccl_kernel_events_ in traced_events.items():
+            nccl_kernel_event_num = len(nccl_kernel_events_)
+            break
+
+        for nccl_kernel_event_id in range(nccl_kernel_event_num):
+            merged_events[goal_rank].append({})
+            merged_events[goal_rank][nccl_kernel_event_id]["net_events"] = {
+                "NVTX_EVENT_NET_ISEND": [],
+                "NVTX_EVENT_NET_IRECV": [],
+                "NVTX_EVENT_NET_SEND_TEST": [],
+                "NVTX_EVENT_NET_RECV_TEST": []
+            }
+            merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"] = None
+            merged_events[goal_rank][nccl_kernel_event_id]["timestamp_end"] = None
+
+            for file_rank, nccl_kernel_events in traced_events.items():
+                if FileRank_To_GoalRank[file_rank] == goal_rank:
+                    merged_events[goal_rank][nccl_kernel_event_id]["event_name"] =  nccl_kernel_events[nccl_kernel_event_id]["event_name"]
+                    
+                    if merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"]:
+                        merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"] = min(merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"], nccl_kernel_events[nccl_kernel_event_id]["timestamp_start"])
+                    else:
+                        merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"] = nccl_kernel_events[nccl_kernel_event_id]["timestamp_start"]
+
+                    if merged_events[goal_rank][nccl_kernel_event_id]["timestamp_end"]:
+                        merged_events[goal_rank][nccl_kernel_event_id]["timestamp_end"] = max(merged_events[goal_rank][nccl_kernel_event_id]["timestamp_end"], nccl_kernel_events[nccl_kernel_event_id]["timestamp_end"])
+                    else:
+                        merged_events[goal_rank][nccl_kernel_event_id]["timestamp_end"] = nccl_kernel_events[nccl_kernel_event_id]["timestamp_end"]
+
+                    nvtx_net_events = nccl_kernel_events[nccl_kernel_event_id]["net_events"]
+                    if len(nvtx_net_events["NVTX_EVENT_NET_ISEND"]) > 0:
+                        for net_event in nvtx_net_events["NVTX_EVENT_NET_ISEND"]:
+                            net_event_goal = net_event
+                            net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                            net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                            merged_events[goal_rank][nccl_kernel_event_id]["net_events"]["NVTX_EVENT_NET_ISEND"].append(net_event_goal)
+
+                        for net_event in nvtx_net_events["NVTX_EVENT_NET_SEND_TEST"]:
+                            net_event_goal = net_event
+                            net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                            net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                            merged_events[goal_rank][nccl_kernel_event_id]["net_events"]["NVTX_EVENT_NET_SEND_TEST"].append(net_event_goal)
+
+                    if len(nvtx_net_events["NVTX_EVENT_NET_IRECV"]) > 0:
+                        for net_event in nvtx_net_events["NVTX_EVENT_NET_IRECV"]:
+                            net_event_goal = net_event
+                            net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                            net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                            merged_events[goal_rank][nccl_kernel_event_id]["net_events"]["NVTX_EVENT_NET_IRECV"].append(net_event_goal)
+
+                        for net_event in nvtx_net_events["NVTX_EVENT_NET_RECV_TEST"]:
+                            net_event_goal = net_event
+                            net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                            net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                            merged_events[goal_rank][nccl_kernel_event_id]["net_events"]["NVTX_EVENT_NET_RECV_TEST"].append(net_event_goal)
+    
+    return merged_events
+
+
+def get_intermediate_goal_file(events, goal_file_name):
     num_ranks = len(events)
     # goal_rank = 0
     task_counter = 0
@@ -258,18 +340,119 @@ def get_goal_file(events, goal_file_name):
 
             file.write("}\n")
 
+def get_goal_file(events, goal_file_name):
+    num_ranks = len(events)
+    task_counter = 0
+    with open(goal_file_name, 'w') as file:
+        file.write(f"num_ranks {num_ranks}\n")
+
+        for goal_rank in range(num_ranks):
+            nccl_kernel_events = events[goal_rank]
+            net_event_pair_num_max = 0
+            for gpu_event_id, gpu_event in enumerate(nccl_kernel_events):
+                net_event_pair_num = max(len(gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"]), len(gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"]))
+                if net_event_pair_num > net_event_pair_num_max:
+                    net_event_pair_num_max = net_event_pair_num
+
+            if net_event_pair_num_max > 0:  ## The rank has net events
+                file.write(f"\nrank {goal_rank}")
+                file.write(" {\n")
+
+                for gpu_event_id, gpu_event in enumerate(nccl_kernel_events):
+                    if gpu_event_id == 0:
+                        task_counter += 1
+                        file.write(f"l{task_counter}: calc 0\n") ## Starting point of the rank
+                        last_gpu_event_ts_end = 0
+                        end_calc_id = task_counter
+
+                    task_counter += 1
+                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_start"] - last_gpu_event_ts_end}\n')  ## Starting point of the gpu event
+                    file.write(f"l{task_counter} requires l{end_calc_id}\n")
+                    start_calc_id = task_counter
+
+                    task_counter += 1
+                    file.write(f"l{task_counter}: calc 0\n")  ## end point of a gpu event
+                    end_calc_id = task_counter  ## id of the calc 0 at the end of the last gpu event
+
+                    net_event_pair_num = max(len(gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"]), len(gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"]))
+                    for i in range(net_event_pair_num):
+                        if len(gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"]) > 0:
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_ISEND"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{start_calc_id}\n")
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {net_event["channel_id"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            ts_net_isend_end = net_event["ts_end"]
+
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_SEND_TEST"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                            file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                            task_counter +=1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_start"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            file.write(f"l{end_calc_id} requires l{task_counter}\n")
+
+                        if len(gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"]) > 0:
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_IRECV"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{start_calc_id}\n")
+                            ts_net_irecv_start = net_event["ts_start"]
+
+                            ####
+                            net_event = gpu_event["net_events"]["NVTX_EVENT_NET_RECV_TEST"][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {net_event["channel_id"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                            file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_start"]}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            file.write(f"l{end_calc_id} requires l{task_counter}\n")
+
+            # goal_rank += 1
+
+            file.write("}\n")
+
 
 def main():
     Dir_Path = './nsys_reports'
-    Nsys_Events = get_sqlite_events(Dir_Path)
+    Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank  = get_sqlite_events(Dir_Path)
 
-    with open("nsys_events_output.json", "w") as json_file:
+    with open("nsys_events_intermediate_output.json", "w") as json_file:
+        json.dump(FileRank_2_GoalRank, json_file, indent=4)
+        json_file.write('\n\n')
+        json.dump(HostName_2_GoalRank, json_file, indent=4)
+        json_file.write('\n\n')
         json.dump(Nsys_Events, json_file, indent=4)
-    print("Nsys_Events has been exported to nsys_events_output.json")
+    print("Nsys_Events has been exported to nsys_events_intermediate_output.json")
+
+    Intermediate_Goal_File_Path = './example_2_intermediate.goal'
+    get_intermediate_goal_file(Nsys_Events, Intermediate_Goal_File_Path)
+    print("Intermediate goal file has been generated")
+
+    Merged_Nsys_Events = merge_nsys_events(Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank)
+    with open("nsys_events_output.json", "w") as json_file:
+        json.dump(Merged_Nsys_Events, json_file, indent=4)
+    print("Merged_Nsys_Events has been exported to nsys_events_output.json")
 
     Goal_File_Path = './example_2.goal'
-    get_goal_file(Nsys_Events, Goal_File_Path)
-    print("Goal file has been generated")
+    get_intermediate_goal_file(Merged_Nsys_Events, Goal_File_Path)
+    print("Final goal file has been generated")
                 
 if __name__ == '__main__':
     main()

@@ -430,10 +430,10 @@ def get_goal_file(events, goal_file_name):
 
 
 def main():
-    Dir_Path = './nsys_reports'
+    Dir_Path = './results/nsys_reports'
     Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank  = get_sqlite_events(Dir_Path)
 
-    with open("nsys_events_intermediate_output.json", "w") as json_file:
+    with open("./results/nsys_events_intermediate_output.json", "w") as json_file:
         json.dump(FileRank_2_GoalRank, json_file, indent=4)
         json_file.write('\n\n')
         json.dump(HostName_2_GoalRank, json_file, indent=4)
@@ -441,16 +441,16 @@ def main():
         json.dump(Nsys_Events, json_file, indent=4)
     print("Nsys_Events has been exported to nsys_events_intermediate_output.json")
 
-    Intermediate_Goal_File_Path = './example_2_intermediate.goal'
+    Intermediate_Goal_File_Path = './results/example_2_intermediate.goal'
     get_intermediate_goal_file(Nsys_Events, Intermediate_Goal_File_Path)
     print("Intermediate goal file has been generated")
 
     Merged_Nsys_Events = merge_nsys_events(Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank)
-    with open("nsys_events_output.json", "w") as json_file:
+    with open("./results/nsys_events_output.json", "w") as json_file:
         json.dump(Merged_Nsys_Events, json_file, indent=4)
     print("Merged_Nsys_Events has been exported to nsys_events_output.json")
 
-    Goal_File_Path = './example_2.goal'
+    Goal_File_Path = './results/example_2.goal'
     get_intermediate_goal_file(Merged_Nsys_Events, Goal_File_Path)
     print("Final goal file has been generated")
                 

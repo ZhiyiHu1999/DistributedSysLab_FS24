@@ -1,697 +1,0 @@
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
-The local rank is: 0
-ault42:141719:141719 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
-ault42:141719:141719 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : dlopen hook: 'libnccl-net.so': cannot open shared object file: No such file or directory
-ault42:141719:141719 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault42:141719:141719 [0] NCCL INFO cudaDriverVersion 12010
-NCCL version 2.17.1+cuda11.8
-The local rank is: 0
-ault43:323669:323669 [0] NCCL INFO cudaDriverVersion 12010
-ault43:323669:323669 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
-ault43:323669:323669 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : dlopen hook: 'libnccl-net.so': cannot open shared object file: No such file or directory
-ault43:323669:323669 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault43:323669:323669 [0] NCCL INFO NET/IB : No device found.
-ault43:323669:323669 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
-ault43:323669:323669 [0] NCCL INFO Using network Socket
-ault43:323669:323669 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
-ault43:323669:323669 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
-ault43:323669:323669 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
-ault43:323669:323669 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
-ault42:141719:141719 [0] NCCL INFO NET/IB : No device found.
-ault42:141719:141719 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
-ault42:141719:141719 [0] NCCL INFO Using network Socket
-ault42:141719:141719 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to Topology_Intra_Node.txt
-ault42:141719:141719 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
-ault42:141719:141719 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
-ault42:141719:141719 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
-ault42:141719:141719 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
-ault42:141719:141719 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
-ault42:141719:141719 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to Graph.txt
-ault42:141719:141719 [0] NCCL INFO [0] Channel 0 P         1   0
-ault42:141719:141719 [0] NCCL INFO [0] Channel 0 N         1   0
-ault42:141719:141719 [0] NCCL INFO Channel 00/02 :    0   1
-ault42:141719:141719 [0] NCCL INFO [0] Channel 1 P         1   0
-ault42:141719:141719 [0] NCCL INFO [0] Channel 1 N         1   0
-ault42:141719:141719 [0] NCCL INFO Channel 01/02 :    0   1
-ault42:141719:141719 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
-ault42:141719:141719 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
-ault42:141719:141719 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
-ault42:141719:141719 [0] NCCL INFO P2P Chunksize set to 131072
-ault42:141719:141719 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
-ault42:141719:141719 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
-ault42:141719:141719 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
-ault42:141719:141719 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
-ault42:141719:141719 [0] NCCL INFO Connected all rings
-ault42:141719:141719 [0] NCCL INFO Connected all trees
-ault42:141719:141719 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault42:141719:141719 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault42:141719:141719 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-ault42:141719:141719 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault42:141719:141719 [0] NCCL INFO comm 0x7ce74d0 rank 0 nranks 2 cudaDev 0 busId 41000 commId 0xdf398657d4264402 - Init COMPLETE
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353192115231, SteadyClock:3926353192115171)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353192136241, SteadyClock:3926353192136371)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353192142311, SteadyClock:3926353192142501)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353192144611, SteadyClock:3926353192144641)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353192146351, SteadyClock:3926353192146371)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353192148271, SteadyClock:3926353192148241)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353192149991, SteadyClock:3926353192150041)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353192155601, SteadyClock:3926353192155621)
-
-ault43:323669:323669 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
-ault43:323669:323669 [0] NCCL INFO Ring 00 : 0 -> 1 -> 0
-ault43:323669:323669 [0] NCCL INFO Ring 01 : 0 -> 1 -> 0
-ault43:323669:323669 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
-ault43:323669:323669 [0] NCCL INFO P2P Chunksize set to 131072
-ault43:323669:323669 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
-ault43:323669:323669 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
-ault43:323669:323669 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
-ault43:323669:323669 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
-ault43:323669:323669 [0] NCCL INFO Connected all rings
-ault43:323669:323669 [0] NCCL INFO Connected all trees
-ault43:323669:323669 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault43:323669:323669 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault43:323669:323669 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-ault43:323669:323669 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault43:323669:323669 [0] NCCL INFO comm 0x7ce7950 rank 1 nranks 2 cudaDev 0 busId 41000 commId 0xdf398657d4264402 - Init COMPLETE
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617318514660, SteadyClock:6873617318514689)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617318537410, SteadyClock:6873617318537470)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617318544030, SteadyClock:6873617318544060)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617318546140, SteadyClock:6873617318546240)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617318547870, SteadyClock:6873617318547980)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617318549770, SteadyClock:6873617318549750)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617318551620, SteadyClock:6873617318551590)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617318554940, SteadyClock:6873617318555300)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353192386911, SteadyClock:3926353192387031, ts_net_isend_entry:3926353192386431, ts_net_isend_exit:3926353192386851, ts_now:3926353192387002)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353192513822, SteadyClock:3926353192513911, ts_net_isend_entry:3926353192513671, ts_net_isend_exit:3926353192513822, ts_now:3926353192513882)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353192643731, SteadyClock:3926353192643762, ts_net_isend_entry:3926353192643531, ts_net_isend_exit:3926353192643611, ts_now:3926353192643742)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353192650271, SteadyClock:3926353192650302, ts_net_isend_entry:3926353192650131, ts_net_isend_exit:3926353192650162, ts_now:3926353192650282)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353206431637, SteadyClock:3926353206431697)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353206437248, SteadyClock:3926353202674926)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353206438557, SteadyClock:3926353206431668)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353210069069, SteadyClock:3926353210069109)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353216126012, SteadyClock:3926353216126072)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353216129372, SteadyClock:3926353210072959)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353216130912, SteadyClock:3926353216126041)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353216385122, SteadyClock:3926353216385272)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353216728812, SteadyClock:3926353216728852, ts_net_isend_entry:3926353216728602, ts_net_isend_exit:3926353216728722, ts_now:3926353216728822)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353216735212, SteadyClock:3926353216735302, ts_net_isend_entry:3926353216735122, ts_net_isend_exit:3926353216735172, ts_now:3926353216735272)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353227796866, SteadyClock:3926353227796937)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353227951166, SteadyClock:3926353227951217, ts_net_isend_entry:3926353227950997, ts_net_isend_exit:3926353227951117, ts_now:3926353227951177)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353228660787, SteadyClock:3926353228660907)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353228663837, SteadyClock:3926353227957057)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617318580370, SteadyClock:6873617318580450, ts_net_isend_entry:6873617318579940, ts_net_isend_exit:6873617318580330, ts_now:6873617318580420)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617318593110, SteadyClock:6873617318605900, ts_net_isend_entry:6873617318605680, ts_net_isend_exit:6873617318605820, ts_now:6873617318605880)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617318593110, SteadyClock:6873617318613070, ts_net_isend_entry:6873617318612470, ts_net_isend_exit:6873617318612520, ts_now:6873617318613040)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617318593110, SteadyClock:6873617318618980, ts_net_isend_entry:6873617318618770, ts_net_isend_exit:6873617318618910, ts_now:6873617318618950)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617341086129, SteadyClock:6873617341086138)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617341091909, SteadyClock:6873617337399231)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617341093549, SteadyClock:6873617341086089)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617343393906, SteadyClock:6873617343393956)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617343396436, SteadyClock:6873617341199359)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617343397896, SteadyClock:6873617343393936)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617343734029, SteadyClock:6873617343734238)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617362886562, SteadyClock:6873617362886572)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617362892292, SteadyClock:6873617343737138)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617362894012, SteadyClock:6873617362886542)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617377335250, SteadyClock:6873617377335310)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617377340630, SteadyClock:6873617363076343)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617377342210, SteadyClock:6873617377335290)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617378073886, SteadyClock:6873617378073796)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617378096376, SteadyClock:6873617378096486)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617378098966, SteadyClock:6873617378099086, ts_net_isend_entry:6873617378098626, ts_net_isend_exit:6873617378098896, ts_now:6873617378099016)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353228665447, SteadyClock:3926353228660877)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353234762420, SteadyClock:3926353234762460)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353234767220, SteadyClock:3926353228729207)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353234768829, SteadyClock:3926353234762429)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353242371483, SteadyClock:3926353242371553)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353245485704, SteadyClock:3926353245485724)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353245489924, SteadyClock:3926353242380183)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353245491504, SteadyClock:3926353245485694)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353247709595, SteadyClock:3926353247709635)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353247712115, SteadyClock:3926353245498274)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353247713895, SteadyClock:3926353247709605)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353249574796, SteadyClock:3926353249574856, ts_net_isend_entry:3926353249574526, ts_net_isend_exit:3926353249574656, ts_now:3926353249574826)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353261645251, SteadyClock:3926353261645191)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353264375762, SteadyClock:3926353264375802)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353264378592, SteadyClock:3926353261653981)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353264380052, SteadyClock:3926353264375782)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353268677304, SteadyClock:3926353268677324)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353268679844, SteadyClock:3926353264424142)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353268681304, SteadyClock:3926353268677294)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926353280243769, SteadyClock:3926353280243839)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353288446052, SteadyClock:3926353288445992)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617378546579, SteadyClock:6873617378546639)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617396614614, SteadyClock:6873617396614594)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617396619214, SteadyClock:6873617378775521)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617396620654, SteadyClock:6873617396614565)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617397156418, SteadyClock:6873617397156458, ts_net_isend_entry:6873617397156289, ts_net_isend_exit:6873617397156358, ts_now:6873617397156438)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617397254809, SteadyClock:6873617397254909, ts_net_isend_entry:6873617397254739, ts_net_isend_exit:6873617397254789, ts_now:6873617397254879)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617397495931, SteadyClock:6873617397496031)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617415402905, SteadyClock:6873617415402895)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617415407365, SteadyClock:6873617397498471)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617415408815, SteadyClock:6873617415402865)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617415433795, SteadyClock:6873617415433926)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617415436266, SteadyClock:6873617415436346, ts_net_isend_entry:6873617415436215, ts_net_isend_exit:6873617415436286, ts_now:6873617415436326)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873617416043830, SteadyClock:6873617416043890)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617416489113, SteadyClock:6873617416489143)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617423412045, SteadyClock:6873617423411985)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617423416675, SteadyClock:6873617416491493)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617423418115, SteadyClock:6873617423411955)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617429560461, SteadyClock:6873617429560521)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617429564001, SteadyClock:6873617423421875)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873617429565561, SteadyClock:6873617429560491)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619323022155, SteadyClock:6873619323022215)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619323041075, SteadyClock:6873619323041175)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619323043975, SteadyClock:6873619323044024)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619323045955, SteadyClock:6873619323046015)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619323052965, SteadyClock:6873619323053075)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619323054885, SteadyClock:6873619323055085)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619323057015, SteadyClock:6873619323056975)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619323058585, SteadyClock:6873619323058615)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619323078475, SteadyClock:6873619323078555, ts_net_isend_entry:6873619323078135, ts_net_isend_exit:6873619323078425, ts_now:6873619323078525)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619323089805, SteadyClock:6873619323089865, ts_net_isend_entry:6873619323089655, ts_net_isend_exit:6873619323089795, ts_now:6873619323089835)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619323095765, SteadyClock:6873619323095795, ts_net_isend_entry:6873619323095535, ts_net_isend_exit:6873619323095575, ts_now:6873619323095685)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619323101465, SteadyClock:6873619323101545, ts_net_isend_entry:6873619323101355, ts_net_isend_exit:6873619323101465, ts_now:6873619323101515)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619334073487, SteadyClock:6873619334073467)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619334078107, SteadyClock:6873619323107275)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619334079587, SteadyClock:6873619334073447)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619340105532, SteadyClock:6873619340105572)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619340108772, SteadyClock:6873619334086887)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619340110372, SteadyClock:6873619340105552)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619359670199, SteadyClock:6873619359670179)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926353294590595, SteadyClock:3926353294590595)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355202852863, SteadyClock:3926355202883423)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355202852863, SteadyClock:3926355202896214)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355202852863, SteadyClock:3926355202899183)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355202852863, SteadyClock:3926355202901454)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355202852863, SteadyClock:3926355202903563)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355202852863, SteadyClock:3926355202905494)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355202852863, SteadyClock:3926355202908063)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355202852863, SteadyClock:3926355202909794)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355202852863, SteadyClock:3926355203535014)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355202852863, SteadyClock:3926355203540164, ts_net_isend_entry:3926355203539614, ts_net_isend_exit:3926355203540014, ts_now:3926355203540104)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355202852863, SteadyClock:3926355204029614, ts_net_isend_entry:3926355204029204, ts_net_isend_exit:3926355204029344, ts_now:3926355204029584)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355202852863, SteadyClock:3926355204041444, ts_net_isend_entry:3926355204041204, ts_net_isend_exit:3926355204041284, ts_now:3926355204041404)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355202852863, SteadyClock:3926355204049344, ts_net_isend_entry:3926355204049134, ts_net_isend_exit:3926355204049164, ts_now:3926355204049304)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355228999845, SteadyClock:3926355230949765)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355228999845, SteadyClock:3926355204057084)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355228999845, SteadyClock:3926355230949735)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355231081515)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355237132428)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355231084255)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619359674299, SteadyClock:6873619355579118)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619365843465, SteadyClock:6873619359670139)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619374984044, SteadyClock:6873619374984013)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619376015461, SteadyClock:6873619376015692)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619376017752, SteadyClock:6873619374989244)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619376019292, SteadyClock:6873619376015672)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619376449995, SteadyClock:6873619376450145)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619376651546, SteadyClock:6873619376651556, ts_net_isend_entry:6873619376651376, ts_net_isend_exit:6873619376651456, ts_now:6873619376651526)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619382794902, SteadyClock:6873619382794922, ts_net_isend_entry:6873619382794792, ts_net_isend_exit:6873619382794842, ts_now:6873619382794902)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619401752014, SteadyClock:6873619401752154)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619401755774, SteadyClock:6873619382806642)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619401757544, SteadyClock:6873619401752124)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619402020436, SteadyClock:6873619402020466)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619402022446, SteadyClock:6873619401891115)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619402023926, SteadyClock:6873619402020436)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619402101237, SteadyClock:6873619402101317)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619402311008, SteadyClock:6873619402311138, ts_net_isend_entry:6873619402310988, ts_net_isend_exit:6873619402311068, ts_now:6873619402311118)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619408262813, SteadyClock:6873619408262863)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619408266113, SteadyClock:6873619402320258)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619408267923, SteadyClock:6873619408262823)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355237132398)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355228999845, SteadyClock:3926355237731638, ts_net_isend_entry:3926355237731188, ts_net_isend_exit:3926355237731398, ts_now:3926355237731608)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355238266469)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355244319761)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355238269589)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355228999845, SteadyClock:3926355244319731)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355256999757, SteadyClock:3926355257130726)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355282999847, SteadyClock:3926355287808010)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355282999847, SteadyClock:3926355257134977)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355282999847, SteadyClock:3926355287807979)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355282999847, SteadyClock:3926355288410640)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355282999847, SteadyClock:3926355306592198)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355282999847, SteadyClock:3926355288770170)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355282999847, SteadyClock:3926355306592138)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355282999847, SteadyClock:3926355307151328)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355282999847, SteadyClock:3926355307359418, ts_net_isend_entry:3926355307359018, ts_net_isend_exit:3926355307359238, ts_now:3926355307359398)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355332999729, SteadyClock:3926355338006001)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355332999729, SteadyClock:3926355307367048)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355332999729, SteadyClock:3926355338005951)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355332999729, SteadyClock:3926355338017861, ts_net_isend_entry:3926355338017251, ts_net_isend_exit:3926355338017561, ts_now:3926355338017831)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619422834522, SteadyClock:6873619422834472)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619423013324, SteadyClock:6873619423013364, ts_net_isend_entry:6873619423013224, ts_net_isend_exit:6873619423013284, ts_now:6873619423013344)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619441656043, SteadyClock:6873619441656083)
-
-ault43:323669:323696 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619442797581, SteadyClock:6873619442797692)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619442799892, SteadyClock:6873619442359168)
-
-ault43:323669:323696 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:1, Receiver_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619442801332, SteadyClock:6873619442797672)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:6873619477222110, SteadyClock:6873619477222199)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619522077055, SteadyClock:6873619522076986)
-
-ault43:323669:323696 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:6873619522113896, SteadyClock:6873619522665780)
-
-ault43:323669:323669 [0] NCCL INFO comm 0x7ce7950 rank 1 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
-ault43:323669:323669 [0] NCCL INFO NPKit Dump Started
-[MPI Rank 1] Success 
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355332999729, SteadyClock:3926355338040441)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND ENTRY INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355350997796, SteadyClock:3926355351029616, ts_net_isend_entry:3926355351029196, ts_net_isend_exit:3926355351029416, ts_now:3926355351029586)
-
-ault42:141719:141751 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:3926355350997796, SteadyClock:3926355351586986)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355376999887, SteadyClock:3926355378699008)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355376999887, SteadyClock:3926355351591406)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355376999887, SteadyClock:3926355378698968)
-
-ault42:141719:141751 [0] NCCL INFO NET SEND EXIT INFO: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355376999887, SteadyClock:3926355384698291)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 1: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355376999887, SteadyClock:3926355378710528)
-
-ault42:141719:141751 [0] NCCL INFO NET TEST EXIT INFO 2: (Sender_Global_Rank:0, Receiver_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:3926355376999887, SteadyClock:3926355384698260)
-
-ault42:141719:141719 [0] NCCL INFO comm 0x7ce74d0 rank 0 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
-ault42:141719:141719 [0] NCCL INFO NPKit Dump Started
-[MPI Rank 0] Success 
-Collecting data...
-Generating '/tmp/nsys-report-1292.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-ccd7.qdstrm'
-[1/8] [0%                          ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [0%                          ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [=15%                        ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [10%                         ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [=15%                        ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [==20%                       ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [=15%                        ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [12%                         ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [10%                         ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [8%                          ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [9%                          ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [10%                       [1/8] [0%                          ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [0%                          ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [10%                         ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [7%                          ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [11%                         ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [=15%                        ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [12%                         ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [10%                         ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [9%                          ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [10%                         ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [===22%                      ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [===23%                      ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [==20%                       ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [==21%                       ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [===22%                      ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [====25%                     ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [====27%                     ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [=====29%                    ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [========42%                 ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [============57%             ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [=================72%        ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [=====================86%    ] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [========================97% ] example_2_nsys_report_ault42.c  ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [====27%                     ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [=====29%                    ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [=====31%                    ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [=========46%                ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [==============62%           ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [==================77%       ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [======================92%   ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [========================97% ] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [========================100%] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep[1/8] [========================100%] example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep
-scs.ch_141719.nsys-rep[1/8] [========================100%] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep[1/8] [========================100%] example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep
-[2/8] [0%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [1%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [2%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [3%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [4%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [5%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [6%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [7%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [8%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [9%                          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [10%                         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [11%                         ] example_2_nsys_rep[2/8] [0%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [1%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [2%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [3%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [4%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [5%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [6%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [7%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [8%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [9%                          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [10%                         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [11%                         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [12%                         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [13%                         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [14%                         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=15%                        ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=16%                        ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=17%                        ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==18%                       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==19%                       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==20%                       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==21%                       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===22%                      ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===23%          ort_ault42.cscs.ch_141719.sqlite[2/8] [12%                         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [13%                         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [14%                         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=15%                        ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=16%                        ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=17%                        ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==18%                       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==19%                       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==20%                       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==21%                       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===22%                      ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===23%                      ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===24%                      ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [====25%                     ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [====26%                     ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [====27%                     ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [====28%                     ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====29%                    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====30%                    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====31%                    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====32%                    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [======33%                   ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [======34%                   ] example_2_nsys_report_ault43.cscs.ch_32366            ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===24%                      ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [====25%                     ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [====26%                     ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [====27%                     ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [====28%                     ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====29%                    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====30%                    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====31%                    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====32%                    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [======33%                   ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [======34%                   ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [======35%                   ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=======36%                  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=======37%                  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=======38%                  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=======39%                  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========40%                 ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========41%                 ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========42%                 ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=========43%                ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=========44%                ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=========45%                ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=========46%                ] example_2_9.sqlite[2/8] [======35%                   ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======36%                  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======37%                  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======38%                  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======39%                  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========40%                 ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========41%                 ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========42%                 ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=========43%                ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=========44%                ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=========45%                ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=========46%                ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==========47%               ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==========48%               ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==========49%               ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===========50%              ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===========51%              ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===========52%              ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===========53%              ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [============54%             ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [============55%             ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [============56%             ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [============57%             ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==========47%               ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==========48%               ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==========49%               ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===========50%              ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===========51%              ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===========52%              ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===========53%              ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [============54%             ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [============55%             ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [============56%             ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [============57%             ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=============58%            ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=============59%            ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=============60%            ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==============61%           ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==============62%           ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==============63%           ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==============64%           ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===============65%          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===============66%          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===============67%          ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [================68%         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [================69%         ] example_2_nsys_report_ault43.cscs.=====58%            ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=============59%            ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=============60%            ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==============61%           ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==============62%           ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==============63%           ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==============64%           ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===============65%          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===============66%          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===============67%          ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [================68%         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [================69%         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [================70%         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [================71%         ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=================72%        ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=================73%        ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=================74%        ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==================75%       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==================76%       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==================77%       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [==================78%       ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===================79%      ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===================80%      ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===================81%      ] exch_323669.sqlite[2/8] [================70%         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [================71%         ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=================72%        ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=================73%        ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=================74%        ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==================75%       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==================76%       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==================77%       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [==================78%       ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===================79%      ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===================80%      ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===================81%      ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [===================82%      ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [====================83%     ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [====================84%     ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [====================85%     ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====================86%    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====================87%    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====================88%    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=====================89%    ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [======================90%   ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [======================91%   ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [======================92%   ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [ample_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [===================82%      ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [====================83%     ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [====================84%     ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [====================85%     ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====================86%    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====================87%    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====================88%    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=====================89%    ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [======================90%   ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [======================91%   ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [======================92%   ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======================93%  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=======================94%  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=======================95%  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [=======================96%  ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========================97% ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========================98% ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========================99% ] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========================100%] example_2_nsys_report_ault43.cscs.ch_323669.sqlite[2/8] [========================100%] example_2_nsys_report_ault43.cscs.ch_323669.sqlite
-=======================93%  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======================94%  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======================95%  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [=======================96%  ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========================97% ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========================98% ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========================99% ] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========================100%] example_2_nsys_report_ault42.cscs.ch_141719.sqlite[2/8] [========================100%] example_2_nsys_report_ault42.cscs.ch_141719.sqlite
-[3/8] Executing 'nvtx_sum' stats report
-
- Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)   Style           Range        
- --------  ---------------  ---------  -------------  -------------  -----------  -----------  -----------  -------  ---------------------
-     61.5      722,344,711          1  722,344,711.0  722,344,711.0  722,344,711  722,344,711          0.0  PushPop  NCCL:ncclCommInitRank
-     38.3      450,350,453          1  450,350,453.0  450,350,453.0  450,350,453  450,350,453          0.0  PushPop  NCCL:ncclCommDestroy 
-      0.2        2,632,340          2    1,316,170.0    1,316,170.0       96,181    2,536,159  1,725,325.0  PushPop  NCCL:ncclAllReduce   
-
-[4/8] Executing 'osrt_sum' stats report
-
- Time (%)  Total Time (ns)  Num Calls     Avg (ns)         Med (ns)        Min (ns)       Max (ns)       StdDev (ns)             Name         
- --------  ---------------  ---------  ---------------  ---------------  -------------  -------------  ---------------  ----------------------
-     46.0   10,075,750,590     38,715        260,254.4          2,660.0          1,200  3,677,723,329     19,690,844.6  poll                  
-     16.3    3,569,203,237          7    509,886,176.7      8,908,097.0        889,577  3,417,933,143  1,282,708,393.8  sem_wait              
-     13.7    3,000,536,927          6    500,089,487.8    500,087,421.0    500,081,336    500,103,366          7,764.8  pthread_cond_timedwait
-     10.9    2,381,969,744          3    793,989,914.7    487,696,784.0        942,158  1,893,330,802    982,672,532.6  pthread_cond_wait     
-      9.1    2,000,096,943          1  2,000,096,943.0  2,000,096,943.0  2,000,096,943  2,000,096,943              0.0  sleep                 
-      0.9      187,602,422        547        342,966.0        312,613.0        258,682      5,743,483        321,310.5  fopen64               
-      0.8      173,011,989        162      1,067,975.2          3,720.0          1,020     19,012,933      3,556,308.0  send                  
-      0.7      164,108,043      3,969         41,347.5          2,160.0          1,000     16,726,845        395,368.0  ioctl                 
-      0.5       98,654,834        617        159,894.4        167,721.0          1,010        405,243         50,932.9  fclose                
-      0.3       57,058,191      3,511         16,251.3          1,410.0          1,000     21,062,348        427,975.1  read                  
-      0.2       36,772,595      7,160          5,135.8          4,740.0          1,730        213,181          2,971.9  openat                
-      0.2       35,088,568      9,748          3,599.6          2,660.0          1,010        418,223         12,971.2  recv                  
-      0.1       32,401,855        209        155,032.8        155,642.0        115,971        232,611          8,330.8  usleep                
-      0.1       23,902,979      2,443          9,784.3         12,440.0          1,000         81,241          8,175.5  fgets                 
-      0.1       18,516,992        122        151,778.6          4,050.0          1,270     13,441,001      1,217,205.4  fopen                 
-      0.1       15,182,105          3      5,060,701.7      5,059,278.0      5,057,169      5,065,658          4,419.9  nanosleep             
-      0.1       13,074,309          6      2,179,051.5        145,831.5         75,780     11,995,530      4,813,482.9  pthread_join          
-      0.0        6,270,927          7        895,846.7         14,000.0          1,180      6,163,696      2,322,969.0  fwrite                
-      0.0        4,670,336         11        424,576.0        388,483.0        245,961        646,405        124,002.2  pthread_create        
-      0.0        3,732,508          3      1,244,169.3          1,820.0          1,100      3,729,588      2,152,435.7  epoll_wait            
-      0.0        3,708,936         43         86,254.3         29,450.0          7,300        650,334        141,295.6  mmap64                
-[3/8] Executing 'nvtx_sum' stats report
-
- Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)    Style           Range        
- --------  ---------------  ---------  -------------  -------------  -----------  -----------  ------------  -------  ---------------------
-     62.9      825,829,440          1  825,829,440.0  825,829,440.0  825,829,440  825,829,440           0.0  PushPop  NCCL:ncclCommInitRank
-     36.0      472,486,190          1  472,486,190.0  472,486,190.0  472,486,190  472,486,190           0.0  PushPop  NCCL:ncclCommDestroy 
-      1.1       14,722,516          2    7,361,258.0    7,361,258.0       98,720   14,623,796  10,270,779.7  PushPop  NCCL:ncclAllReduce   
-
-[4/8] Executing 'osrt_sum' stats report
-
- Time (%)  Total Time (ns)  Num Calls     Avg (ns)         Med (ns)        Min (ns)       Max (ns)       StdDev (ns)             Name         
- --------  ---------------  ---------  ---------------  ---------------  -------------  -------------  ---------------  ----------------------
-     43.7   10,073,148,812        107     94,141,577.7      9,737,155.0          1,010  3,697,166,067    366,152,978.9  poll                  
-     15.9    3,675,405,000          8    459,425,625.0      8,350,369.0        418,951  3,512,977,729  1,234,211,749.3  sem_wait              
-     15.2    3,500,701,704          7    500,100,243.4    500,091,092.0    500,083,932    500,132,892         18,064.1  pthread_cond_timedwait
-     10.5    2,417,576,645          3    805,858,881.7    495,606,850.0     13,790,976  1,908,178,819    984,565,166.6  pthread_cond_wait     
-      8.7    2,000,091,738          1  2,000,091,738.0  2,000,091,738.0  2,000,091,738  2,000,091,738              0.0  sleep                 
-      1.9      434,959,111     45,723          9,512.9          1,570.0          1,000    255,896,619      1,290,402.5  accept                
-      0.9      203,918,750        169      1,206,619.8          3,440.0          1,010     30,660,293      4,718,617.7  send                  
-      0.8      188,546,848        547        344,692.6        326,990.0        262,430      5,312,482        219,977.7  fopen64               
-      0.7      169,188,537      4,439         38,114.1          1,800.0          1,000     16,460,667        381,465.9  ioctl                 
-      0.5      104,285,805        613        170,123.7        179,430.0          1,000        261,650         49,373.2  fclose                
-      0.3       66,810,384      3,507         19,050.6          1,420.0          1,000     20,320,949        447,839.2  read                  
-      0.2       41,433,182     11,512          3,599.1          2,660.0          1,000        588,180         13,833.3  recv                  
-      0.2       36,593,005      7,160          5,110.8          4,700.0          1,930        249,280          4,402.1  openat                
-      0.1       33,209,362        203        163,592.9        155,840.0        120,780      1,761,431        112,864.0  usleep                
-      0.1       29,821,693        125        238,573.5          3,850.0          1,400     12,025,485      1,255,960.2  fopen                 
-      0.1       22,441,026      2,556          8,779.7         12,324.5          1,000         63,610          7,615.7  fgets                 
-      0.1       15,178,926          3      5,059,642.0      5,058,182.0      5,058,082      5,062,662          2,615.9  nanosleep             
-      0.1       13,237,386         11      1,203,398.7         42,500.0          9,130     12,756,626      3,832,166.0  connect               
-      0.1       13,136,515          8      1,642,064.4         26,625.0          1,100     12,975,225      4,579,342.3  fwrite                
-      0.1       12,254,844          6      2,042,474.0        181,970.0          1,190     11,397,114      4,585,131.8  pthread_join          
-      0.0        4,421,114         12        368,426.2        385,825.0        231,670        483,481         85,256.9  pthread_create        
-      0.0        3,682,141          1      3,682,141.0      3,682,141.0      3,682,141      3,682,141              0.0  pthread_rwlock_rdlock 
-      0.0        3,557,741         43         82,738.2         28,510.0          7,420        561,610        133,989.6  mmap64                
-      0.0        3,524,751          2      1,762,375.5      1,762,375.5          1,700      3,523,051      2,489,971.2  epoll_wait            
-      0.0        1,081,400         50         21,628.0          3,445.0          1,260        234,370         51,661.3  write                 
-      0.0          660,830          9         73,425.6         23,150.0         14,530        457,970        145,202.9  sem_timedwait         
-      0.0          509,103         69          7,378.3          6,150.0          1,420         27,929          4,428.6  open64                
-      0.0          419,380          4        104,845.0        103,550.0          4,740        207,540        102,285.4  writev                
-      0.0          359,570          6         59,928.3          1,730.5          1,210        183,030         90,591.8  fcntl                 
-      0.0          325,690         30         10,856.3          3,015.0          1,320         93,290         19,358.0  fread                 
-      0.0          303,490         14         21,677.9          8,855.0          7,070        189,250         48,259.4  mprotect              
-      0.0          266,379         33          8,072.1          5,930.0          1,490         24,830          5,718.2  open                  
-      0.0          179,841         35          5,138.3          4,600.0          1,000         13,510          3,357.5  socket                
-      0.0          124,169         19          6,535.2          3,810.0          1,340         22,120          5,776.3  sendmsg               
-      0.0           75,040          1         75,040.0         75,040.0         75,040         75,040              0.0  fflush                
-      0.0           67,749         13          5,211.5          1,660.0          1,170         12,440          4,389.6  recvmsg               
-      0.0           67,189          3         22,396.3         10,880.0          4,029         52,280         26,105.7  mmap                  
-      0.0           44,078         10          4,407.8          3,620.0          1,440         10,010          3,033.3  bind                  
-      0.0           39,549          2         19,774.5         19,774.5         18,589         20,960          1,676.6  pthread_mutex_lock    
-      0.0           35,740          3         11,913.3          7,310.0          3,660         24,770         11,282.8  pthread_cond_signal   
-      0.0           26,660          4          6,665.0          7,680.0          2,460          8,840          3,004.0  shmget                
-      0.0           23,820          3          7,940.0          9,470.0          4,690          9,660          2,816.2  pipe2                 
-      0.0           15,301          3          5,100.3          5,811.0          3,460          6,030          1,424.8  shutdown              
-      0.0           15,290          1         15,290.0         15,290.0         15,290         15,290              0.0  pthread_rwlock_wrlock 
-      0.0           12,550          1         12,550.0         12,550.0         12,550         12,550              0.0  shmdt                 
-      0.0           12,360          1         12,360.0         12,360.0         12,360         12,360              0.0  shmat                 
-      0.0            9,780          6          1,630.0          1,530.0          1,240          2,180            359.3  listen                
-      0.0            9,140          2          4,570.0          4,570.0          2,340          6,800          3,153.7  pipe                  
-      0.0            7,610          5          1,522.0          1,291.0          1,000          2,430            554.6  epoll_ctl             
-      0.0        1,148,303        825          1,391.9          1,200.0          1,049          8,390            701.5  accept                
-      0.0        1,066,936         51         20,920.3          2,970.0          1,060        233,061         53,140.8  write                 
-      0.0          666,114          9         74,012.7         23,810.0         13,820        438,854        139,299.1  sem_timedwait         
-      0.0          533,338         69          7,729.5          6,351.0          1,589         37,710          5,409.9  open64                
-      0.0          492,835         12         41,069.6          1,505.0          1,150        241,752         92,234.2  fcntl                 
-      0.0          441,263          3        147,087.7        157,251.0          5,080        278,932        137,208.6  writev                
-      0.0          342,584         14         24,470.3         11,300.5          7,010        192,902         48,631.5  mprotect              
-      0.0          268,884          9         29,876.0         22,420.0          9,420         72,191         24,210.1  connect               
-      0.0          268,756         33          8,144.1          5,480.0          1,260         25,410          5,659.9  open                  
-      0.0          221,002         29          7,620.8          3,220.0          1,350         42,341          9,841.1  fread                 
-      0.0          179,753         29          6,198.4          4,740.0          1,040         19,210          4,749.8  socket                
-      0.0          141,663         19          7,455.9          5,281.0          1,370         24,960          6,417.1  sendmsg               
-      0.0           83,920         14          5,994.3          2,385.0          1,040         16,600          5,636.7  recvmsg               
-      0.0           67,920          3         22,640.0         12,580.0          4,290         51,050         24,950.5  mmap                  
-      0.0           41,720         12          3,476.7          2,465.0          1,030          9,310          2,695.0  bind                  
-      0.0           36,831          4          9,207.8          7,600.0          1,030         20,601          8,813.9  shutdown              
-      0.0           30,250          4          7,562.5          8,245.0          3,180         10,580          3,560.0  shmget                
-      0.0           23,530          3          7,843.3          9,400.0          4,290          9,840          3,085.1  pipe2                 
-      0.0           17,410          3          5,803.3          6,290.0          2,480          8,640          3,108.7  pthread_cond_signal   
-      0.0           15,270          1         15,270.0         15,270.0         15,270         15,270              0.0  shmdt                 
-      0.0           13,250          1         13,250.0         13,250.0         13,250         13,250              0.0  shmat                 
-      0.0           12,320          2          6,160.0          6,160.0          5,110          7,210          1,484.9  pipe                  
-      0.0            9,880          5          1,976.0          1,890.0          1,130          3,020            845.0  listen                
-      0.0            9,000          5          1,800.0          1,650.0          1,060          2,960            772.1  epoll_ctl             
-      0.0            5,180          1          5,180.0          5,180.0          5,180          5,180              0.0  ftruncate             
-      0.0            2,750          2          1,375.0          1,375.0          1,280          1,470            134.4  shmctl                
-      0.0            1,470          1          1,470.0          1,470.0          1,470          1,470              0.0  sigaction             
-
-[5/8] Executing 'cuda_api_sum' stats report
-
- Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)    StdDev (ns)                     Name                   
-      0.0            2,950          1          2,950.0          2,950.0          2,950          2,950              0.0  ftruncate             
-      0.0            2,000          2          1,000.0          1,000.0          1,000          1,000              0.0  shmctl                
-      0.0            1,220          1          1,220.0          1,220.0          1,220          1,220              0.0  sigaction             
-
-[5/8] Executing 'cuda_api_sum' stats report
-
- Time (%)  Total Time (ns)  Num Calls   Avg (ns)     Med (ns)    Min (ns)   Max (ns)    StdDev (ns)                     Name                   
- --------  ---------------  ---------  -----------  -----------  --------  -----------  -----------  ------------------------------------------
-     30.5      203,421,076        526    386,732.1      9,975.0       860  178,397,646  7,776,582.5  cudaFree                                  
-     28.1      187,588,412      2,054     91,328.3      2,445.0       949  181,906,747  4,013,673.5  cudaStreamSynchronize                     
-     15.0      100,294,626      1,543     64,999.8     10,900.0     3,670    3,707,591    126,045.5  cudaMemcpyAsync                           
-     15.0      100,044,455        521    192,023.9     14,611.0     2,420   69,168,260  3,028,224.8  cudaMalloc                                
-      4.6       30,576,061          8  3,822,007.6  4,044,846.5    17,650   11,847,195  3,805,776.2  cudaHostAlloc                             
-      2.9       19,075,489          8  2,384,436.1  2,480,596.0     6,220    7,890,484  2,508,677.0  cudaFreeHost                              
-      1.2        8,071,579      2,052      3,933.5      3,230.0     1,500       38,600      3,457.7  cudaStreamCreateWithFlags                 
-      1.1        7,173,814      2,052      3,496.0      3,449.5     1,670      180,450      4,331.4  cudaStreamDestroy                         
-      0.8        5,033,724        519      9,698.9      8,790.0     2,650       51,689      3,511.7  cudaMemsetAsync                           
-      0.5        3,310,043      7,204        459.5        370.0       240      155,590      1,894.0  cudaThreadExchangeStreamCaptureMode_v10010
-      0.4        2,485,571          2  1,242,785.5  1,242,785.5    35,940    2,449,631  1,706,737.3  cudaLaunchKernelExC_v11060                
-      0.0           95,250        405        235.2        190.0       110        2,180        173.8  cuGetProcAddress                          
-      0.0           42,660          2     21,330.0     21,330.0     5,440       37,220     22,471.9  cudaMemset                                
-      0.0           25,810          7      3,687.1      3,300.0       640        7,910      3,195.9  cudaEventRecord                           
-      0.0           24,850          1     24,850.0     24,850.0    24,850       24,850          0.0  cudaStreamCreate                          
-      0.0           24,490          9      2,721.1      2,610.0       700        6,960      2,022.8  cudaStreamWaitEvent                       
-      0.0            7,450          2      3,725.0      3,725.0     1,710        5,740      2,849.6  cudaStreamGetCaptureInfo_v2_v11030        
-      0.0            3,430          2      1,715.0      1,715.0     1,140        2,290        813.2  cudaEventCreateWithFlags                  
-      0.0            2,720          2      1,360.0      1,360.0     1,300        1,420         84.9  cuInit                                    
-      0.0            1,871          2        935.5        935.5       460        1,411        672.5  cudaEventDestroy                          
-      0.0            1,380          2        690.0        690.0       180        1,200        721.2  cuModuleGetLoadingMode                    
-
-[6/8] Executing 'cuda_gpu_kern_sum' stats report
-
- Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)                                         Name                                      
- --------  ---------------  ---------  -----------  -----------  --------  -----------  -----------  ------------------------------------------
-     31.0      211,424,620      2,054    102,933.1      2,479.5       910  205,726,712  4,539,255.5  cudaStreamSynchronize                     
-     30.6      208,613,499        526    396,603.6     13,445.0       940  184,038,998  8,022,578.9  cudaFree                                  
-     13.6       92,870,092        521    178,253.5     14,700.0     2,340   65,685,652  2,875,894.9  cudaMalloc                                
-     13.5       92,115,289      1,543     59,698.8     10,850.0     3,570      383,883     73,471.9  cudaMemcpyAsync                           
-      4.6       31,488,436          8  3,936,054.5  4,291,682.5    17,881   12,141,720  3,862,416.2  cudaHostAlloc                             
-      3.0       20,636,896          8  2,579,612.0  2,536,508.5     9,751    9,263,139  2,957,213.8  cudaFreeHost                              
-      1.3        8,549,272      2,052      4,166.3      2,640.0     1,650    1,363,580     36,200.5  cudaStreamDestroy                         
-      1.1        7,467,419      2,052      3,639.1      2,800.0     1,490       34,650      3,319.7  cudaStreamCreateWithFlags                 
-      0.6        4,053,811        519      7,810.8      7,581.0     2,570       76,231      4,204.9  cudaMemsetAsync                           
-      0.4        2,888,135      7,204        400.9        350.0       229        5,931        226.5  cudaThreadExchangeStreamCaptureMode_v10010
-      0.4        2,504,098          2  1,252,049.0  1,252,049.0    35,610    2,468,488  1,720,304.5  cudaLaunchKernelExC_v11060                
-      0.0           90,229        405        222.8        180.0       110        2,430        163.0  cuGetProcAddress                          
-      0.0           44,181          2     22,090.5     22,090.5     6,340       37,841     22,274.6  cudaMemset                                
-      0.0           21,642          9      2,404.7      1,460.0       690        6,460      1,969.3  cudaStreamWaitEvent                       
-      0.0           21,060          1     21,060.0     21,060.0    21,060       21,060          0.0  cudaStreamCreate                          
-      0.0           19,491          7      2,784.4      1,880.0       650        7,730      2,607.5  cudaEventRecord                           
-      0.0            7,089          2      3,544.5      3,544.5     1,669        5,420      2,652.4  cudaStreamGetCaptureInfo_v2_v11030        
-      0.0            4,501          2      2,250.5      2,250.5     1,220        3,281      1,457.3  cudaEventCreateWithFlags                  
-      0.0            2,591          2      1,295.5      1,295.5       640        1,951        927.0  cudaEventDestroy                          
-      0.0            1,449          2        724.5        724.5       489          960        333.0  cuInit                                    
-      0.0            1,041          2        520.5        520.5       170          871        495.7  cuModuleGetLoadingMode                    
-
-[6/8] Executing 'cuda_gpu_kern_sum' stats report
-
- Time (%)  Total Time (ns)  Instances    Avg (ns)       Med (ns)      Min (ns)     Max (ns)    StdDev (ns)                                         Name                                      
- --------  ---------------  ---------  -------------  -------------  -----------  -----------  ------------  --------------------------------------------------------------------------------
-    100.0      318,688,568          2  159,344,284.0  159,344,284.0  112,929,045  205,759,523  65,641,060.5  ncclKernel_AllReduce_RING_LL_Sum_float(ncclDevComm *, unsigned long, ncclWork *)
-
-[7/8] Executing 'cuda_gpu_mem_time_sum' stats report
-
- Time (%)  Total Time (ns)  Count  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)           Operation          
- --------  ---------------  -----  --------  --------  --------  --------  -----------  ----------------------------
-     95.0       25,307,527  1,024  24,714.4  21,328.0     1,088    56,256     23,990.9  [CUDA memcpy Device-to-Host]
-      4.1        1,088,702    521   2,089.6   2,048.0       480    10,720        576.0  [CUDA memset]               
-      0.9          244,222    519     470.6     480.0       447       801         34.1  [CUDA memcpy Host-to-Device]
-
-[8/8] Executing 'cuda_gpu_mem_size_sum' stats report
-
- Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
- ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
-    557.860    521     1.071     1.049     0.000     8.389        0.488  [CUDA memset]               
-    536.879  1,024     0.524     0.524     0.000     1.049        0.525  [CUDA memcpy Device-to-Host]
-      0.015    519     0.000     0.000     0.000     0.007        0.000  [CUDA memcpy Host-to-Device]
-
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/example_2_nsys_report_ault43.cscs.ch_323669.nsys-rep
-    /users/zhu/DistributedSysLab_FS24/nccl_example/example_2_nsys_report_ault43.cscs.ch_323669.sqlite
- --------  ---------------  ---------  -------------  -------------  -----------  -----------  ------------  --------------------------------------------------------------------------------
-    100.0      286,103,635          2  143,051,817.5  143,051,817.5  104,175,956  181,927,679  54,978,770.6  ncclKernel_AllReduce_RING_LL_Sum_float(ncclDevComm *, unsigned long, ncclWork *)
-
-[7/8] Executing 'cuda_gpu_mem_time_sum' stats report
-
- Time (%)  Total Time (ns)  Count  Avg (ns)  Med (ns)  Min (ns)  Max (ns)  StdDev (ns)           Operation          
- --------  ---------------  -----  --------  --------  --------  --------  -----------  ----------------------------
-     95.1       25,694,547  1,024  25,092.3  21,280.0     1,056    56,448     24,351.8  [CUDA memcpy Device-to-Host]
-      4.0        1,086,752    521   2,085.9   2,048.0       448    10,816        579.8  [CUDA memset]               
-      0.9          243,041    519     468.3     480.0       448       928         35.7  [CUDA memcpy Host-to-Device]
-
-[8/8] Executing 'cuda_gpu_mem_size_sum' stats report
-
- Total (MB)  Count  Avg (MB)  Med (MB)  Min (MB)  Max (MB)  StdDev (MB)           Operation          
- ----------  -----  --------  --------  --------  --------  -----------  ----------------------------
-    557.860    521     1.071     1.049     0.000     8.389        0.488  [CUDA memset]               
-    536.879  1,024     0.524     0.524     0.000     1.049        0.525  [CUDA memcpy Device-to-Host]
-      0.015    519     0.000     0.000     0.000     0.007        0.000  [CUDA memcpy Host-to-Device]
-
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/example_2_nsys_report_ault42.cscs.ch_141719.nsys-rep
-    /users/zhu/DistributedSysLab_FS24/nccl_example/example_2_nsys_report_ault42.cscs.ch_141719.sqlite

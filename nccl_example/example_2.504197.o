@@ -1,67 +1,0 @@
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
-The local rank is: 0
-ault42:173671:173671 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
-ault42:173671:173671 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault42:173671:173671 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault42:173671:173671 [0] NCCL INFO cudaDriverVersion 12010
-NCCL version 2.17.1+cuda11.8
-ault42:173671:173671 [0] NCCL INFO NET/IB : No device found.
-ault42:173671:173671 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
-ault42:173671:173671 [0] NCCL INFO Using network Socket
-ault42:173671:173671 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to Topology_Intra_Node.txt
-ault42:173671:173671 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to Graph.txt
-ault42:173671:173671 [0] NCCL INFO Channel 00/02 :    0   1
-ault42:173671:173671 [0] NCCL INFO Channel 01/02 :    0   1
-ault42:173671:173671 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
-ault42:173671:173671 [0] NCCL INFO P2P Chunksize set to 131072
-ault42:173671:173671 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
-ault42:173671:173671 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
-ault42:173671:173671 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
-ault42:173671:173671 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
-ault42:173671:173671 [0] NCCL INFO Connected all rings
-ault42:173671:173671 [0] NCCL INFO Connected all trees
-ault42:173671:173671 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault42:173671:173671 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault42:173671:173671 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-ault42:173671:173671 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault42:173671:173671 [0] NCCL INFO comm 0x56a1b60 rank 0 nranks 2 cudaDev 0 busId 41000 commId 0x52362fdc3c7ac6ba - Init COMPLETE
-ault42:173671:173671 [0] NCCL INFO comm 0x56a1b60 rank 0 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
-[MPI Rank 0] Success 
-The local rank is: 0
-ault43:339596:339596 [0] NCCL INFO cudaDriverVersion 12010
-ault43:339596:339596 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
-ault43:339596:339596 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault43:339596:339596 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault43:339596:339596 [0] NCCL INFO NET/IB : No device found.
-ault43:339596:339596 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
-ault43:339596:339596 [0] NCCL INFO Using network Socket
-ault43:339596:339596 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
-ault43:339596:339596 [0] NCCL INFO P2P Chunksize set to 131072
-ault43:339596:339596 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
-ault43:339596:339596 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
-ault43:339596:339596 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
-ault43:339596:339596 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
-ault43:339596:339596 [0] NCCL INFO Connected all rings
-ault43:339596:339596 [0] NCCL INFO Connected all trees
-ault43:339596:339596 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault43:339596:339596 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault43:339596:339596 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-ault43:339596:339596 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault43:339596:339596 [0] NCCL INFO comm 0x56a2090 rank 1 nranks 2 cudaDev 0 busId 41000 commId 0x52362fdc3c7ac6ba - Init COMPLETE
-ault43:339596:339596 [0] NCCL INFO comm 0x56a2090 rank 1 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
-[MPI Rank 1] Success 
-Collecting data...
-Generating '/tmp/nsys-report-5341.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-1ad7.qdstrm'
-[1/1] [0%                          ] nsys-report-2bde.nsys-rep[1/1] [0%                          ] nsys-report-2bde.nsys-rep[1/1] [13%                         ] nsys-report-2bde.nsys-rep[1/1] [=====30%                    ] nsys-report-2bde.nsys-rep[1/1] [======35%                   ] nsys-report-2bde.nsys-rep[1/1] [============55%             ] nsys-report-2bde.nsys-rep[1/1] [=================74%        ] nsys-report-2bde.nsys-rep[1/1] [==================77%       ] nsys-report-2bde.nsys-rep[1/1] [===================79%      ] nsys-report-2bde.nsys-rep[1/1] [===================80%      ] nsys-report-2bde.nsys-rep[1/1] [===================81%      ] nsys-report-2bde.nsys-rep[1/1] [====================84%     ] nsys-report-2bde.nsys-rep[1/1] [====================85%     ] nsys-report-2bde.nsys-rep[1/1] [=====================89%    ] nsys-report-2bde.nsys-rep[1/1] [======================90%   ] nsys-report-2bde.nsys-rep[1/1] [=======================94%  ] nsys-report-2bde.nsys-rep[1/1] [========[1/1] [0%                          ] nsys-report-0a58.nsys-rep[1/1] [0%                          ] nsys-report-0a58.nsys-rep[1/1] [11%                         ] nsys-report-0a58.nsys-rep[1/1] [====28%                     ] nsys-report-0a58.nsys-rep[1/1] [======34%                   ] nsys-report-0a58.nsys-rep[1/1] [============55%             ] nsys-report-0a58.nsys-rep[1/1] [==================76%       ] nsys-report-0a58.nsys-rep[1/1] [==================78%       ] nsys-report-0a58.nsys-rep[1/1] [===================81%      ] nsys-report-0a58.nsys-rep[1/1] [===================82%      ] nsys-report-0a58.nsys-rep[1/1] [====================83%     ] nsys-report-0a58.nsys-rep[1/1] [=====================86%    ] nsys-report-0a58.nsys-rep[1/1] [=====================87%    ] nsys-report-0a58.nsys-rep[1/1] [=====================88%    ] nsys-report-0a58.nsys-rep[1/1] [=====================89%    ] nsys-report-0a58.nsys-rep[1/1] [======================90%   ] nsys-report-0a58.nsys-rep[1/1] [========================100%] nsys-report-2bde.nsys-rep[1/1] [========================100%] nsys-report-2bde.nsys-rep
-Generated:
-    /tmp/nsys-report-2bde.nsys-rep
-===============93%  ] nsys-report-0a58.nsys-rep[1/1] [========================100%] nsys-report-0a58.nsys-rep[1/1] [========================100%] nsys-report-0a58.nsys-rep
-Generated:
-    /tmp/nsys-report-0a58.nsys-rep

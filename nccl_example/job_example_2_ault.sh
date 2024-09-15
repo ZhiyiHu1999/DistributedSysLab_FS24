@@ -17,11 +17,14 @@ module load cuda/11.8.0
 
 srun nvidia-smi -L
 
-export NCCL_ALGO=Tree
+rm -rf "./results"
+mkdir -p "./results"
+
+export NCCL_ALGO=Ring
 export NCCL_PROTO=Simple
 export NCCL_DEBUG=INFO ## For debug
-export NCCL_TOPO_DUMP_FILE="Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
-export NCCL_GRAPH_DUMP_FILE="Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
+export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
+export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
 
 export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4.1.1-epxpvnwjl2smjwuwqg67h2wrmdxw6nhj
 
@@ -60,12 +63,13 @@ nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NC
 # mkdir -p $npkit_trace_dir
 # mkdir -p $npkit_result_dir
 
-export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/nsys_reports"
+export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports"
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
 
 # srun ./example_2 | tee $npkit_result_dir/log.txt
 # srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=osrt,nvtx,cuda --stats=true --output=example_2_nsys_report_%h_%p ./example_2
+# srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
 srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
 
 for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do

@@ -151,8 +151,8 @@ def generate_graphviz(graphs, task_infos):
     return graphviz_input
 
 def main():
-    input_file = "example_2.goal" 
-    output_file = "example_2.dot"
+    input_file = "./results/example_2.goal" 
+    output_file = "./results/example_2.dot"
 
     graphs, task_infos = parse_goal_file(input_file)
     graphviz_input = generate_graphviz(graphs, task_infos)

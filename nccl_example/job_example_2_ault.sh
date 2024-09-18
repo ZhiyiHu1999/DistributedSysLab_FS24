@@ -20,8 +20,9 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Ring
+export NCCL_ALGO=Tree
 export NCCL_PROTO=Simple
+# export NCCL_MIN_NCHANNELS=4
 export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
 export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
@@ -30,16 +31,18 @@ export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4
 
 # export NCCL_ROOT=/users/zhu/nccl/build
 export NCCL_ROOT=/users/zhu/nccl_nvtx/nccl/build
+# export NCCL_ROOT=/users/zhu/nccl_npkit_dependency/nccl/build
 # export NCCL_ROOT=/users/zhu/nccl_npkit/nccl/build
 # export NCCL_ROOT=/users/zhu/nccl_npkit_2.22.3-1/nccl/build
 
 export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx/nccl/build/lib:$LD_LIBRARY_PATH
+# export LD_LIBRARY_PATH=/users/zhu/nccl_npkit_dependency/nccl/build/lib:$LD_LIBRARY_PATH
 # export LD_LIBRARY_PATH=/users/zhu/nccl_npkit/nccl/build/lib:$LD_LIBRARY_PATH
 # export LD_LIBRARY_PATH=/users/zhu/nccl/build/lib:$LD_LIBRARY_PATH
 
 nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_2.cu -o example_2
 
-# export NPKIT_RUN_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/npkit_run"
+# export NPKIT_RUN_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/npkit_run"
 
 # # Tag of this NPKit run.
 # npkit_run_tag="job_example_2"
@@ -82,9 +85,9 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
 done
 
 # python3 npkit_trace_generator.py --npkit_dump_dir=$npkit_dump_dir\
-#                                  --npkit_event_header_path="/users/zhu/nccl_npkit/nccl/src/include/npkit/npkit_event.h"\
+#                                  --npkit_event_header_path="/users/zhu/nccl_npkit_dependency/nccl/src/include/npkit/npkit_event.h"\
 #                                  --output_dir=$npkit_trace_dir
 
 python3 parser_sqlite2goal.py
 
-python3 goal2dot.py
+# python3 goal2dot.py

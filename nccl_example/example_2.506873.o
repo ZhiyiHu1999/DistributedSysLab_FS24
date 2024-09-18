@@ -1,0 +1,1112 @@
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
+The local rank is: 0
+ault43:407908:407908 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
+ault43:407908:407908 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault43:407908:407908 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault43:407908:407908 [0] NCCL INFO cudaDriverVersion 12010
+NCCL version 2.17.1+cuda11.8
+ault43:407908:407908 [0] NCCL INFO NET/IB : No device found.
+ault43:407908:407908 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
+ault43:407908:407908 [0] NCCL INFO Using network Socket
+ault43:407908:407908 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to ./results/Topology_Intra_Node.txt
+ault43:407908:407908 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
+ault43:407908:407908 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+ault43:407908:407908 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
+ault43:407908:407908 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+ault43:407908:407908 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+ault43:407908:407908 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to ./results/Graph.txt
+ault43:407908:407908 [0] NCCL INFO [0] Channel 0 P         1   0
+ault43:407908:407908 [0] NCCL INFO [0] Channel 0 N         1   0
+ault43:407908:407908 [0] NCCL INFO Channel 00/02 :    0   1
+ault43:407908:407908 [0] NCCL INFO [0] Channel 1 P         1   0
+ault43:407908:407908 [0] NCCL INFO [0] Channel 1 N         1   0
+ault43:407908:407908 [0] NCCL INFO Channel 01/02 :    0   1
+ault43:407908:407908 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+ault43:407908:407908 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+ault43:407908:407908 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+ault43:407908:407908 [0] NCCL INFO P2P Chunksize set to 131072
+ault43:407908:407908 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
+ault43:407908:407908 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
+ault43:407908:407908 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
+ault43:407908:407908 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
+ault43:407908:407908 [0] NCCL INFO Connected all rings
+ault43:407908:407908 [0] NCCL INFO Connected all trees
+ault43:407908:407908 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault43:407908:407908 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault43:407908:407908 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault43:407908:407908 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault43:407908:407908 [0] NCCL INFO comm 0x7c65290 rank 0 nranks 2 cudaDev 0 busId 41000 commId 0x9db5c7ea503643c4 - Init COMPLETE
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735178977174, SteadyClock:7641735178977283)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735178990483, SteadyClock:7641735178990614)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735178995123, SteadyClock:7641735178995223)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735178996414, SteadyClock:7641735178996474)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735178997574, SteadyClock:7641735178997574)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735178998563, SteadyClock:7641735178998643)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735178999784, SteadyClock:7641735178999804)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735179007634, SteadyClock:7641735179007724)
+
+The local rank is: 0
+ault44:680924:680924 [0] NCCL INFO cudaDriverVersion 12010
+ault44:680924:680924 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
+ault44:680924:680924 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault44:680924:680924 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault44:680924:680924 [0] NCCL INFO NET/IB : No device found.
+ault44:680924:680924 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
+ault44:680924:680924 [0] NCCL INFO Using network Socket
+ault44:680924:680924 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
+ault44:680924:680924 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+ault44:680924:680924 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
+ault44:680924:680924 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+ault44:680924:680924 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+ault44:680924:680924 [0] NCCL INFO Ring 00 : 0 -> 1 -> 0
+ault44:680924:680924 [0] NCCL INFO Ring 01 : 0 -> 1 -> 0
+ault44:680924:680924 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+ault44:680924:680924 [0] NCCL INFO P2P Chunksize set to 131072
+ault44:680924:680924 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
+ault44:680924:680924 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
+ault44:680924:680924 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:680924:680924 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:680924:680924 [0] NCCL INFO Connected all rings
+ault44:680924:680924 [0] NCCL INFO Connected all trees
+ault44:680924:680924 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault44:680924:680924 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault44:680924:680924 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault44:680924:680924 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault44:680924:680924 [0] NCCL INFO comm 0x7c655e0 rank 1 nranks 2 cudaDev 0 busId 41000 commId 0x9db5c7ea503643c4 - Init COMPLETE
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777082719718, SteadyClock:7641777082719518)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777082731888, SteadyClock:7641777082731988)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777082736288, SteadyClock:7641777082736228)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777082737588, SteadyClock:7641777082737528)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777082739228, SteadyClock:7641777082739178)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777082740248, SteadyClock:7641777082740298)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777082741438, SteadyClock:7641777082741388)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777082744668, SteadyClock:7641777082744718)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777135855697, SteadyClock:7641777135855727)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735204258075, SteadyClock:7641735204258065)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735208998321, SteadyClock:7641735208998331)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735239057179, SteadyClock:7641735239057269)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735263499204, SteadyClock:7641735263499135)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735263641996, SteadyClock:7641735263642016)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735263668996, SteadyClock:7641735263669006)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735285004838, SteadyClock:7641735285004898)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735285279930, SteadyClock:7641735285280070)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735286370898, SteadyClock:7641735286370948)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735292601365, SteadyClock:7641735292601495)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735311268787, SteadyClock:7641735311268837)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735321437714, SteadyClock:7641735321437744)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735321440204, SteadyClock:7641735321440314)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735321507935, SteadyClock:7641735321508064)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735326782155, SteadyClock:7641735326782224)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735326853805, SteadyClock:7641735326853855)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735371999867, SteadyClock:7641735382236215)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735392999887, SteadyClock:7641735393232519)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735392999887, SteadyClock:7641735393234739)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735392999887, SteadyClock:7641735399504566)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735392999887, SteadyClock:7641735404926327)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735411348696, SteadyClock:7641735411548187)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777142013950, SteadyClock:7641777142014141)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777155345500, SteadyClock:7641777155345571)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777155348180, SteadyClock:7641777155348220)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777210074066, SteadyClock:7641777210074036)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777210161687, SteadyClock:7641777210161687)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777210846219, SteadyClock:7641777210846229)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777211429442, SteadyClock:7641777211429522)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777244999858, SteadyClock:7641777245141948)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777244999858, SteadyClock:7641777245149718)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777244999858, SteadyClock:7641777245154508)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777270999965, SteadyClock:7641777275747243)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777270999965, SteadyClock:7641777275749513)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777270999965, SteadyClock:7641777276326175)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777270999965, SteadyClock:7641777276820327)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777270999965, SteadyClock:7641777280817112)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777270999965, SteadyClock:7641777281013803)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777270999965, SteadyClock:7641777281086643)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777285394060, SteadyClock:7641777285394089)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777285395929, SteadyClock:7641777285396049)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777285403649, SteadyClock:7641777285403709)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777296999893, SteadyClock:7641777299842364)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735411348696, SteadyClock:7641735417544243)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735428688588, SteadyClock:7641735429043910)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735428688588, SteadyClock:7641735436103024)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735444999821, SteadyClock:7641735445181502)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735444999821, SteadyClock:7641735445426174)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735444999821, SteadyClock:7641735445504225)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735461999970, SteadyClock:7641735463303070)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735461999970, SteadyClock:7641735463373620)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735490156454, SteadyClock:7641735490156504)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735490525006, SteadyClock:7641735490525017)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735499399234, SteadyClock:7641735499399304)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735509231668, SteadyClock:7641735509231728)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735528110151, SteadyClock:7641735528110171)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735530548250, SteadyClock:7641735530548380)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735564138965, SteadyClock:7641735564138955)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735564284946, SteadyClock:7641735564285036)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735598191713, SteadyClock:7641735598191773)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735598330504, SteadyClock:7641735598330644)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735633331660, SteadyClock:7641735633331669)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735633407400, SteadyClock:7641735633407430)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735655230956, SteadyClock:7641735655231036)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777322999951, SteadyClock:7641777333766571)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777322999951, SteadyClock:7641777333812951)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777348999919, SteadyClock:7641777350650655)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777368419692, SteadyClock:7641777368419721)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777368959934, SteadyClock:7641777368959954)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777374999816, SteadyClock:7641777387004571)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777374999816, SteadyClock:7641777387011482)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777400999954, SteadyClock:7641777402867261)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777400999954, SteadyClock:7641777402978802)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777400999954, SteadyClock:7641777402980531)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777400999954, SteadyClock:7641777403485263)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777464528473, SteadyClock:7641777464528723)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777475007412, SteadyClock:7641777475007492)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777475501174, SteadyClock:7641777475501364)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777475665555, SteadyClock:7641777475665645)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777503310509, SteadyClock:7641777503310569)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777503792381, SteadyClock:7641777503792561)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777560373883, SteadyClock:7641777560373803)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777560555984, SteadyClock:7641777560556024)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777560557254, SteadyClock:7641777560557614)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777570767022, SteadyClock:7641777570767052)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777585999899, SteadyClock:7641777587723266)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777585999899, SteadyClock:7641777587725676)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777585999899, SteadyClock:7641777593222266)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777585999899, SteadyClock:7641777598433346)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777585999899, SteadyClock:7641777598439846)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777613999775, SteadyClock:7641777615201539)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777613999775, SteadyClock:7641777622100905)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777639999762, SteadyClock:7641777641547568)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777639999762, SteadyClock:7641777647591531)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777665999710, SteadyClock:7641777667091074)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777665999710, SteadyClock:7641777667094074)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777677362603, SteadyClock:7641777677362873)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777677364883, SteadyClock:7641777677364963)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777677371383, SteadyClock:7641777677371413)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777677508523, SteadyClock:7641777677508614)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777682999984, SteadyClock:7641777692099238)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777682999984, SteadyClock:7641777692172929)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777708999942, SteadyClock:7641777721106247)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777708999942, SteadyClock:7641777721330738)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777733582934, SteadyClock:7641777740009118)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777733582934, SteadyClock:7641777740080238)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777758999860, SteadyClock:7641777765665895)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777758999860, SteadyClock:7641777765808805)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735655307916, SteadyClock:7641735655307976)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735682573823, SteadyClock:7641735682573923)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735682602273, SteadyClock:7641735682646814)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735717297006, SteadyClock:7641735717297106)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735717983572, SteadyClock:7641735717983672)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735718030092, SteadyClock:7641735718030162)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735718106032, SteadyClock:7641735718106323)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735723999877, SteadyClock:7641735736157609)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735749999885, SteadyClock:7641735751917279)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735749999885, SteadyClock:7641735752094280)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735749999885, SteadyClock:7641735752586174)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735771122365, SteadyClock:7641735771122475)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735771124595, SteadyClock:7641735771124885)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735775999872, SteadyClock:7641735787345468)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735775999872, SteadyClock:7641735787479899)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735810307362, SteadyClock:7641735810307432)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735835049359, SteadyClock:7641735835049279)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735835055199, SteadyClock:7641735835055219)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735835056919, SteadyClock:7641735835056970)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735835072220, SteadyClock:7641735835072290)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735860587643, SteadyClock:7641735860587643)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735861340689, SteadyClock:7641735861340769)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777784999878, SteadyClock:7641777792665486)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777784999878, SteadyClock:7641777792820507)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777798738479, SteadyClock:7641777798738559)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777804395840, SteadyClock:7641777804395951)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777832647447, SteadyClock:7641777832647477)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777832789227, SteadyClock:7641777832789377)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777865999972, SteadyClock:7641777866211993)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777865999972, SteadyClock:7641777866355203)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777882999986, SteadyClock:7641777886067958)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777882999986, SteadyClock:7641777886145168)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777920259636, SteadyClock:7641777920259746)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777932821923, SteadyClock:7641777932821923)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777932823833, SteadyClock:7641777932823953)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777963453098, SteadyClock:7641777963453148)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777963511278, SteadyClock:7641777963511309)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735893607784, SteadyClock:7641735893607844)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735893903296, SteadyClock:7641735893903376)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735893909656, SteadyClock:7641735893909676)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735924999922, SteadyClock:7641735927629422)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735924999922, SteadyClock:7641735927633652)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641777963976290, SteadyClock:7641777963976480)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777964449992, SteadyClock:7641777964450022)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641777993633182, SteadyClock:7641777993633302)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778007002852, SteadyClock:7641778007002862)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778007137802, SteadyClock:7641778007137893)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735924999922, SteadyClock:7641735928247086)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735950999959, SteadyClock:7641735958568076)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641735976999856, SteadyClock:7641735981272299)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641735976999856, SteadyClock:7641735981730442)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736012434725, SteadyClock:7641736019776120)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778007139802, SteadyClock:7641778007139873)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736012434725, SteadyClock:7641736019779021)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736012434725, SteadyClock:7641736019780711)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736037999829, SteadyClock:7641736038635584)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736037999829, SteadyClock:7641736038946556)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736037999829, SteadyClock:7641736050897627)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736057820649, SteadyClock:7641736057820749)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736057959290, SteadyClock:7641736057959340)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736081978702, SteadyClock:7641736081978832)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736082129524, SteadyClock:7641736082129604)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736090880750, SteadyClock:7641736090880770)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736091024121, SteadyClock:7641736091024201)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736123999831, SteadyClock:7641736129217871)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736123999831, SteadyClock:7641736129613284)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736123999831, SteadyClock:7641736136168354)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736123999831, SteadyClock:7641736136244584)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736141707345, SteadyClock:7641736141707465)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736141784296, SteadyClock:7641736141784386)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736182999869, SteadyClock:7641736184978404)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736182999869, SteadyClock:7641736185059344)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736238999803, SteadyClock:7641736244045841)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736238999803, SteadyClock:7641736244540145)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736255999822, SteadyClock:7641736256174244)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736255999822, SteadyClock:7641736256176914)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736281999880, SteadyClock:7641736283784003)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736281999880, SteadyClock:7641736284183336)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736281999880, SteadyClock:7641736290644855)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736281999880, SteadyClock:7641736290726236)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736297184145, SteadyClock:7641736297184355)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736297187225, SteadyClock:7641736297187335)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736303618464, SteadyClock:7641736303618684)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736304098387, SteadyClock:7641736304098467)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736306999859, SteadyClock:7641736310104783)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736306999859, SteadyClock:7641736310112973)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778034342905, SteadyClock:7641778034343035)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778040840179, SteadyClock:7641778040840189)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778060316813, SteadyClock:7641778060316853)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778060319022, SteadyClock:7641778060319182)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778090099724, SteadyClock:7641778090099664)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778090106464, SteadyClock:7641778090106414)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778106218215, SteadyClock:7641778106218345)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778106221835, SteadyClock:7641778106221885)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778115999872, SteadyClock:7641778123917821)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778139789821, SteadyClock:7641778139789861)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778157880479, SteadyClock:7641778157880529)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778167999987, SteadyClock:7641778174118580)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778192076888, SteadyClock:7641778192076878)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778193999855, SteadyClock:7641778196413674)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778193999855, SteadyClock:7641778196416424)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778193999855, SteadyClock:7641778196460494)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778193999855, SteadyClock:7641778196589625)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778193999855, SteadyClock:7641778203008159)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778193999855, SteadyClock:7641778203187159)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778209567554, SteadyClock:7641778209567843)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778209652504, SteadyClock:7641778209652564)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778219999993, SteadyClock:7641778227901272)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736306999859, SteadyClock:7641736316009347)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736322629888, SteadyClock:7641736322629948)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736322632848, SteadyClock:7641736322633078)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736326907760, SteadyClock:7641736326907720)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736326977441, SteadyClock:7641736326977481)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736332996026, SteadyClock:7641736332996016)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736354302868, SteadyClock:7641736354302958)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736354449449, SteadyClock:7641736354449579)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736384999891, SteadyClock:7641736386573553)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736384999891, SteadyClock:7641736386648073)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736404926212, SteadyClock:7641736404926312)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736405012022, SteadyClock:7641736405012073)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736439324283, SteadyClock:7641736439324333)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736467955790, SteadyClock:7641736467955880)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736468820446, SteadyClock:7641736468820457)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736492596077, SteadyClock:7641736492596127)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736493059200, SteadyClock:7641736493059420)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736506391062, SteadyClock:7641736506391202)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736544999884, SteadyClock:7641736545026155)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736544999884, SteadyClock:7641736545036864)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736544999884, SteadyClock:7641736551086610)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736544999884, SteadyClock:7641736551089690)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778219999993, SteadyClock:7641778228400594)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778219999993, SteadyClock:7641778228864816)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778246999824, SteadyClock:7641778259929853)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778272999792, SteadyClock:7641778273306173)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778272999792, SteadyClock:7641778273773825)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778291710692, SteadyClock:7641778291710842)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778291951993, SteadyClock:7641778291952233)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778292458745, SteadyClock:7641778292458815)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778297999836, SteadyClock:7641778310069821)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778297999836, SteadyClock:7641778310078321)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778323999913, SteadyClock:7641778326123861)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778343838988, SteadyClock:7641778343839058)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778343841118, SteadyClock:7641778343841248)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778343842268, SteadyClock:7641778343842378)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778349999901, SteadyClock:7641778359788988)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778375999799, SteadyClock:7641778378016837)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778401999967, SteadyClock:7641778411823464)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778401999967, SteadyClock:7641778411850334)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778440829153, SteadyClock:7641778440829163)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778440831023, SteadyClock:7641778440831083)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778441293934, SteadyClock:7641778441294074)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778478704495, SteadyClock:7641778478704425)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778479156747, SteadyClock:7641778479156777)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778479622009, SteadyClock:7641778479622129)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778480156491, SteadyClock:7641778480156511)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778480242531, SteadyClock:7641778480242591)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778480247791, SteadyClock:7641778480247881)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778505430606, SteadyClock:7641778505430666)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778505786737, SteadyClock:7641778505786957)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778531451233, SteadyClock:7641778531451153)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778531928955, SteadyClock:7641778531929175)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778531931115, SteadyClock:7641778531931135)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778532427637, SteadyClock:7641778532427857)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778562075068, SteadyClock:7641778562075139)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778562077799, SteadyClock:7641778562077879)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778589999944, SteadyClock:7641778592655383)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778615999791, SteadyClock:7641778626470681)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778641999839, SteadyClock:7641778644201577)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778641999839, SteadyClock:7641778644313088)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778641999839, SteadyClock:7641778644314758)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778641999839, SteadyClock:7641778644322308)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778660470648, SteadyClock:7641778660470788)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778660472809, SteadyClock:7641778660472889)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736544999884, SteadyClock:7641736551090881)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736544999884, SteadyClock:7641736557321478)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736544999884, SteadyClock:7641736557324928)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736563599825, SteadyClock:7641736563599905)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736570999852, SteadyClock:7641736573180988)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736570999852, SteadyClock:7641736573255869)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736596999949, SteadyClock:7641736600299424)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736596999949, SteadyClock:7641736600448205)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736622999796, SteadyClock:7641736626310231)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736622999796, SteadyClock:7641736626459372)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736648999833, SteadyClock:7641736656480440)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736648999833, SteadyClock:7641736656622941)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736676999865, SteadyClock:7641736687745147)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736699999810, SteadyClock:7641736700362793)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736727999832, SteadyClock:7641736732409066)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736727999832, SteadyClock:7641736732550987)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736727999832, SteadyClock:7641736732857159)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736741999998, SteadyClock:7641736742287811)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736741999998, SteadyClock:7641736742307281)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736741999998, SteadyClock:7641736742364071)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736767999526, SteadyClock:7641736770085371)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778667999797, SteadyClock:7641778678228945)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778693999594, SteadyClock:7641778694497086)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778693999594, SteadyClock:7641778694979198)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778717042891, SteadyClock:7641778717042941)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778723019293, SteadyClock:7641778723019333)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778726999848, SteadyClock:7641778729010006)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778748999881, SteadyClock:7641778749352292)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778748999881, SteadyClock:7641778749734714)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778765999845, SteadyClock:7641778766256576)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778765999845, SteadyClock:7641778766366027)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778794508122, SteadyClock:7641778794508162)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778794582462, SteadyClock:7641778794582593)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778844339689, SteadyClock:7641778844339809)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778844415470, SteadyClock:7641778844415490)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778875253876, SteadyClock:7641778875253856)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778903656303, SteadyClock:7641778903656423)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778903659152, SteadyClock:7641778903659203)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778927291511, SteadyClock:7641778927291601)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778927672083, SteadyClock:7641778927672103)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778937855911, SteadyClock:7641778937855971)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778937858311, SteadyClock:7641778937858381)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641778937859731, SteadyClock:7641778937859871)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736767999526, SteadyClock:7641736776772572)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736796005148, SteadyClock:7641736796005158)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736796254330, SteadyClock:7641736796254350)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736796439461, SteadyClock:7641736796439521)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736827463337, SteadyClock:7641736827463397)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736827764259, SteadyClock:7641736827764269)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736857737406, SteadyClock:7641736857737366)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736889422156, SteadyClock:7641736889422247)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736889876260, SteadyClock:7641736889876480)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736890332303, SteadyClock:7641736890332654)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736953999846, SteadyClock:7641736960267484)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736953999846, SteadyClock:7641736960270944)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736953999846, SteadyClock:7641736960273014)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736979999803, SteadyClock:7641736990275752)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641736979999803, SteadyClock:7641736990278101)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641736979999803, SteadyClock:7641736990279372)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737005999771, SteadyClock:7641737010874178)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737027999838, SteadyClock:7641737028202709)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737027999838, SteadyClock:7641737028501731)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737052418793, SteadyClock:7641737052418873)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737052866246, SteadyClock:7641737052866486)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737053332300, SteadyClock:7641737053332460)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737066476199, SteadyClock:7641737066476439)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737066949653, SteadyClock:7641737066949913)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737067412417, SteadyClock:7641737067412526)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737067600648, SteadyClock:7641737067600688)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737095138107, SteadyClock:7641737095138077)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737095140407, SteadyClock:7641737095140497)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737095142117, SteadyClock:7641737095142127)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737095143687, SteadyClock:7641737095143727)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737095145657, SteadyClock:7641737095145727)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737099254498, SteadyClock:7641737099254468)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737099256778, SteadyClock:7641737099256818)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737124740851, SteadyClock:7641737124740971)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737163999899, SteadyClock:7641737169471791)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737189999886, SteadyClock:7641737192899088)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737189999886, SteadyClock:7641737193382862)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737189999886, SteadyClock:7641737199723920)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737215574720, SteadyClock:7641737218299521)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737215574720, SteadyClock:7641737218301991)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737215574720, SteadyClock:7641737218383822)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737215574720, SteadyClock:7641737222379932)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737252999944, SteadyClock:7641737253198266)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778948999893, SteadyClock:7641778957233404)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641778948999893, SteadyClock:7641778957384205)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779000365946, SteadyClock:7641779000365956)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779000447806, SteadyClock:7641779000447906)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779003999840, SteadyClock:7641779004494102)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779003999840, SteadyClock:7641779004578482)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779003999840, SteadyClock:7641779010540044)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779003999840, SteadyClock:7641779010617625)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779029999838, SteadyClock:7641779044750383)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779029999838, SteadyClock:7641779044962654)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779078823301, SteadyClock:7641779078823411)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779079079742, SteadyClock:7641779079079792)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779105999863, SteadyClock:7641779109277105)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779105999863, SteadyClock:7641779110044268)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779105999863, SteadyClock:7641779110189399)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779131999941, SteadyClock:7641779138514335)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779131999941, SteadyClock:7641779139458179)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779131999941, SteadyClock:7641779139460959)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779177474692, SteadyClock:7641779177474812)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779181548577, SteadyClock:7641779181548667)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779194142524, SteadyClock:7641779194142544)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737278999921, SteadyClock:7641737283405995)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737278999921, SteadyClock:7641737293167089)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737278999921, SteadyClock:7641737293657822)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737278999921, SteadyClock:7641737293789834)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737278999921, SteadyClock:7641737299877310)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737278999921, SteadyClock:7641737299879080)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737313999857, SteadyClock:7641737319840411)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737313999857, SteadyClock:7641737319988582)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737339999914, SteadyClock:7641737347694132)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737339999914, SteadyClock:7641737347840184)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737365999891, SteadyClock:7641737378073623)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737365999891, SteadyClock:7641737378147963)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737391999968, SteadyClock:7641737399693407)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737391999968, SteadyClock:7641737399845168)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737421279730, SteadyClock:7641737421279850)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737434139508, SteadyClock:7641737434139588)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737434786843, SteadyClock:7641737434787113)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737434789223, SteadyClock:7641737434789323)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737462112590, SteadyClock:7641737462112740)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737486988379, SteadyClock:7641737486988469)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737487181090, SteadyClock:7641737487181150)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737487182750, SteadyClock:7641737487182760)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779194144255, SteadyClock:7641779194144304)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779194259415, SteadyClock:7641779194259465)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779194334275, SteadyClock:7641779194334295)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779225311652, SteadyClock:7641779225311722)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779225785933, SteadyClock:7641779225786133)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779226261855, SteadyClock:7641779226261935)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779227154888, SteadyClock:7641779227155228)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779227210579, SteadyClock:7641779227210679)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779253209197, SteadyClock:7641779253209437)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779283212389, SteadyClock:7641779283212519)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779283215289, SteadyClock:7641779283215379)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779283216809, SteadyClock:7641779283216849)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779304834771, SteadyClock:7641779304834700)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779311369975, SteadyClock:7641779311370215)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779311372835, SteadyClock:7641779311372855)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779328513569, SteadyClock:7641779328513640)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779334477992, SteadyClock:7641779334478012)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779334483712, SteadyClock:7641779334483752)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779361999795, SteadyClock:7641779362003506)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779387999963, SteadyClock:7641779392394100)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779387999963, SteadyClock:7641779392841211)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779387999963, SteadyClock:7641779393318713)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779413999881, SteadyClock:7641779416534540)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779413999881, SteadyClock:7641779422640934)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779451686032, SteadyClock:7641779451686123)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779451691932, SteadyClock:7641779451692012)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779457819486, SteadyClock:7641779457819566)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779457821786, SteadyClock:7641779457821875)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779457959756, SteadyClock:7641779457959846)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779476960587, SteadyClock:7641779476960747)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779477427619, SteadyClock:7641779477427969)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779477526920, SteadyClock:7641779477527040)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779483698203, SteadyClock:7641779483698263)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779518062092, SteadyClock:7641779518062152)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779518203793, SteadyClock:7641779518203913)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779554166508, SteadyClock:7641779554166538)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779554252238, SteadyClock:7641779554252288)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779576596472, SteadyClock:7641779576596522)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779593999918, SteadyClock:7641779604660978)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779618999901, SteadyClock:7641779619088582)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779618999901, SteadyClock:7641779619195482)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779665999838, SteadyClock:7641779666061438)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779692309437, SteadyClock:7641779692309537)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779715506284, SteadyClock:7641779715506394)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737487519303, SteadyClock:7641737487519413)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737528478263, SteadyClock:7641737528478274)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737528937387, SteadyClock:7641737528937387)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737529394730, SteadyClock:7641737529394770)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737529668403, SteadyClock:7641737529668412)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737548999669, SteadyClock:7641737551383467)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737548999669, SteadyClock:7641737555766641)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737548999669, SteadyClock:7641737555917512)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737548999669, SteadyClock:7641737555919282)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737574999876, SteadyClock:7641737575003747)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737574999876, SteadyClock:7641737575237008)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737574999876, SteadyClock:7641737575239258)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737617000085, SteadyClock:7641737617478578)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737642999822, SteadyClock:7641737647963880)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737642999822, SteadyClock:7641737648444924)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737701796008, SteadyClock:7641737701796098)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737702240272, SteadyClock:7641737702240361)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737702242861, SteadyClock:7641737702242941)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737702692085, SteadyClock:7641737702692345)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737702694485, SteadyClock:7641737702694595)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737757137758, SteadyClock:7641737757137878)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737787516458, SteadyClock:7641737787516468)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737799999843, SteadyClock:7641737810744595)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:7641737799999843, SteadyClock:7641737811236758)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737799999843, SteadyClock:7641737811239968)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737799999843, SteadyClock:7641737811242598)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737799999843, SteadyClock:7641737811245008)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737825999780, SteadyClock:7641737831250160)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737851999817, SteadyClock:7641737856646183)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737903999832, SteadyClock:7641737908418985)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737903999832, SteadyClock:7641737908897109)
+
+ault43:407908:407928 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:7641737903999832, SteadyClock:7641737909418413)
+
+ault43:407908:407908 [0] NCCL INFO comm 0x7c65290 rank 0 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+ault43:407908:407908 [0] NCCL INFO NPKit Dump Started
+[MPI Rank 0] Success 
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779715579184, SteadyClock:7641779715579275)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779736500803, SteadyClock:7641779736500893)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779736574283, SteadyClock:7641779736574314)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779755174553, SteadyClock:7641779755174593)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779762999823, SteadyClock:7641779771327654)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779762999823, SteadyClock:7641779771828456)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:7641779813188571, SteadyClock:7641779813188671)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779856999796, SteadyClock:7641779857151437)
+
+ault44:680924:680939 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:7641779856999796, SteadyClock:7641779862768638)
+
+ault44:680924:680924 [0] NCCL INFO comm 0x7c655e0 rank 1 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+ault44:680924:680924 [0] NCCL INFO NPKit Dump Started
+[MPI Rank 1] Success 
+[0, 1]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63, 64, 65, 66, 67, 68, 69, 70, 71, 72, 73, 74, 75, 76, 77, 78, 79, 80, 81, 82, 83, 84, 85, 86, 87, 88, 89, 90, 91, 92, 93, 94, 95, 96, 97, 98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 109, 110, 111, 112, 113, 114, 115, 116, 117, 118, 119, 120, 121, 122, 123, 124, 125, 126, 127, 128, 129, 130, 131, 132, 133, 134, 135, 136, 137, 138, 139, 140, 141, 142, 143, 144, 145, 146, 147, 148, 149, 150, 151, 152, 153, 154, 155, 156, 157, 158, 159, 160, 161, 162, 163, 164, 165, 166, 167, 168, 169, 170, 171, 172, 173, 174, 175, 176, 177, 178, 179, 180, 181, 182, 183, 184, 185, 186, 187, 188, 189, 190, 191, 192, 193, 194, 195, 196, 197, 198, 199, 200, 201, 202, 203, 204, 205, 206, 207, 208, 209, 210, 211, 212, 213, 214, 215, 216, 217, 218, 219, 220, 221, 222, 223, 224, 225, 226, 227, 228, 229, 230, 231, 232, 233, 234, 235, 236, 237, 238, 239, 240, 241, 242, 243, 244, 245, 246, 247, 248, 249, 250, 251, 252, 253, 254, 255, 256, 257, 258, 259, 260, 261, 262, 263, 264, 265, 266, 267, 268, 269, 270, 271, 272, 273, 274, 275, 276, 277, 278, 279, 280, 281, 282, 283, 284, 285, 286, 287, 288, 289, 290, 291, 292, 293, 294, 295, 296, 297, 298, 299, 300, 301, 302, 303, 304, 305, 306, 307, 308, 309, 310, 311, 312, 313, 314, 315, 316, 317, 318, 319, 320, 321, 322, 323, 324, 325, 326, 327, 328, 329, 330, 331, 332, 333, 334, 335, 336, 337, 338, 339, 340, 341, 342, 343, 344, 345, 346, 347, 348, 349, 350, 351, 352, 353, 354, 355, 356, 357, 358, 359, 360, 361, 362, 363, 364, 365, 366, 367, 368, 369, 370, 371, 372, 373, 374, 375, 376, 377, 378, 379, 380, 381, 382, 383, 384, 385, 386, 387, 388, 389, 390, 391, 392, 393, 394, 395, 396, 397, 398, 399, 400, 401, 402, 403, 404, 405, 406, 407, 408, 409, 410, 411, 412, 413, 414, 415, 416, 417, 418, 419, 420, 421, 422, 423, 424, 425, 426, 427, 428, 429, 430, 431, 432, 433, 434, 435, 436, 437, 438, 439, 440, 441, 442, 443, 444, 445, 446, 447, 448, 449, 450, 451, 452, 453, 454, 455, 456, 457, 458, 459, 460, 461, 462, 463, 464, 465, 466, 467, 468, 469, 470, 471, 472, 473, 474, 475, 476, 477, 478, 479, 480, 481, 482, 483, 484, 485, 486, 487, 488, 489, 490, 491, 492, 493, 494, 495, 496, 497, 498, 499, 500, 501, 502, 503, 504, 505, 506, 507, 508, 509, 510, 511]
+[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+cpu_clock_scale: 1000.0, timestamp: 7641735177461242, curr_cpu_base_time: 7641735177461.242, rank: 0, buf_idx: 0
+gpu_clock_scale: 1755.0, timestamp: 63068320474525, curr_gpu_base_time: 35936364942.74929, rank: 0, buf_idx: 0
+cpu_clock_scale: 1000.0, timestamp: 7641735177461912, curr_cpu_base_time: 7641735177461.912, rank: 0, buf_idx: 1
+gpu_clock_scale: 1755.0, timestamp: 63133288131741, curr_gpu_base_time: 35973383550.84957, rank: 0, buf_idx: 1
+cpu_clock_scale: 1000.0, timestamp: 7641777081163882, curr_cpu_base_time: 7641777081163.882, rank: 1, buf_idx: 0
+gpu_clock_scale: 1755.0, timestamp: 3754399157534, curr_gpu_base_time: 2139258779.2216525, rank: 1, buf_idx: 0
+cpu_clock_scale: 1000.0, timestamp: 7641777081163162, curr_cpu_base_time: 7641777081163.162, rank: 1, buf_idx: 1
+gpu_clock_scale: 1755.0, timestamp: 3738229584362, curr_gpu_base_time: 2130045347.214815, rank: 1, buf_idx: 1

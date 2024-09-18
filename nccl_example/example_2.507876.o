@@ -1,69 +1,0 @@
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
-The local rank is: 0
-ault43:421186:421186 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
-ault43:421186:421186 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault43:421186:421186 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault43:421186:421186 [0] NCCL INFO cudaDriverVersion 12010
-NCCL version 2.17.1+cuda11.8
-ault43:421186:421186 [0] NCCL INFO NET/IB : No device found.
-ault43:421186:421186 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
-ault43:421186:421186 [0] NCCL INFO Using network Socket
-ault43:421186:421186 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to ./results/Topology_Intra_Node.txt
-ault43:421186:421186 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to ./results/Graph.txt
-ault43:421186:421186 [0] NCCL INFO Channel 00/02 :    0   1
-ault43:421186:421186 [0] NCCL INFO Channel 01/02 :    0   1
-ault43:421186:421186 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
-ault43:421186:421186 [0] NCCL INFO P2P Chunksize set to 131072
-ault43:421186:421186 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
-ault43:421186:421186 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
-ault43:421186:421186 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
-ault43:421186:421186 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
-ault43:421186:421186 [0] NCCL INFO Connected all rings
-ault43:421186:421186 [0] NCCL INFO Connected all trees
-ault43:421186:421186 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault43:421186:421186 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault43:421186:421186 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-ault43:421186:421186 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault43:421186:421186 [0] NCCL INFO comm 0x56a25a0 rank 0 nranks 2 cudaDev 0 busId 41000 commId 0x85eda39c29a8b83c - Init COMPLETE
-ault43:421186:421186 [0] NCCL INFO comm 0x56a25a0 rank 0 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
-[MPI Rank 0] Success 
-The local rank is: 0
-ault44:686723:686723 [0] NCCL INFO cudaDriverVersion 12010
-ault44:686723:686723 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
-ault44:686723:686723 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault44:686723:686723 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault44:686723:686723 [0] NCCL INFO NET/IB : No device found.
-ault44:686723:686723 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
-ault44:686723:686723 [0] NCCL INFO Using network Socket
-ault44:686723:686723 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
-ault44:686723:686723 [0] NCCL INFO P2P Chunksize set to 131072
-ault44:686723:686723 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
-ault44:686723:686723 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
-ault44:686723:686723 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
-ault44:686723:686723 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
-ault44:686723:686723 [0] NCCL INFO Connected all rings
-ault44:686723:686723 [0] NCCL INFO Connected all trees
-ault44:686723:686723 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault44:686723:686723 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault44:686723:686723 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
-ault44:686723:686723 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault44:686723:686723 [0] NCCL INFO comm 0x56a2380 rank 1 nranks 2 cudaDev 0 busId 41000 commId 0x85eda39c29a8b83c - Init COMPLETE
-ault44:686723:686723 [0] NCCL INFO comm 0x56a2380 rank 1 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
-[MPI Rank 1] Success 
-Collecting data...
-Generating '/tmp/nsys-report-ec39.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-8465.qdstrm'
-[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [11%                         ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [===22%                      ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [==19%                       ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [=16%                        ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [=17%                        ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [==18%                       ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [==19%                       ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [====25%                     ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [============54%             ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [==============61%         [1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [6%                          ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [5%                          ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [=====31%                    ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [=======39%                  ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [==========47%               ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [==========48%               ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [==========49%               ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [=============60%            ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [==================78%       ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep
-  ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_421186.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_421186.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_686723.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_686723.sqlite

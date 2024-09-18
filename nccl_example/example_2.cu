@@ -60,7 +60,7 @@ static void getHostName(char* hostname, int maxlen) {
 int main(int argc, char* argv[])
 {
   // int size = 2*1024*1024;
-  int size = 32*1024*1024;
+  int size = 2*1024*1024;
 
 
   int myRank, nRanks, localRank = 0;

@@ -237,10 +237,10 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
                     for channel_id, nvtx_net_channel_events in nvtx_net_events.items():
                         if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"].get(channel_id):
                             merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id] = {
-                                "NVTX_EVENT_NET_ISEND": [],
-                                "NVTX_EVENT_NET_IRECV": [],
-                                "NVTX_EVENT_NET_SEND_TEST": [],
-                                "NVTX_EVENT_NET_RECV_TEST": []
+                                "NVTX_EVENT_NET_ISEND": {},
+                                "NVTX_EVENT_NET_IRECV": {},
+                                "NVTX_EVENT_NET_SEND_TEST": {},
+                                "NVTX_EVENT_NET_RECV_TEST": {}
                                 }
 
                         if len(nvtx_net_channel_events["NVTX_EVENT_NET_ISEND"]) > 0:
@@ -248,26 +248,34 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
                                 net_event_goal = net_event
                                 net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
                                 net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"].append(net_event_goal)
+                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"].get(net_event_goal["receiver_rank"]):
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][net_event_goal["receiver_rank"]] = []
+                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][net_event_goal["receiver_rank"]].append(net_event_goal)
 
                             for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_SEND_TEST"]:
                                 net_event_goal = net_event
                                 net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
                                 net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"].append(net_event_goal)
+                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"].get(net_event_goal["receiver_rank"]):
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"][net_event_goal["receiver_rank"]] = []
+                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"][net_event_goal["receiver_rank"]].append(net_event_goal)
 
                         if len(nvtx_net_channel_events["NVTX_EVENT_NET_IRECV"]) > 0:
                             for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_IRECV"]:
                                 net_event_goal = net_event
                                 net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
                                 net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"].append(net_event_goal)
+                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"].get(net_event_goal["sender_rank"]):
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"][net_event_goal["sender_rank"]] = []
+                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"][net_event_goal["sender_rank"]].append(net_event_goal)
 
                             for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_RECV_TEST"]:
                                 net_event_goal = net_event
                                 net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
                                 net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].append(net_event_goal)
+                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].get(net_event_goal["sender_rank"]):
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][net_event_goal["sender_rank"]] = []
+                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][net_event_goal["sender_rank"]].append(net_event_goal)
     
     return merged_events
 

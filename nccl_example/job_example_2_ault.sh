@@ -90,4 +90,4 @@ done
 
 python3 parser_sqlite2goal.py
 
-# python3 goal2dot.py
+python3 goal2dot.py

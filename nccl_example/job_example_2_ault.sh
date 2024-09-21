@@ -70,10 +70,11 @@ export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/n
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
 
-# srun ./example_2 | tee $npkit_result_dir/log.txt
+# time srun ./example_2 | tee $npkit_result_dir/log.txt
 # srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=osrt,nvtx,cuda --stats=true --output=example_2_nsys_report_%h_%p ./example_2
 # srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
-srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
+# time srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
+srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
 
 for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   if [ -f "$report_file" ]; then

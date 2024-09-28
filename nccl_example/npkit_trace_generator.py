@@ -50,7 +50,8 @@ def parse_cpu_event(event_bytes):
         'slot': int.from_bytes(event_bytes[5:8], byteorder='little', signed=False),
         'timestamp': int.from_bytes(event_bytes[8:16], byteorder='little', signed=False),
         'sender_rank': int.from_bytes(event_bytes[16:17], byteorder='little', signed=False),  ##
-        'receiver_rank': int.from_bytes(event_bytes[17:18], byteorder='little', signed=False)  ##
+        'receiver_rank': int.from_bytes(event_bytes[17:18], byteorder='little', signed=False),  ##
+        'step': int.from_bytes(event_bytes[18:22], byteorder='little', signed=False)  ## 
     }
 
 def parse_gpu_event_file(npkit_dump_dir, npkit_event_def, rank, buf_idx, gpu_clock_scale, cpu_clock_scale):
@@ -125,7 +126,7 @@ def parse_gpu_event_file(npkit_dump_dir, npkit_event_def, rank, buf_idx, gpu_clo
 def parse_cpu_event_file(npkit_dump_dir, npkit_event_def, rank, channel, cpu_clock_scale):
     cpu_event_file_path = os.path.join(npkit_dump_dir, 'cpu_events_rank_%d_channel_%d' % (rank, channel))
     # raw_event_size = 16
-    raw_event_size = 18  ##
+    raw_event_size = 22  ##
     cpu_events = []
     event_type_to_seq = {}
 
@@ -175,7 +176,8 @@ def parse_cpu_event_file(npkit_dump_dir, npkit_event_def, rank, channel, cpu_clo
                         'seq': event_type_to_seq[event_type],
                         'size_0': parsed_cpu_event['size'],  ##
                         'sender_rank': parsed_cpu_event['sender_rank'],  ##
-                        'receiver_rank': parsed_cpu_event['receiver_rank']  ##
+                        'receiver_rank': parsed_cpu_event['receiver_rank'],  ##
+                        'step': parsed_cpu_event['step']  ##
                     }
                 })
                 event_type_to_seq[event_type] += 1
@@ -198,7 +200,8 @@ def parse_cpu_event_file(npkit_dump_dir, npkit_event_def, rank, channel, cpu_clo
                         'seq': event_type_to_seq[event_type],
                         'size_0': parsed_cpu_event['size'],  ##
                         'sender_rank': parsed_cpu_event['sender_rank'],  ##
-                        'receiver_rank': parsed_cpu_event['receiver_rank']  ##
+                        'receiver_rank': parsed_cpu_event['receiver_rank'],  ##
+                        'step': parsed_cpu_event['step']  ##
                     }
                 })
                 event_type_to_seq[event_type] += 1

@@ -1,0 +1,141 @@
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
+The local rank is: 0
+ault43:543490:543490 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
+ault43:543490:543490 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault43:543490:543490 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault43:543490:543490 [0] NCCL INFO cudaDriverVersion 12010
+NCCL version 2.17.1+cuda11.8
+The local rank is: 0
+ault44:785541:785541 [0] NCCL INFO cudaDriverVersion 12010
+ault44:785541:785541 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
+ault44:785541:785541 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
+ault44:785541:785541 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
+ault44:785541:785541 [0] NCCL INFO NET/IB : No device found.
+ault44:785541:785541 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
+ault44:785541:785541 [0] NCCL INFO Using network Socket
+ault44:785541:785541 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
+ault44:785541:785541 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+ault44:785541:785541 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
+ault44:785541:785541 [0] NCCL INFO  0 : NET/0 GPU/1 NET/0
+ault43:543490:543490 [0] NCCL INFO NET/IB : No device found.
+ault43:543490:543490 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
+ault43:543490:543490 [0] NCCL INFO Using network Socket
+ault43:543490:543490 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to ./results/Topology_Intra_Node.txt
+ault43:543490:543490 [0] NCCL INFO Pattern 4, crossNic 0, nChannels 1, bw 12.000000/12.000000, type LOC/SYS, sameChannels 1
+ault43:543490:543490 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+ault43:543490:543490 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 1, bw 24.000000/12.000000, type LOC/SYS, sameChannels 1
+ault43:543490:543490 [0] NCCL INFO  0 : NET/0 GPU/0 NET/0
+ault43:543490:543490 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+ault43:543490:543490 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to ./results/Graph.txt
+ault43:543490:543490 [0] NCCL INFO [0] Channel 0 P         1   0
+ault43:543490:543490 [0] NCCL INFO [0] Channel 0 N         1   0
+ault43:543490:543490 [0] NCCL INFO Channel 00/02 :    0   1
+ault43:543490:543490 [0] NCCL INFO [0] Channel 1 P         1   0
+ault43:543490:543490 [0] NCCL INFO [0] Channel 1 N         1   0
+ault43:543490:543490 [0] NCCL INFO Channel 01/02 :    0   1
+ault43:543490:543490 [0] NCCL INFO Ring 00 : 1 -> 0 -> 1
+ault43:543490:543490 [0] NCCL INFO Ring 01 : 1 -> 0 -> 1
+ault43:543490:543490 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+ault43:543490:543490 [0] NCCL INFO P2P Chunksize set to 131072
+ault43:543490:543490 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
+ault43:543490:543490 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [receive] via NET/Socket/0
+ault43:543490:543490 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
+ault43:543490:543490 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [send] via NET/Socket/0
+ault43:543490:543490 [0] NCCL INFO Connected all rings
+ault43:543490:543490 [0] NCCL INFO Connected all trees
+ault43:543490:543490 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault43:543490:543490 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault43:543490:543490 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault43:543490:543490 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault43:543490:543490 [0] NCCL INFO comm 0x7c6fec0 rank 0 nranks 2 cudaDev 0 busId 41000 commId 0x8c9f86b4f93a0911 - Init COMPLETE
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671000786654, SteadyClock:8761671002661699)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671000786654, SteadyClock:8761671002681319)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671000786654, SteadyClock:8761671002689349)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671000786654, SteadyClock:8761671002690959)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671000786654, SteadyClock:8761671002692329)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671000786654, SteadyClock:8761671002693609)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671000786654, SteadyClock:8761671002695319)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671000786654, SteadyClock:8761671002696459)
+
+ault44:785541:785541 [0] NCCL INFO Pattern 3, crossNic 0, nChannels 0, bw 0.000000/0.000000, type LOC/PIX, sameChannels 1
+ault44:785541:785541 [0] NCCL INFO Ring 00 : 0 -> 1 -> 0
+ault44:785541:785541 [0] NCCL INFO Ring 01 : 0 -> 1 -> 0
+ault44:785541:785541 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+ault44:785541:785541 [0] NCCL INFO P2P Chunksize set to 131072
+ault44:785541:785541 [0] NCCL INFO Channel 00/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
+ault44:785541:785541 [0] NCCL INFO Channel 01/0 : 0[41000] -> 1[41000] [receive] via NET/Socket/0
+ault44:785541:785541 [0] NCCL INFO Channel 00/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:785541:785541 [0] NCCL INFO Channel 01/0 : 1[41000] -> 0[41000] [send] via NET/Socket/0
+ault44:785541:785541 [0] NCCL INFO Connected all rings
+ault44:785541:785541 [0] NCCL INFO Connected all trees
+ault44:785541:785541 [0] NCCL INFO NCCL_PROTO set by environment to Simple
+ault44:785541:785541 [0] NCCL INFO NCCL_ALGO set by environment to Ring
+ault44:785541:785541 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault44:785541:785541 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault44:785541:785541 [0] NCCL INFO comm 0x7c70230 rank 1 nranks 2 cudaDev 0 busId 41000 commId 0x8c9f86b4f93a0911 - Init COMPLETE
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761712906019065, SteadyClock:8761712907879292)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761712906019065, SteadyClock:8761712907898012)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761712906019065, SteadyClock:8761712907904762)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761712906019065, SteadyClock:8761712907906352)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761712906019065, SteadyClock:8761712907907752)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761712906019065, SteadyClock:8761712907909032)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761712906019065, SteadyClock:8761712907910382)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV ENTRY INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761712906019065, SteadyClock:8761712907911582)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761712946220751, SteadyClock:8761712947106845)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671042360212, SteadyClock:8761671042926776)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671076000139, SteadyClock:8761671076598493)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671076000139, SteadyClock:8761671076880175)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671076999946, SteadyClock:8761671077349359)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671089999945, SteadyClock:8761671090373148)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:0, Timestamp:8761671120999952, SteadyClock:8761671121527156)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671151999928, SteadyClock:8761671152894955)
+
+ault43:543490:543512 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:0, Sender_Global_Rank:1, Size:1048576, Channel_Id:1, Timestamp:8761671176999999, SteadyClock:8761671177893576)
+
+ault43:543490:543490 [0] NCCL INFO comm 0x7c6fec0 rank 0 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+ault43:543490:543490 [0] NCCL INFO NPKit Dump Started
+[MPI Rank 0] Success 
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761712946220751, SteadyClock:8761712947380336)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761712975999927, SteadyClock:8761712980637695)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761712975999927, SteadyClock:8761712986721909)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761713025999902, SteadyClock:8761713026236103)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761713057999896, SteadyClock:8761713058502858)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:1, Timestamp:8761713076999850, SteadyClock:8761713077040510)
+
+ault44:785541:785558 [0] NCCL INFO NET RECV EXIT INFO: (Receiver_Global_Rank:1, Sender_Global_Rank:0, Size:1048576, Channel_Id:0, Timestamp:8761713081999880, SteadyClock:8761713082606782)
+
+ault44:785541:785541 [0] NCCL INFO comm 0x7c70230 rank 1 nranks 2 cudaDev 0 busId 41000 - Destroy COMPLETE
+ault44:785541:785541 [0] NCCL INFO NPKit Dump Started
+[MPI Rank 1] Success 

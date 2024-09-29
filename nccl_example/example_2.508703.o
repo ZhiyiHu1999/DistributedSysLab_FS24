@@ -1,465 +1,0 @@
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-256fd1a5-92b4-9fac-a22e-25009a678062)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-f21106be-a2ea-1b21-6995-dc200c10ec67)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-2f4cecd8-a16a-58ae-9e14-5800ae782b32)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
-The local rank is: 0
-ault42:300903:300903 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
-ault42:300903:300903 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault42:300903:300903 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault42:300903:300903 [0] NCCL INFO cudaDriverVersion 12010
-NCCL version 2.17.1+cuda11.8
-The local rank is: 1
-ault42:300897:300897 [1] NCCL INFO cudaDriverVersion 12010
-ault42:300897:300897 [1] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
-ault42:300897:300897 [1] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault42:300897:300897 [1] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault42:300897:300897 [1] NCCL INFO NET/IB : No device found.
-ault42:300897:300897 [1] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
-ault42:300897:300897 [1] NCCL INFO Using network Socket
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Trees [0] 2/-1/-1->1->0 [1] 2/6/-1->1->0
-ault42:300897:300897 [1] NCCL INFO P2P Chunksize set to 131072
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Channel 00 : 1[81000] -> 2[c1000] via SHM/direct/direct
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Channel 01 : 1[81000] -> 2[c1000] via SHM/direct/direct
-ault42:300897:300897 [1] NCCL INFO Connected all rings
-ault42:300897:300897 [1] NCCL INFO Channel 01/0 : 6[41000] -> 1[81000] [receive] via NET/Socket/0
-ault42:300897:300897 [1] NCCL INFO Channel 01/0 : 1[81000] -> 6[41000] [send] via NET/Socket/0
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-The local rank is: 1
-ault44:721388:721388 [1] NCCL INFO cudaDriverVersion 12010
-ault44:721388:721388 [1] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
-ault44:721388:721388 [1] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault44:721388:721388 [1] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault44:721388:721388 [1] NCCL INFO NET/IB : No device found.
-ault44:721388:721388 [1] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
-ault44:721388:721388 [1] NCCL INFO Using network Socket
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300897:300897 [1] NCCL INFO Channel 00 : 1[81000] -> 0[41000] via SHM/direct/direct
-ault42:300897:300897 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300897:300897 [1] NCCL INFO Channel 01 : 1[81000] -> 0[41000] via SHM/direct/direct
-ault42:300897:300897 [1] NCCL INFO Connected all trees
-ault42:300897:300897 [1] NCCL INFO NCCL_PROTO set by environment to Simple
-ault42:300897:300897 [1] NCCL INFO NCCL_ALGO set by environment to Ring
-ault42:300897:300897 [1] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault42:300897:300897 [1] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault42:300897:300897 [1] NCCL INFO comm 0x56d9200 rank 1 nranks 9 cudaDev 1 busId 81000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault42:300897:300897 [1] NCCL INFO comm 0x56d9200 rank 1 nranks 9 cudaDev 1 busId 81000 - Destroy COMPLETE
-[MPI Rank 1] Success 
-The local rank is: 1
-ault43:462911:462911 [1] NCCL INFO cudaDriverVersion 12010
-ault43:462911:462911 [1] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
-ault43:462911:462911 [1] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault43:462911:462911 [1] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault43:462911:462911 [1] NCCL INFO NET/IB : No device found.
-ault43:462911:462911 [1] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
-ault43:462911:462911 [1] NCCL INFO Using network Socket
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO NET/IB : No device found.
-ault42:300903:300903 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
-ault42:300903:300903 [0] NCCL INFO Using network Socket
-ault42:300903:300903 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to ./results/Topology_Intra_Node.txt
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300903:300903 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to ./results/Graph.txt
-ault42:300903:300903 [0] NCCL INFO Channel 00/02 :    0   1   2   3   4   5   6   7   8
-ault42:300903:300903 [0] NCCL INFO Channel 01/02 :    0   1   2   3   4   5   6   7   8
-ault42:300903:300903 [0] NCCL INFO Trees [0] 1/6/-1->0->-1 [1] 1/-1/-1->0->3
-ault42:300903:300903 [0] NCCL INFO P2P Chunksize set to 131072
-ault42:300903:300903 [0] NCCL INFO Channel 00/0 : 8[c1000] -> 0[41000] [receive] via NET/Socket/0
-ault42:300903:300903 [0] NCCL INFO Channel 01/0 : 8[c1000] -> 0[41000] [receive] via NET/Socket/0
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Channel 00 : 0[41000] -> 1[81000] via SHM/direct/direct
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Channel 01 : 0[41000] -> 1[81000] via SHM/direct/direct
-ault42:300903:300903 [0] NCCL INFO Connected all rings
-ault42:300903:300903 [0] NCCL INFO Channel 00/0 : 6[41000] -> 0[41000] [receive] via NET/Socket/0
-ault42:300903:300903 [0] NCCL INFO Channel 01/0 : 0[41000] -> 3[41000] [send] via NET/Socket/0
-ault42:300903:300903 [0] NCCL INFO Channel 01/0 : 3[41000] -> 0[41000] [receive] via NET/Socket/0
-ault42:300903:300903 [0] NCCL INFO Channel 00/0 : 0[41000] -> 6[41000] [send] via NET/Socket/0
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300903:300903 [0] NCCL INFO Connected all trees
-ault42:300903:300903 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault42:300903:300903 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault42:300903:300903 [0] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault42:300903:300903 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault42:300903:300903 [0] NCCL INFO comm 0x56e3980 rank 0 nranks 9 cudaDev 0 busId 41000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault42:300903:300903 [0] NCCL INFO comm 0x56e3980 rank 0 nranks 9 cudaDev 0 busId 41000 - Destroy COMPLETE
-[MPI Rank 0] Success 
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Trees [0] 5/-1/-1->4->3 [1] 5/-1/-1->4->3
-ault43:462911:462911 [1] NCCL INFO P2P Chunksize set to 131072
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Channel 00 : 4[81000] -> 5[c1000] via SHM/direct/direct
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Channel 01 : 4[81000] -> 5[c1000] via SHM/direct/direct
-ault43:462911:462911 [1] NCCL INFO Connected all rings
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Channel 00 : 4[81000] -> 3[41000] via SHM/direct/direct
-ault43:462911:462911 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462911:462911 [1] NCCL INFO Channel 01 : 4[81000] -> 3[41000] via SHM/direct/direct
-ault43:462911:462911 [1] NCCL INFO Connected all trees
-ault43:462911:462911 [1] NCCL INFO NCCL_PROTO set by environment to Simple
-ault43:462911:462911 [1] NCCL INFO NCCL_ALGO set by environment to Ring
-ault43:462911:462911 [1] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault43:462911:462911 [1] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault43:462911:462911 [1] NCCL INFO comm 0x56e43a0 rank 4 nranks 9 cudaDev 1 busId 81000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault43:462911:462911 [1] NCCL INFO comm 0x56e43a0 rank 4 nranks 9 cudaDev 1 busId 81000 - Destroy COMPLETE
-[MPI Rank 4] Success 
-The local rank is: 0
-ault43:462913:462913 [0] NCCL INFO cudaDriverVersion 12010
-ault43:462913:462913 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
-ault43:462913:462913 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault43:462913:462913 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault43:462913:462913 [0] NCCL INFO NET/IB : No device found.
-ault43:462913:462913 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
-ault43:462913:462913 [0] NCCL INFO Using network Socket
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462913:462913 [0] NCCL INFO Trees [0] 4/-1/-1->3->7 [1] 4/0/-1->3->-1
-ault43:462913:462913 [0] NCCL INFO P2P Chunksize set to 131072
-ault43:462913:462913 [0] NCCL INFO Channel 00/0 : 2[c1000] -> 3[41000] [receive] via NET/Socket/0
-ault43:462913:462913 [0] NCCL INFO Channel 01/0 : 2[c1000] -> 3[41000] [receive] via NET/Socket/0
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Channel 00 : 3[41000] -> 4[81000] via SHM/direct/direct
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Channel 01 : 3[41000] -> 4[81000] via SHM/direct/direct
-ault43:462913:462913 [0] NCCL INFO Connected all rings
-ault43:462913:462913 [0] NCCL INFO Channel 01/0 : 0[41000] -> 3[41000] [receive] via NET/Socket/0
-ault43:462913:462913 [0] NCCL INFO Channel 00/0 : 3[41000] -> 7[81000] [send] via NET/Socket/0
-ault43:462913:462913 [0] NCCL INFO Channel 00/0 : 7[81000] -> 3[41000] [receive] via NET/Socket/0
-ault43:462913:462913 [0] NCCL INFO Channel 01/0 : 3[41000] -> 0[41000] [send] via NET/Socket/0
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-The local rank is: 2
-ault42:300905:300905 [2] NCCL INFO cudaDriverVersion 12010
-ault42:300905:300905 [2] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.52<0>
-ault42:300905:300905 [2] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault42:300905:300905 [2] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault42:300905:300905 [2] NCCL INFO NET/IB : No device found.
-ault42:300905:300905 [2] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.52<0>
-ault42:300905:300905 [2] NCCL INFO Using network Socket
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462913:462913 [0] NCCL INFO Connected all trees
-ault43:462913:462913 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault43:462913:462913 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault43:462913:462913 [0] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault43:462913:462913 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault43:462913:462913 [0] NCCL INFO comm 0x56e3830 rank 3 nranks 9 cudaDev 0 busId 41000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault43:462913:462913 [0] NCCL INFO comm 0x56e3830 rank 3 nranks 9 cudaDev 0 busId 41000 - Destroy COMPLETE
-[MPI Rank 3] Success 
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault42:300905:300905 [2] NCCL INFO Trees [0] -1/-1/-1->2->1 [1] -1/-1/-1->2->1
-ault42:300905:300905 [2] NCCL INFO P2P Chunksize set to 131072
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-The local rank is: 2
-ault43:462914:462914 [2] NCCL INFO cudaDriverVersion 12010
-ault43:462914:462914 [2] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.53<0>
-ault43:462914:462914 [2] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault43:462914:462914 [2] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault43:462914:462914 [2] NCCL INFO NET/IB : No device found.
-ault43:462914:462914 [2] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.53<0>
-ault43:462914:462914 [2] NCCL INFO Using network Socket
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO Channel 00/0 : 2[c1000] -> 3[41000] [send] via NET/Socket/0
-ault42:300905:300905 [2] NCCL INFO Channel 01/0 : 2[c1000] -> 3[41000] [send] via NET/Socket/0
-ault42:300905:300905 [2] NCCL INFO Connected all rings
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO Channel 00 : 2[c1000] -> 1[81000] via SHM/direct/direct
-ault42:300905:300905 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO Channel 01 : 2[c1000] -> 1[81000] via SHM/direct/direct
-ault42:300905:300905 [2] NCCL INFO Connected all trees
-ault42:300905:300905 [2] NCCL INFO NCCL_PROTO set by environment to Simple
-ault42:300905:300905 [2] NCCL INFO NCCL_ALGO set by environment to Ring
-ault42:300905:300905 [2] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault43:462914:462914 [2] NCCL INFO Trees [0] -1/-1/-1->5->4 [1] -1/-1/-1->5->4
-ault43:462914:462914 [2] NCCL INFO P2P Chunksize set to 131072
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault42:300905:300905 [2] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault42:300905:300905 [2] NCCL INFO comm 0x56d8ea0 rank 2 nranks 9 cudaDev 2 busId c1000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault42:300905:300905 [2] NCCL INFO comm 0x56d8ea0 rank 2 nranks 9 cudaDev 2 busId c1000 - Destroy COMPLETE
-[MPI Rank 2] Success 
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462914:462914 [2] NCCL INFO Channel 00/0 : 5[c1000] -> 6[41000] [send] via NET/Socket/0
-ault43:462914:462914 [2] NCCL INFO Channel 01/0 : 5[c1000] -> 6[41000] [send] via NET/Socket/0
-ault43:462914:462914 [2] NCCL INFO Connected all rings
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462914:462914 [2] NCCL INFO Channel 00 : 5[c1000] -> 4[81000] via SHM/direct/direct
-ault43:462914:462914 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault43:462914:462914 [2] NCCL INFO Channel 01 : 5[c1000] -> 4[81000] via SHM/direct/direct
-ault43:462914:462914 [2] NCCL INFO Connected all trees
-ault43:462914:462914 [2] NCCL INFO NCCL_PROTO set by environment to Simple
-ault43:462914:462914 [2] NCCL INFO NCCL_ALGO set by environment to Ring
-ault43:462914:462914 [2] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault43:462914:462914 [2] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault43:462914:462914 [2] NCCL INFO comm 0x56d9020 rank 5 nranks 9 cudaDev 2 busId c1000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault43:462914:462914 [2] NCCL INFO comm 0x56d9020 rank 5 nranks 9 cudaDev 2 busId c1000 - Destroy COMPLETE
-[MPI Rank 5] Success 
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Trees [0] 8/3/-1->7->6 [1] 8/-1/-1->7->6
-ault44:721388:721388 [1] NCCL INFO P2P Chunksize set to 131072
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Channel 00 : 7[81000] -> 8[c1000] via SHM/direct/direct
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Channel 01 : 7[81000] -> 8[c1000] via SHM/direct/direct
-ault44:721388:721388 [1] NCCL INFO Connected all rings
-ault44:721388:721388 [1] NCCL INFO Channel 00/0 : 3[41000] -> 7[81000] [receive] via NET/Socket/0
-ault44:721388:721388 [1] NCCL INFO Channel 00/0 : 7[81000] -> 3[41000] [send] via NET/Socket/0
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Channel 00 : 7[81000] -> 6[41000] via SHM/direct/direct
-ault44:721388:721388 [1] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721388:721388 [1] NCCL INFO Channel 01 : 7[81000] -> 6[41000] via SHM/direct/direct
-ault44:721388:721388 [1] NCCL INFO Connected all trees
-ault44:721388:721388 [1] NCCL INFO NCCL_PROTO set by environment to Simple
-ault44:721388:721388 [1] NCCL INFO NCCL_ALGO set by environment to Ring
-ault44:721388:721388 [1] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault44:721388:721388 [1] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault44:721388:721388 [1] NCCL INFO comm 0x56e37f0 rank 7 nranks 9 cudaDev 1 busId 81000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault44:721388:721388 [1] NCCL INFO comm 0x56e37f0 rank 7 nranks 9 cudaDev 1 busId 81000 - Destroy COMPLETE
-[MPI Rank 7] Success 
-The local rank is: 2
-ault44:721393:721393 [2] NCCL INFO cudaDriverVersion 12010
-ault44:721393:721393 [2] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
-ault44:721393:721393 [2] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault44:721393:721393 [2] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault44:721393:721393 [2] NCCL INFO NET/IB : No device found.
-ault44:721393:721393 [2] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
-ault44:721393:721393 [2] NCCL INFO Using network Socket
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721393:721393 [2] NCCL INFO Trees [0] -1/-1/-1->8->7 [1] -1/-1/-1->8->7
-ault44:721393:721393 [2] NCCL INFO P2P Chunksize set to 131072
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Channel 00/0 : 8[c1000] -> 0[41000] [send] via NET/Socket/0
-ault44:721393:721393 [2] NCCL INFO Channel 01/0 : 8[c1000] -> 0[41000] [send] via NET/Socket/0
-ault44:721393:721393 [2] NCCL INFO Connected all rings
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Channel 00 : 8[c1000] -> 7[81000] via SHM/direct/direct
-ault44:721393:721393 [2] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721393:721393 [2] NCCL INFO Channel 01 : 8[c1000] -> 7[81000] via SHM/direct/direct
-ault44:721393:721393 [2] NCCL INFO Connected all trees
-ault44:721393:721393 [2] NCCL INFO NCCL_PROTO set by environment to Simple
-ault44:721393:721393 [2] NCCL INFO NCCL_ALGO set by environment to Ring
-ault44:721393:721393 [2] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault44:721393:721393 [2] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault44:721393:721393 [2] NCCL INFO comm 0x56d8ed0 rank 8 nranks 9 cudaDev 2 busId c1000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault44:721393:721393 [2] NCCL INFO comm 0x56d8ed0 rank 8 nranks 9 cudaDev 2 busId c1000 - Destroy COMPLETE
-[MPI Rank 8] Success 
-The local rank is: 0
-ault44:721392:721392 [0] NCCL INFO cudaDriverVersion 12010
-ault44:721392:721392 [0] NCCL INFO Bootstrap : Using enp225s0f1:148.187.105.54<0>
-ault44:721392:721392 [0] NCCL INFO NET/Plugin : Plugin load (libnccl-net.so) returned 2 : libnccl-net.so: cannot open shared object file: No such file or directory
-ault44:721392:721392 [0] NCCL INFO NET/Plugin : No plugin found, using internal implementation
-ault44:721392:721392 [0] NCCL INFO NET/IB : No device found.
-ault44:721392:721392 [0] NCCL INFO NET/Socket : Using [0]enp225s0f1:148.187.105.54<0>
-ault44:721392:721392 [0] NCCL INFO Using network Socket
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 0(=41000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 0(=41000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 2(=c1000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 2(=c1000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 1(=81000) and dev 2(=c1000)
-ault44:721392:721392 [0] NCCL INFO Trees [0] 7/-1/-1->6->0 [1] 7/-1/-1->6->1
-ault44:721392:721392 [0] NCCL INFO P2P Chunksize set to 131072
-ault44:721392:721392 [0] NCCL INFO Channel 00/0 : 5[c1000] -> 6[41000] [receive] via NET/Socket/0
-ault44:721392:721392 [0] NCCL INFO Channel 01/0 : 5[c1000] -> 6[41000] [receive] via NET/Socket/0
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Channel 00 : 6[41000] -> 7[81000] via SHM/direct/direct
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Channel 01 : 6[41000] -> 7[81000] via SHM/direct/direct
-ault44:721392:721392 [0] NCCL INFO Connected all rings
-ault44:721392:721392 [0] NCCL INFO Channel 00/0 : 6[41000] -> 0[41000] [send] via NET/Socket/0
-ault44:721392:721392 [0] NCCL INFO Channel 01/0 : 6[41000] -> 1[81000] [send] via NET/Socket/0
-ault44:721392:721392 [0] NCCL INFO Channel 01/0 : 1[81000] -> 6[41000] [receive] via NET/Socket/0
-ault44:721392:721392 [0] NCCL INFO Channel 00/0 : 0[41000] -> 6[41000] [receive] via NET/Socket/0
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Could not enable P2P between dev 0(=41000) and dev 1(=81000)
-ault44:721392:721392 [0] NCCL INFO Connected all trees
-ault44:721392:721392 [0] NCCL INFO NCCL_PROTO set by environment to Simple
-ault44:721392:721392 [0] NCCL INFO NCCL_ALGO set by environment to Ring
-ault44:721392:721392 [0] NCCL INFO threadThresholds 8/8/64 | 72/8/64 | 512 | 512
-ault44:721392:721392 [0] NCCL INFO 2 coll channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
-ault44:721392:721392 [0] NCCL INFO comm 0x56dbea0 rank 6 nranks 9 cudaDev 0 busId 41000 commId 0x2892151515ac7da9 - Init COMPLETE
-ault44:721392:721392 [0] NCCL INFO comm 0x56dbea0 rank 6 nranks 9 cudaDev 0 busId 41000 - Destroy COMPLETE
-[MPI Rank 6] Success 
-Collecting data...
-Generating '/tmp/nsys-report-4299.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-89b3.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-80a4.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-117b.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-8be6.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-dda4.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-90fb.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-bbd9.qdstrm'
-Collecting data...
-Generating '/tmp/nsys-report-31fc.qdstrm'
-[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [====25%                     ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [====26%                     ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [=====30%                    ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [===========51%              ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [=================72%        ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [=================73%        ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [=================74%        ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [==================75%       ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [==================78%       ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [====================85%     ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [=====================86%    ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [=====================87%    ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [=====================88%    ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [======================90%   ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [======================92%   ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [========================99% ] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.c[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [====28%                     ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [=====32%                    ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [===========51%              ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [================69%         ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [================70%         ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [================71%         ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [=================72%        ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [=================73%        ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [=================74%        ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [==================77%     [1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [====26%                     ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [=====30%                    ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [===========51%              ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [================71%         ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [=================72%        ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [=================73%        ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [=================74%        ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [==================75%       ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [==================77%     scs.ch_462911.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep
-[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [8%                          ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [=16%                        ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [====25%                     ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [==19%                       ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [==20%                       ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [==18%                       ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [====28%                     ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [============57%             ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [=============60%            ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [==================75%       ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [====================84%     ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [====================85%     ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [=====================86%    ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [=====================87%    ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [=====================89%    ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [======================90%   ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [======================91%   ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [======================92%   ] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [========================99% ] example_2_nsys_report_ault44.c[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [12%                         ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [==20%                       ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [====28%                     ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [=====32%                    ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [=======36%                  ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [=======37%                  ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [==============63%           ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [==================75%       ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [==================78%       ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [======================91%   ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [======================92%   ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [=======================93%  ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [========================99% ] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep
-scs.ch_721388.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep
-[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [12%                         ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [==21%                       ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [=====29%                    ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [=====31%                    ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [=====32%                    ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [==============61%           ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [=================74%        ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [==================75%       ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [==================78%       ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [====================84%     ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [=====================88%    ] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep
-  ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [====================85%     ] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep
-[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [9%                          ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [==19%                       ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [14%                         ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [11%                         ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [==19%                       ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [==20%                       ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [===22%                      ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [=========44%                ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [=============58%            ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [==================75%     [1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [7%                          ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [==19%                       ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [=====31%                    ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [=============58%            ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [===============65%          ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [=================72%        ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [=================73%        ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [=================74%        ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [==================78%     [1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [0%                          ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [14%                         ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [===24%                      ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [======33%                   ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [=======36%                  ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [=======38%                  ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [==============63%           ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [=================74%        ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [==================75%       ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [==================76%       ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [==================78%       ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [=====================86%    ] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep
-  ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [==================77%       ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep
-  ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [===================79%      ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [===================80%      ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [=====================89%    ] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep
-  ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [===================81%      ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [===================82%      ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [====================83%     ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [=====================86%    ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [=====================89%    ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [========================99% ] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep[1/1] [========================100%] example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep
-Generated:
-    /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300897.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300897.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300903.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300903.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300905.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault42.cscs.ch_300905.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462911.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462911.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462913.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462913.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462914.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault43.cscs.ch_462914.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721388.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721388.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721392.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721392.sqlite
-Exported /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721393.nsys-rep to /users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports/example_2_nsys_report_ault44.cscs.ch_721393.sqlite

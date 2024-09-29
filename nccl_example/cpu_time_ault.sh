@@ -10,4 +10,5 @@
 #SBATCH --error=cpu_time.%j.e
 #SBATCH --account=g34
 
-srun bash -c 'echo "Hostname: $(hostname), CPU: $(taskset -c -p $$ | awk -F: "{print \$2}"), UNIX Timestamp: $(date +%s)"'
+srun bash -c 'echo "Hostname: $(hostname), CPU: $(taskset -c -p $$ | awk -F: "{print \$2}"), UNIX Timestamp: $(date +%s%N)"'
+# srun --cpu-bind=cores bash -c 'echo "Hostname: $(hostname), CPU: $(taskset -c -p $$ | awk -F: "{print \$2}"), UNIX Timestamp: $(date +%s)"'

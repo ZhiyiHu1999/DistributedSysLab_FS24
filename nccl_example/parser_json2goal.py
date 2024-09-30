@@ -25,7 +25,7 @@ def process_trace_events(json_file):
     
     return ranks_data
 
-json_file = './npkit_run/npkit_trace/job_example_2/npkit_event_trace.json'
+json_file = './results/npkit_run/npkit_trace/job_example_2/npkit_event_trace.json'
 tracing_result = process_trace_events(json_file)
 
 num_ranks = 0

@@ -20,7 +20,7 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Tree
+export NCCL_ALGO=Ring
 export NCCL_PROTO=Simple
 # export NCCL_MIN_NCHANNELS=4
 export NCCL_DEBUG=INFO ## For debug
@@ -134,7 +134,7 @@ srun ./example_2 | tee $npkit_result_dir/log.txt
 # done
 
 python3 npkit_trace_generator.py --npkit_dump_dir=$npkit_dump_dir\
-                                 --npkit_event_header_path="/users/zhu/nccl_npkit_dependency/nccl/src/include/npkit/npkit_event.h"\
+                                 --npkit_event_header_path="/users/zhu/nccl_npkit/nccl/src/include/npkit/npkit_event.h"\
                                  --output_dir=$npkit_trace_dir
 
 # python3 parser_sqlite2goal.py

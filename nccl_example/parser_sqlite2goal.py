@@ -344,7 +344,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             send_depends_on_recv_events[i] = {}
 
                         for i in range(net_event_pair_num):
-                            slot = i % num_slots  ## 4 for Ring and 8 for Tree
+                            slot = i % num_slots  ## 4 for Ring_Simple and 8 for others(Tree)
                             if send_depends_on_send_events[slot] == {}:
                                 send_depends_on_send_events[slot]["ts_end"] = gpu_event["timestamp_start"]
                                 send_depends_on_send_events[slot]["task_id"] = gpu_event_start_calc_id
@@ -481,7 +481,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 recv_depends_on_events[i] = {}  ## recv depends on recv as long as slot is available       
 
                             for i in range(net_event_pair_num):
-                                slot = i % 8  ## 4 for Ring and 8 for Tree
+                                slot = i % 8  ## 4 for Ring_Simple and 8 for others(Tree)
                                 if send_depends_on_events[slot] == {}:
                                     send_depends_on_events[slot]["ts_end"] = gpu_event["timestamp_start"]
                                     send_depends_on_events[slot]["task_id"] = gpu_event_start_calc_id
@@ -572,7 +572,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 send_depends_on_events_child_2[i] = {}  ## send to parent depends on recv from child 2
 
                             for i in range(net_event_pair_num):
-                                slot = i % 8  ## 4 for Ring and 8 for Tree
+                                slot = i % 8  ## 4 for Ring_Simple and 8 for others(Tree)
                                 if recv_depends_on_events_parent[slot] == {}:
                                     recv_depends_on_events_parent[slot]["ts_end"] = gpu_event["timestamp_start"]
                                     recv_depends_on_events_parent[slot]["task_id"] = gpu_event_start_calc_id
@@ -810,7 +810,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 send_depends_on_events[i] = {}  ## send to child depends on recv from child
 
                             for i in range(net_event_pair_num):
-                                slot = i % 8  ## 4 for Ring and 8 for Tree
+                                slot = i % 8  ## 4 for Ring_Simple and 8 for others(Tree)
                                 if recv_depends_on_events[slot] == {}:
                                     recv_depends_on_events[slot]["ts_end"] = gpu_event["timestamp_start"]
                                     recv_depends_on_events[slot]["task_id"] = gpu_event_start_calc_id

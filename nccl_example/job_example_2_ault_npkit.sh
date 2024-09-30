@@ -21,7 +21,7 @@ rm -rf "./results"
 mkdir -p "./results"
 
 export NCCL_ALGO=Ring
-export NCCL_PROTO=LL
+export NCCL_PROTO=Simple
 # export NCCL_MIN_NCHANNELS=4
 export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);

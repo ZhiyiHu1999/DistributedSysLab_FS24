@@ -7,6 +7,7 @@ def get_sqlite_events(dir_path):
     traced_events = {}
     FileRank_To_GoalRank  = {}
     HostName_To_GoalRank = {}
+    GoalRank_To_NumOfRanks = {}
     pattern_HostName = r'nsys_report_([^.]+)\.'
 
     for file_name in os.listdir(dir_path):  ## each file represents a rank
@@ -24,9 +25,11 @@ def get_sqlite_events(dir_path):
 
             if host_name in HostName_To_GoalRank:
                 goal_rank = HostName_To_GoalRank[host_name]
+                GoalRank_To_NumOfRanks[goal_rank] += 1
             else:
                 goal_rank = len(HostName_To_GoalRank)
                 HostName_To_GoalRank[host_name] = goal_rank
+                GoalRank_To_NumOfRanks[goal_rank] = 1
             
             conn = sqlite3.connect(file_path)
             cursor = conn.cursor()
@@ -199,7 +202,7 @@ def get_sqlite_events(dir_path):
 
     # print(f"traced_events: {json.dumps(traced_events, indent=4)}")
 
-    return traced_events, FileRank_To_GoalRank, HostName_To_GoalRank
+    return traced_events, FileRank_To_GoalRank, HostName_To_GoalRank, GoalRank_To_NumOfRanks
 
 
 def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank):
@@ -279,7 +282,7 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
     
     return merged_events
 
-def get_goal_file(events, goal_file_name):
+def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
     num_ranks = len(events)
     task_counter = 0
     with open(goal_file_name, 'w') as file:
@@ -319,14 +322,7 @@ def get_goal_file(events, goal_file_name):
                         for net_rank in net_channel_events["NVTX_EVENT_NET_IRECV"].keys():
                             previou_rank = net_rank
 
-                        # offset = 0
-                        # for i in range(net_event_pair_num):
-                        #     if net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][i]["ts_start"] > net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previou_rank][0]["ts_end"]:
-                        #         offset = i
-                        #         break
-                        # print(f'offset: {offset}')
-
-                        offset = 2
+                        offset = GoalRank_To_NumOfRanks[goal_rank] * 2
 
                         send_depends_on_send_events = {}
                         recv_depends_on_recv_events = {}
@@ -883,9 +879,11 @@ def get_goal_file(events, goal_file_name):
 
 def main():
     Dir_Path = './results/nsys_reports'
-    Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank  = get_sqlite_events(Dir_Path)
+    Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank, GoalRank_2_NumOfRanks  = get_sqlite_events(Dir_Path)
 
     with open("./results/nsys_events_intermediate_output.json", "w") as json_file:
+        json.dump(GoalRank_2_NumOfRanks, json_file, indent=4)
+        json_file.write('\n\n')
         json.dump(FileRank_2_GoalRank, json_file, indent=4)
         json_file.write('\n\n')
         json.dump(HostName_2_GoalRank, json_file, indent=4)
@@ -899,7 +897,7 @@ def main():
     print("Merged_Nsys_Events has been exported to nsys_events_merged_output.json")
 
     Goal_File_Path = './results/example_2.goal'
-    get_goal_file(Merged_Nsys_Events, Goal_File_Path)
+    get_goal_file(Merged_Nsys_Events, Goal_File_Path, GoalRank_2_NumOfRanks)
     print("Final goal file has been generated")
                 
 if __name__ == '__main__':

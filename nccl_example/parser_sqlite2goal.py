@@ -312,6 +312,9 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                 last_gpu_event_end_calc_id = task_counter
 
                 if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING"):
+                    num_slots = -1
+                    offset = -1
+
                     for channel_id, net_channel_events in gpu_event["net_events"].items():
                         for net_channel_rank_events in net_channel_events["NVTX_EVENT_NET_ISEND"].values():
                             net_event_pair_num = len(net_channel_rank_events)  ## to know the number of send/recv pairs, a pair may have multiple send/recv from different node
@@ -321,14 +324,19 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             next_rank = net_rank
                         for net_rank in net_channel_events["NVTX_EVENT_NET_IRECV"].keys():
                             previou_rank = net_rank
+                        
+                        if num_slots == -1:
+                            num_slots = 8 // (int(net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][1]["sequence_num"]) - int(net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][0]["sequence_num"]))
+                            print(f"num_slots: {num_slots}\n")
 
-                        offset = GoalRank_To_NumOfRanks[goal_rank] * 2
+                        if offset == -1:
+                            offset = GoalRank_To_NumOfRanks[goal_rank] * 2 * num_slots / 4
 
                         send_depends_on_send_events = {}
                         recv_depends_on_recv_events = {}
                         send_depends_on_recv_events = {}
 
-                        for i in range(4):
+                        for i in range(num_slots):
                             send_depends_on_send_events[i] = {}  ## send depends on send as long as slot is available
                             recv_depends_on_recv_events[i] = {}  ## recv depends on recv as long as slot is available       
 
@@ -336,7 +344,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             send_depends_on_recv_events[i] = {}
 
                         for i in range(net_event_pair_num):
-                            slot = i % 4  ## 4 for Ring and 8 for Tree
+                            slot = i % num_slots  ## 4 for Ring and 8 for Tree
                             if send_depends_on_send_events[slot] == {}:
                                 send_depends_on_send_events[slot]["ts_end"] = gpu_event["timestamp_start"]
                                 send_depends_on_send_events[slot]["task_id"] = gpu_event_start_calc_id
@@ -379,7 +387,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 send_depends_on_recv_events[i + offset]["ts_end"] = net_event["ts_end"]  ## send(i + offset) depends on recv(i)
                                 send_depends_on_recv_events[i + offset]["task_id"] = task_counter
 
-                            if (i + 4) >= net_event_pair_num:
+                            if (i + num_slots) >= net_event_pair_num:
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
@@ -394,7 +402,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_recv_events[i]["ts_end"]}\n')
                             file.write(f"l{task_counter} requires l{send_depends_on_recv_events[slot]['task_id']}\n")
                             file.write(f"l{task_counter - 1} requires l{task_counter}\n")
-                            if i >= 4:
+                            if i >= num_slots:
                                 file.write(f"l{task_counter - 1} requires l{send_depends_on_send_events[slot]['task_id']}\n")
 
                             task_counter += 1
@@ -417,7 +425,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             send_depends_on_send_events[slot]["ts_end"] = net_event["ts_end"]
                             send_depends_on_send_events[slot]["task_id"] = task_counter
 
-                            if (i + 4) >= net_event_pair_num:
+                            if (i + num_slots) >= net_event_pair_num:
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")

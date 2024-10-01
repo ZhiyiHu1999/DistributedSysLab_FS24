@@ -21,7 +21,7 @@ rm -rf "./results"
 mkdir -p "./results"
 
 export NCCL_ALGO=Tree
-export NCCL_PROTO=Simple
+export NCCL_PROTO=LL
 # export NCCL_MIN_NCHANNELS=4
 # export NCCL_MAX_NCHANNELS=1
 export NCCL_DEBUG=INFO ## For debug

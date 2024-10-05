@@ -57,15 +57,30 @@ def get_sqlite_events(dir_path):
                                 "NVTX_EVENT_NET_RECV_TEST": []
                                 }
 
-                        nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"].append({
-                            "ts_start": row[1] // 1000, 
-                            "ts_end": row[2] // 1000,
-                            "sender_rank": match_isend.group(2),
-                            "receiver_rank": match_isend.group(3),
-                            "data_size": match_isend.group(1),
-                            "channel_id": match_isend.group(4),
-                            "sequence_num": match_isend.group(5)
-                            })
+                        if nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"] == []:
+                            nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"].append({
+                                "ts_start": row[1] // 1000, 
+                                "ts_end": row[2] // 1000,
+                                "sender_rank": match_isend.group(2),
+                                "receiver_rank": match_isend.group(3),
+                                "data_size": match_isend.group(1),
+                                "channel_id": match_isend.group(4),
+                                "sequence_num": match_isend.group(5)
+                                })
+                        
+                        elif int(match_isend.group(5)) > int(nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][-1]["sequence_num"]):
+                            nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"].append({
+                                "ts_start": row[1] // 1000, 
+                                "ts_end": row[2] // 1000,
+                                "sender_rank": match_isend.group(2),
+                                "receiver_rank": match_isend.group(3),
+                                "data_size": match_isend.group(1),
+                                "channel_id": match_isend.group(4),
+                                "sequence_num": match_isend.group(5)
+                                })
+
+                        elif int(match_isend.group(5)) == int(nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][-1]["sequence_num"]):  ## For duplicate netIsend() invoked in RDMA
+                            nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][-1]["ts_end"] = row[2] // 1000
 
                         if file_rank == -1:
                             file_rank = nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][0]["sender_rank"]
@@ -95,26 +110,56 @@ def get_sqlite_events(dir_path):
                             traced_events[file_rank] = []
                         
                     elif match_send_test:
-                        nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"].append({
-                            "ts_start": last_row[1] // 1000, 
-                            "ts_end": last_row[2] // 1000,
-                            "sender_rank": match_send_test.group(2),
-                            "receiver_rank": match_send_test.group(3),
-                            "data_size": match_send_test.group(1),
-                            "channel_id": match_send_test.group(4),
-                            "sequence_num": match_send_test.group(5)
-                            })
+                        if nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"] == []:
+                            nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"].append({
+                                "ts_start": last_row[1] // 1000, 
+                                "ts_end": last_row[2] // 1000,
+                                "sender_rank": match_send_test.group(2),
+                                "receiver_rank": match_send_test.group(3),
+                                "data_size": match_send_test.group(1),
+                                "channel_id": match_send_test.group(4),
+                                "sequence_num": match_send_test.group(5)
+                                })
+                        
+                        elif int(match_send_test.group(5)) > int(nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"][-1]["sequence_num"]):
+                            nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"].append({
+                                "ts_start": last_row[1] // 1000, 
+                                "ts_end": last_row[2] // 1000,
+                                "sender_rank": match_send_test.group(2),
+                                "receiver_rank": match_send_test.group(3),
+                                "data_size": match_send_test.group(1),
+                                "channel_id": match_send_test.group(4),
+                                "sequence_num": match_send_test.group(5)
+                                })
+                        
+                        elif int(match_send_test.group(5)) == int(nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"][-1]["sequence_num"]):
+                            nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"][-1]["ts_end"] = last_row[2] // 1000
                         
                     elif match_recv_test:
-                        nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"].append({
-                            "ts_start": last_row[1] // 1000, 
-                            "ts_end": last_row[2] // 1000,
-                            "sender_rank": match_recv_test.group(2),
-                            "receiver_rank": match_recv_test.group(3),
-                            "data_size": match_recv_test.group(1),
-                            "channel_id": match_recv_test.group(4),
-                            "sequence_num": match_recv_test.group(5)
-                            })
+                        if nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"] == []:
+                            nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"].append({
+                                "ts_start": last_row[1] // 1000, 
+                                "ts_end": last_row[2] // 1000,
+                                "sender_rank": match_recv_test.group(2),
+                                "receiver_rank": match_recv_test.group(3),
+                                "data_size": match_recv_test.group(1),
+                                "channel_id": match_recv_test.group(4),
+                                "sequence_num": match_recv_test.group(5)
+                                })
+                            
+                        elif int(match_recv_test.group(5)) > int(nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["sequence_num"]):
+                            nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"].append({
+                                "ts_start": last_row[1] // 1000, 
+                                "ts_end": last_row[2] // 1000,
+                                "sender_rank": match_recv_test.group(2),
+                                "receiver_rank": match_recv_test.group(3),
+                                "data_size": match_recv_test.group(1),
+                                "channel_id": match_recv_test.group(4),
+                                "sequence_num": match_recv_test.group(5)
+                                })
+                            
+                        elif int(match_recv_test.group(5)) == int(nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["sequence_num"]):
+                            nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["ts_end"] = last_row[2] // 1000
                         
                     last_row = row
             

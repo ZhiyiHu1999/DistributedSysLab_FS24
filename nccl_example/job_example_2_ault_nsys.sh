@@ -14,6 +14,7 @@ module load openmpi/4.1.1
 # module load cuda/11.6.2
 module load cuda/11.8.0
 # module load cuda/12.1.1
+module load rdma-core/34.0
 
 srun nvidia-smi -L
 
@@ -35,7 +36,8 @@ export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx/nccl/build/lib:$LD_LIBRARY_PATH
 
 nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_2.cu -o example_2
 
-export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports"
+# export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports"
+export NSYS_REPORT_DIR="./results/nsys_reports"
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
 

@@ -159,7 +159,9 @@ def get_sqlite_events(dir_path):
                                 })
                             
                         elif int(match_recv_test.group(5)) == int(nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["sequence_num"]):
-                            nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["ts_end"] = last_row[2] // 1000
+                            if last_row[2] is not None:
+                                nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["ts_end"] = last_row[2] // 1000
+                            nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["data_size"] = match_recv_test.group(1)
                         
                     last_row = row
             

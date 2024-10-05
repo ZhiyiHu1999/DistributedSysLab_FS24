@@ -3,7 +3,7 @@
 #SBATCH --job-name="nccl_example_2"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[42-44]
+#SBATCH --nodelist=ault[43-44]
 #SBATCH --ntasks-per-node=3
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_2.%j.o

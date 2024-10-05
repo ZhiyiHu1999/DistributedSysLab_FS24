@@ -115,6 +115,9 @@ int main(int argc, char* argv[])
   //communicating using NCCL
   NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
 
+  sleep(2);
+  NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
+
 //   for (int i = 0; i < 100; i++) {
 //     sleep(2);
 //     NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));

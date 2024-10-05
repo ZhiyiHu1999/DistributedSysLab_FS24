@@ -121,7 +121,7 @@ def get_sqlite_events(dir_path):
                                 "sequence_num": match_send_test.group(5)
                                 })
                         
-                        elif int(match_send_test.group(5)) > int(nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"][-1]["sequence_num"]):
+                        elif int(match_send_test.group(5)) != int(nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"][-1]["sequence_num"]):
                             nvtx_events_data[match_send_test.group(4)]["NVTX_EVENT_NET_SEND_TEST"].append({
                                 "ts_start": last_row[1] // 1000, 
                                 "ts_end": last_row[2] // 1000,
@@ -147,7 +147,7 @@ def get_sqlite_events(dir_path):
                                 "sequence_num": match_recv_test.group(5)
                                 })
                             
-                        elif int(match_recv_test.group(5)) > int(nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["sequence_num"]):
+                        elif int(match_recv_test.group(5)) != int(nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"][-1]["sequence_num"]):
                             nvtx_events_data[match_recv_test.group(4)]["NVTX_EVENT_NET_RECV_TEST"].append({
                                 "ts_start": last_row[1] // 1000, 
                                 "ts_end": last_row[2] // 1000,

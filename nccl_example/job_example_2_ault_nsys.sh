@@ -4,7 +4,7 @@
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
 #SBATCH --nodelist=ault[43-44]
-#SBATCH --ntasks-per-node=3
+#SBATCH --ntasks-per-node=2
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_2.%j.o
 #SBATCH --error=example_2.%j.e
@@ -21,7 +21,7 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Ring
+export NCCL_ALGO=Tree
 export NCCL_PROTO=Simple
 # export NCCL_MIN_NCHANNELS=4
 export NCCL_MAX_NCHANNELS=1

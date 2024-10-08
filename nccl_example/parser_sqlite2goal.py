@@ -2,6 +2,7 @@ import sqlite3
 import os
 import re
 import json
+import argparse
 
 def get_sqlite_events(dir_path):
     traced_events = {}
@@ -329,7 +330,7 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
     
     return merged_events
 
-def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
+def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
     num_ranks = len(events)
     task_counter = 0
     with open(goal_file_name, 'w') as file:
@@ -985,8 +986,631 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
             file.write("}\n")
 
+def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
+    num_ranks = len(events)
+    task_counter = 0
+    with open(goal_file_name, 'w') as file:
+        file.write(f"num_ranks {num_ranks}\n")
+
+        for goal_rank in range(num_ranks):
+            file.write(f"\nrank {goal_rank}")
+            file.write(" {\n")
+
+            nccl_kernel_events = events[goal_rank]
+            for gpu_event_id, gpu_event in enumerate(nccl_kernel_events):
+                if gpu_event_id == 0:
+                    task_counter += 1
+                    file.write(f"l{task_counter}: calc 0\n") ## Starting point of the rank
+                    last_gpu_event_ts_end = gpu_event["timestamp_start"]
+                    last_gpu_event_end_calc_id = task_counter
+
+                task_counter += 1
+                file.write(f'l{task_counter}: calc {gpu_event["timestamp_start"] - last_gpu_event_ts_end}\n')  ## Starting point of the gpu event
+                file.write(f"l{task_counter} requires l{last_gpu_event_end_calc_id}\n")
+                gpu_event_start_calc_id = task_counter
+
+                task_counter += 1
+                file.write(f"l{task_counter}: calc 0\n")  ## end point of a gpu event
+                gpu_event_end_calc_id = task_counter  ## id of the calc 0 at the end of the last gpu event
+                last_gpu_event_ts_end = gpu_event["timestamp_end"]
+                last_gpu_event_end_calc_id = task_counter
+
+                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING"):
+                    num_slots = -1
+                    offset = -1
+
+                    for channel_id, net_channel_events in gpu_event["net_events"].items():
+                        for net_channel_rank_events in net_channel_events["NVTX_EVENT_NET_ISEND"].values():
+                            net_event_pair_num = len(net_channel_rank_events)  ## to know the number of send/recv pairs, a pair may have multiple send/recv from different node
+                            break
+                        
+                        for net_rank in net_channel_events["NVTX_EVENT_NET_ISEND"].keys():
+                            next_rank = net_rank
+                        for net_rank in net_channel_events["NVTX_EVENT_NET_IRECV"].keys():
+                            previou_rank = net_rank
+                        
+                        if num_slots == -1:
+                            num_slots = 8 // (int(net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][1]["sequence_num"]) - int(net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][0]["sequence_num"]))
+                            print(f"num_slots: {num_slots}")
+
+                        if offset == -1:
+                            offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2 * num_slots / 4)
+                            print(f"offset: {offset}")
+
+                        recv_depends_on_events = {}
+                        send_depends_on_events = {}
+
+                        for i in range(net_event_pair_num):
+                            send_depends_on_events[i] = {}
+
+                        net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][previou_rank][0]
+                        task_counter += 1
+                        file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                        file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                        recv_depends_on_events["task_id_start"] = task_counter
+
+                        net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previou_rank][net_event_pair_num - 1]
+                        task_counter += 1
+                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                        file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                        recv_depends_on_events["task_id_end"] = task_counter
+
+                        net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][next_rank][net_event_pair_num - 1]
+                        task_counter += 1
+                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                        file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                        send_depends_on_events["task_id_end"] = task_counter
+
+                        task_counter += 1
+                        file.write(f'l{task_counter}: calc 0\n')
+                        recv_depends_on_events["task_id_last"] = task_counter
+
+                        for i in range(net_event_pair_num):
+                            if send_depends_on_events[i] == {}:
+                                send_depends_on_events[i]["ts_end"] = gpu_event["timestamp_start"]
+                                send_depends_on_events[i]["task_id"] = gpu_event_start_calc_id
+
+                            ####
+                            net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][previou_rank][i]   
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc 0\n')
+                            file.write(f"l{task_counter} requires l{recv_depends_on_events['task_id_start']}\n")
+                            net_recv_event_start_calc_id = task_counter
+
+                            ts_net_irecv_start = net_event["ts_start"]
+
+                            ####
+                            net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previou_rank][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {channel_id}\n')
+                            file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                            file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+                            file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc 0\n')  ## End point of a recv 
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                            file.write(f"l{recv_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                            if (i + offset) < net_event_pair_num:
+                                send_depends_on_events[i + offset]["ts_end"] = net_event["ts_end"]  ## send(i + offset) depends on recv(i)
+                                send_depends_on_events[i + offset]["task_id"] = task_counter
+                                file.write(f"l{recv_depends_on_events['task_id_last']} requires l{task_counter}\n")
+
+                            else:
+                                file.write(f"l{net_recv_event_start_calc_id} requires l{recv_depends_on_events['task_id_last']}\n")
+
+                            ####
+                            net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][i]
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events[i]["ts_end"]}\n')
+                            file.write(f"l{task_counter} requires l{send_depends_on_events[i]['task_id']}\n")
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {channel_id}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            ts_net_isend_end = net_event["ts_end"]
+
+                            ####
+                            net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][next_rank][i]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                            file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                            file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc 0\n')  ## End point of a send
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                            file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                elif gpu_event["event_name"].startswith("ncclKernel_AllReduce_TREE"):
+                    for channel_id, net_channel_events in gpu_event["net_events"].items():
+                        for net_channel_rank_events in net_channel_events["NVTX_EVENT_NET_ISEND"].values():
+                            net_event_pair_num = len(net_channel_rank_events)  ## to know the number of send/recv pairs, a pair may have multiple send/recv from different node
+                            break
+
+                        node_place = None     
+                        parent_rank = None
+                        child_1_rank = None
+                        child_2_rank = None
+
+                        if len(net_channel_events["NVTX_EVENT_NET_ISEND"]) > 1:  ## the node is in the middle of the tree
+                            node_place = "010"
+                            for rank, net_channel_send_test_rank_events in net_channel_events["NVTX_EVENT_NET_SEND_TEST"].items():
+                                if parent_rank is None:
+                                    parent_rank = rank
+                                    send_to_parent_test_end = net_channel_send_test_rank_events[0]["ts_end"]
+                                elif send_to_parent_test_end < net_channel_send_test_rank_events[0]["ts_end"]:
+                                    if child_1_rank is None: 
+                                        child_1_rank = rank
+                                    else: 
+                                        child_2_rank = rank
+                                else:
+                                    if child_1_rank is None: 
+                                        child_1_rank = parent_rank
+                                        parent_rank = rank
+                                        send_to_parent_test_end = net_channel_send_test_rank_events[0]["ts_end"]
+                                    else:
+                                        child_2_rank = parent_rank
+                                        parent_rank = rank
+                                        send_to_parent_test_end = net_channel_send_test_rank_events[0]["ts_end"]
+
+                        else:  ## the node is either top-most or bottom-most
+                            for receiver_rank, net_channel_send_test_rank_events in net_channel_events["NVTX_EVENT_NET_SEND_TEST"].items():
+                                for sender_rank, net_channel_recv_test_rank_events in net_channel_events["NVTX_EVENT_NET_RECV_TEST"].items():
+                                    if net_channel_send_test_rank_events[0]["ts_end"] >= net_channel_recv_test_rank_events[0]["ts_end"]:  ## the node is top-most
+                                        node_place = "100"
+                                        child_1_rank = receiver_rank  ## either sender_rank or receiver_rank is fine
+                                    else:  ## the node is bottom-most
+                                        node_place = "001"
+                                        parent_rank = receiver_rank
+
+                        if node_place == "001":
+                            recv_depends_on_events = {}
+                            send_depends_on_events = {}
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][parent_rank][0]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                            recv_depends_on_events["task_id_start"] = task_counter
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][parent_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            recv_depends_on_events["task_id_end"] = task_counter
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][parent_rank][0]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                            send_depends_on_events["task_id_start"] = task_counter
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][parent_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            send_depends_on_events["task_id_end"] = task_counter      
+
+                            for i in range(net_event_pair_num):
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{send_depends_on_events['task_id_start']}\n")
+                                net_send_event_start_calc_id = task_counter
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                ts_net_isend_end = net_event["ts_end"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{recv_depends_on_events['task_id_start']}\n")
+                                net_recv_event_start_calc_id = task_counter
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+                                ts_net_irecv_start = net_event["ts_start"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{recv_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                        elif node_place == "010":
+                            recv_from_parent_depends_on_events = {}  ## recv from parent
+                            recv_from_child_1_depends_on_events = {}
+                            recv_from_child_2_depends_on_events = {}
+                            send_depends_on_events_parent = {}  ## send to child depends on recv from parent
+                            send_depends_on_events_child_1 = {}  ## send to parent depends on recv from child_1
+                            send_depends_on_events_child_2 = {}  ## send to parent depends on recv from child_2
+
+                            for i in range(net_event_pair_num):
+                                send_depends_on_events_parent[i] = {}
+                                send_depends_on_events_child_1[i] = {}
+                                send_depends_on_events_child_2[i] = {}
+                            
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][parent_rank][0]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                            recv_from_parent_depends_on_events["task_id_start"] = task_counter
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][parent_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            recv_from_parent_depends_on_events["task_id_end"] = task_counter
+
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_1_rank][0]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                            recv_from_child_1_depends_on_events["task_id_start"] = task_counter
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_1_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            recv_from_child_1_depends_on_events["task_id_end"] = task_counter
+
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_2_rank][0]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                            recv_from_child_2_depends_on_events["task_id_start"] = task_counter
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_2_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            recv_from_child_2_depends_on_events["task_id_end"] = task_counter
+
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][parent_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            send_depends_on_events_parent["task_id_end"] = task_counter
+
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_1_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            send_depends_on_events_child_1["task_id_end"] = task_counter
+
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_2_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            send_depends_on_events_child_2["task_id_end"] = task_counter
+
+                            for i in range(net_event_pair_num):
+                                ## recv from parent
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{recv_from_parent_depends_on_events['task_id_start']}\n")
+                                net_recv_event_start_calc_id = task_counter
+
+                                ts_net_irecv_start = net_event["ts_start"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{recv_from_parent_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                                send_depends_on_events_parent[i]["ts_end"] = net_event["ts_end"]
+                                send_depends_on_events_parent[i]["task_id"] = task_counter
+                                
+                                ## recv from child_1
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{recv_from_child_1_depends_on_events['task_id_start']}\n")
+                                net_recv_event_start_calc_id = task_counter
+
+                                ts_net_irecv_start = net_event["ts_start"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{recv_from_child_1_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                                send_depends_on_events_child_1[i]["ts_end"] = net_event["ts_end"]
+                                send_depends_on_events_child_1[i]["task_id"] = task_counter
+
+                                ## recv from child_2
+                                if child_2_rank is not None:
+                                    ####
+                                    net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_2_rank][i]
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc 0\n')
+                                    file.write(f"l{task_counter} requires l{recv_from_child_2_depends_on_events['task_id_start']}\n")
+                                    net_recv_event_start_calc_id = task_counter
+
+                                    ts_net_irecv_start = net_event["ts_start"]
+
+                                    ####
+                                    net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_2_rank][i]
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {channel_id}\n')
+                                    file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                                    file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+                                    file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc 0\n')
+                                    file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                    file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                    file.write(f"l{recv_from_child_2_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                                    send_depends_on_events_child_2[i]["ts_end"] = net_event["ts_end"]
+                                    send_depends_on_events_child_2[i]["task_id"] = task_counter
+
+                                ## send to parent
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                net_send_event_start_calc_id = task_counter
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events_child_1[i]["ts_end"]}\n')
+                                file.write(f"l{task_counter} requires l{send_depends_on_events_child_1[i]['task_id']}\n")
+                                file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
+
+                                if child_2_rank is not None:
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events_child_2[i]["ts_end"]}\n')
+                                    file.write(f"l{task_counter} requires l{send_depends_on_events_child_2[i]['task_id']}\n")
+                                    file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                ts_net_isend_end = net_event["ts_end"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][parent_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{send_depends_on_events_parent['task_id']} requires l{task_counter}\n")
+                                
+                                ## send to child_1
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                net_send_event_start_calc_id = task_counter
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events_parent[i]["ts_end"]}\n')
+                                file.write(f"l{task_counter} requires l{send_depends_on_events_parent[i]['task_id']}\n")
+                                file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
+                                
+                                task_counter += 1
+                                file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                ts_net_isend_end = net_event["ts_end"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{send_depends_on_events_child_1['task_id']} requires l{task_counter}\n")
+                                
+                                ## send to child_2
+                                if child_2_rank is not None:
+                                    ####
+                                    net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_2_rank][i]
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc 0\n')
+                                    net_send_event_start_calc_id = task_counter
+
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events_parent[i]["ts_end"]}\n')
+                                    file.write(f"l{task_counter} requires l{send_depends_on_events_parent[i]['task_id']}\n")
+                                    file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
+                                    
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {channel_id}\n')
+                                    file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                    ts_net_isend_end = net_event["ts_end"]
+
+                                    ####
+                                    net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_2_rank][i]
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                                    file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                    file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                    task_counter += 1
+                                    file.write(f'l{task_counter}: calc 0\n')
+                                    file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                    file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                    file.write(f"l{send_depends_on_events_child_2['task_id']} requires l{task_counter}\n")
+
+                        elif node_place == "100":
+                            recv_depends_on_events = {}
+                            send_depends_on_events = {}  ## send to child depends on recv from child
+
+                            for i in range(net_event_pair_num):
+                                send_depends_on_events[i] = {}
+                            
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_1_rank][0]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                            file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                            recv_depends_on_events["task_id_start"] = task_counter
+
+                            net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_1_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            recv_depends_on_events["task_id_end"] = task_counter
+
+                            #
+                            net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_1_rank][net_event_pair_num - 1]
+                            task_counter += 1
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                            send_depends_on_events["task_id_end"] = task_counter
+
+                            for i in range(net_event_pair_num):
+                                ## recv from child_1
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{recv_depends_on_events['task_id_start']}\n")
+                                net_recv_event_start_calc_id = task_counter
+
+                                ts_net_irecv_start = net_event["ts_start"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: recv {net_event["data_size"]}b from {net_event["sender_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_irecv_start}\n')
+                                file.write(f"l{task_counter} requires l{net_recv_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{recv_depends_on_events['task_id_end']} requires l{task_counter}\n")
+
+                                send_depends_on_events[i]["ts_end"] = net_event["ts_end"]
+                                send_depends_on_events[i]["task_id"] = task_counter
+
+                                ## send to child_1
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                net_send_event_start_calc_id = task_counter
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events[i]["ts_end"]}\n')
+                                file.write(f"l{task_counter} requires l{send_depends_on_events[i]['task_id']}\n")
+                                file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
+                                
+                                task_counter += 1
+                                file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {channel_id}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                ts_net_isend_end = net_event["ts_end"]
+
+                                ####
+                                net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_1_rank][i]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - ts_net_isend_end}\n')
+                                file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
+                                file.write(f"l{task_counter} irequires l{task_counter - 1}\n")
+
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc 0\n')
+                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                                file.write(f"l{task_counter} requires l{task_counter - 2}\n")
+                                file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
+                                
+            file.write("}\n")
+
 
 def main():
+    parser = argparse.ArgumentParser(description='Process SQLite to Goal file.')
+    
+    parser.add_argument('-r', '--use-slots', action='store_true',
+                        help='Use get_goal_file_slots instead of get_goal_file.')
+
+    args = parser.parse_args()
+
     Dir_Path = './results/nsys_reports'
     Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank, GoalRank_2_NumOfRanks  = get_sqlite_events(Dir_Path)
 
@@ -1006,8 +1630,12 @@ def main():
     print("Merged_Nsys_Events has been exported to nsys_events_merged_output.json")
 
     Goal_File_Path = './results/example_2.goal'
-    get_goal_file(Merged_Nsys_Events, Goal_File_Path, GoalRank_2_NumOfRanks)
-    print("Final goal file has been generated")
+    if args.use_slots:
+        get_goal_file_slots(Merged_Nsys_Events, Goal_File_Path, GoalRank_2_NumOfRanks)
+        print("Final goal file has been generated using get_goal_file_slots.")
+    else:
+        get_goal_file(Merged_Nsys_Events, Goal_File_Path, GoalRank_2_NumOfRanks)
+        print("Final goal file has been generated using get_goal_file.")
                 
 if __name__ == '__main__':
     main()

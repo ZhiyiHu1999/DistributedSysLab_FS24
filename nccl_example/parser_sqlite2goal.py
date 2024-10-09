@@ -1290,17 +1290,18 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             recv_from_child_1_depends_on_events["task_id_end"] = task_counter
 
                             #
-                            net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_2_rank][0]
-                            task_counter += 1
-                            file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
-                            file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
-                            recv_from_child_2_depends_on_events["task_id_start"] = task_counter
+                            if child_2_rank is not None:
+                                net_event = net_channel_events["NVTX_EVENT_NET_IRECV"][child_2_rank][0]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {net_event["ts_start"] - gpu_event["timestamp_start"]}\n')
+                                file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
+                                recv_from_child_2_depends_on_events["task_id_start"] = task_counter
 
-                            net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_2_rank][net_event_pair_num - 1]
-                            task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
-                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                            recv_from_child_2_depends_on_events["task_id_end"] = task_counter
+                                net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_2_rank][net_event_pair_num - 1]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                                recv_from_child_2_depends_on_events["task_id_end"] = task_counter
 
                             #
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][parent_rank][net_event_pair_num - 1]
@@ -1317,11 +1318,12 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             send_depends_on_events_child_1["task_id_end"] = task_counter
 
                             #
-                            net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_2_rank][net_event_pair_num - 1]
-                            task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
-                            file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                            send_depends_on_events_child_2["task_id_end"] = task_counter
+                            if child_2_rank is not None:
+                                net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_2_rank][net_event_pair_num - 1]
+                                task_counter += 1
+                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
+                                send_depends_on_events_child_2["task_id_end"] = task_counter
 
                             for i in range(net_event_pair_num):
                                 ## recv from parent
@@ -1449,7 +1451,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f'l{task_counter}: calc 0\n')
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                 file.write(f"l{task_counter} requires l{task_counter - 2}\n")
-                                file.write(f"l{send_depends_on_events_parent['task_id']} requires l{task_counter}\n")
+                                file.write(f"l{send_depends_on_events_parent['task_id_end']} requires l{task_counter}\n")
                                 
                                 ## send to child_1
                                 ####
@@ -1479,7 +1481,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f'l{task_counter}: calc 0\n')
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                 file.write(f"l{task_counter} requires l{task_counter - 2}\n")
-                                file.write(f"l{send_depends_on_events_child_1['task_id']} requires l{task_counter}\n")
+                                file.write(f"l{send_depends_on_events_child_1['task_id_end']} requires l{task_counter}\n")
                                 
                                 ## send to child_2
                                 if child_2_rank is not None:
@@ -1510,7 +1512,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                     file.write(f'l{task_counter}: calc 0\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{task_counter} requires l{task_counter - 2}\n")
-                                    file.write(f"l{send_depends_on_events_child_2['task_id']} requires l{task_counter}\n")
+                                    file.write(f"l{send_depends_on_events_child_2['task_id_end']} requires l{task_counter}\n")
 
                         elif node_place == "100":
                             recv_depends_on_events = {}

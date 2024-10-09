@@ -1,0 +1,33 @@
+srun: got SIGCONT
+slurmstepd: error: *** JOB 524551 ON ault43 CANCELLED AT 2024-10-09T23:26:17 ***
+srun: Job step aborted: Waiting up to 32 seconds for job step to finish.
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/devices/system.slice/slurmd.service/container-edkwrmkpsloxdfgm: device or resource busy"
+srun: forcing job termination
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/perf_event/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/cpuset/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/pids/system.slice/slurmd.service/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/blkio/system.slice/slurmd.service/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/hugetlb/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/net_cls,net_prio/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/systemd/system.slice/slurmd.service/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/cpu,cpuacct/system.slice/slurmd.service/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/net_cls,net_prio/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/freezer/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/memory/slurm/uid_29811/job_524551/step_1/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/cpu,cpuacct/system.slice/slurmd.service/container-edkwrmkpsloxdfgm: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/rdma/container-edkwrmkpsloxdfgm: device or resource busy"
+slurmstepd: error: *** STEP 524551.1 ON ault43 CANCELLED AT 2024-10-09T23:26:17 ***
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/blkio/system.slice/slurmd.service/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/freezer/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/pids/system.slice/slurmd.service/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/devices/system.slice/slurmd.service/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/cpu,cpuacct/system.slice/slurmd.service/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/cpu,cpuacct/system.slice/slurmd.service/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/perf_event/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/systemd/system.slice/slurmd.service/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/cpuset/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/hugetlb/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/net_cls,net_prio/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/memory/slurm/uid_29811/job_524551/step_1/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/net_cls,net_prio/container-ccdwpdaryzoclwym: device or resource busy"
+time="2024-10-09T23:26:17+02:00" level=warning msg="Failed to remove cgroup (will retry)" error="rmdir /sys/fs/cgroup/rdma/container-ccdwpdaryzoclwym: device or resource busy"

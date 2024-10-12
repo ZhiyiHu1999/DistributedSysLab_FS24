@@ -2075,6 +2075,15 @@
                 "sequence_num": "0"
             },
             {
+                "ts_start": 1728566079108196,
+                "ts_end": 1728566079118701,
+                "sender_rank": "0",
+                "receiver_rank": "2",
+                "data_size": "524288",
+                "channel_id": "0",
+                "sequence_num": "0"
+            },
+            {
                 "ts_start": 1728566079118413,
                 "ts_end": 1728566079118415,
                 "sender_rank": "1",
@@ -2139,21 +2148,12 @@
             },
             {
                 "ts_start": 1728566079118495,
-                "ts_end": 1728566079118496,
+                "ts_end": 1728566079127638,
                 "sender_rank": "1",
-                "receiver_rank": "2",
-                "data_size": "0",
-                "channel_id": "0",
-                "sequence_num": "8"
-            },
-            {
-                "ts_start": 1728566079118699,
-                "ts_end": 1728566079118701,
-                "sender_rank": "0",
                 "receiver_rank": "2",
                 "data_size": "524288",
                 "channel_id": "0",
-                "sequence_num": "0"
+                "sequence_num": "8"
             },
             {
                 "ts_start": 1728566079118703,
@@ -2220,7 +2220,7 @@
             },
             {
                 "ts_start": 1728566079119252,
-                "ts_end": 1728566079127638,
+                "ts_end": 1728566079137509,
                 "sender_rank": "0",
                 "receiver_rank": "2",
                 "data_size": "524288",
@@ -2289,15 +2289,6 @@
                 "data_size": "524288",
                 "channel_id": "0",
                 "sequence_num": "15"
-            },
-            {
-                "ts_start": 1728566079137505,
-                "ts_end": 1728566079137509,
-                "sender_rank": "0",
-                "receiver_rank": "2",
-                "data_size": "524288",
-                "channel_id": "0",
-                "sequence_num": "8"
             },
             {
                 "ts_start": 1728566079137509,

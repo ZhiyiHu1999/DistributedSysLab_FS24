@@ -69,7 +69,7 @@ def get_sqlite_events(dir_path):
                                 "sequence_num": match_isend.group(5)
                                 })
                         
-                        elif int(match_isend.group(5)) > int(nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][-1]["sequence_num"]):
+                        elif int(match_isend.group(5)) != int(nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][-1]["sequence_num"]):
                             nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"].append({
                                 "ts_start": row[1] // 1000, 
                                 "ts_end": row[2] // 1000,
@@ -82,6 +82,17 @@ def get_sqlite_events(dir_path):
 
                         elif int(match_isend.group(5)) == int(nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][-1]["sequence_num"]):  ## For duplicate netIsend() invoked in RDMA
                             nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][-1]["ts_end"] = row[2] // 1000
+
+                        # else:
+                        #     nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"].append({
+                        #         "ts_start": row[1] // 1000, 
+                        #         "ts_end": row[2] // 1000,
+                        #         "sender_rank": match_isend.group(2),
+                        #         "receiver_rank": match_isend.group(3),
+                        #         "data_size": match_isend.group(1),
+                        #         "channel_id": match_isend.group(4),
+                        #         "sequence_num": match_isend.group(5)
+                        #         })
 
                         if file_rank == -1:
                             file_rank = nvtx_events_data[match_isend.group(4)]["NVTX_EVENT_NET_ISEND"][0]["sender_rank"]
@@ -183,12 +194,17 @@ def get_sqlite_events(dir_path):
 
             conn.close()
 
-            # print(f"file_rank: {file_rank}")
-            # print("    NVTX_EVENTS Data:")
-            # print(json.dumps(nvtx_events_data, indent=8))
-            
-            # print("\n    CUPTI_ACTIVITY_KIND_KERNEL Data:")
-            # print(json.dumps(cupti_kernel_data, indent=8))
+            with open("./results/nsys_events_initial_output.json", "a") as json_file:
+                json.dump(nvtx_events_data, json_file, indent=4)
+                json_file.write('\n\n')
+                # print(f"file_rank: {file_rank}")
+                # print("    NVTX_EVENTS Data:")
+                # print(json.dumps(nvtx_events_data, indent=8))
+                
+                json.dump(cupti_kernel_data, json_file, indent=4)
+                json_file.write('\n\n')
+                # print("\n    CUPTI_ACTIVITY_KIND_KERNEL Data:")
+                # print(json.dumps(cupti_kernel_data, indent=8))
 
         # Fill in traced_events[file_rank]
         for cupti_event_seq, cupti_event in enumerate(cupti_kernel_data):
@@ -225,7 +241,7 @@ def get_sqlite_events(dir_path):
                             paired_nvtx_events_data[channel]["NVTX_EVENT_NET_ISEND"].append(nvtx_events_channel_data["NVTX_EVENT_NET_ISEND"][seq])
                             paired_nvtx_events_data[channel]["NVTX_EVENT_NET_SEND_TEST"].append(nvtx_events_channel_data["NVTX_EVENT_NET_SEND_TEST"][seq])
                             seq_paired += 1
-                            cupti_event_timestamp_start = min(nvtx_events_channel_data["NVTX_EVENT_NET_ISEND"][seq]["ts_start"], cupti_event_timestamp_start)
+                            # cupti_event_timestamp_start = min(nvtx_events_channel_data["NVTX_EVENT_NET_ISEND"][seq]["ts_start"], cupti_event_timestamp_start)
                             cupti_event_timestamp_end = max(nvtx_events_channel_data["NVTX_EVENT_NET_SEND_TEST"][seq]["ts_end"], cupti_event_timestamp_end)
 
                 seq_paired = 0
@@ -235,7 +251,7 @@ def get_sqlite_events(dir_path):
                             paired_nvtx_events_data[channel]["NVTX_EVENT_NET_IRECV"].append(nvtx_events_channel_data["NVTX_EVENT_NET_IRECV"][seq])
                             paired_nvtx_events_data[channel]["NVTX_EVENT_NET_RECV_TEST"].append(nvtx_events_channel_data["NVTX_EVENT_NET_RECV_TEST"][seq])
                             seq_paired += 1
-                            cupti_event_timestamp_start = min(nvtx_events_channel_data["NVTX_EVENT_NET_IRECV"][seq]["ts_start"], cupti_event_timestamp_start)
+                            # cupti_event_timestamp_start = min(nvtx_events_channel_data["NVTX_EVENT_NET_IRECV"][seq]["ts_start"], cupti_event_timestamp_start)
                             cupti_event_timestamp_end = max(nvtx_events_channel_data["NVTX_EVENT_NET_RECV_TEST"][seq]["ts_end"], cupti_event_timestamp_end)
 
             if file_rank != -1:  ## No net events happens if file_rank == -1
@@ -1612,6 +1628,9 @@ def main():
                         help='Use get_goal_file_slots instead of get_goal_file.')
 
     args = parser.parse_args()
+
+    if os.path.exists("./results/nsys_events_initial_output.json"):
+        os.remove("./results/nsys_events_initial_output.json")
 
     Dir_Path = './results/nsys_reports'
     Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank, GoalRank_2_NumOfRanks  = get_sqlite_events(Dir_Path)

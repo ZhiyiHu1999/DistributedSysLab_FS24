@@ -14,5 +14,9 @@
        valid_lft forever preferred_lft forever
     inet6 fe80::268a:7ff:fe2e:5f5b/64 scope link 
        valid_lft forever preferred_lft forever
-5: ib0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 4092 qdisc mq state DOWN group default qlen 16384
+5: ib0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 2044 qdisc mq state UP group default qlen 16384
     link/infiniband 00:00:11:17:fe:80:00:00:00:00:00:00:24:8a:07:03:00:2e:5f:5a brd 00:ff:ff:ff:ff:12:40:1b:ff:ff:00:00:00:00:00:00:ff:ff:ff:ff
+    inet 192.168.0.43/24 brd 192.168.0.255 scope global noprefixroute ib0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::268a:703:2e:5f5a/64 scope link 
+       valid_lft forever preferred_lft forever

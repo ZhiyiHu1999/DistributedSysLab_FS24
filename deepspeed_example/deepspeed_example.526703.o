@@ -1,44 +1,0 @@
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
-GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
-GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
-GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
-[2024-10-13 20:27:24,304] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2024-10-13 20:27:24,385] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2024-10-13 20:27:27,652] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
-Detected VISIBLE_DEVICES=0: setting --include=localhost:0
-[2024-10-13 20:27:27,652] [INFO] [runner.py:607:main] cmd = /users/zhu/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None train_bert.py --checkpoint_dir ./experiments
-[2024-10-13 20:27:27,763] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
-Detected VISIBLE_DEVICES=0: setting --include=localhost:0
-[2024-10-13 20:27:27,764] [INFO] [runner.py:607:main] cmd = /users/zhu/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None train_bert.py --checkpoint_dir ./experiments
-[2024-10-13 20:27:29,743] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2024-10-13 20:27:29,901] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2024-10-13 20:27:32,868] [INFO] [launch.py:139:main] 0 NCCL_GRAPH_DUMP_FILE=./results/Graph.txt
-[2024-10-13 20:27:32,868] [INFO] [launch.py:139:main] 0 NCCL_DEBUG=INFO
-[2024-10-13 20:27:32,868] [INFO] [launch.py:139:main] 0 NCCL_TOPO_DUMP_FILE=./results/Topology_Intra_Node.txt
-[2024-10-13 20:27:32,868] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
-[2024-10-13 20:27:32,868] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
-[2024-10-13 20:27:32,868] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
-[2024-10-13 20:27:32,868] [INFO] [launch.py:164:main] dist_world_size=1
-[2024-10-13 20:27:32,869] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
-[2024-10-13 20:27:32,870] [INFO] [launch.py:256:main] process 967938 spawned with command: ['/users/zhu/anaconda3/bin/python', '-u', 'train_bert.py', '--local_rank=0', '--checkpoint_dir', './experiments']
-[2024-10-13 20:27:33,023] [INFO] [launch.py:139:main] 0 NCCL_GRAPH_DUMP_FILE=./results/Graph.txt
-[2024-10-13 20:27:33,023] [INFO] [launch.py:139:main] 0 NCCL_DEBUG=INFO
-[2024-10-13 20:27:33,023] [INFO] [launch.py:139:main] 0 NCCL_TOPO_DUMP_FILE=./results/Topology_Intra_Node.txt
-[2024-10-13 20:27:33,023] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
-[2024-10-13 20:27:33,023] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
-[2024-10-13 20:27:33,023] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
-[2024-10-13 20:27:33,023] [INFO] [launch.py:164:main] dist_world_size=1
-[2024-10-13 20:27:33,023] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
-[2024-10-13 20:27:33,024] [INFO] [launch.py:256:main] process 1037844 spawned with command: ['/users/zhu/anaconda3/bin/python', '-u', 'train_bert.py', '--local_rank=0', '--checkpoint_dir', './experiments']
-[2024-10-13 20:27:37,511] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2024-10-13 20:27:37,727] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
-[2024-10-13 20:27:41,026] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 1037844
-[2024-10-13 20:27:41,026] [ERROR] [launch.py:325:sigkill_handler] ['/users/zhu/anaconda3/bin/python', '-u', 'train_bert.py', '--local_rank=0', '--checkpoint_dir', './experiments'] exits with return code = 1
-Collecting data...
-Generating '/tmp/nsys-report-ecca.qdstrm'
-[1/1] [0%                          ] nsys-report-d2bc.nsys-rep[1/1] [0%                          ] nsys-report-d2bc.nsys-rep[1/1] [6%                          ] nsys-report-d2bc.nsys-rep[1/1] [7%                          ] nsys-report-d2bc.nsys-rep[1/1] [===========53%              ] nsys-report-d2bc.nsys-rep[1/1] [============56%             ] nsys-report-d2bc.nsys-rep[1/1] [=============58%            ] nsys-report-d2bc.nsys-rep[1/1] [==============61%           ] nsys-report-d2bc.nsys-rep[1/1] [==============64%           ] nsys-report-d2bc.nsys-rep[1/1] [===============66%          ] nsys-report-d2bc.nsys-rep[1/1] [================69%         ] nsys-report-d2bc.nsys-rep[1/1] [=================72%        ] nsys-report-d2bc.nsys-rep[1/1] [=================74%        ] nsys-report-d2bc.nsys-rep[1/1] [==================77%       ] nsys-report-d2bc.nsys-rep[1/1] [===================80%      ] nsys-report-d2bc.nsys-rep[1/1] [===================82%      ] nsys-report-d2bc.nsys-rep[1/1] [====================85%     ] nsys-report-d2bc.nsys-rep[1/1] [=====================88%    ] nsys-report-d2bc.nsys-rep[1/1] [======================91%   ] nsys-report-d2bc.nsys-rep[1/1] [=======================93%  ] nsys-report-d2bc.nsys-rep[1/1] [=======================96%  ] nsys-report-d2bc.nsys-rep[1/1] [========================99% ] nsys-report-d2bc.nsys-rep[1/1] [========================100%] nsys-report-d2bc.nsys-rep[1/1] [========================100%] nsys-report-d2bc.nsys-rep
-Generated:
-    /tmp/nsys-report-d2bc.nsys-rep
-[2024-10-13 20:28:47,482] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 967938

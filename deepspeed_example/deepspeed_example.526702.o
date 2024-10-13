@@ -1,0 +1,40 @@
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
+[2024-10-13 20:16:24,250] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-13 20:16:24,298] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-13 20:16:26,669] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0: setting --include=localhost:0
+[2024-10-13 20:16:26,669] [INFO] [runner.py:607:main] cmd = /users/zhu/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None train_bert.py --checkpoint_dir ./experiments
+[2024-10-13 20:16:26,776] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0: setting --include=localhost:0
+[2024-10-13 20:16:26,777] [INFO] [runner.py:607:main] cmd = /users/zhu/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None train_bert.py --checkpoint_dir ./experiments
+[2024-10-13 20:16:28,491] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-13 20:16:28,644] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-13 20:16:30,888] [INFO] [launch.py:139:main] 0 NCCL_GRAPH_DUMP_FILE=./results/Graph.txt
+[2024-10-13 20:16:30,888] [INFO] [launch.py:139:main] 0 NCCL_TOPO_DUMP_FILE=./results/Topology_Intra_Node.txt
+[2024-10-13 20:16:30,888] [INFO] [launch.py:139:main] 0 NCCL_DEBUG=INFO
+[2024-10-13 20:16:30,888] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
+[2024-10-13 20:16:30,888] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
+[2024-10-13 20:16:30,889] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2024-10-13 20:16:30,889] [INFO] [launch.py:164:main] dist_world_size=1
+[2024-10-13 20:16:30,889] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2024-10-13 20:16:30,889] [INFO] [launch.py:256:main] process 966888 spawned with command: ['/users/zhu/anaconda3/bin/python', '-u', 'train_bert.py', '--local_rank=0', '--checkpoint_dir', './experiments']
+[2024-10-13 20:16:31,105] [INFO] [launch.py:139:main] 0 NCCL_GRAPH_DUMP_FILE=./results/Graph.txt
+[2024-10-13 20:16:31,105] [INFO] [launch.py:139:main] 0 NCCL_TOPO_DUMP_FILE=./results/Topology_Intra_Node.txt
+[2024-10-13 20:16:31,105] [INFO] [launch.py:139:main] 0 NCCL_DEBUG=INFO
+[2024-10-13 20:16:31,105] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
+[2024-10-13 20:16:31,105] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
+[2024-10-13 20:16:31,105] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2024-10-13 20:16:31,105] [INFO] [launch.py:164:main] dist_world_size=1
+[2024-10-13 20:16:31,105] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2024-10-13 20:16:31,105] [INFO] [launch.py:256:main] process 1037476 spawned with command: ['/users/zhu/anaconda3/bin/python', '-u', 'train_bert.py', '--local_rank=0', '--checkpoint_dir', './experiments']
+[2024-10-13 20:16:35,185] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-13 20:16:35,455] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+experiments/bert_pretrain.2024.10.13.11.16.37.addjtvxg
+[2024-10-13 20:20:23,126] [INFO] [launch.py:351:main] Process 1037476 exits successfully.
+experiments/bert_pretrain.2024.10.13.11.16.36.addjtvxg
+[2024-10-13 20:20:24,910] [INFO] [launch.py:351:main] Process 966888 exits successfully.

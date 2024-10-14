@@ -39,7 +39,7 @@ mkdir -p "/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepsp
 # srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/HelloDeepSpeed_train_bert_nsys_report_%h_%p deepspeed train_bert.py --checkpoint_dir '/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiments'
 # srun deepspeed train_bert.py --deepspeed --num_gpus=2 --checkpoint_dir ./experiments
 
-srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/HelloDeepSpeed_train_bert_nsys_report_%h_%p bash run_ds.sh
+srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda  --cuda-memory-usage=false --cuda-um-cpu-page-faults=false --cuda-um-gpu-page-faults=false -s none --output=${NSYS_REPORT_DIR}/HelloDeepSpeed_train_bert_nsys_report_%h_%p bash run_ds.sh
 
 # srun deepspeed --hostfile='/users/zhu/DistributedSysLab_FS24/deepspeed_example/myhostfile' \
 #     --no_ssh --node_rank=$NODE_RANK \

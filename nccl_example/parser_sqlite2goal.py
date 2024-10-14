@@ -565,6 +565,10 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             ####
                             net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][i]
+
+                            if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                             task_counter += 1
                             file.write(f'l{task_counter}: calc 0\n')  ## Starting point of a send (requires the end point of a previous send, requires a calc and then the end point of a previous recv )
                             net_send_event_start_calc_id = task_counter
@@ -577,7 +581,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f"l{net_send_event_start_calc_id} requires l{send_depends_on_send_events[slot]['task_id']}\n")
 
                             task_counter += 1
-                            tag = net_event["sequence_num"] + channel_id.zfill(2)
+                            tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                             file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                             file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                             ts_net_isend_end = net_event["ts_end"]
@@ -664,12 +668,16 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][parent_rank][i]
+
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events[slot]["ts_end"]}\n')
                                 file.write(f"l{task_counter} requires l{send_depends_on_events[slot]['task_id']}\n")
 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                 ts_net_isend_end = net_event["ts_end"]
@@ -884,6 +892,10 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 ## send to parent
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][parent_rank][i]
+
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')
                                 net_send_event_start_calc_id = task_counter
@@ -904,7 +916,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                     file.write(f"l{net_send_event_start_calc_id} requires l{send_depends_on_events_parent[slot]['task_id']}\n")
 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                 ts_net_isend_end = net_event["ts_end"]
@@ -933,6 +945,10 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 ## send to child_1
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_1_rank][i]
+
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')
                                 net_send_event_start_calc_id = task_counter
@@ -946,7 +962,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                     file.write(f"l{net_send_event_start_calc_id} requires l{send_depends_on_events_child_1[slot]['task_id']}\n")
 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                 ts_net_isend_end = net_event["ts_end"]
@@ -976,6 +992,10 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 if child_2_rank is not None:
                                     ####
                                     net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_2_rank][i]
+
+                                    if i == 0:
+                                        offset_seq = net_event["sequence_num"]
+
                                     task_counter += 1
                                     file.write(f'l{task_counter}: calc 0\n')
                                     net_send_event_start_calc_id = task_counter
@@ -989,7 +1009,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                         file.write(f"l{net_send_event_start_calc_id} requires l{send_depends_on_events_child_2[slot]['task_id']}\n")
 
                                     task_counter += 1
-                                    tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                    tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                     file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                     file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                     ts_net_isend_end = net_event["ts_end"]
@@ -1078,6 +1098,9 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_1_rank][i]
 
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')  ## Starting point of the send
                                 net_send_event_start_calc_id = task_counter
@@ -1090,7 +1113,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                     file.write(f"l{net_send_event_start_calc_id} requires l{send_depends_on_events[slot]['task_id']}\n")
 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                 ts_net_isend_end = net_event["ts_end"]
@@ -1240,12 +1263,15 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             ####
                             net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][next_rank][i]
 
+                            if i == 0:
+                                offset_seq = net_event["sequence_num"]
+
                             task_counter += 1
                             file.write(f'l{task_counter}: calc {net_event["ts_start"] - send_depends_on_events[i]["ts_end"]}\n')
                             file.write(f"l{task_counter} requires l{send_depends_on_events[i]['task_id']}\n")
 
                             task_counter += 1
-                            tag = net_event["sequence_num"] + channel_id.zfill(2)
+                            tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                             file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                             file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                             ts_net_isend_end = net_event["ts_end"]
@@ -1336,13 +1362,17 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             for i in range(net_event_pair_num):
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][parent_rank][i]
+
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')
                                 file.write(f"l{task_counter} requires l{send_depends_on_events['task_id_start']}\n")
                                 net_send_event_start_calc_id = task_counter
 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                 ts_net_isend_end = net_event["ts_end"]
@@ -1559,6 +1589,10 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 ## send to parent
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][parent_rank][i]
+
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')
                                 net_send_event_start_calc_id = task_counter
@@ -1575,7 +1609,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                     file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                 ts_net_isend_end = net_event["ts_end"]
@@ -1596,6 +1630,10 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 ## send to child_1
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_1_rank][i]
+
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')
                                 net_send_event_start_calc_id = task_counter
@@ -1606,7 +1644,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
                                 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                 ts_net_isend_end = net_event["ts_end"]
@@ -1628,6 +1666,10 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 if child_2_rank is not None:
                                     ####
                                     net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_2_rank][i]
+
+                                    if i == 0:
+                                        offset_seq = net_event["sequence_num"]
+
                                     task_counter += 1
                                     file.write(f'l{task_counter}: calc 0\n')
                                     net_send_event_start_calc_id = task_counter
@@ -1638,7 +1680,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                     file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
                                     
                                     task_counter += 1
-                                    tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                    tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                     file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                     file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                     ts_net_isend_end = net_event["ts_end"]
@@ -1718,6 +1760,10 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 ## send to child_1
                                 ####
                                 net_event = net_channel_events["NVTX_EVENT_NET_ISEND"][child_1_rank][i]
+
+                                if i == 0:
+                                    offset_seq = net_event["sequence_num"]
+
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')
                                 net_send_event_start_calc_id = task_counter
@@ -1728,7 +1774,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f"l{net_send_event_start_calc_id} requires l{task_counter}\n")
                                 
                                 task_counter += 1
-                                tag = net_event["sequence_num"] + channel_id.zfill(2)
+                                tag = str(int(net_event["sequence_num"]) - int(offset_seq)) + channel_id.zfill(2)
                                 file.write(f'l{task_counter}: send {net_event["data_size"]}b to {net_event["receiver_rank"]} tag {tag}\n')
                                 file.write(f"l{task_counter} requires l{net_send_event_start_calc_id}\n")
                                 ts_net_isend_end = net_event["ts_end"]

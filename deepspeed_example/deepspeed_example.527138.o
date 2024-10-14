@@ -1,0 +1,429 @@
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-c2927e9a-08b2-a1cd-17a1-092a418bac6e)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-9d7f82f3-c503-8ee9-26f2-424ddefe47e2)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-96b59d15-054d-c99f-68bf-406414f8d051)
+GPU 0: NVIDIA GeForce RTX 3090 (UUID: GPU-cdb8590d-7b7f-deec-f4f5-8c132c2bbfed)
+GPU 1: NVIDIA GeForce RTX 3090 (UUID: GPU-4bab2c5f-3d91-e162-3057-f8068c36d803)
+GPU 2: NVIDIA GeForce RTX 3090 (UUID: GPU-f5a5d6fc-28e6-6fda-a6fe-0c13357c69bb)
+Master Address: 148.187.105.53
+Master Port: 29500
+Node Rank: 0
+Master Address: 148.187.105.53
+Master Port: 29500
+Node Rank: 1
+[2024-10-14 14:31:08,808] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-14 14:31:09,269] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-14 14:31:14,533] [INFO] [runner.py:607:main] cmd = /users/zhu/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJhdWx0NDMuY3Njcy5jaCI6IFswXSwgImF1bHQ0NC5jc2NzLmNoIjogWzBdfQ== --master_addr=148.187.105.53 --master_port=29500 --node_rank=0 --enable_each_rank_log=None train_bert_ds.py --checkpoint_dir /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed
+[2024-10-14 14:31:15,170] [INFO] [runner.py:607:main] cmd = /users/zhu/anaconda3/bin/python -u -m deepspeed.launcher.launch --world_info=eyJhdWx0NDMuY3Njcy5jaCI6IFswXSwgImF1bHQ0NC5jc2NzLmNoIjogWzBdfQ== --master_addr=148.187.105.53 --master_port=29500 --node_rank=1 --enable_each_rank_log=None train_bert_ds.py --checkpoint_dir /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed
+[2024-10-14 14:31:16,609] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-14 14:31:17,313] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-14 14:31:19,763] [INFO] [launch.py:139:main] 0 NCCL_GRAPH_DUMP_FILE=./results/Graph.txt
+[2024-10-14 14:31:19,763] [INFO] [launch.py:139:main] 0 NCCL_TOPO_DUMP_FILE=./results/Topology_Intra_Node.txt
+[2024-10-14 14:31:19,763] [INFO] [launch.py:139:main] 0 NCCL_DEBUG=INFO
+[2024-10-14 14:31:19,763] [INFO] [launch.py:146:main] WORLD INFO DICT: {'ault43.cscs.ch': [0], 'ault44.cscs.ch': [0]}
+[2024-10-14 14:31:19,763] [INFO] [launch.py:152:main] nnodes=2, num_local_procs=1, node_rank=0
+[2024-10-14 14:31:19,763] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'ault43.cscs.ch': [0], 'ault44.cscs.ch': [1]})
+[2024-10-14 14:31:19,763] [INFO] [launch.py:164:main] dist_world_size=2
+[2024-10-14 14:31:19,763] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2024-10-14 14:31:19,765] [INFO] [launch.py:256:main] process 1031905 spawned with command: ['/users/zhu/anaconda3/bin/python', '-u', 'train_bert_ds.py', '--local_rank=0', '--checkpoint_dir', '/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed']
+[2024-10-14 14:31:20,600] [INFO] [launch.py:139:main] 1 NCCL_GRAPH_DUMP_FILE=./results/Graph.txt
+[2024-10-14 14:31:20,600] [INFO] [launch.py:139:main] 1 NCCL_TOPO_DUMP_FILE=./results/Topology_Intra_Node.txt
+[2024-10-14 14:31:20,601] [INFO] [launch.py:139:main] 1 NCCL_DEBUG=INFO
+[2024-10-14 14:31:20,601] [INFO] [launch.py:146:main] WORLD INFO DICT: {'ault43.cscs.ch': [0], 'ault44.cscs.ch': [0]}
+[2024-10-14 14:31:20,601] [INFO] [launch.py:152:main] nnodes=2, num_local_procs=1, node_rank=1
+[2024-10-14 14:31:20,601] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'ault43.cscs.ch': [0], 'ault44.cscs.ch': [1]})
+[2024-10-14 14:31:20,601] [INFO] [launch.py:164:main] dist_world_size=2
+[2024-10-14 14:31:20,601] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2024-10-14 14:31:20,602] [INFO] [launch.py:256:main] process 1052038 spawned with command: ['/users/zhu/anaconda3/bin/python', '-u', 'train_bert_ds.py', '--local_rank=0', '--checkpoint_dir', '/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed']
+[2024-10-14 14:31:25,553] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-14 14:31:26,317] [INFO] [real_accelerator.py:219:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-10-14 14:31:35,657] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.15.2, git-hash=unknown, git-branch=unknown
+[2024-10-14 14:31:35,657] [INFO] [comm.py:652:init_distributed] cdb=None
+[2024-10-14 14:31:35,657] [INFO] [comm.py:683:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-10-14 14:31:35,998] [INFO] [logging.py:96:log_dist] [Rank -1] DeepSpeed info: version=0.15.2, git-hash=unknown, git-branch=unknown
+[2024-10-14 14:31:35,999] [INFO] [comm.py:652:init_distributed] cdb=None
+[2024-10-14 14:31:36,002] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+[2024-10-14 14:31:36,003] [INFO] [config.py:733:__init__] Config mesh_device None world_size = 2
+ault43:1031905:1031905 [0] NCCL INFO Bootstrap : Using ib0:192.168.0.43<0>
+ault43:1031905:1031905 [0] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
+ault43:1031905:1031905 [0] NCCL INFO cudaDriverVersion 12010
+NCCL version 2.20.5+cuda11.8
+ault44:1052038:1052038 [0] NCCL INFO cudaDriverVersion 12010
+ault44:1052038:1052038 [0] NCCL INFO Bootstrap : Using ib0:192.168.0.44<0>
+ault44:1052038:1052038 [0] NCCL INFO NET/Plugin : dlerror=libnccl-net.so: cannot open shared object file: No such file or directory No plugin found (libnccl-net.so), using internal implementation
+ault44:1052038:1052163 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [1]mlx5_1:1/RoCE [RO]; OOB ib0:192.168.0.44<0>
+ault44:1052038:1052163 [0] NCCL INFO Using non-device net plugin version 0
+ault44:1052038:1052163 [0] NCCL INFO Using network IB
+ault43:1031905:1032049 [0] NCCL INFO NET/IB : Using [0]mlx5_0:1/IB [1]mlx5_1:1/RoCE [RO]; OOB ib0:192.168.0.43<0>
+ault43:1031905:1032049 [0] NCCL INFO Using non-device net plugin version 0
+ault43:1031905:1032049 [0] NCCL INFO Using network IB
+ault43:1031905:1032049 [0] NCCL INFO comm 0xae5e7a0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0x5b25c525027ac0b4 - Init START
+ault44:1052038:1052163 [0] NCCL INFO comm 0xaa8b9e0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0x5b25c525027ac0b4 - Init START
+ault43:1031905:1032049 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to ./results/Topology_Intra_Node.txt
+
+ault43:1031905:1032049 [0] graph/xml.cc:244 NCCL WARN Unable to open ./results/Topology_Intra_Node.txt, not dumping topology.
+ault43:1031905:1032049 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to ./results/Graph.txt
+
+ault43:1031905:1032049 [0] graph/xml.cc:244 NCCL WARN Unable to open ./results/Graph.txt, not dumping topology.
+ault44:1052038:1052163 [0] NCCL INFO comm 0xaa8b9e0 rank 1 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+ault43:1031905:1032049 [0] NCCL INFO comm 0xae5e7a0 rank 0 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+ault43:1031905:1032049 [0] NCCL INFO Channel 00/02 :    0   1
+ault44:1052038:1052163 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+ault43:1031905:1032049 [0] NCCL INFO Channel 01/02 :    0   1
+ault43:1031905:1032049 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+ault44:1052038:1052163 [0] NCCL INFO P2P Chunksize set to 131072
+ault43:1031905:1032049 [0] NCCL INFO P2P Chunksize set to 131072
+ault44:1052038:1052163 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[0] [receive] via NET/IB/0
+ault44:1052038:1052163 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[0] [receive] via NET/IB/0
+ault44:1052038:1052163 [0] NCCL INFO Channel 00/0 : 1[0] -> 0[0] [send] via NET/IB/0
+ault44:1052038:1052163 [0] NCCL INFO Channel 01/0 : 1[0] -> 0[0] [send] via NET/IB/0
+ault43:1031905:1032049 [0] NCCL INFO Channel 00/0 : 1[0] -> 0[0] [receive] via NET/IB/0
+ault43:1031905:1032049 [0] NCCL INFO Channel 01/0 : 1[0] -> 0[0] [receive] via NET/IB/0
+ault43:1031905:1032049 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[0] [send] via NET/IB/0
+ault43:1031905:1032049 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[0] [send] via NET/IB/0
+ault43:1031905:1032049 [0] NCCL INFO Connected all rings
+ault43:1031905:1032049 [0] NCCL INFO Connected all trees
+ault44:1052038:1052163 [0] NCCL INFO Connected all rings
+ault44:1052038:1052163 [0] NCCL INFO Connected all trees
+ault44:1052038:1052163 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault44:1052038:1052163 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault43:1031905:1032049 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault43:1031905:1032049 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault44:1052038:1052163 [0] NCCL INFO comm 0xaa8b9e0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0x5b25c525027ac0b4 - Init COMPLETE
+ault43:1031905:1032049 [0] NCCL INFO comm 0xae5e7a0 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0x5b25c525027ac0b4 - Init COMPLETE
+[2024-10-14 14:31:36,537] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+ninja: no work to do.
+Time to load cpu_adam op: 1.4520196914672852 seconds
+Adam Optimizer #0 is created with AVX2 arithmetic capability.
+Config: alpha=0.000100, betas=(0.900000, 0.999000), weight_decay=0.000000, adam_w=1
+[2024-10-14 14:31:38,522] [INFO] [logging.py:96:log_dist] [Rank 0] Using DeepSpeed Optimizer param name adam as basic optimizer
+[2024-10-14 14:31:38,522] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-10-14 14:31:38,524] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-10-14 14:31:38,524] [INFO] [utils.py:59:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-10-14 14:31:38,524] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 1 optimizer
+[2024-10-14 14:31:38,524] [INFO] [stage_1_and_2.py:149:__init__] Reduce bucket size 500000000
+[2024-10-14 14:31:38,524] [INFO] [stage_1_and_2.py:150:__init__] Allgather bucket size 500000000
+[2024-10-14 14:31:38,524] [INFO] [stage_1_and_2.py:151:__init__] CPU Offload: True
+[2024-10-14 14:31:38,524] [INFO] [stage_1_and_2.py:152:__init__] Round robin gradient partitioning: False
+Time to load cpu_adam op: 1.4688444137573242 seconds
+Adam Optimizer #0 is created with AVX2 arithmetic capability.
+Config: alpha=0.000100, betas=(0.900000, 0.999000), weight_decay=0.000000, adam_w=1
+[2024-10-14 14:31:38,754] [INFO] [utils.py:781:see_memory_usage] Before initializing optimizer states
+[2024-10-14 14:31:38,755] [INFO] [utils.py:782:see_memory_usage] MA 0.06 GB         Max_MA 0.06 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-10-14 14:31:38,755] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 21.79 GB, percent = 8.7%
+[2024-10-14 14:31:38,903] [INFO] [utils.py:781:see_memory_usage] After initializing optimizer states
+[2024-10-14 14:31:38,904] [INFO] [utils.py:782:see_memory_usage] MA 0.06 GB         Max_MA 0.06 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-10-14 14:31:38,904] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 21.81 GB, percent = 8.7%
+[2024-10-14 14:31:38,905] [INFO] [stage_1_and_2.py:544:__init__] optimizer state initialized
+[2024-10-14 14:31:39,066] [INFO] [utils.py:781:see_memory_usage] After initializing ZeRO optimizer
+[2024-10-14 14:31:39,067] [INFO] [utils.py:782:see_memory_usage] MA 0.06 GB         Max_MA 0.06 GB         CA 0.06 GB         Max_CA 0 GB 
+[2024-10-14 14:31:39,067] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 21.81 GB, percent = 8.7%
+[2024-10-14 14:31:39,068] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedZeroOptimizer
+[2024-10-14 14:31:39,069] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using configured LR scheduler = None
+[2024-10-14 14:31:39,069] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-10-14 14:31:39,069] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0001], mom=[(0.9, 0.999)]
+[2024-10-14 14:31:39,069] [INFO] [config.py:999:print] DeepSpeedEngine configuration:
+[2024-10-14 14:31:39,069] [INFO] [config.py:1003:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-10-14 14:31:39,069] [INFO] [config.py:1003:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True, 'use_gds': False}
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   amp_enabled .................. False
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   amp_params ................... False
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   bfloat16_enabled ............. True
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   bfloat16_immediate_grad_update  False
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   checkpoint_parallel_write_pipeline  False
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   checkpoint_tag_validation_enabled  True
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   checkpoint_tag_validation_fail  False
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x155449f9ec60>
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   communication_data_type ...... None
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   curriculum_enabled_legacy .... False
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   curriculum_params_legacy ..... False
+[2024-10-14 14:31:39,070] [INFO] [config.py:1003:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   data_efficiency_enabled ...... False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   dataloader_drop_last ......... False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   disable_allgather ............ False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   dump_state ................... False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   dynamic_loss_scale_args ...... None
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_enabled ........... False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_gas_boundary_resolution  1
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_layer_num ......... 0
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_max_iter .......... 100
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_stability ......... 1e-06
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_tol ............... 0.01
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   eigenvalue_verbose ........... False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   elasticity_enabled ........... False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   fp16_auto_cast ............... None
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   fp16_enabled ................. False
+[2024-10-14 14:31:39,071] [INFO] [config.py:1003:print]   fp16_master_weights_and_gradients  False
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   global_rank .................. 0
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   grad_accum_dtype ............. None
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   gradient_accumulation_steps .. 1
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   gradient_clipping ............ 0.0
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   gradient_predivide_factor .... 1.0
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   graph_harvesting ............. False
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   initial_dynamic_scale ........ 1
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   load_universal_checkpoint .... False
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   loss_scale ................... 1.0
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   memory_breakdown ............. False
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   mics_hierarchial_params_gather  False
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   mics_shard_size .............. -1
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') comet=CometConfig(enabled=False, samples_log_interval=100, project=None, workspace=None, api_key=None, experiment_name=None, experiment_key=None, online=None, mode=None) wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName')
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   optimizer_legacy_fusion ...... False
+[2024-10-14 14:31:39,072] [INFO] [config.py:1003:print]   optimizer_name ............... adam
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   optimizer_params ............. {'lr': 0.0001}
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   pld_enabled .................. False
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   pld_params ................... False
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   prescale_gradients ........... False
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   scheduler_name ............... None
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   scheduler_params ............. None
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   seq_parallel_communication_data_type  torch.float32
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   sparse_attention ............. None
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   sparse_gradients_enabled ..... False
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   steps_per_print .............. None
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   timers_config ................ enabled=True synchronized=True
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   train_batch_size ............. 16
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   train_micro_batch_size_per_gpu  8
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   use_data_before_expert_parallel_  False
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   use_node_local_storage ....... False
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   wall_clock_breakdown ......... False
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   weight_quantization_config ... None
+[2024-10-14 14:31:39,073] [INFO] [config.py:1003:print]   world_size ................... 2
+[2024-10-14 14:31:39,074] [INFO] [config.py:1003:print]   zero_allow_untested_optimizer  False
+[2024-10-14 14:31:39,074] [INFO] [config.py:1003:print]   zero_config .................. stage=1 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=False load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1000000000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50000000 param_persistence_threshold=100000 model_persistence_threshold=9223372036854775807 max_live_parameters=1000000000 max_reuse_distance=1000000000 gather_16bit_weights_on_model_save=False use_all_reduce_for_fetch_params=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-10-14 14:31:39,074] [INFO] [config.py:1003:print]   zero_enabled ................. True
+[2024-10-14 14:31:39,074] [INFO] [config.py:1003:print]   zero_force_ds_cpu_optimizer .. True
+[2024-10-14 14:31:39,074] [INFO] [config.py:1003:print]   zero_optimization_stage ...... 1
+[2024-10-14 14:31:39,074] [INFO] [config.py:989:print_user_config]   json = {
+    "train_micro_batch_size_per_gpu": 8, 
+    "optimizer": {
+        "type": "Adam", 
+        "params": {
+            "lr": 0.0001
+        }
+    }, 
+    "bf16": {
+        "enabled": true
+    }, 
+    "zero_optimization": {
+        "stage": 1, 
+        "offload_optimizer": {
+            "device": "cpu"
+        }
+    }
+}
+ault44:1052038:1052289 [0] NCCL INFO Using non-device net plugin version 0
+ault44:1052038:1052289 [0] NCCL INFO Using network IB
+ault43:1031905:1032198 [0] NCCL INFO Using non-device net plugin version 0
+ault43:1031905:1032198 [0] NCCL INFO Using network IB
+ault44:1052038:1052289 [0] NCCL INFO comm 0x310210e0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xf546093d5452f2a - Init START
+ault43:1031905:1032198 [0] NCCL INFO comm 0x3112d500 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xf546093d5452f2a - Init START
+ault43:1031905:1032198 [0] NCCL INFO NCCL_TOPO_DUMP_FILE set by environment to ./results/Topology_Intra_Node.txt
+
+ault43:1031905:1032198 [0] graph/xml.cc:244 NCCL WARN Unable to open ./results/Topology_Intra_Node.txt, not dumping topology.
+ault43:1031905:1032198 [0] NCCL INFO NCCL_GRAPH_DUMP_FILE set by environment to ./results/Graph.txt
+
+ault43:1031905:1032198 [0] graph/xml.cc:244 NCCL WARN Unable to open ./results/Graph.txt, not dumping topology.
+ault44:1052038:1052289 [0] NCCL INFO comm 0x310210e0 rank 1 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+ault43:1031905:1032198 [0] NCCL INFO comm 0x3112d500 rank 0 nRanks 2 nNodes 2 localRanks 1 localRank 0 MNNVL 0
+ault43:1031905:1032198 [0] NCCL INFO Channel 00/02 :    0   1
+ault44:1052038:1052289 [0] NCCL INFO Trees [0] -1/-1/-1->1->0 [1] 0/-1/-1->1->-1
+ault43:1031905:1032198 [0] NCCL INFO Channel 01/02 :    0   1
+ault43:1031905:1032198 [0] NCCL INFO Trees [0] 1/-1/-1->0->-1 [1] -1/-1/-1->0->1
+ault43:1031905:1032198 [0] NCCL INFO P2P Chunksize set to 131072
+ault44:1052038:1052289 [0] NCCL INFO P2P Chunksize set to 131072
+ault44:1052038:1052289 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[0] [receive] via NET/IB/0
+ault44:1052038:1052289 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[0] [receive] via NET/IB/0
+ault44:1052038:1052289 [0] NCCL INFO Channel 00/0 : 1[0] -> 0[0] [send] via NET/IB/0
+ault44:1052038:1052289 [0] NCCL INFO Channel 01/0 : 1[0] -> 0[0] [send] via NET/IB/0
+ault43:1031905:1032198 [0] NCCL INFO Channel 00/0 : 1[0] -> 0[0] [receive] via NET/IB/0
+ault43:1031905:1032198 [0] NCCL INFO Channel 01/0 : 1[0] -> 0[0] [receive] via NET/IB/0
+ault43:1031905:1032198 [0] NCCL INFO Channel 00/0 : 0[0] -> 1[0] [send] via NET/IB/0
+ault43:1031905:1032198 [0] NCCL INFO Channel 01/0 : 0[0] -> 1[0] [send] via NET/IB/0
+ault44:1052038:1052289 [0] NCCL INFO Connected all rings
+ault44:1052038:1052289 [0] NCCL INFO Connected all trees
+ault43:1031905:1032198 [0] NCCL INFO Connected all rings
+ault43:1031905:1032198 [0] NCCL INFO Connected all trees
+ault44:1052038:1052289 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault44:1052038:1052289 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault43:1031905:1032198 [0] NCCL INFO threadThresholds 8/8/64 | 16/8/64 | 512 | 512
+ault43:1031905:1032198 [0] NCCL INFO 2 coll channels, 0 collnet channels, 0 nvls channels, 2 p2p channels, 2 p2p channels per peer
+ault44:1052038:1052289 [0] NCCL INFO comm 0x310210e0 rank 1 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xf546093d5452f2a - Init COMPLETE
+ault43:1031905:1032198 [0] NCCL INFO comm 0x3112d500 rank 0 nranks 2 cudaDev 0 nvmlDev 0 busId 41000 commId 0xf546093d5452f2a - Init COMPLETE
+[2024-10-14 14:33:26,017] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step1000 is about to be saved!
+[2024-10-14 14:33:26,021] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step1000/mp_rank_00_model_states.pt
+[2024-10-14 14:33:26,021] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step1000/mp_rank_00_model_states.pt...
+[2024-10-14 14:33:26,076] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step1000/mp_rank_00_model_states.pt.
+[2024-10-14 14:33:26,078] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step1000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:33:26,078] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step1000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:33:26,163] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step1000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:33:26,178] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step1000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:33:26,178] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step1000 is ready now!
+[2024-10-14 14:33:26,198] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step1000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:33:26,198] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step1000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:33:26,198] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step1000 is ready now!
+[2024-10-14 14:35:13,835] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step2000 is about to be saved!
+[2024-10-14 14:35:13,839] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step2000/mp_rank_00_model_states.pt
+[2024-10-14 14:35:13,839] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step2000/mp_rank_00_model_states.pt...
+[2024-10-14 14:35:13,884] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step2000/mp_rank_00_model_states.pt.
+[2024-10-14 14:35:13,886] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step2000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:35:13,886] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step2000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:35:13,994] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step2000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:35:13,994] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step2000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:35:13,994] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step2000 is ready now!
+[2024-10-14 14:35:13,998] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step2000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:35:14,014] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step2000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:35:14,014] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step2000 is ready now!
+[2024-10-14 14:36:59,995] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step3000 is about to be saved!
+[2024-10-14 14:36:59,999] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step3000/mp_rank_00_model_states.pt
+[2024-10-14 14:36:59,999] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step3000/mp_rank_00_model_states.pt...
+[2024-10-14 14:37:00,044] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step3000/mp_rank_00_model_states.pt.
+[2024-10-14 14:37:00,050] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step3000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:37:00,050] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step3000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:37:00,170] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step3000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:37:00,179] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step3000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:37:00,179] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step3000 is ready now!
+[2024-10-14 14:37:00,197] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step3000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:37:00,197] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step3000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:37:00,197] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step3000 is ready now!
+[2024-10-14 14:38:46,999] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step4000 is about to be saved!
+[2024-10-14 14:38:47,003] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step4000/mp_rank_00_model_states.pt
+[2024-10-14 14:38:47,003] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step4000/mp_rank_00_model_states.pt...
+[2024-10-14 14:38:47,083] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step4000/mp_rank_00_model_states.pt.
+[2024-10-14 14:38:47,085] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step4000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:38:47,085] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step4000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:38:47,193] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step4000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:38:47,193] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step4000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:38:47,193] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step4000 is ready now!
+[2024-10-14 14:38:47,199] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step4000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:38:47,212] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step4000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:38:47,212] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step4000 is ready now!
+[2024-10-14 14:40:34,662] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step5000 is about to be saved!
+[2024-10-14 14:40:34,666] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step5000/mp_rank_00_model_states.pt
+[2024-10-14 14:40:34,666] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step5000/mp_rank_00_model_states.pt...
+[2024-10-14 14:40:34,724] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step5000/mp_rank_00_model_states.pt.
+[2024-10-14 14:40:34,730] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step5000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:40:34,730] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step5000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:40:34,835] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step5000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:40:34,835] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step5000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:40:34,835] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step5000 is ready now!
+[2024-10-14 14:40:34,837] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step5000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:40:34,844] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step5000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:40:34,844] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step5000 is ready now!
+[2024-10-14 14:42:23,435] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step6000 is about to be saved!
+[2024-10-14 14:42:23,439] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step6000/mp_rank_00_model_states.pt
+[2024-10-14 14:42:23,439] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step6000/mp_rank_00_model_states.pt...
+[2024-10-14 14:42:23,483] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step6000/mp_rank_00_model_states.pt.
+[2024-10-14 14:42:23,488] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step6000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:42:23,488] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step6000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:42:23,596] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step6000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:42:23,596] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step6000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:42:23,596] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step6000 is ready now!
+[2024-10-14 14:42:23,598] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step6000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:42:23,610] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step6000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:42:23,610] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step6000 is ready now!
+[2024-10-14 14:44:11,150] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step7000 is about to be saved!
+[2024-10-14 14:44:11,153] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step7000/mp_rank_00_model_states.pt
+[2024-10-14 14:44:11,153] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step7000/mp_rank_00_model_states.pt...
+[2024-10-14 14:44:11,199] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step7000/mp_rank_00_model_states.pt.
+[2024-10-14 14:44:11,205] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step7000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:44:11,205] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step7000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:44:11,313] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step7000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:44:11,314] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step7000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:44:11,314] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step7000 is ready now!
+[2024-10-14 14:44:11,317] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step7000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:44:11,329] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step7000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:44:11,329] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step7000 is ready now!
+[2024-10-14 14:45:59,452] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step8000 is about to be saved!
+[2024-10-14 14:45:59,455] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step8000/mp_rank_00_model_states.pt
+[2024-10-14 14:45:59,455] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step8000/mp_rank_00_model_states.pt...
+[2024-10-14 14:45:59,499] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step8000/mp_rank_00_model_states.pt.
+[2024-10-14 14:45:59,502] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step8000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:45:59,502] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step8000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:45:59,611] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step8000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:45:59,611] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step8000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:45:59,611] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step8000 is ready now!
+[2024-10-14 14:45:59,612] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step8000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:45:59,619] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step8000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:45:59,619] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step8000 is ready now!
+[2024-10-14 14:47:48,776] [INFO] [logging.py:96:log_dist] [Rank 0] [Torch] Checkpoint global_step9000 is about to be saved!
+[2024-10-14 14:47:48,780] [INFO] [logging.py:96:log_dist] [Rank 0] Saving model checkpoint: /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step9000/mp_rank_00_model_states.pt
+[2024-10-14 14:47:48,780] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step9000/mp_rank_00_model_states.pt...
+[2024-10-14 14:47:48,824] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step9000/mp_rank_00_model_states.pt.
+[2024-10-14 14:47:48,831] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step9000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt...
+[2024-10-14 14:47:48,831] [INFO] [torch_checkpoint_engine.py:21:save] [Torch] Saving /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step9000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt...
+[2024-10-14 14:47:48,940] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step9000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt.
+[2024-10-14 14:47:48,941] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg/global_step9000/bf16_zero_pp_rank_1_mp_rank_00_optim_states.pt
+[2024-10-14 14:47:48,941] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step9000 is ready now!
+[2024-10-14 14:47:48,955] [INFO] [torch_checkpoint_engine.py:23:save] [Torch] Saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step9000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt.
+[2024-10-14 14:47:48,958] [INFO] [engine.py:3536:_save_zero_checkpoint] zero checkpoint saved /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg/global_step9000/bf16_zero_pp_rank_0_mp_rank_00_optim_states.pt
+[2024-10-14 14:47:48,958] [INFO] [torch_checkpoint_engine.py:33:commit] [Torch] Checkpoint global_step9000 is ready now!
+/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.29.addjtvxg
+/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed/bert_pretrain.2024.10.14.5.31.30.addjtvxg
+ault43:1031905:1032199 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+ault44:1052038:1052290 [0] NCCL INFO [Service thread] Connection closed by localRank 0
+ault43:1031905:1032234 [0] NCCL INFO comm 0x3112d500 rank 0 nranks 2 cudaDev 0 busId 41000 - Abort COMPLETE
+ault44:1052038:1052321 [0] NCCL INFO comm 0x310210e0 rank 1 nranks 2 cudaDev 0 busId 41000 - Abort COMPLETE
+[2024-10-14 14:49:42,884] [INFO] [launch.py:351:main] Process 1052038 exits successfully.
+[2024-10-14 14:49:43,043] [INFO] [launch.py:351:main] Process 1031905 exits successfully.
+Collecting data...
+Generating '/tmp/nsys-report-7623.qdstrm'
+[1/1] [0%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [0%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [6%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [7%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [8%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [9%                          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [10%                         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [13%                         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [14%                         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=15%                        ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=16%                        ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=17%                        ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==18%                       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==19%                       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==20%                       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==21%                       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===22%                      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===23%                      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===24%                      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [====25%                     ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [====26%                     ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [====27%                     ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [====28%                     ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=====29%                    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=====30%                    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=====31%                    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=====32%                    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [======33%                   ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [======34%                   ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [======35%                   ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======36%                  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======37%                  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======38%                  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======39%                  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [========40%           Collecting data...
+Generating '/tmp/nsys-report-0fdf.qdstrm'
+[1/1] [0%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [0%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [0%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [0%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [6%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [6%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [6%                          ] HelloDeepSpeed_train_be      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [========41%                 ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [========42%                 ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=========43%                ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=========44%                ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=========45%                ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=========46%                ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==========47%               ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==========48%               ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==========49%               ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_rt_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [6%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [5%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [6%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [7%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [6%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [7%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [8%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [7%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [8%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [9%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [8%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [9%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [10%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [9%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [10%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [10%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [10%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [13%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [13%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [13%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [13%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [13%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [10%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [9%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [8%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [7%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [8%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [9%                          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [10%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [11%                         ] HelloDe1031675.nsys-rep[1/1] [===========50%              ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===========51%              ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===========52%              ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===========53%              ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [============54%             ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [============55%             ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [============56%             ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [============57%             ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=============58%            ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=============59%            ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [12%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [13%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [14%                         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=15%                        ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=16%                        ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=17%                        ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==18%                       ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==19%                       ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==20%                       ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-reepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=============60%            ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==============61%           ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==============62%           ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==============63%           ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==============64%           ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===============65%          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===============66%          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===============67%          ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [================68%         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==21%                       ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===22%                      ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===23%                      ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===24%                      ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [====25%                     ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [====26%                     ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [====27%                     ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [====28%                     ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=====29%                    ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=====30%                    ] HelloDeepSpeed_train_bp[1/1] [================69%         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [================70%         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [================71%         ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=================72%        ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=================73%        ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=================74%        ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==================75%       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==================76%       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==================77%       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [==================78%       ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===================79%      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===================80%      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===================81%      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [===================82%      ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [====================83%     ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [====================84%     ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [====================85%     ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=====================86%    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=====================87%    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [======ert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=====31%                    ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=====32%                    ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [======33%                   ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [======34%                   ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [======35%                   ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=======36%                  ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=======37%                  ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=======38%                  ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=======39%                  ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=====================88%    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=====================89%    ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [======================90%   ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [======================91%   ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [======================92%   ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======================93%  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======================94%  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======================95%  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [=======================96%  ] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep[1/1] [========================100%] HelloDeepSpeed_train_bert_nsys_report==40%                 ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [========41%                 ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [========42%                 ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=========43%                ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=========44%                ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=========45%                ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=========46%                ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==========47%               ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==========48%               ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==========49%               ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===========50%              ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===========51%              ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===========52%              ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===========53%              ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [============54%             ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [============55%             ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [============56%             ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [============57%             ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=============58%            ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=============59%            ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=============60%            ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==============61%           ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==============62%           ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==============63%           ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==============64%           ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===============65%          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===============66%          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===============67%          ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [================68%         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [================69%         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [================70%         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [================71%         ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=================72%        ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=================73%        ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [=================74%        ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==================75%       ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==================76%       ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==================77%       ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [==================78%       ] HelloD_ault43.cscs.ch_1031675.nsys-rep[1/1] [========================100%] HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports/HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep
+eepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [===================79%      ] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [========================100%] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep[1/1] [========================100%] HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep
+Generated:
+    /users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports/HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep
+Exported /users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports/HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.nsys-rep to /users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports/HelloDeepSpeed_train_bert_nsys_report_ault43.cscs.ch_1031675.sqlite
+Exported /users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports/HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.nsys-rep to /users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports/HelloDeepSpeed_train_bert_nsys_report_ault44.cscs.ch_1051808.sqlite

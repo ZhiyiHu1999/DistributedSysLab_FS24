@@ -21,5 +21,8 @@ with open('./results/nsys_events_initial_output.json', 'r') as file:
             elif "Recv" in line:
                 operation_counter["Recv"] += 1
 
-for operation, count in operation_counter.items():
-    print(f"{operation}: {count}")
+with open('./results/collectives_statistics.txt', 'w') as output_file:
+    for operation, count in operation_counter.items():
+        output_file.write(f"{operation}: {count}\n")
+        print(f"{operation}: {count}")
+    

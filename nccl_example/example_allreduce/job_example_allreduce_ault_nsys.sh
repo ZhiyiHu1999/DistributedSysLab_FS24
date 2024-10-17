@@ -1,13 +1,13 @@
 #!/bin/bash -l
 #
-#SBATCH --job-name="nccl_example_2"
+#SBATCH --job-name="nccl_example_allreduce"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[43-44]
+#SBATCH --nodelist=ault[42-44]
 #SBATCH --ntasks-per-node=3
 #SBATCH --gpus-per-task=1
-#SBATCH --output=example_2.%j.o
-#SBATCH --error=example_2.%j.e
+#SBATCH --output=example_allreduce.%j.o
+#SBATCH --error=example_allreduce.%j.e
 #SBATCH --account=g34
 
 module load openmpi/4.1.1
@@ -35,15 +35,15 @@ export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4
 export NCCL_ROOT=/users/zhu/nccl_nvtx/nccl/build
 export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx/nccl/build/lib:$LD_LIBRARY_PATH
 
-nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_2.cu -o example_2
+nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_allreduce.cu -o example_allreduce
 
 # export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports"
 export NSYS_REPORT_DIR="./results/nsys_reports"
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
 
-# time srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
-srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_2_nsys_report_%h_%p ./example_2
+# time srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_allreduce_nsys_report_%h_%p ./example_allreduce
+srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_allreduce_nsys_report_%h_%p ./example_allreduce
 
 for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   if [ -f "$report_file" ]; then
@@ -61,7 +61,7 @@ done
 # HOST=$(hostname)
 # echo "Start: Hostname: ${HOST}, PID: ${PID}, CPU: ${CPU_INFO}, Start Timestamp: ${START_TIME}" >> ${NSYS_REPORT_DIR}/start_times.log
 
-# ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_2_nsys_report_${HOST}_${PID} ./example_2
+# ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_allreduce_nsys_report_${HOST}_${PID} ./example_allreduce
 
 # '
 
@@ -102,6 +102,6 @@ done
 #   fi
 # done
 
-python3 parser_sqlite2goal.py
+python3 ../parser_sqlite2goal.py
 
-python3 goal2dot.py
+python3 ../goal2dot.py

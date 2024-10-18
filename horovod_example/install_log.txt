@@ -1,0 +1,28 @@
+Collecting git+https://github.com/thomas-bouvier/horovod.git@compile-cpp17
+  Cloning https://github.com/thomas-bouvier/horovod.git (to revision compile-cpp17) to /tmp/pip-req-build-48oexejp
+  Running command git clone --filter=blob:none --quiet https://github.com/thomas-bouvier/horovod.git /tmp/pip-req-build-48oexejp
+  Running command git checkout -b compile-cpp17 --track origin/compile-cpp17
+  Switched to a new branch 'compile-cpp17'
+  Branch 'compile-cpp17' set up to track remote branch 'compile-cpp17' from 'origin'.
+  Resolved https://github.com/thomas-bouvier/horovod.git to commit 215b1f75da3726b4deeee60105f23d439e5feec4
+  Running command git submodule update --init --recursive -q
+  Preparing metadata (setup.py): started
+  Preparing metadata (setup.py): finished with status 'done'
+Collecting cloudpickle (from horovod==0.28.1)
+  Downloading cloudpickle-3.1.0-py3-none-any.whl.metadata (7.0 kB)
+Requirement already satisfied: psutil in /users/zhu/anaconda3/envs/horovod_env/lib/python3.10/site-packages (from horovod==0.28.1) (6.1.0)
+Requirement already satisfied: pyyaml in /users/zhu/anaconda3/envs/horovod_env/lib/python3.10/site-packages (from horovod==0.28.1) (6.0.2)
+Requirement already satisfied: packaging in /users/zhu/anaconda3/envs/horovod_env/lib/python3.10/site-packages (from horovod==0.28.1) (24.1)
+Requirement already satisfied: cffi>=1.4.0 in /users/zhu/anaconda3/envs/horovod_env/lib/python3.10/site-packages (from horovod==0.28.1) (1.17.1)
+Requirement already satisfied: pycparser in /users/zhu/anaconda3/envs/horovod_env/lib/python3.10/site-packages (from cffi>=1.4.0->horovod==0.28.1) (2.22)
+Downloading cloudpickle-3.1.0-py3-none-any.whl (22 kB)
+Building wheels for collected packages: horovod
+  Building wheel for horovod (setup.py): started
+  Building wheel for horovod (setup.py): still running...
+  Building wheel for horovod (setup.py): still running...
+  Building wheel for horovod (setup.py): finished with status 'done'
+  Created wheel for horovod: filename=horovod-0.28.1-cp310-cp310-linux_x86_64.whl size=107728071 sha256=9ab78ab535157d59cab8c51701e37d134507e2a00ca4b477c4a8df4836e2b385
+  Stored in directory: /tmp/pip-ephem-wheel-cache-k0bq6foq/wheels/0d/6b/70/6382ac8597def6caac2a1bcf19f3ac03dc14242b7355049b1c
+Successfully built horovod
+Installing collected packages: cloudpickle, horovod
+Successfully installed cloudpickle-3.1.0 horovod-0.28.1

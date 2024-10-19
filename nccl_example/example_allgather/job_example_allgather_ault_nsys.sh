@@ -14,7 +14,7 @@ module load openmpi/4.1.1
 # module load cuda/11.6.2
 module load cuda/11.8.0
 # module load cuda/12.1.1
-module load rdma-core/34.0
+# module load rdma-core/34.0
 module load python/3.8.12
 
 srun nvidia-smi -L
@@ -22,7 +22,7 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Tree  ## ncclAllGather only use Ring topology
+export NCCL_ALGO=Ring  ## ncclAllGather only use Ring topology
 export NCCL_PROTO=Simple
 # export NCCL_MIN_NCHANNELS=4
 export NCCL_MAX_NCHANNELS=1
@@ -54,6 +54,6 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-# python3 parser_sqlite2goal.py
+python3 parser_sqlite2goal.py -r
 
-# python3 goal2dot.py
+python3 ../goal2dot.py

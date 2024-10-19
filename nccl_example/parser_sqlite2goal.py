@@ -479,7 +479,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                 last_gpu_event_ts_end = gpu_event["timestamp_end"]
                 last_gpu_event_end_calc_id = task_counter
 
-                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING"):
+                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclKernel_AllGather_RING"):
                     num_slots = -1
                     offset = -1
 
@@ -1170,7 +1170,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                 last_gpu_event_ts_end = gpu_event["timestamp_end"]
                 last_gpu_event_end_calc_id = task_counter
 
-                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING"):
+                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclKernel_AllGather_RING"):
                     num_slots = -1
                     offset = -1
 

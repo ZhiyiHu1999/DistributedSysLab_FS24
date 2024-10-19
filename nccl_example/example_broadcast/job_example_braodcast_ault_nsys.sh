@@ -22,7 +22,7 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Tree  ## ncclBroadcast only use Ring topology
+export NCCL_ALGO=Ring  ## ncclBroadcast only use Ring topology
 export NCCL_PROTO=Simple
 # export NCCL_MIN_NCHANNELS=4
 export NCCL_MAX_NCHANNELS=1
@@ -54,6 +54,6 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-# python3 parser_sqlite2goal.py
+python3 parser_sqlite2goal.py
 
 # python3 goal2dot.py

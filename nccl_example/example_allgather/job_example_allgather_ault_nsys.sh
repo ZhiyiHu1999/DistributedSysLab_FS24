@@ -3,8 +3,8 @@
 #SBATCH --job-name="nccl_example_allgather"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[42-44]
-#SBATCH --ntasks-per-node=1
+#SBATCH --nodelist=ault[43-44]
+#SBATCH --ntasks-per-node=3
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_allgather.%j.o
 #SBATCH --error=example_allgather.%j.e
@@ -54,6 +54,6 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-python3 parser_sqlite2goal.py -r
+python3 parser_sqlite2goal.py
 
 python3 ../goal2dot.py

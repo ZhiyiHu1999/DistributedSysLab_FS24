@@ -116,7 +116,7 @@ int main(int argc, char* argv[])
   NCCLCHECK(ncclBroadcast((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, 0, comm, s));
 
   sleep(2);
-  NCCLCHECK(ncclBroadcast((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, 0, comm, s));
+  NCCLCHECK(ncclBroadcast((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, 1, comm, s));
 
 //   for (int i = 0; i < 100; i++) {
 //     sleep(2);

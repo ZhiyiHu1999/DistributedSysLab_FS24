@@ -3,7 +3,7 @@
 #SBATCH --job-name="nccl_example_allreduce"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[43-44]
+#SBATCH --nodelist=ault[42-44]
 #SBATCH --ntasks-per-node=3
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_allreduce.%j.o
@@ -14,7 +14,7 @@ module load openmpi/4.1.1
 # module load cuda/11.6.2
 module load cuda/11.8.0
 # module load cuda/12.1.1
-# module load rdma-core/34.0
+module load rdma-core/34.0
 # module load python/3.8.12
 
 srun nvidia-smi -L
@@ -22,7 +22,7 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Ring
+export NCCL_ALGO=Tree
 export NCCL_PROTO=Simple
 # export NCCL_MIN_NCHANNELS=4
 export NCCL_MAX_NCHANNELS=1

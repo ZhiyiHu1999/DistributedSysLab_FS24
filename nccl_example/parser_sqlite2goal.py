@@ -498,7 +498,6 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                             print(f"num_slots: {num_slots}")
 
                         if offset == -1:
-                            # offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2)
                             offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2)
                             # offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2) if num_slots == 4 else int(GoalRank_To_NumOfRanks[goal_rank])
                             print(f"offset: {offset}")
@@ -1179,7 +1178,6 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             print(f"num_slots: {num_slots}")
 
                         if offset == -1:
-                            # offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2)
                             offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2)
                             # offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2 * num_slots / 4) if num_slots == 4 else int(GoalRank_To_NumOfRanks[goal_rank])
                             print(f"offset: {offset}")
@@ -1788,7 +1786,6 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             print(f"num_slots: {num_slots}")
 
                         if offset == -1:
-                            # offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2)
                             offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2)
                             # offset = int(GoalRank_To_NumOfRanks[goal_rank] * 2 * num_slots / 4) if num_slots == 4 else int(GoalRank_To_NumOfRanks[goal_rank])
                             print(f"offset: {offset}")

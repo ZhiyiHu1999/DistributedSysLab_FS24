@@ -1246,7 +1246,10 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             if (i + offset) < net_event_pair_num:
                                 send_depends_on_events[i + offset]["ts_end"] = net_event["ts_end"]  ## send(i + offset) depends on recv(i)
-                                send_depends_on_events[i + offset]["task_id"] = task_counter
+                                if (i + offset) % ((num_gpus - 1) * 2 * 2) >= GoalRank_To_NumOfRanks[goal_rank] * 2:
+                                    send_depends_on_events[i + offset]["task_id"] = task_counter
+                                else:
+                                    send_depends_on_events[i + offset]["task_id"] = gpu_event_start_calc_id
                             #     file.write(f"l{recv_depends_on_events['task_id_last']} requires l{task_counter}\n")
 
                             # else:

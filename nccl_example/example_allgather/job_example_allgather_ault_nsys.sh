@@ -3,7 +3,7 @@
 #SBATCH --job-name="nccl_example_allgather"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[43-44]
+#SBATCH --nodelist=ault[42-44]
 #SBATCH --ntasks-per-node=3
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_allgather.%j.o
@@ -15,7 +15,6 @@ module load openmpi/4.1.1
 module load cuda/11.8.0
 # module load cuda/12.1.1
 # module load rdma-core/34.0
-module load python/3.8.12
 
 srun nvidia-smi -L
 

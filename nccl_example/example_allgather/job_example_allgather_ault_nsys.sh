@@ -14,7 +14,7 @@ module load openmpi/4.1.1
 # module load cuda/11.6.2
 module load cuda/11.8.0
 # module load cuda/12.1.1
-# module load rdma-core/34.0
+module load rdma-core/34.0
 
 srun nvidia-smi -L
 

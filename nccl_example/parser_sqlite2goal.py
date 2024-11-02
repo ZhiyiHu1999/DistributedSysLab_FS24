@@ -294,7 +294,7 @@ def get_sqlite_events(dir_path):
             cupti_kernel_results = cursor.fetchall()
             for row in cupti_kernel_results:
                 start, end, demangled_name = row
-                if string_dict[demangled_name].startswith("ncclKernel"):
+                if string_dict[demangled_name].startswith("ncclKernel") or string_dict[demangled_name].startswith("ncclDevKernel"):
                     cupti_kernel_data.append({
                         "event_name": string_dict[demangled_name],
                         "timestamp_start": start // 1000,
@@ -479,7 +479,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                 last_gpu_event_ts_end = gpu_event["timestamp_end"]
                 last_gpu_event_end_calc_id = task_counter
 
-                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclKernel_AllGather_RING"):
+                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclKernel_AllGather_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllGather_RING"):
                     num_slots = -1
                     offset = -1
 
@@ -605,7 +605,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
-                elif gpu_event["event_name"].startswith("ncclKernel_AllReduce_TREE"):
+                elif gpu_event["event_name"].startswith("ncclKernel_AllReduce_TREE") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_Sum_f32_TREE"):
                     for channel_id, net_channel_events in gpu_event["net_events"].items():
                         for net_channel_rank_events in net_channel_events["NVTX_EVENT_NET_ISEND"].values():
                             net_event_pair_num = len(net_channel_rank_events)  ## to know the number of send/recv pairs, a pair may have multiple send/recv from different node
@@ -1159,7 +1159,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                 last_gpu_event_ts_end = gpu_event["timestamp_end"]
                 last_gpu_event_end_calc_id = task_counter
 
-                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING"):
+                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_RING"):
                     num_slots = -1
                     offset = -1
 
@@ -1279,7 +1279,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             file.write(f"l{task_counter} requires l{task_counter - 2}\n")
                             file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
 
-                elif gpu_event["event_name"].startswith("ncclKernel_AllReduce_TREE"):
+                elif gpu_event["event_name"].startswith("ncclKernel_AllReduce_TREE") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_Sum_f32_TREE"):
                     # num_slots = 8
                     for channel_id, net_channel_events in gpu_event["net_events"].items():
                         for net_channel_rank_events in net_channel_events["NVTX_EVENT_NET_ISEND"].values():
@@ -1315,11 +1315,21 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                         else:  ## the node is either top-most or bottom-most
                             for receiver_rank, net_channel_send_test_rank_events in net_channel_events["NVTX_EVENT_NET_SEND_TEST"].items():
                                 for sender_rank, net_channel_recv_test_rank_events in net_channel_events["NVTX_EVENT_NET_RECV_TEST"].items():
-                                    if net_channel_send_test_rank_events[0]["ts_end"] >= net_channel_recv_test_rank_events[0]["ts_end"]:  ## the node is top-most
-                                        node_place = "100"
+                                    # # if net_channel_send_test_rank_events[0]["ts_end"] >= net_channel_recv_test_rank_events[0]["ts_end"]:  ## the node is top-most
+                                    # if net_channel_send_test_rank_events[-1]["ts_end"] >= net_channel_recv_test_rank_events[-1]["ts_end"]:  ## the node is top-most
+                                    #     node_place = "100"
+                                    #     child_1_rank = receiver_rank  ## either sender_rank or receiver_rank is fine
+                                    # else:  ## the node is bottom-most
+                                    #     node_place = "001"
+                                    #     parent_rank = receiver_rank
+                                    node_place = "100"
+                                    for i in range(len(net_channel_send_test_rank_events)):
+                                        if net_channel_send_test_rank_events[i]["ts_end"] < net_channel_recv_test_rank_events[i]["ts_end"]:
+                                            node_place = "001"
+
+                                    if node_place == "100":
                                         child_1_rank = receiver_rank  ## either sender_rank or receiver_rank is fine
-                                    else:  ## the node is bottom-most
-                                        node_place = "001"
+                                    elif node_place == "001":
                                         parent_rank = receiver_rank
 
                         if node_place == "001":
@@ -1768,7 +1778,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f"l{task_counter} requires l{task_counter - 2}\n")
                                 file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
 
-                elif gpu_event["event_name"].startswith("ncclKernel_AllGather_RING"):
+                elif gpu_event["event_name"].startswith("ncclKernel_AllGather_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllGather_RING"):
                     num_slots = -1
                     offset = -1
 
@@ -1888,7 +1898,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             file.write(f"l{task_counter} requires l{task_counter - 2}\n")
                             file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
 
-                elif gpu_event["event_name"].startswith("ncclKernel_Broadcast_RING"):
+                elif gpu_event["event_name"].startswith("ncclKernel_Broadcast_RING") or gpu_event["event_name"].startswith("ncclDevKernel_Broadcast_RING"):
                     # num_slots = 8
                     for channel_id, net_channel_events in gpu_event["net_events"].items():
                         net_send_event_pair_num = -1
@@ -2076,7 +2086,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 task_counter += 1
                                 file.write(f'l{task_counter}: calc 0\n')
-                                file.write(f"l{task_counter} requires l{send_depends_on_events["task_id_start"]}\n")
+                                file.write(f"l{task_counter} requires l{send_depends_on_events['task_id_start']}\n")
 
                                 task_counter += 1
                                 tag = net_event["sequence_num"] + channel_id.zfill(2)

@@ -59,7 +59,7 @@ static void getHostName(char* hostname, int maxlen) {
 
 int main(int argc, char* argv[])
 {
-  int size = 1*1024*1024;
+  int size = 2*1024*1024;
   // int size = 32*1024*1024;
 
 
@@ -115,10 +115,10 @@ int main(int argc, char* argv[])
   //communicating using NCCL
   NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
 
-  sleep(2);
-  NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
+  // sleep(2);
+  // NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
 
-//   for (int i = 0; i < 100; i++) {
+//   for (int i = 0; i < 10; i++) {
 //     sleep(2);
 //     NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
 // }

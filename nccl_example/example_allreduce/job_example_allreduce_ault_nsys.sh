@@ -3,8 +3,8 @@
 #SBATCH --job-name="nccl_example_allreduce"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[42-44]
-#SBATCH --ntasks-per-node=3
+#SBATCH --nodelist=ault[43-44]
+#SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_allreduce.%j.o
 #SBATCH --error=example_allreduce.%j.e
@@ -22,8 +22,8 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Ring
-export NCCL_PROTO=Simple
+export NCCL_ALGO=Tree
+export NCCL_PROTO=LL
 # export NCCL_MIN_NCHANNELS=4
 export NCCL_MAX_NCHANNELS=1
 export NCCL_DEBUG=INFO ## For debug
@@ -34,6 +34,8 @@ export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4
 
 export NCCL_ROOT=/users/zhu/nccl_nvtx/nccl/build
 export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx/nccl/build/lib:$LD_LIBRARY_PATH
+# export NCCL_ROOT=/users/zhu/nccl_nvtx_v22/nccl/build
+# export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx_v22/nccl/build/lib:$LD_LIBRARY_PATH
 
 nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_allreduce.cu -o example_allreduce
 

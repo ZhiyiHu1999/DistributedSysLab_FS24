@@ -4,7 +4,7 @@
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
 #SBATCH --nodelist=ault[42-44]
-#SBATCH --ntasks-per-node=1
+#SBATCH --ntasks-per-node=3
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_broadcast.%j.o
 #SBATCH --error=example_broadcast.%j.e
@@ -14,7 +14,7 @@ module load openmpi/4.1.1
 # module load cuda/11.6.2
 module load cuda/11.8.0
 # module load cuda/12.1.1
-# module load rdma-core/34.0
+module load rdma-core/34.0
 
 srun nvidia-smi -L
 
@@ -53,6 +53,6 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-python3 parser_sqlite2goal.py -r
+python3 parser_sqlite2goal.py
 
 python3 ../goal2dot.py

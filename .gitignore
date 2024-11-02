@@ -1,1 +1,5 @@
-/deepspeed_example/results/
+results/
+*.e
+*.o
+*.sqlite
+*.nsys-rep

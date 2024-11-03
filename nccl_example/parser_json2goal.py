@@ -1,94 +1,94 @@
 import json
+import math
 from collections import defaultdict
 
 def get_npkit_events(json_file):
     with open(json_file, 'r') as f:
         data = json.load(f)
 
-    trace_events = data.get("traceEvents", [])
-    gpu_events_type_1 = defaultdict(lambda: defaultdict(list))
-    gpu_events_type_2 = defaultdict(lambda: defaultdict(list))
-    gpu_events_op = defaultdict(lambda: defaultdict(list))
-    gpu_events_prim = defaultdict(lambda: defaultdict(list))
-    cpu_events_net = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
-    cpu_events_npkit_init = defaultdict(lambda: defaultdict(list))
+    npkit_events = data.get("traceEvents", [])
+    ncclkernel_events = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
+    prim_events = defaultdict(lambda: defaultdict(lambda: defaultdict(list)))
 
-    for event in trace_events:
-        if event['cat'] == 'CPU':
-            rank = event['args']['rank']
-            event_name = event['name']
+    for event in npkit_events:
+        rank = event['args']['rank']
+        tid = event['tid']
+        event_name = event['name']
+        event_info = {
+            'event_name': event_name,
+            'DataProcessTotalTime': math.ceil(event['args'].get('DataProcessTotalTime') / 1000),  ## ns to us
+            'ts': int(event['ts'] // 1),  ## us to us
+            }
 
-            if event_name.startswith('NPKIT_EVENT_NET'):
-                channel = event['args']['channel']
-                event_info = {
-                    'seq': event['args'].get('seq'),  ## useless
-                    'step': event['args'].get('step'),
-                    'ts': int(event['ts'] // 1),  ## event['ts'] is in time unit of microsecond
-                    'sender_rank': event['args'].get('sender_rank'),
-                    'receiver_rank': event['args'].get('receiver_rank'),
-                    'size': event['args'].get('size_0')
-                    }
-                cpu_events_net[rank][channel][event_name].append(event_info)
-            
-            elif event_name.startswith('NPKIT_EVENT_NPKIT_INIT'):
-                event_info = {
-                    'ts': int(event['ts'] // 1),  ## event['ts'] is in time unit of microsecond
-                    }
-                cpu_events_npkit_init[rank][event_name].append(event_info)
-
-        elif event['cat'] == 'GPU':
-            rank = event['args']['rank']
-            tid = event['tid']
-            event_name = event['name']
-            event_info = {
-                'event_name': event_name,
-                'seq': event['args'].get('seq'),  ## useless
-                'ts': int(event['ts'] // 1),  ## event['ts'] is in time unit of microsecond
-                }
-
-            if event_name.startswith('NPKIT_EVENT_GPU_1'):
-                gpu_events_type_1[rank][tid].append(event_info)
-            elif event_name.startswith('NPKIT_EVENT_GPU_2'):
-                gpu_events_type_2[rank][tid].append(event_info)
-            elif event_name.startswith('NPKIT_EVENT_GPU_OP'):
-                gpu_events_op[rank][tid].append(event_info)
-            elif event_name.startswith('NPKIT_EVENT_PRIM'):
-                gpu_events_prim[rank][tid].append(event_info)
+        if event_name.startswith('NPKIT_EVENT_NCCLKERNEL'):
+            if event_name.endswith('ENTRY'):
+                ncclkernel_events[rank][tid]["entry_events"].append(event_info)
+            elif event_name.endswith('EXIT'):
+                ncclkernel_events[rank][tid]["exit_events"].append(event_info)
+        elif event_name.startswith('NPKIT_EVENT_PRIM'):
+            if event_name.endswith('ENTRY'):
+                prim_events[rank][tid]["entry_events"].append(event_info)
+            elif event_name.endswith('EXIT'):
+                prim_events[rank][tid]["exit_events"].append(event_info)
     
-    return gpu_events_type_1, gpu_events_type_2, gpu_events_op, gpu_events_prim, cpu_events_net, cpu_events_npkit_init
+    return ncclkernel_events, prim_events
 
-# num_ranks = 0
+def pair_npkit_events(ncclkernel_events, prim_events):
+    npkit_paired_events = {}
 
-# for rank, channels in tracing_result.items():  ## rank is the key, channels is the corresponding value
-#     num_ranks += 1
-#     print(f"Rank: {rank}")
-#     for channel, events in channels.items():
-#         print(f"  Channel: {channel}")
-#         for event_name, infos in events.items():
-#             print(f"    Event: {event_name}")
-#             if event_name != 'NPKIT_EVENT_NPKIT_INIT_ENTRY' and event_name != 'NPKIT_EVENT_NPKIT_INIT_EXIT':
-#                 for info in infos:  ## 'infos' is a list containing dictionaries 'info'
-#                     # print(f"      {info}")
-#                     info['ts'] -= channels[0]['NPKIT_EVENT_NPKIT_INIT_EXIT'][0]['ts']
-#                     print(f"      {info}")
+    for rank in ncclkernel_events.keys():
+        npkit_paired_events[rank] = {}
+        for tid in ncclkernel_events[rank].keys():
+            npkit_paired_events[rank][tid] = []
+
+    for rank in ncclkernel_events.keys():
+        for tid in ncclkernel_events[rank].keys():
+            for i in range(len(ncclkernel_events[rank][tid]["entry_events"])):
+                npkit_paired_event = {}
+                npkit_paired_event["prim_events"] = []
+                npkit_paired_event["event_name"] = ncclkernel_events[rank][tid]["entry_events"][i]["event_name"].replace("_ENTRY", "")
+                npkit_paired_event["ts_start"] = ncclkernel_events[rank][tid]["entry_events"][i]["ts"]
+                npkit_paired_event["ts_end"] = ncclkernel_events[rank][tid]["exit_events"][i]["ts"]
+
+                for j in range(len(prim_events[rank][tid]["entry_events"])):
+                    npkit_prim_event = {}
+                    npkit_prim_event["event_name"] = prim_events[rank][tid]["entry_events"][j]["event_name"].replace("_ENTRY", "")
+
+                    if "protocol" not in npkit_paired_event:
+                        prim_event_name_splits = npkit_prim_event["event_name"].split("_")
+                        npkit_paired_event["protocol"] = prim_event_name_splits[3]
+
+                    npkit_prim_event["ts_start"] = prim_events[rank][tid]["entry_events"][j]["ts"]
+                    npkit_prim_event["ts_end"] = prim_events[rank][tid]["exit_events"][j]["ts"]
+                    npkit_prim_event["data_process_duration"] = prim_events[rank][tid]["exit_events"][j]["DataProcessTotalTime"]
+                    npkit_prim_event["seq"] = len(npkit_paired_event["prim_events"])
+
+                    if npkit_prim_event["ts_start"] >= npkit_paired_event["ts_start"] and npkit_prim_event["ts_end"] <= npkit_paired_event["ts_end"]:
+                        npkit_paired_event["prim_events"].append(npkit_prim_event)
+
+                npkit_paired_events[rank][tid].append(npkit_paired_event)
+
+    return npkit_paired_events 
 
 def main():
-    json_file = './results/npkit_run/npkit_trace/job_example_2/npkit_event_trace.json'
-    Gpu_Events_Type_1, Gpu_Events_Type_2, Gpu_Events_Op, Gpu_Events_Prim, Cpu_Events_Net, Cpu_Events_Npkit_Init = get_npkit_events(json_file)
+    json_file = './example_allreduce/results/npkit_run/npkit_trace/job_example_allreduce/npkit_event_trace.json'
+    ncclkernel_events, prim_events = get_npkit_events(json_file)
 
-    with open("./results/npkit_events_intermediate_output.json", "w") as json_file:
-        json.dump(Gpu_Events_Type_1, json_file, indent=4)
+    npkit_events_intermediate_file = "./example_allreduce/results/npkit_events_intermediate_output.json"
+    with open(npkit_events_intermediate_file, "w") as json_file:
+        json.dump(ncclkernel_events, json_file, indent=4)
         json_file.write('\n\n')
-        json.dump(Gpu_Events_Type_2, json_file, indent=4)
+        json.dump(prim_events, json_file, indent=4)
         json_file.write('\n\n')
-        json.dump(Gpu_Events_Op, json_file, indent=4)
-        json_file.write('\n\n')
-        json.dump(Gpu_Events_Prim, json_file, indent=4)
-        json_file.write('\n\n')
-        json.dump(Cpu_Events_Net, json_file, indent=4)
-        json_file.write('\n\n')
-        json.dump(Cpu_Events_Npkit_Init, json_file, indent=4)
     print("Npkit_Events has been exported to npkit_events_intermediate_output.json")
+
+    npkit_paired_events = pair_npkit_events(ncclkernel_events, prim_events)
+
+    npkit_paired_events_file = "./example_allreduce/results/npkit_paired_events_output.json"
+    with open(npkit_paired_events_file, "w") as json_file:
+        json.dump(npkit_paired_events, json_file, indent=4)
+        json_file.write('\n\n')
+    print("Npkit_Events has been exported to npkit_paired_events_output.json")
 
     # goal_filename = './example_2.goal'
     # with open(goal_filename, 'w') as file:

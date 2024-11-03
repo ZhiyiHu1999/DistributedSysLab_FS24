@@ -118,10 +118,10 @@ int main(int argc, char* argv[])
   // sleep(2);
   // NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
 
-//   for (int i = 0; i < 10; i++) {
-//     sleep(2);
-//     NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
-// }
+  for (int i = 0; i < 10; i++) {
+    sleep(2);
+    NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
+}
 
   //completing NCCL operation by synchronizing on the CUDA stream
   CUDACHECK(cudaStreamSynchronize(s));

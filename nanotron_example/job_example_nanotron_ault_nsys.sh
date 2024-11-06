@@ -1,14 +1,14 @@
 #!/bin/bash -l
 #
-#SBATCH --job-name="deepspeed_example"
+#SBATCH --job-name="nanotron_example"
 #SBATCH --time=24:00:00
 #SBATCH --partition=amdrtx
 #SBATCH --nodelist=ault[43-44]
 #SBATCH --ntasks-per-node=2
 #SBATCH --gpus-per-task=1
 #SBATCH --mem=200G
-#SBATCH --output=deepspeed_example.%j.o
-#SBATCH --error=deepspeed_example.%j.e
+#SBATCH --output=nanotron_example.%j.o
+#SBATCH --error=nanotron_example.%j.e
 #SBATCH --account=g34
 
 conda activate nanotron_env
@@ -26,15 +26,15 @@ export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRan
 rm -rf "./results"
 mkdir -p "./results"
 
-# export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports"
+# export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nanotron_example/results/nsys_reports"
 # # export NSYS_REPORT_DIR="./results/nsys_reports"
 # rm -rf $NSYS_REPORT_DIR
 # mkdir -p $NSYS_REPORT_DIR
 
 cd /users/zhu/nanotron
 export CUDA_DEVICE_MAX_CONNECTIONS=1
-# export MASTER_ADDR=148.187.105.53
-# export MASTER_PORT=29400
+export MASTER_ADDR=148.187.105.53
+export MASTER_PORT=29400
 export WORLD_SIZE=4
 srun torchrun --nproc_per_node=2 --rdzv_endpoint=localhost:29400 run_train.py --config-file /users/zhu/DistributedSysLab_FS24/nanotron_example/config_tiny_llama.yaml
 

@@ -39,10 +39,14 @@ def pair_npkit_events(ncclkernel_events, prim_events):
     for rank in ncclkernel_events.keys():
         npkit_paired_events[rank] = {}
         for tid in ncclkernel_events[rank].keys():
-            npkit_paired_events[rank][tid] = []
+            channel_id = tid // 2
+            if channel_id not in npkit_paired_events[rank]:
+                npkit_paired_events[rank][channel_id] = {}
+            npkit_paired_events[rank][channel_id][tid] = []
 
     for rank in ncclkernel_events.keys():
         for tid in ncclkernel_events[rank].keys():
+            channel_id = tid // 2
             for i in range(len(ncclkernel_events[rank][tid]["entry_events"])):
                 npkit_paired_event = {}
                 npkit_paired_event["prim_events"] = []
@@ -61,12 +65,13 @@ def pair_npkit_events(ncclkernel_events, prim_events):
                     npkit_prim_event["ts_start"] = prim_events[rank][tid]["entry_events"][j]["ts"]
                     npkit_prim_event["ts_end"] = prim_events[rank][tid]["exit_events"][j]["ts"]
                     npkit_prim_event["data_process_duration"] = prim_events[rank][tid]["exit_events"][j]["DataProcessTotalTime"]
+                    npkit_prim_event["ts_calc"] = npkit_prim_event["ts_end"] - npkit_prim_event["data_process_duration"]  ## A virtual GPU start processing timestamp 
                     npkit_prim_event["seq"] = len(npkit_paired_event["prim_events"])
 
                     if npkit_prim_event["ts_start"] >= npkit_paired_event["ts_start"] and npkit_prim_event["ts_end"] <= npkit_paired_event["ts_end"]:
                         npkit_paired_event["prim_events"].append(npkit_prim_event)
 
-                npkit_paired_events[rank][tid].append(npkit_paired_event)
+                npkit_paired_events[rank][channel_id][tid].append(npkit_paired_event)
 
     return npkit_paired_events 
 

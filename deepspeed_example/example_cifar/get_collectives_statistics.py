@@ -21,8 +21,16 @@ with open('./results/nsys_events_initial_output.json', 'r') as file:
             elif "Recv" in line:
                 operation_counter["Recv"] += 1
 
+# with open('./results/collectives_statistics.txt', 'w') as output_file:
+#     for operation, count in operation_counter.items():
+#         output_file.write(f"{operation}: {count}\n")
+#         print(f"{operation}: {count}")
+
+total_operations = sum(operation_counter.values())
+
 with open('./results/collectives_statistics.txt', 'w') as output_file:
     for operation, count in operation_counter.items():
-        output_file.write(f"{operation}: {count}\n")
-        print(f"{operation}: {count}")
+        proportion = count / total_operations * 100
+        output_file.write(f"{operation}: {count} ({proportion:.2f}%)\n")
+        print(f"{operation}: {count} ({proportion:.2f}%)")
     

@@ -135,6 +135,7 @@ def get_npkit_events(npkit_trace):
             'event_name': event_name,
             'DataProcessTotalTime': math.ceil(event['args'].get('DataProcessTotalTime') / 1000),  ## ns to us
             'ts': int(event['ts'] // 1),  ## us to us
+            'data_size': event['args'].get('size_0')
             }
 
         if event_name.startswith('NPKIT_EVENT_NCCLKERNEL'):
@@ -170,6 +171,7 @@ def pair_npkit_events(ncclkernel_events, prim_events):
                 npkit_paired_event["event_name"] = ncclkernel_events[rank][tid]["entry_events"][i]["event_name"].replace("_ENTRY", "")
                 npkit_paired_event["ts_start"] = ncclkernel_events[rank][tid]["entry_events"][i]["ts"]
                 npkit_paired_event["ts_end"] = ncclkernel_events[rank][tid]["exit_events"][i]["ts"]
+                npkit_paired_event["data_size"] = ncclkernel_events[rank][tid]["exit_events"][i]["data_size"]
 
                 for j in range(len(prim_events[rank][tid]["entry_events"])):
                     npkit_prim_event = {}
@@ -184,6 +186,7 @@ def pair_npkit_events(ncclkernel_events, prim_events):
                     npkit_prim_event["data_process_duration"] = prim_events[rank][tid]["exit_events"][j]["DataProcessTotalTime"]
                     npkit_prim_event["ts_calc"] = npkit_prim_event["ts_end"] - npkit_prim_event["data_process_duration"]  ## A virtual GPU start processing timestamp 
                     npkit_prim_event["seq"] = len(npkit_paired_event["prim_events"])
+                    npkit_prim_event["data_size"] = prim_events[rank][tid]["exit_events"][j]["data_size"]
 
                     if npkit_prim_event["ts_start"] >= npkit_paired_event["ts_start"] and npkit_prim_event["ts_end"] <= npkit_paired_event["ts_end"]:
                         npkit_paired_event["prim_events"].append(npkit_prim_event)

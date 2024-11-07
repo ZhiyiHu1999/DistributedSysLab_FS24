@@ -43,22 +43,16 @@ rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
 
 export NPKIT_RUN_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/example_allreduce/results/npkit_run"
-# # Tag of this NPKit run.
-# npkit_run_tag="job_example_allreduce"
 # Path to NPKit dump directory.
 npkit_dump_dir="${NPKIT_RUN_DIR}/npkit_dump"
 # Path to NPKit post-process directory.
 npkit_trace_dir="${NPKIT_RUN_DIR}/npkit_trace"
-# Path to NPKit result directory.
-npkit_result_dir="${NPKIT_RUN_DIR}/npkit_result"
 export NPKIT_DUMP_DIR="${NPKIT_RUN_DIR}/npkit_dump/" # Path to generate dump files
 
 rm -rf $npkit_dump_dir
 rm -rf $npkit_trace_dir
-rm -rf $npkit_result_dir
 mkdir -p $npkit_dump_dir
 mkdir -p $npkit_trace_dir
-mkdir -p $npkit_result_dir
 
 # time srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_allreduce_nsys_report_%h_%p ./example_allreduce
 srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_allreduce_nsys_report_%h_%p ./example_allreduce

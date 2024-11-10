@@ -834,6 +834,9 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
             for file_rank, nccl_kernel_events in traced_events.items():
                 if FileRank_To_GoalRank[file_rank] == goal_rank:
                     merged_events[goal_rank][nccl_kernel_event_id]["event_name"] =  nccl_kernel_events[nccl_kernel_event_id]["event_name"]
+                    merged_events[goal_rank][nccl_kernel_event_id]["event_type"] =  nccl_kernel_events[nccl_kernel_event_id]["event_type"]
+                    merged_events[goal_rank][nccl_kernel_event_id]["event_algo"] =  nccl_kernel_events[nccl_kernel_event_id]["event_algo"]
+                    merged_events[goal_rank][nccl_kernel_event_id]["event_protocol"] =  nccl_kernel_events[nccl_kernel_event_id]["event_protocol"]
                     
                     if merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"]:
                         merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"] = min(merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"], nccl_kernel_events[nccl_kernel_event_id]["timestamp_start"])

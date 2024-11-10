@@ -53,16 +53,26 @@ def main():
         json.dump(Nsys_Events, json_file, indent=4)
     print("Nsys_Events has been exported to nsys_events_intermediate_output.json")
 
-    Merged_Nsys_Events = merge_nsys_events(Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank)
-    with open("./results/nsys_events_merged_output.json", "w") as json_file:
-        json.dump(Merged_Nsys_Events, json_file, indent=4)
-    print("Merged_Nsys_Events has been exported to nsys_events_merged_output.json")
+    Transformed_Nsys_Events = transform_nsys_events(Npkit_Paired_Events, Nsys_Events)
+    with open("./results/transformed_nsys_events_output.json", "w") as json_file:
+        json.dump(Transformed_Nsys_Events, json_file, indent=4)
+    print("Transformed_Nsys_Events has been exported to transformed_nsys_events_output.json")
 
-    Mapped_Npkit_Events = map_npkit_to_nsys(Npkit_Paired_Events, Nsys_Events, FileRank_2_GoalRank)
+    Mapped_Npkit_Events = map_npkit_to_nsys(Npkit_Paired_Events, Transformed_Nsys_Events, FileRank_2_GoalRank)
     with open("./results/npkit_mapped_events_output.json", "w") as json_file:
         json.dump(Mapped_Npkit_Events, json_file, indent=4)
         json_file.write('\n\n')
     print("Mapped_Npkit_Events has been exported to npkit_mapped_events_output.json")
+
+    Combined_Events = combine_npkit_nsys_events(Mapped_Npkit_Events, Transformed_Nsys_Events)
+    with open("./results/combined_events_output.json", "w") as json_file:
+        json.dump(Combined_Events, json_file, indent=4)
+    print("Combined_Events has been exported to combined_events_output.json")
+
+    Merged_Nsys_Events = merge_nsys_events(Combined_Events, FileRank_2_GoalRank, HostName_2_GoalRank)
+    with open("./results/merged_events_output.json", "w") as json_file:
+        json.dump(Merged_Nsys_Events, json_file, indent=4)
+    print("Merged_Nsys_Events has been exported to merged_events_output.json")
 
     Goal_File_Path = './results/example_2.goal'
     if args.use_slots:

@@ -515,6 +515,7 @@ def get_sqlite_events(dir_path):
             cupti_event_name = cupti_event["event_name"]
             cupti_event_timestamp_start = cupti_event["timestamp_start"]
             cupti_event_timestamp_end = cupti_event["timestamp_end"]
+            all_events_timestamp_end = cupti_event["timestamp_end"]
             if cupti_event_seq + 1 < len(cupti_kernel_data):
                 next_cupti_event_timestamp_start = cupti_kernel_data[cupti_event_seq + 1]["timestamp_start"]
             else:
@@ -538,7 +539,7 @@ def get_sqlite_events(dir_path):
                             paired_nvtx_events_data[channel]["NVTX_EVENT_NET_SEND_TEST"].append(nvtx_events_channel_data["NVTX_EVENT_NET_SEND_TEST"][seq])
                             seq_paired += 1
                             # cupti_event_timestamp_start = min(nvtx_events_channel_data["NVTX_EVENT_NET_ISEND"][seq]["ts_start"], cupti_event_timestamp_start)
-                            cupti_event_timestamp_end = max(nvtx_events_channel_data["NVTX_EVENT_NET_SEND_TEST"][seq]["ts_end"], cupti_event_timestamp_end)
+                            all_events_timestamp_end = max(nvtx_events_channel_data["NVTX_EVENT_NET_SEND_TEST"][seq]["ts_end"], all_events_timestamp_end)
 
                 seq_paired = 0
                 if len(nvtx_events_channel_data["NVTX_EVENT_NET_IRECV"]) > 0:
@@ -548,13 +549,14 @@ def get_sqlite_events(dir_path):
                             paired_nvtx_events_data[channel]["NVTX_EVENT_NET_RECV_TEST"].append(nvtx_events_channel_data["NVTX_EVENT_NET_RECV_TEST"][seq])
                             seq_paired += 1
                             # cupti_event_timestamp_start = min(nvtx_events_channel_data["NVTX_EVENT_NET_IRECV"][seq]["ts_start"], cupti_event_timestamp_start)
-                            cupti_event_timestamp_end = max(nvtx_events_channel_data["NVTX_EVENT_NET_RECV_TEST"][seq]["ts_end"], cupti_event_timestamp_end)
+                            all_events_timestamp_end = max(nvtx_events_channel_data["NVTX_EVENT_NET_RECV_TEST"][seq]["ts_end"], all_events_timestamp_end)
 
             if file_rank != -1:  ## No net events happens if file_rank == -1
                 traced_events[file_rank].append({
                     "event_name": cupti_event_name,
                     "timestamp_start": cupti_event_timestamp_start,
                     "timestamp_end": cupti_event_timestamp_end,
+                    "timestamp_all_end": all_events_timestamp_end,
                     "net_events": paired_nvtx_events_data
                 })
 
@@ -564,6 +566,252 @@ def get_sqlite_events(dir_path):
 
     return traced_events, FileRank_To_GoalRank, HostName_To_GoalRank, GoalRank_To_NumOfRanks
 
+def transform_nsys_events(npkit_paired_events, nsys_events):
+    transformed_nsys_events = {}
+    for rank, rank_nsys_events in nsys_events.items():
+        transformed_nsys_events[rank] = []
+        for nsys_event_id, rank_nsys_event in enumerate(rank_nsys_events):
+            transformed_nsys_events[rank].append({})
+            transformed_nsys_events[rank][nsys_event_id]["event_name"] = rank_nsys_event["event_name"]
+
+            fields = transformed_nsys_events[rank][nsys_event_id]["event_name"].split("_")
+            transformed_nsys_events[rank][nsys_event_id]["event_type"] = fields[1]
+            for field in fields:
+                if field.lower() == "ring":
+                    transformed_nsys_events[rank][nsys_event_id]["event_algo"] = "Ring"
+                    break
+                elif field.lower() == "tree":
+                    transformed_nsys_events[rank][nsys_event_id]["event_algo"] = "Tree"
+                    break
+
+            transformed_nsys_events[rank][nsys_event_id]["event_protocol"] = npkit_paired_events[int(rank)][0][0][nsys_event_id]["protocol"]  ## bid and tid is not string
+
+            transformed_nsys_events[rank][nsys_event_id]["timestamp_start"] = rank_nsys_event["timestamp_start"]
+            transformed_nsys_events[rank][nsys_event_id]["timestamp_end"] = rank_nsys_event["timestamp_end"]
+            transformed_nsys_events[rank][nsys_event_id]["timestamp_all_end"] = rank_nsys_event["timestamp_all_end"]
+
+            transformed_net_events = {}
+
+            for channel_id, channel_net_events in rank_nsys_event["net_events"].items():
+                transformed_net_events[channel_id] = {
+                    "NVTX_EVENT_NET_ISEND": {},
+                    "NVTX_EVENT_NET_IRECV": {},
+                    "NVTX_EVENT_NET_SEND_TEST": {},
+                    "NVTX_EVENT_NET_RECV_TEST": {}
+                    }
+                
+                if len(channel_net_events["NVTX_EVENT_NET_ISEND"]) > 0:
+                    for net_event in channel_net_events["NVTX_EVENT_NET_ISEND"]:
+                        receiver_rank = net_event["receiver_rank"]
+                        if receiver_rank not in transformed_net_events[channel_id]["NVTX_EVENT_NET_ISEND"]:
+                            transformed_net_events[channel_id]["NVTX_EVENT_NET_ISEND"][receiver_rank] = []
+                        transformed_net_events[channel_id]["NVTX_EVENT_NET_ISEND"][receiver_rank].append(net_event)
+
+                if len(channel_net_events["NVTX_EVENT_NET_SEND_TEST"]) > 0:
+                    for net_event in channel_net_events["NVTX_EVENT_NET_SEND_TEST"]:
+                        receiver_rank = net_event["receiver_rank"]
+                        if receiver_rank not in transformed_net_events[channel_id]["NVTX_EVENT_NET_SEND_TEST"]:
+                            transformed_net_events[channel_id]["NVTX_EVENT_NET_SEND_TEST"][receiver_rank] = []
+                        transformed_net_events[channel_id]["NVTX_EVENT_NET_SEND_TEST"][receiver_rank].append(net_event)
+
+                if len(channel_net_events["NVTX_EVENT_NET_IRECV"]) > 0:
+                    for net_event in channel_net_events["NVTX_EVENT_NET_IRECV"]:
+                        sender_rank = net_event["sender_rank"]
+                        if sender_rank not in transformed_net_events[channel_id]["NVTX_EVENT_NET_IRECV"]:
+                            transformed_net_events[channel_id]["NVTX_EVENT_NET_IRECV"][sender_rank] = []
+                        transformed_net_events[channel_id]["NVTX_EVENT_NET_IRECV"][sender_rank].append(net_event)
+
+                if len(channel_net_events["NVTX_EVENT_NET_RECV_TEST"]) > 0:
+                    for net_event in channel_net_events["NVTX_EVENT_NET_RECV_TEST"]:
+                        sender_rank = net_event["sender_rank"]
+                        if sender_rank not in transformed_net_events[channel_id]["NVTX_EVENT_NET_RECV_TEST"]:
+                            transformed_net_events[channel_id]["NVTX_EVENT_NET_RECV_TEST"][sender_rank] = []
+                        transformed_net_events[channel_id]["NVTX_EVENT_NET_RECV_TEST"][sender_rank].append(net_event)
+
+            transformed_nsys_events[rank][nsys_event_id]["net_events"] = transformed_net_events
+
+    return transformed_nsys_events
+
+
+def map_npkit_to_nsys(npkit_paired_events, transformed_nsys_events, FileRank_to_GoalRank):
+    next_npkit_event_id = {}
+    for rank, rank_npkit_events in npkit_paired_events.items():
+        next_npkit_event_id[rank] = {}
+        for channel, channel_npkit_events in rank_npkit_events.items():
+            next_npkit_event_id[rank][channel] = {}
+            for tid in channel_npkit_events.keys():
+                next_npkit_event_id[rank][channel][tid] = 0
+
+    print(next_npkit_event_id)
+
+    for rank, channel_gpu_prim_events in npkit_paired_events.items():
+        if str(rank) in FileRank_to_GoalRank:
+            nsys_rank_events = transformed_nsys_events[str(rank)]
+            for i in range(len(nsys_rank_events)):
+                nsys_nccl_kernel_ts_start = nsys_rank_events[i]["timestamp_start"]
+                nsys_nccl_kernel_ts_end = nsys_rank_events[i]["timestamp_end"]
+
+                if nsys_rank_events[i]["event_algo"] == "Tree":
+                    for channel, tid_gpu_prim_events in channel_gpu_prim_events.items():
+                        if (channel * 2 + 1) in tid_gpu_prim_events:
+                            npkit_gpu_event_id = next_npkit_event_id[rank][channel][(channel * 2 + 1)]
+                            gpu_prim_event = tid_gpu_prim_events[(channel * 2 + 1)][npkit_gpu_event_id]
+                        else:
+                            npkit_gpu_event_id = next_npkit_event_id[rank][channel][(channel * 2)]
+                            gpu_prim_event = tid_gpu_prim_events[(channel * 2)][npkit_gpu_event_id]
+
+                        gpu_prim_event_ts_start = gpu_prim_event["ts_start"]
+                        gpu_prim_event_ts_end = gpu_prim_event["ts_end"]
+
+                        for tid, gpu_prim_events in tid_gpu_prim_events.items():
+                            npkit_gpu_event_id = next_npkit_event_id[rank][channel][tid]
+                            gpu_prim_event = gpu_prim_events[npkit_gpu_event_id]
+                            gpu_prim_event["ts_start"] = nsys_nccl_kernel_ts_start
+                            gpu_prim_event["ts_end"] = nsys_nccl_kernel_ts_end
+
+                            for j in range(len(gpu_prim_event["prim_events"])):
+                                gpu_prim_event["prim_events"][j]["ts_start"] = map_p_to_t(gpu_prim_event["prim_events"][j]["ts_start"], gpu_prim_event_ts_start, gpu_prim_event_ts_end, nsys_nccl_kernel_ts_start, nsys_nccl_kernel_ts_end)
+                                gpu_prim_event["prim_events"][j]["ts_end"] = map_p_to_t(gpu_prim_event["prim_events"][j]["ts_end"], gpu_prim_event_ts_start, gpu_prim_event_ts_end, nsys_nccl_kernel_ts_start, nsys_nccl_kernel_ts_end)
+                                gpu_prim_event["prim_events"][j]["ts_calc"] = map_p_to_t(gpu_prim_event["prim_events"][j]["ts_calc"], gpu_prim_event_ts_start, gpu_prim_event_ts_end, nsys_nccl_kernel_ts_start, nsys_nccl_kernel_ts_end)
+
+                        next_npkit_event_id[rank][channel][(channel * 2)] += 1
+                        if (channel * 2 + 1) in tid_gpu_prim_events:
+                            next_npkit_event_id[rank][channel][(channel * 2 + 1)] += 1
+
+                else:
+                    for channel, tid_gpu_prim_events in channel_gpu_prim_events.items():
+                        npkit_gpu_event_id = next_npkit_event_id[rank][channel][(channel * 2)]
+                        gpu_prim_event = tid_gpu_prim_events[(channel * 2)][npkit_gpu_event_id]
+
+                        gpu_prim_event_ts_start = gpu_prim_event["ts_start"]
+                        gpu_prim_event_ts_end = gpu_prim_event["ts_end"]
+
+                        for tid, gpu_prim_events in tid_gpu_prim_events.items():
+                            npkit_gpu_event_id = next_npkit_event_id[rank][channel][tid]
+                            gpu_prim_event = gpu_prim_events[npkit_gpu_event_id]
+                            gpu_prim_event["ts_start"] = nsys_nccl_kernel_ts_start
+                            gpu_prim_event["ts_end"] = nsys_nccl_kernel_ts_end
+
+                            for j in range(len(gpu_prim_event["prim_events"])):
+                                gpu_prim_event["prim_events"][j]["ts_start"] = map_p_to_t(gpu_prim_event["prim_events"][j]["ts_start"], gpu_prim_event_ts_start, gpu_prim_event_ts_end, nsys_nccl_kernel_ts_start, nsys_nccl_kernel_ts_end)
+                                gpu_prim_event["prim_events"][j]["ts_end"] = map_p_to_t(gpu_prim_event["prim_events"][j]["ts_end"], gpu_prim_event_ts_start, gpu_prim_event_ts_end, nsys_nccl_kernel_ts_start, nsys_nccl_kernel_ts_end)
+                                gpu_prim_event["prim_events"][j]["ts_calc"] = map_p_to_t(gpu_prim_event["prim_events"][j]["ts_calc"], gpu_prim_event_ts_start, gpu_prim_event_ts_end, nsys_nccl_kernel_ts_start, nsys_nccl_kernel_ts_end)
+
+                        next_npkit_event_id[rank][channel][(channel * 2)] += 1
+
+    mapped_npkit_events = {}
+    for rank, channel_gpu_prim_events in npkit_paired_events.items():
+        file_rank = str(rank)
+        if file_rank in FileRank_to_GoalRank:
+            mapped_npkit_events[file_rank] = channel_gpu_prim_events
+
+    print(next_npkit_event_id)
+
+    return mapped_npkit_events
+
+def map_p_to_t(p0, p1, p2, t1, t2):
+    return (t1 - t2) * p0 // (p1 - p2) + (t2* p1 - t1 * p2) // (p1 - p2)
+
+def combine_npkit_nsys_events(mapped_npkit_events, transformed_nsys_events):
+    next_npkit_event_id = {}
+    for rank, rank_npkit_events in mapped_npkit_events.items():
+        next_npkit_event_id[rank] = {}
+        for channel, channel_npkit_events in rank_npkit_events.items():
+            next_npkit_event_id[rank][channel] = {}
+            for tid in channel_npkit_events.keys():
+                next_npkit_event_id[rank][channel][tid] = 0
+
+    print(next_npkit_event_id)
+
+    combined_events = {}
+    for rank, rank_nsys_events in transformed_nsys_events.items():
+        combined_events[rank] = []
+        for nsys_event_id, rank_nsys_event in enumerate(rank_nsys_events):
+            combined_events[rank].append({})
+            combined_events[rank][nsys_event_id]["event_name"] = rank_nsys_event["event_name"]
+            combined_events[rank][nsys_event_id]["event_type"] = rank_nsys_event["event_type"]
+            combined_events[rank][nsys_event_id]["event_algo"] = rank_nsys_event["event_algo"]
+            combined_events[rank][nsys_event_id]["event_protocol"] = rank_nsys_event["event_protocol"]
+            combined_events[rank][nsys_event_id]["timestamp_start"] = rank_nsys_event["timestamp_start"]
+            combined_events[rank][nsys_event_id]["timestamp_end"] = rank_nsys_event["timestamp_end"]
+            combined_events[rank][nsys_event_id]["timestamp_all_end"] = rank_nsys_event["timestamp_all_end"]
+
+            combined_events[rank][nsys_event_id]["net_events"] = rank_nsys_event["net_events"]
+
+            if combined_events[rank][nsys_event_id]["event_algo"] == "Simple":
+                for channel_id, channel_next_npkit_event_id in next_npkit_event_id[rank].items():
+                    channel = int(channel_id)
+                    channel_next_npkit_event_id[channel * 2] += 1
+                    if combined_events[rank][nsys_event_id]["event_algo"] == "Tree" and (channel * 2 + 1) in channel_next_npkit_event_id:
+                        channel_next_npkit_event_id[channel * 2 + 1] += 1
+
+            elif combined_events[rank][nsys_event_id]["event_algo"] == "LL" or "LL128":
+                for channel_id, channel_net_events in rank_nsys_event["net_events"].items():
+                    channel = int(channel_id)
+
+                    if combined_events[rank][nsys_event_id]["event_algo"] == "Tree":
+                        if len(combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"]) == 1: ## The rank is a middle rank and only has one sender and one receiver
+                            if (channel * 2 + 1) in next_npkit_event_id[rank][channel]:
+                                npkit_id_up = next_npkit_event_id[rank][channel][channel * 2]
+                                npkit_id_down = next_npkit_event_id[rank][channel][channel * 2 + 1]
+                                ts_calc_up = mapped_npkit_events[rank][channel][channel * 2][npkit_id_up]["prim_events"][0]["ts_calc"]
+                                ts_calc_down = mapped_npkit_events[rank][channel][channel * 2 + 1][npkit_id_down]["prim_events"][0]["ts_calc"]
+
+                                for recv_rank in rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"].keys():
+                                    ts_isend_start = rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][recv_rank][0]["ts_start"]
+
+                                if ts_isend_start < ts_calc_down:  ## Net Recv corresponds to ts_calc_down
+                                    for send_rank in rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].keys():
+                                        for i in range(len(combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank])):
+                                            combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] = mapped_npkit_events[rank][channel][channel * 2 + 1][npkit_id_down]["prim_events"][i]["ts_calc"]
+                                            # if combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] < combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][send_rank][i]["ts_start"]:
+                                            #     print(f"rank: {rank}, peer_rank: {send_rank}, sqeuence_num: {i}")
+
+                                else:  ## Net Recv corresponds to ts_calc_up
+                                    for send_rank in rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].keys():
+                                        for i in range(len(combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank])):
+                                            combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] = mapped_npkit_events[rank][channel][channel * 2][npkit_id_up]["prim_events"][i]["ts_calc"]
+                                            # if combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] > combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][send_rank][i]["ts_start"]:
+                                            #     print(f"rank: {rank}, sqeuence_num: {i}")
+
+                            else:  ## Top-most rank and has net events
+                                npkit_id_up = next_npkit_event_id[rank][channel][channel * 2]
+                                ts_calc_up = mapped_npkit_events[rank][channel][channel * 2][npkit_id_up]["prim_events"][0]["ts_calc"]
+                                for send_rank in rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].keys():
+                                    for i in range(len(combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank])):
+                                        combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] = mapped_npkit_events[rank][channel][channel * 2][npkit_id_up]["prim_events"][i]["ts_calc"]
+                                        # if combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] > combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][send_rank][i]["ts_start"]:
+                                        #     print(f"rank: {rank}, peer_rank: {send_rank}, sqeuence_num: {i}")
+
+                        else:
+                            npkit_id_up = next_npkit_event_id[rank][channel][channel * 2]
+                            npkit_id_down = next_npkit_event_id[rank][channel][channel * 2 + 1]
+                            ts_calc_up = mapped_npkit_events[rank][channel][channel * 2][npkit_id_up]["prim_events"][0]["ts_calc"]
+                            ts_calc_down = mapped_npkit_events[rank][channel][channel * 2 + 1][npkit_id_down]["prim_events"][0]["ts_calc"]
+
+                            for recv_rank in rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"].keys():
+                                ts_isend_start = rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][recv_rank][0]["ts_start"]
+
+                                if ts_isend_start < ts_calc_down:  ## recv_rank is parent
+                                    for send_rank in rank_nsys_event["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].keys():
+                                        if send_rank != recv_rank:  ## send_rank is child
+                                            for i in range(len(combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank])):
+                                                combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] = mapped_npkit_events[rank][channel][channel * 2][npkit_id_up]["prim_events"][i]["ts_calc"]
+                                                # if combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] > combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][send_rank][i]["ts_start"]:
+                                                #     print(f"rank: {rank}, peer_rank: {send_rank}, sqeuence_num: {i}")
+
+                                        else:  ## send_rank is parent
+                                            for i in range(len(combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank])):
+                                                combined_events[rank][nsys_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][send_rank][i]["ts_calc"] = mapped_npkit_events[rank][channel][channel * 2 + 1][npkit_id_down]["prim_events"][i]["ts_calc"]
+
+
+                    next_npkit_event_id[rank][channel][channel * 2] += 1
+                    if combined_events[rank][nsys_event_id]["event_algo"] == "Tree" and (channel * 2 + 1) in next_npkit_event_id[rank][channel]:
+                        next_npkit_event_id[rank][channel][channel * 2 + 1] += 1
+                    
+            
+    # return transformed_nsys_events
+    return combined_events
 
 def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank):
     num_ranks = len(HostName_To_GoalRank)
@@ -581,6 +829,7 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
             merged_events[goal_rank][nccl_kernel_event_id]["net_events"] = {}
             merged_events[goal_rank][nccl_kernel_event_id]["timestamp_start"] = None
             merged_events[goal_rank][nccl_kernel_event_id]["timestamp_end"] = None
+            merged_events[goal_rank][nccl_kernel_event_id]["timestamp_all_end"] = None
 
             for file_rank, nccl_kernel_events in traced_events.items():
                 if FileRank_To_GoalRank[file_rank] == goal_rank:
@@ -596,8 +845,13 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
                     else:
                         merged_events[goal_rank][nccl_kernel_event_id]["timestamp_end"] = nccl_kernel_events[nccl_kernel_event_id]["timestamp_end"]
 
-                    nvtx_net_events = nccl_kernel_events[nccl_kernel_event_id]["net_events"]
-                    for channel_id, nvtx_net_channel_events in nvtx_net_events.items():
+                    if merged_events[goal_rank][nccl_kernel_event_id]["timestamp_all_end"]:
+                        merged_events[goal_rank][nccl_kernel_event_id]["timestamp_all_end"] = max(merged_events[goal_rank][nccl_kernel_event_id]["timestamp_all_end"], nccl_kernel_events[nccl_kernel_event_id]["timestamp_all_end"])
+                    else:
+                        merged_events[goal_rank][nccl_kernel_event_id]["timestamp_all_end"] = nccl_kernel_events[nccl_kernel_event_id]["timestamp_all_end"]
+
+                    net_events = nccl_kernel_events[nccl_kernel_event_id]["net_events"]
+                    for channel_id, nvtx_net_channel_events in net_events.items():
                         if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"].get(channel_id):
                             merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id] = {
                                 "NVTX_EVENT_NET_ISEND": {},
@@ -607,65 +861,44 @@ def merge_nsys_events(traced_events, FileRank_To_GoalRank, HostName_To_GoalRank)
                                 }
 
                         if len(nvtx_net_channel_events["NVTX_EVENT_NET_ISEND"]) > 0:
-                            for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_ISEND"]:
-                                net_event_goal = net_event
-                                net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
-                                net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"].get(net_event_goal["receiver_rank"]):
-                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][net_event_goal["receiver_rank"]] = []
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][net_event_goal["receiver_rank"]].append(net_event_goal)
+                            for recv_rank in nvtx_net_channel_events["NVTX_EVENT_NET_ISEND"].keys():
+                                for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_ISEND"][recv_rank]:
+                                    net_event_goal = net_event
+                                    net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                                    net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                                    if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"].get(net_event_goal["receiver_rank"]):
+                                        merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][net_event_goal["receiver_rank"]] = []
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_ISEND"][net_event_goal["receiver_rank"]].append(net_event_goal)
 
-                            for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_SEND_TEST"]:
-                                net_event_goal = net_event
-                                net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
-                                net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"].get(net_event_goal["receiver_rank"]):
-                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"][net_event_goal["receiver_rank"]] = []
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"][net_event_goal["receiver_rank"]].append(net_event_goal)
+                            for recv_rank in nvtx_net_channel_events["NVTX_EVENT_NET_SEND_TEST"].keys():
+                                for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_SEND_TEST"][recv_rank]:
+                                    net_event_goal = net_event
+                                    net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                                    net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                                    if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"].get(net_event_goal["receiver_rank"]):
+                                        merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"][net_event_goal["receiver_rank"]] = []
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_SEND_TEST"][net_event_goal["receiver_rank"]].append(net_event_goal)
 
                         if len(nvtx_net_channel_events["NVTX_EVENT_NET_IRECV"]) > 0:
-                            for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_IRECV"]:
-                                net_event_goal = net_event
-                                net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
-                                net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"].get(net_event_goal["sender_rank"]):
-                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"][net_event_goal["sender_rank"]] = []
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"][net_event_goal["sender_rank"]].append(net_event_goal)
+                            for send_rank in nvtx_net_channel_events["NVTX_EVENT_NET_IRECV"].keys():
+                                for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_IRECV"][send_rank]:
+                                    net_event_goal = net_event
+                                    net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                                    net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                                    if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"].get(net_event_goal["sender_rank"]):
+                                        merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"][net_event_goal["sender_rank"]] = []
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_IRECV"][net_event_goal["sender_rank"]].append(net_event_goal)
 
-                            for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_RECV_TEST"]:
-                                net_event_goal = net_event
-                                net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
-                                net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
-                                if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].get(net_event_goal["sender_rank"]):
-                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][net_event_goal["sender_rank"]] = []
-                                merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][net_event_goal["sender_rank"]].append(net_event_goal)
+                            for send_rank in nvtx_net_channel_events["NVTX_EVENT_NET_RECV_TEST"].keys():
+                                for net_event in nvtx_net_channel_events["NVTX_EVENT_NET_RECV_TEST"][send_rank]:
+                                    net_event_goal = net_event
+                                    net_event_goal["sender_rank"] = FileRank_To_GoalRank[net_event_goal["sender_rank"]]
+                                    net_event_goal["receiver_rank"] = FileRank_To_GoalRank[net_event_goal["receiver_rank"]]
+                                    if not merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"].get(net_event_goal["sender_rank"]):
+                                        merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][net_event_goal["sender_rank"]] = []
+                                    merged_events[goal_rank][nccl_kernel_event_id]["net_events"][channel_id]["NVTX_EVENT_NET_RECV_TEST"][net_event_goal["sender_rank"]].append(net_event_goal)
     
     return merged_events
-
-def map_npkit_to_nsys(npkit_paired_events, nsys_events, FileRank_to_GoalRank):
-    for rank, channel_gpu_prim_events in npkit_paired_events.items():
-        if str(rank) in FileRank_to_GoalRank:
-            nsys_rank_events = nsys_events[str(rank)]
-            for i in range(len(nsys_rank_events)):
-                nsys_nccl_kernel_ts_start = nsys_rank_events[i]["timestamp_start"]
-                for channel, tid_gpu_prim_events in channel_gpu_prim_events.items():
-                    for tid, gpu_prim_events in tid_gpu_prim_events.items():
-                        gpu_prim_event = gpu_prim_events[i]
-                        offset = nsys_nccl_kernel_ts_start - gpu_prim_event["ts_start"]
-                        gpu_prim_event["ts_start"] = nsys_nccl_kernel_ts_start
-                        gpu_prim_event["ts_end"] += offset
-
-                        for j in range(len(gpu_prim_event["prim_events"])):
-                            gpu_prim_event["prim_events"][j]["ts_start"] += offset
-                            gpu_prim_event["prim_events"][j]["ts_end"] += offset
-                            gpu_prim_event["prim_events"][j]["ts_calc"] += offset
-
-    mapped_npkit_events = {}
-    for rank, channel_gpu_prim_events in npkit_paired_events.items():
-        if str(rank) in FileRank_to_GoalRank:
-            mapped_npkit_events[str(rank)] = channel_gpu_prim_events
-
-    return mapped_npkit_events
 
 def main():
     #### Get npkit events
@@ -716,16 +949,26 @@ def main():
         json.dump(Nsys_Events, json_file, indent=4)
     print("Nsys_Events has been exported to nsys_events_intermediate_output.json")
 
-    Merged_Nsys_Events = merge_nsys_events(Nsys_Events, FileRank_2_GoalRank, HostName_2_GoalRank)
-    with open("./results/nsys_events_merged_output.json", "w") as json_file:
-        json.dump(Merged_Nsys_Events, json_file, indent=4)
-    print("Merged_Nsys_Events has been exported to nsys_events_merged_output.json")
+    Transformed_Nsys_Events = transform_nsys_events(Npkit_Paired_Events, Nsys_Events)
+    with open("./results/transformed_nsys_events_output.json", "w") as json_file:
+        json.dump(Transformed_Nsys_Events, json_file, indent=4)
+    print("Transformed_Nsys_Events has been exported to transformed_nsys_events_output.json")
 
-    Mapped_Npkit_Events = map_npkit_to_nsys(Npkit_Paired_Events, Nsys_Events, FileRank_2_GoalRank)
+    Mapped_Npkit_Events = map_npkit_to_nsys(Npkit_Paired_Events, Transformed_Nsys_Events, FileRank_2_GoalRank)
     with open("./results/npkit_mapped_events_output.json", "w") as json_file:
         json.dump(Mapped_Npkit_Events, json_file, indent=4)
         json_file.write('\n\n')
     print("Mapped_Npkit_Events has been exported to npkit_mapped_events_output.json")
+
+    Combined_Events = combine_npkit_nsys_events(Mapped_Npkit_Events, Transformed_Nsys_Events)
+    with open("./results/combined_events_output.json", "w") as json_file:
+        json.dump(Combined_Events, json_file, indent=4)
+    print("Combined_Events has been exported to combined_events_output.json")
+
+    Merged_Nsys_Events = merge_nsys_events(Combined_Events, FileRank_2_GoalRank, HostName_2_GoalRank)
+    with open("./results/merged_events_output.json", "w") as json_file:
+        json.dump(Merged_Nsys_Events, json_file, indent=4)
+    print("Merged_Nsys_Events has been exported to merged_events_output.json")
 
 if __name__ == '__main__':
     main()

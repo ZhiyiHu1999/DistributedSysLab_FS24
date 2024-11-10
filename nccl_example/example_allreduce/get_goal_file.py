@@ -30,7 +30,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                 task_counter += 1
                 file.write(f"l{task_counter}: calc 0\n")  ## end point of a gpu event
                 gpu_event_end_calc_id = task_counter  ## id of the calc 0 at the end of the last gpu event
-                last_gpu_event_ts_end = gpu_event["timestamp_end"]
+                last_gpu_event_ts_end = gpu_event["timestamp_all_end"]
                 last_gpu_event_end_calc_id = task_counter
 
                 if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclKernel_AllGather_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllGather_RING"):
@@ -114,7 +114,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             if (i + num_slots) >= net_event_pair_num:
                                 task_counter += 1
-                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -155,7 +155,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             if (i + num_slots) >= net_event_pair_num:
                                 task_counter += 1
-                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -248,7 +248,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -281,7 +281,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -359,7 +359,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                                 
@@ -396,7 +396,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -434,7 +434,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                     if (i + 8) >= net_event_pair_num:
                                         task_counter += 1
-                                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                         file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -484,7 +484,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                                 
@@ -527,7 +527,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -571,7 +571,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                     if (i + 8) >= net_event_pair_num:
                                         task_counter += 1
-                                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                         file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -630,7 +630,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -672,7 +672,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 if (i + 8) >= net_event_pair_num:
                                     task_counter += 1
-                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                    file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
@@ -710,7 +710,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                 task_counter += 1
                 file.write(f"l{task_counter}: calc 0\n")  ## end point of a gpu event
                 gpu_event_end_calc_id = task_counter  ## id of the calc 0 at the end of the last gpu event
-                last_gpu_event_ts_end = gpu_event["timestamp_end"]
+                last_gpu_event_ts_end = gpu_event["timestamp_all_end"]
                 last_gpu_event_end_calc_id = task_counter
 
                 if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_RING"):
@@ -750,13 +750,13 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                         net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previou_rank][net_event_pair_num - 1]
                         task_counter += 1
-                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                         recv_depends_on_events["task_id_end"] = task_counter
 
                         net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][next_rank][net_event_pair_num - 1]
                         task_counter += 1
-                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                         send_depends_on_events["task_id_end"] = task_counter
 
@@ -898,7 +898,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][parent_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             recv_depends_on_events["task_id_end"] = task_counter
 
@@ -910,7 +910,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][parent_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             send_depends_on_events["task_id_end"] = task_counter      
 
@@ -990,7 +990,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][parent_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             recv_from_parent_depends_on_events["task_id_end"] = task_counter
 
@@ -1003,7 +1003,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_1_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             recv_from_child_1_depends_on_events["task_id_end"] = task_counter
 
@@ -1017,21 +1017,21 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                                 net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_2_rank][net_event_pair_num - 1]
                                 task_counter += 1
-                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                                 recv_from_child_2_depends_on_events["task_id_end"] = task_counter
 
                             #
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][parent_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             send_depends_on_events_parent["task_id_end"] = task_counter
 
                             #
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_1_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             send_depends_on_events_child_1["task_id_end"] = task_counter
 
@@ -1039,7 +1039,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             if child_2_rank is not None:
                                 net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_2_rank][net_event_pair_num - 1]
                                 task_counter += 1
-                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                                file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                                 send_depends_on_events_child_2["task_id_end"] = task_counter
 
@@ -1257,14 +1257,14 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][child_1_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             recv_depends_on_events["task_id_end"] = task_counter
 
                             #
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][child_1_rank][net_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             send_depends_on_events["task_id_end"] = task_counter
 
@@ -1369,13 +1369,13 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                         net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previou_rank][net_event_pair_num - 1]
                         task_counter += 1
-                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                         recv_depends_on_events["task_id_end"] = task_counter
 
                         net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][next_rank][net_event_pair_num - 1]
                         task_counter += 1
-                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                        file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                         send_depends_on_events["task_id_end"] = task_counter
 
@@ -1507,7 +1507,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][next_rank][net_send_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             send_depends_on_events["task_id_end"] = task_counter
 
@@ -1549,7 +1549,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previous_rank][net_recv_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             recv_depends_on_events["task_id_end"] = task_counter
 
@@ -1592,7 +1592,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previous_rank][net_recv_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             recv_depends_on_events["task_id_end"] = task_counter
 
@@ -1604,7 +1604,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][next_rank][net_send_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             send_depends_on_events["task_id_end"] = task_counter
 
@@ -1676,13 +1676,13 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                             net_event = net_channel_events["NVTX_EVENT_NET_RECV_TEST"][previous_rank][net_recv_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             recv_depends_on_events["task_id_end"] = task_counter
 
                             net_event = net_channel_events["NVTX_EVENT_NET_SEND_TEST"][next_rank][net_send_event_pair_num - 1]
                             task_counter += 1
-                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_end"] - net_event["ts_end"]}\n')
+                            file.write(f'l{task_counter}: calc {gpu_event["timestamp_all_end"] - net_event["ts_end"]}\n')
                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
                             send_depends_on_events["task_id_end"] = task_counter
 

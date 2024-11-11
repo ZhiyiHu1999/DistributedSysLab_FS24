@@ -33,7 +33,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                 last_gpu_event_ts_end = gpu_event["timestamp_all_end"]
                 last_gpu_event_end_calc_id = task_counter
 
-                if gpu_event["event_name"].startswith("ncclKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_RING") or gpu_event["event_name"].startswith("ncclKernel_AllGather_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllGather_RING"):
+                if gpu_event["event_type"] == "AllReduce" and gpu_event["event_algo"] == "Ring":
                     num_slots = -1
                     offset = -1
 
@@ -159,7 +159,7 @@ def get_goal_file_slots(events, goal_file_name, GoalRank_To_NumOfRanks):
                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
 
-                elif gpu_event["event_name"].startswith("ncclKernel_AllReduce_TREE") or gpu_event["event_name"].startswith("ncclDevKernel_AllReduce_Sum_f32_TREE"):
+                elif gpu_event["event_type"] == "AllReduce" and gpu_event["event_algo"] == "Tree":
                     for channel_id, net_channel_events in gpu_event["net_events"].items():
                         for net_channel_rank_events in net_channel_events["NVTX_EVENT_NET_ISEND"].values():
                             net_event_pair_num = len(net_channel_rank_events)  ## to know the number of send/recv pairs, a pair may have multiple send/recv from different node
@@ -835,7 +835,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
 
                 elif gpu_event["event_type"] == "AllReduce" and gpu_event["event_algo"] == "Tree":
                     # num_slots = 8
-                    if gpu_event["event_protocol"] == "Simple":
+                    if gpu_event["event_protocol"] == "SIMPLE":
                         for channel_id, net_channel_events in gpu_event["net_events"].items():
                             for net_channel_rank_events in net_channel_events["NVTX_EVENT_NET_ISEND"].values():
                                 net_event_pair_num = len(net_channel_rank_events)  ## to know the number of send/recv pairs, a pair may have multiple send/recv from different node
@@ -1828,7 +1828,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                                     file.write(f"l{task_counter} requires l{task_counter - 2}\n")
                                     file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
 
-                elif gpu_event["event_name"].startswith("ncclKernel_AllGather_RING") or gpu_event["event_name"].startswith("ncclDevKernel_AllGather_RING"):
+                elif gpu_event["event_type"] == "AllGather" and gpu_event["event_algo"] == "Ring":
                     num_slots = -1
                     offset = -1
 
@@ -1948,7 +1948,7 @@ def get_goal_file(events, goal_file_name, GoalRank_To_NumOfRanks):
                             file.write(f"l{task_counter} requires l{task_counter - 2}\n")
                             file.write(f"l{send_depends_on_events['task_id_end']} requires l{task_counter}\n")
 
-                elif gpu_event["event_name"].startswith("ncclKernel_Broadcast_RING") or gpu_event["event_name"].startswith("ncclDevKernel_Broadcast_RING"):
+                elif gpu_event["event_type"] == "Broadcast" and gpu_event["event_algo"] == "Ring":
                     # num_slots = 8
                     for channel_id, net_channel_events in gpu_event["net_events"].items():
                         net_send_event_pair_num = -1

@@ -66,7 +66,11 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-python3 get_traced_events.py
+# python3 get_traced_events.py
+
+python3 goal_generator.py
+
+python3 goal2dot.py
 
 # python3 ../trace_generator_npkit.py --npkit_dump_dir=$npkit_dump_dir\
 #                                  --npkit_event_header_path="/users/zhu/nccl_nvtx_npkit/nccl/src/include/npkit/npkit_event.h"\

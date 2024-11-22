@@ -34,9 +34,9 @@ mkdir -p $NSYS_REPORT_DIR
 cd /users/zhu/nanotron
 
 export CUDA_DEVICE_MAX_CONNECTIONS=1 # Important for Nanotron
-export OMP_NUM_THREADS=16
+export OMP_NUM_THREADS=16  ## Unused
 
-# EDIT if it's not 8-gpus per node
+# EDIT if it's not 2-gpus per node
 GPUS_PER_NODE=2
 NNODES=$SLURM_NNODES
 

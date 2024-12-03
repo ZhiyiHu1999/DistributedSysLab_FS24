@@ -25,10 +25,14 @@ export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRan
 rm -rf "./results"
 mkdir -p "./results"
 
-export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/deepspeed_example/results/nsys_reports"
+export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/deepspeed_example/example_hellodeepspeed/results/nsys_reports"
 # export NSYS_REPORT_DIR="./results/nsys_reports"
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
+
+export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit/nccl/build/lib:$LD_LIBRARY_PATH
+export LD_PRELOAD=/users/zhu/nccl-tracer/src/libncclprof.so
+export NCCL_TRACE_PREFIX=/users/zhu/DistributedSysLab_FS24/deepspeed_example/example_hellodeepspeed/results/result
 
 # cd /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed
 # rm -rf "./experiments"
@@ -55,3 +59,6 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
+python3 parser_sqlite2goal.py
+
+python3 get_collectives_statistics.py

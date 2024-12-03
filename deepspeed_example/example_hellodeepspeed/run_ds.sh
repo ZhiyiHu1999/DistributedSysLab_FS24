@@ -13,5 +13,5 @@ echo "Node Rank: $NODE_RANK"
 deepspeed --hostfile='/users/zhu/DistributedSysLab_FS24/deepspeed_example/myhostfile' \
     --no_ssh --node_rank=$NODE_RANK \
     --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT \
-    train_bert_ds.py --checkpoint_dir '/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed'
+    train_bert_ds.py --num_iterations=1 --checkpoint_dir '/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed'
     

@@ -13,6 +13,6 @@ echo "Node Rank: $NODE_RANK"
 deepspeed --hostfile='/users/zhu/DistributedSysLab_FS24/deepspeed_example/myhostfile' \
     --no_ssh --node_rank=$NODE_RANK \
     --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT \
-    cifar10_deepspeed.py --epochs 2
+    cifar10_deepspeed.py --epochs 1
 
 # deepspeed --bind_cores_to_rank cifar10_deepspeed.py --deepspeed $@

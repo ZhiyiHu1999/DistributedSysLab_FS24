@@ -18,7 +18,7 @@ EXPERTS=2
 deepspeed --hostfile='/users/zhu/DistributedSysLab_FS24/deepspeed_example/myhostfile' \
     --no_ssh --node_rank=$NODE_RANK \
     --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT \
-    cifar10_deepspeed.py --epochs 2 \
+    cifar10_deepspeed.py --epochs 1 \
 						 --log-interval 100 \
 						 --deepspeed \
 						 --moe \

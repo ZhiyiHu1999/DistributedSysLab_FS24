@@ -9,7 +9,7 @@ def get_sqlite_events(dir_path):
     FileRank_To_GoalRank  = {}
     HostName_To_GoalRank = {}
     GoalRank_To_NumOfRanks = {}
-    pattern_HostName = r'HelloDeepSpeed_train_bert_nsys_report_([^.]+)\.'
+    pattern_HostName = r'cifar_train_bert_nsys_report_([^.]+)\.'
 
     for file_name in os.listdir(dir_path):  ## each file represents a rank
         nvtx_events_data = {}

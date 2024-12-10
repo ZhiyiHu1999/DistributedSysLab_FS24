@@ -1,9 +1,9 @@
 #!/bin/bash -l
 #
 #SBATCH --job-name="deepspeed_example"
-#SBATCH --time=24:00:00
+#SBATCH --time=02:00:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[43-44]
+#SBATCH --nodelist=ault[42,44]
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=1
 #SBATCH --mem=200G
@@ -30,25 +30,19 @@ export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/deepspeed_example/exam
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
 
-export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit/nccl/build/lib:$LD_LIBRARY_PATH
-export LD_PRELOAD=/users/zhu/nccl-tracer/src/libncclprof.so
-export NCCL_TRACE_PREFIX=/users/zhu/DistributedSysLab_FS24/deepspeed_example/example_hellodeepspeed/results/result
+# export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit/nccl/build/lib:$LD_LIBRARY_PATH
+# export LD_PRELOAD=/users/zhu/nccl-tracer/src/libncclprof.so
+# export LD_PRELOAD=/users/zhu/nccl_nvtx_npkit/nccl/build/lib/libnccl.so
+# export NCCL_TRACE_PREFIX=/users/zhu/DistributedSysLab_FS24/deepspeed_example/example_hellodeepspeed/results/result
 
-# cd /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed
-# rm -rf "./experiments"
-# mkdir -p "./experiments"
+export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
+export LD_PRELOAD=/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib/libnccl.so
+
 rm -rf "/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed"
 mkdir -p "/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed"
 # pip install -r requirements.txt
-# srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/HelloDeepSpeed_train_bert_nsys_report_%h_%p deepspeed train_bert.py --checkpoint_dir '/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiments'
-# srun deepspeed train_bert.py --deepspeed --num_gpus=2 --checkpoint_dir ./experiments
 
-srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda  --cuda-memory-usage=false --cuda-um-cpu-page-faults=false --cuda-um-gpu-page-faults=false -s none --output=${NSYS_REPORT_DIR}/HelloDeepSpeed_train_bert_nsys_report_%h_%p bash run_ds.sh
-
-# srun deepspeed --hostfile='/users/zhu/DistributedSysLab_FS24/deepspeed_example/myhostfile' \
-#     --no_ssh --node_rank=$NODE_RANK \
-#     --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT \
-#     train_bert_ds.py --checkpoint_dir '/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed'
+srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda  --cuda-memory-usage=false --cuda-um-cpu-page-faults=false --cuda-um-gpu-page-faults=false -s none --output=${NSYS_REPORT_DIR}/nsys_report_%h_%p bash run_ds.sh
 
 for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   if [ -f "$report_file" ]; then
@@ -59,6 +53,6 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-python3 parser_sqlite2goal.py
+# python3 parser_sqlite2goal.py
 
-python3 get_collectives_statistics.py
+# python3 get_collectives_statistics.py

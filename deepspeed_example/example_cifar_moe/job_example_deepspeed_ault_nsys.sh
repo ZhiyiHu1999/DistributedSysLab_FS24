@@ -22,6 +22,8 @@ export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
 export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
 
+# export NCCL_SOCKET_IFNAME=enp98s0f0
+
 rm -rf "./results"
 mkdir -p "./results"
 
@@ -29,6 +31,12 @@ export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/deepspeed_example/exam
 # export NSYS_REPORT_DIR="./results/nsys_reports"
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
+
+# export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit/nccl/build/lib:$LD_LIBRARY_PATH
+# export LD_PRELOAD=/users/zhu/nccl_nvtx_npkit/nccl/build/lib/libnccl.so
+
+export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
+export LD_PRELOAD=/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib/libnccl.so
 
 # cd /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed
 # rm -rf "./experiments"

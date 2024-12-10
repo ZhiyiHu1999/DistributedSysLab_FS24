@@ -3,7 +3,7 @@
 #SBATCH --job-name="deepspeed_example"
 #SBATCH --time=24:00:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[43-44]
+#SBATCH --nodelist=ault[42-43]
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=1
 #SBATCH --mem=200G
@@ -29,6 +29,9 @@ export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/deepspeed_example/exam
 # export NSYS_REPORT_DIR="./results/nsys_reports"
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
+
+export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
+export LD_PRELOAD=/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib/libnccl.so
 
 # cd /users/zhu/DeepSpeedExamples/training/HelloDeepSpeed
 # rm -rf "./experiments"

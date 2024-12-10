@@ -18,7 +18,7 @@ EXPERTS='2 4'
 deepspeed --hostfile='/users/zhu/DistributedSysLab_FS24/deepspeed_example/myhostfile' \
     --no_ssh --node_rank=$NODE_RANK \
     --master_addr=$MASTER_ADDR --master_port=$MASTER_PORT \
-    cifar10_deepspeed.py --epochs 2 \
+    cifar10_deepspeed.py --epochs 1 \
 						 --log-interval 100 \
 						 --deepspeed \
 						 --moe \
@@ -28,6 +28,8 @@ deepspeed --hostfile='/users/zhu/DistributedSysLab_FS24/deepspeed_example/myhost
 						 --mlp-type 'residual' \
 						 --noisy-gate-policy 'RSample' \
 						 --moe-param-group
+
+# echo "P2P_LL_THRESHOLD: $P2P_LL_THRESHOLD"
 
 # # Number of nodes
 # NUM_NODES=1

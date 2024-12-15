@@ -779,8 +779,42 @@ def check_events_pair(events):
 
     return events_pair
 
-def get_events_dependency(nccl_events, comm_init_events, comm_info, goal_file_name):
-    num_ranks = len(nccl_events)
+def get_events_parallel_group(nccl_events):
+    nccl_events_group = {}
+
+    for goal_rank, goal_events in nccl_events.items():
+        nccl_events_group[goal_rank] = {}
+        for gpuId, gpu_events in goal_events.items():
+            nccl_events_group[goal_rank][gpuId] = {}
+            for streamId, stream_events in gpu_events.items():
+                nccl_events_group[goal_rank][gpuId][streamId] = []
+                for event_index, event in enumerate(stream_events):
+                    if event_index == 0:
+                        events_group = {}    
+                        events_group["events"] = []
+                        events_group["events"].append(event)
+                        events_group["ts_group_host_start"] = event["ts_start"]
+                        events_group["ts_group_gpu_end"] = event["ts_gpu_end"]
+
+                    elif events_group["ts_group_gpu_end"] > event["ts_start"]:
+                        events_group["events"].append(event)
+                        events_group["ts_group_gpu_end"] = event["ts_gpu_end"]
+
+                    else: 
+                        nccl_events_group[goal_rank][gpuId][streamId].append(events_group)
+                        events_group = {}    
+                        events_group["events"] = []
+                        events_group["events"].append(event)
+                        events_group["ts_group_host_start"] = event["ts_start"]
+                        events_group["ts_group_gpu_end"] = event["ts_gpu_end"]
+
+                    if event_index == len(stream_events) - 1:
+                        nccl_events_group[goal_rank][gpuId][streamId].append(events_group)
+
+    return nccl_events_group
+
+def get_events_dependency(nccl_group_events, comm_init_events, goal_file_name):
+    num_ranks = len(nccl_group_events)
     task_counter = 0
     with open(goal_file_name, 'w') as file:
         file.write(f"num_ranks {num_ranks}\n")
@@ -789,37 +823,44 @@ def get_events_dependency(nccl_events, comm_init_events, comm_info, goal_file_na
             file.write(f"\nrank {goal_rank}")
             file.write(" {\n")
 
-            goal_events = nccl_events[goal_rank]
+            goal_events = nccl_group_events[goal_rank]
             task_counter += 1
-            file.write(f"l{task_counter}: calc 0\n") ## Starting point of the node
+            file.write(f"l{task_counter}: calc 0\n") ## Start point of the node
             node_start_calc_id = task_counter
             
             
             task_counter += 1
-            file.write(f"l{task_counter}: calc 0\n") ## Starting point of the node
+            file.write(f"l{task_counter}: calc 0\n") ## End point of the node
             node_end_calc_id = task_counter
 
             for gpuId, gpu_events in goal_events.items():
                 for streamId, stream_events in gpu_events.items():
-                    last_event_end_time =  comm_init_events[goal_rank][gpuId]["ts_init_end"]
-                    last_event_end_id = node_start_calc_id
-                    for event_index, event in enumerate(stream_events): 
+                    last_group_event_end_time =  comm_init_events[goal_rank][gpuId]["ts_init_end"]
+                    last_group_event_end_id = node_start_calc_id
+                    for group_event_index, group_event in enumerate(stream_events): 
                         task_counter += 1
-                        file.write(f"l{task_counter}: calc {event["ts_start"] - last_event_end_time}\n")  ## Calc between last gpu event end and host event start
-                        file.write(f"l{task_counter} requires l{last_event_end_id}\n")
+                        file.write(f"l{task_counter}: calc {group_event["ts_group_host_start"] - last_group_event_end_time}\n")  ## Calc between first group host event start and last group gpu event end
+                        file.write(f"l{task_counter} requires l{last_group_event_end_id}\n")
+                        group_event_start_calc_id = task_counter
 
                         task_counter += 1
-                        file.write(f"l{task_counter}: calc {event["ts_kernel"] - event["ts_start"]}\n")  ## Calc between gpu event start and host event start
-                        file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                        file.write(f"l{task_counter}: calc 0\n")  ## End calc of the parallel group of events
+                        group_event_end_calc_id = task_counter
+                        last_group_event_end_time = group_event["ts_group_gpu_end"]
+                        last_group_event_end_id = task_counter
 
-                        task_counter += 1
-                        file.write(f"l{task_counter}: event_type {event["event_type"]} comm {event["comm_index"]} gpu {gpuId} stream {streamId}\n")  ## gpu event
-                        file.write(f"l{task_counter} requires l{task_counter - 1}\n")
-                        last_event_end_time = event["ts_gpu_end"]
-                        last_event_end_id = task_counter
+                        for event in group_event["events"]:
+                            task_counter += 1
+                            file.write(f"l{task_counter}: calc {event["ts_kernel"] - event["ts_start"]}\n")  ## Calc between nccl kernel launch end and host event start
+                            file.write(f"l{task_counter} requires l{group_event_start_calc_id}\n")
 
-                        if event_index == len(stream_events) - 1:
-                            file.write(f"l{node_end_calc_id} requires l{last_event_end_id}\n")
+                            task_counter += 1
+                            file.write(f"l{task_counter}: {event["event_type"]} {event["data_size"]} bytes comm {event["comm_index"]} gpu {gpuId} stream {streamId}\n")  ## gpu event
+                            file.write(f"l{task_counter} requires l{task_counter - 1}\n")
+                            file.write(f"l{group_event_end_calc_id} requires l{task_counter}\n")                     
+
+                        if group_event_index == len(stream_events) - 1:
+                            file.write(f"l{node_end_calc_id} requires l{last_group_event_end_id}\n")
 
             file.write("}\n")
 
@@ -850,35 +891,13 @@ def main():
         json.dump(Events_Pair, json_file, indent=4)
         json_file.write('\n\n')
 
+    Events_Parallel_Group = get_events_parallel_group(Merged_Events)
+    with open("./results/nsys_events_parallel_group_output.json", "w") as json_file:
+        json.dump(Events_Parallel_Group, json_file, indent=4)
+        json_file.write('\n\n')
+
     Goal_File_Name = "./results/Events_Dependency.goal"
-    get_events_dependency(Merged_Events, Comm_Init_Events, Comm_Info, Goal_File_Name)
-
-    # Merged_Npkit_Events = merge_npkit_events(Npkit_Paired_Events, GoalRank_To_FileRank)
-    # with open("./results/npkit_merged_events_output.json", "w") as json_file:
-    #     json.dump(Merged_Npkit_Events, json_file, indent=4)
-    #     json_file.write('\n\n')
-    # print("Merged_Npkit_Events has been exported to npkit_merged_events_output.json")
-
-    # Transformed_Nsys_Events = transform_nsys_events(Npkit_Paired_Events, Nsys_Events)
-    # with open("./results/transformed_nsys_events_output.json", "w") as json_file:
-    #     json.dump(Transformed_Nsys_Events, json_file, indent=4)
-    # print("Transformed_Nsys_Events has been exported to transformed_nsys_events_output.json")
-
-    # Mapped_Npkit_Events = map_npkit_to_nsys(Npkit_Paired_Events, Transformed_Nsys_Events, FileRank_2_GoalRank)
-    # with open("./results/npkit_mapped_events_output.json", "w") as json_file:
-    #     json.dump(Mapped_Npkit_Events, json_file, indent=4)
-    #     json_file.write('\n\n')
-    # print("Mapped_Npkit_Events has been exported to npkit_mapped_events_output.json")
-
-    # Combined_Events = combine_npkit_nsys_events(Mapped_Npkit_Events, Transformed_Nsys_Events)
-    # with open("./results/combined_events_output.json", "w") as json_file:
-    #     json.dump(Combined_Events, json_file, indent=4)
-    # print("Combined_Events has been exported to combined_events_output.json")
-
-    # Merged_Nsys_Events = merge_nsys_events(Combined_Events, FileRank_2_GoalRank, HostName_2_GoalRank)
-    # with open("./results/merged_events_output.json", "w") as json_file:
-    #     json.dump(Merged_Nsys_Events, json_file, indent=4)
-    # print("Merged_Nsys_Events has been exported to merged_events_output.json")
+    get_events_dependency(Events_Parallel_Group, Comm_Init_Events, Goal_File_Name)
 
 if __name__ == '__main__':
     main()

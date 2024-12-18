@@ -73,21 +73,8 @@ def generate_graphviz(graphs, task_infos):
     return graphviz_input
 
 def main():
-    input_file = "./results/Events_Dependency.goal" 
-    output_file = "./results/Events_Dependency.dot"
-
-    # Parse the input file and generate the graph data
-    graphs, task_infos = parse_goal_file(input_file)
-    graphviz_input = generate_graphviz(graphs, task_infos)
-
-    # Write the Graphviz output to the file
-    with open(output_file, 'w') as file:
-        file.write(graphviz_input)
-
-    print(f"Graphviz output written to {output_file}")
-
-    input_file = "./results/InGPU_MicroEvents_Dependency.goal" 
-    output_file = "./results/InGPU_MicroEvents_Dependency.dot"
+    input_file = "./results/example_2.goal" 
+    output_file = "./results/example_2.dot"
 
     # Parse the input file and generate the graph data
     graphs, task_infos = parse_goal_file(input_file)

@@ -59,7 +59,6 @@ static void getHostName(char* hostname, int maxlen) {
 
 int main(int argc, char* argv[])
 {
-  // int size = 5;
   int size = 2*1024*1024;
   // int size = 32*1024*1024;
 
@@ -87,61 +86,75 @@ int main(int argc, char* argv[])
   printf("The local rank is: %d\n", localRank);
 
 
-  ncclUniqueId id;
-  ncclComm_t comm;
-  float *sendbuff, *recvbuff;
-  cudaStream_t s;
+  ncclUniqueId id_0;
+  ncclUniqueId id_1;
+  ncclComm_t comm_0;
+  ncclComm_t comm_1;
+  float *sendbuff_0, *recvbuff_0;
+  float *sendbuff_1, *recvbuff_1;
+  cudaStream_t s_0;
+  cudaStream_t s_1;
 
 
   //get NCCL unique ID at rank 0 and broadcast it to all others
-  if (myRank == 0) ncclGetUniqueId(&id);
-  MPICHECK(MPI_Bcast((void *)&id, sizeof(id), MPI_BYTE, 0, MPI_COMM_WORLD));
+  if (myRank == 0) ncclGetUniqueId(&id_0);
+  if (myRank == 0) ncclGetUniqueId(&id_1);
+  MPICHECK(MPI_Bcast((void *)&id_0, sizeof(id_0), MPI_BYTE, 0, MPI_COMM_WORLD));
+  MPICHECK(MPI_Bcast((void *)&id_1, sizeof(id_1), MPI_BYTE, 0, MPI_COMM_WORLD));
 
 
   //picking a GPU based on localRank, allocate device buffers
   CUDACHECK(cudaSetDevice(localRank));
-  CUDACHECK(cudaMalloc(&sendbuff, size * sizeof(float)));
-  CUDACHECK(cudaMalloc(&recvbuff, size * sizeof(float)));
+  CUDACHECK(cudaMalloc(&sendbuff_0, size * sizeof(float)));
+  CUDACHECK(cudaMalloc(&recvbuff_0, size * sizeof(float)));
+  CUDACHECK(cudaMalloc(&sendbuff_1, size * sizeof(float)));
+  CUDACHECK(cudaMalloc(&recvbuff_1, size * sizeof(float)));
   
-  CUDACHECK(cudaMemset(sendbuff, 0, size * sizeof(float)));
-  CUDACHECK(cudaMemset(recvbuff, 0, size * sizeof(float)));
+  CUDACHECK(cudaMemset(sendbuff_0, 0, size * sizeof(float)));
+  CUDACHECK(cudaMemset(recvbuff_0, 0, size * sizeof(float)));
+  CUDACHECK(cudaMemset(sendbuff_1, 0, size * sizeof(float)));
+  CUDACHECK(cudaMemset(recvbuff_1, 0, size * sizeof(float)));
  
-  CUDACHECK(cudaStreamCreate(&s));
+  CUDACHECK(cudaStreamCreate(&s_0));
+  CUDACHECK(cudaStreamCreate(&s_1));
 
 
   //initializing NCCL
-  NCCLCHECK(ncclCommInitRank(&comm, nRanks, id, myRank));
+  NCCLCHECK(ncclCommInitRank(&comm_0, nRanks, id_0, myRank));
+  NCCLCHECK(ncclCommInitRank(&comm_1, nRanks, id_1, myRank));
 
 
   //communicating using NCCL
-  NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
-
+  NCCLCHECK(ncclAllReduce((const void*)sendbuff_0, (void*)recvbuff_0, size, ncclFloat, ncclSum, comm_0, s_0));
   // sleep(2);
-  // NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
+  CUDACHECK(cudaStreamSynchronize(s_0));
 
-//   for (int i = 0; i < 10; i++) {
-//     sleep(2);
-//     NCCLCHECK(ncclAllReduce((const void*)sendbuff, (void*)recvbuff, size, ncclFloat, ncclSum, comm, s));
-// }
+  printf("[MPI Rank %d] Success \n", myRank);
 
-  //completing NCCL operation by synchronizing on the CUDA stream
-  CUDACHECK(cudaStreamSynchronize(s));
+  NCCLCHECK(ncclAllReduce((const void*)sendbuff_1, (void*)recvbuff_1, size, ncclFloat, ncclSum, comm_1, s_1));
+
+  // //completing NCCL operation by synchronizing on the CUDA stream
+  // CUDACHECK(cudaStreamSynchronize(s_0));
+  CUDACHECK(cudaStreamSynchronize(s_1));
+  printf("[Rank MPI %d] Success \n", myRank);
 
 
   //free device buffers
-  CUDACHECK(cudaFree(sendbuff));
-  CUDACHECK(cudaFree(recvbuff));
-
+  CUDACHECK(cudaFree(sendbuff_0));
+  CUDACHECK(cudaFree(recvbuff_0));
+  CUDACHECK(cudaFree(sendbuff_1));
+  CUDACHECK(cudaFree(recvbuff_1));
 
   //finalizing NCCL
-  ncclCommDestroy(comm);
+  ncclCommDestroy(comm_0);
+  ncclCommDestroy(comm_1);
 
 
   //finalizing MPI
   MPICHECK(MPI_Finalize());
 
 
-  printf("[MPI Rank %d] Success \n", myRank);
+  // printf("[MPI Rank %d] Success \n", myRank);
   
   return 0;
 }

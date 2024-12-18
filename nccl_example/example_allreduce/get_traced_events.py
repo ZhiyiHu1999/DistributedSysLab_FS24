@@ -1052,8 +1052,6 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                     SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]] = {}
 
                                 SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]] = {}
-                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"] = []
-                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"] = []
 
                                 task_counter += 1
                                 file.write(f"l{task_counter}: calc {event["ts_kernel"] - event["ts_start"]}\n")  ## Calc between nccl kernel launch end and host event start
@@ -1080,6 +1078,9 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
 
                                         elems = event["elems"]
                                         for channel_id, elem in enumerate(elems):
+                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id] = {}
+                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"] = []
+                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"] = []
                                             nranks = comm_info[event["commId"]]["nranks"]  ## 2
                                             prevIx = channel_info[channel_id]["previous_rank"]  ## local rank index in the communicator
                                             nextIx = channel_info[channel_id]["next_rank"]  ## local rank index in the communicator
@@ -1105,11 +1106,11 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                 if proto == "0":
                                                     # EltPerLine = 8 // type_size ## sizeof(uint64_t)： 8 bytes
                                                     task_counter += 1
-                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                     file.write(f"l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {nextIx} tag {tag}\n")
                                                     file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
                                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                    SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"].append(task_counter)
+                                                    SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"].append(task_counter)
 
                                                 elif proto == "2":
                                                     sliceSize = stepSize * sliceSteps
@@ -1123,11 +1124,11 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                             sliceSize = sliceSize if sliceSize < nelem-offset else nelem-offset
 
                                                             task_counter += 1
-                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                             file.write(f"l{task_counter}: send {sliceSize * type_size}b to {nextIx} tag {tag}\n")
                                                             file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
                                                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"].append(task_counter)
+                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"].append(task_counter)
 
                                                             slice += 1
                                                             offset += sliceSize
@@ -1146,21 +1147,21 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
 
                                                     if proto == "0":
                                                         task_counter += 1
-                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                         file.write(f"l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {prevIx} tag {tag}\n")
                                                         file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
-                                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
+                                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"].append(task_counter)
 
                                                         task_counter += 1
                                                         file.write(f"l{task_counter}: calc {get_reduction_time(nelem)}\n")
                                                         file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                         
                                                         task_counter += 1
-                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                         file.write(f"l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {nextIx} tag {tag}\n")
                                                         file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"].append(task_counter)
+                                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"].append(task_counter)
 
                                                     elif proto == "2":
                                                         sliceSize = stepSize * sliceSteps
@@ -1174,21 +1175,21 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                                 sliceSize = sliceSize if sliceSize < nelem-offset else nelem-offset
 
                                                                 task_counter += 1
-                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                                 file.write(f"l{task_counter}: recv {sliceSize * type_size}b from {prevIx} tag {tag}\n")
                                                                 file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
-                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
+                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"].append(task_counter)
 
                                                                 task_counter += 1
                                                                 file.write(f"l{task_counter}: calc {get_reduction_time(nelem)}\n")
                                                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                                 
                                                                 task_counter += 1
-                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                                 file.write(f"l{task_counter}: send {sliceSize * type_size}b to {nextIx} tag {tag}\n")
                                                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"].append(task_counter)
+                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"].append(task_counter)
 
                                                                 slice += 1
                                                                 offset += sliceSize
@@ -1206,7 +1207,7 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
 
                                                 if proto == "0":
                                                     task_counter += 1
-                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                     file.write(f"l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {prevIx} tag {tag}\n")
                                                     file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
                                                     SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
@@ -1216,7 +1217,7 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                     
                                                     task_counter += 1
-                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                     file.write(f"l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {nextIx} tag {tag}\n")
                                                     file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
@@ -1234,21 +1235,21 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                             sliceSize = sliceSize if sliceSize < nelem-offset else nelem-offset
 
                                                             task_counter += 1
-                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                             file.write(f"l{task_counter}: recv {sliceSize * type_size}b from {prevIx} tag {tag}\n")
                                                             file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
-                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
+                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"].append(task_counter)
 
                                                             task_counter += 1
                                                             file.write(f"l{task_counter}: calc {get_reduction_time(nelem) + get_copy_time(nelem)}\n")
                                                             file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                             
                                                             task_counter += 1
-                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                             file.write(f"l{task_counter}: send {sliceSize * type_size}b to {nextIx} tag {tag}\n")
                                                             file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"].append(task_counter)
+                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"].append(task_counter)
                                                             
                                                             slice += 1
                                                             offset += sliceSize
@@ -1267,7 +1268,7 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
 
                                                     if proto == "0":
                                                         task_counter += 1
-                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                         file.write(f"l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {prevIx} tag {tag}\n")
                                                         file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
                                                         SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
@@ -1277,7 +1278,7 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                         file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                         
                                                         task_counter += 1
-                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                         file.write(f"l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {nextIx} tag {tag}\n")
                                                         file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                         file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
@@ -1295,21 +1296,21 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                                 sliceSize = sliceSize if sliceSize < nelem-offset else nelem-offset
 
                                                                 task_counter += 1
-                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                                 file.write(f"l{task_counter}: recv {sliceSize * type_size}b from {prevIx} tag {tag}\n")
                                                                 file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
-                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
+                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"].append(task_counter)
 
                                                                 task_counter += 1
                                                                 file.write(f"l{task_counter}: calc {get_copy_time(nelem)}\n")
                                                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                                 
                                                                 task_counter += 1
-                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"])) + str(channel_id).zfill(2)
+                                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"])) + str(channel_id).zfill(2)
                                                                 file.write(f"l{task_counter}: send {sliceSize * type_size}b to {nextIx} tag {tag}\n")
                                                                 file.write(f"l{task_counter} requires l{task_counter - 1}\n")
                                                                 file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["send"].append(task_counter)
+                                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["send"].append(task_counter)
                                                                 
                                                                 slice += 1
                                                                 offset += sliceSize
@@ -1327,11 +1328,11 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
 
                                                 if proto == "0":
                                                     task_counter += 1
-                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                    tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                     file.write(f"l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {prevIx} tag {tag}\n")
                                                     file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
                                                     file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                    SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
+                                                    SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"].append(task_counter)
 
                                                 elif proto == "2":
                                                     sliceSize = stepSize * sliceSteps
@@ -1345,11 +1346,11 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                                             sliceSize = sliceSize if sliceSize < nelem-offset else nelem-offset
 
                                                             task_counter += 1
-                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"])) + str(channel_id).zfill(2)
+                                                            tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"])) + str(channel_id).zfill(2)
                                                             file.write(f"l{task_counter}: recv {sliceSize * type_size}b from {prevIx} tag {tag}\n")
                                                             file.write(f"l{task_counter} requires l{gpu_event_start_calc_id}\n")
                                                             file.write(f"l{gpu_event_end_calc_id} requires l{task_counter}\n")
-                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"].append(task_counter)
+                                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"].append(task_counter)
 
                                                             slice += 1
                                                             offset += sliceSize
@@ -1445,9 +1446,6 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                     sliceSteps = event["sliceSteps"]
                                     stepSize = event["stepSize"]
 
-                                    send_index = 0
-                                    recv_index = 0
-
                                     if algo == "1": ## Ring
                                         ringIx = comm_info[commId]["gpuId_To_rank"][gpuId]  ## local rank index in the communicator
                                         channel_info = comm_info[commId]["rank_To_rankInfo"][ringIx]["channel_info"]["Ring"]
@@ -1455,6 +1453,9 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
 
                                         elems = event["elems"]
                                         for channel_id, elem in enumerate(elems):
+                                            send_index = 0
+                                            recv_index = 0
+
                                             nranks = comm_info[event["commId"]]["nranks"]  ## 2
                                             prevIx = channel_info[channel_id]["previous_rank"]  ## local rank index in the communicator
                                             gpuId_prev = comm_info[commId]["rank_To_rankInfo"][prevIx]["gpuId"]
@@ -1841,27 +1842,30 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                     for group_event_index, group_event in enumerate(stream_events): 
                         for event in group_event["events"]:
                             if event["event_type"] == "AllReduce":
-                                my_event_task_counter = SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]]["recv"]
+                                
                                 algo = event["algorithm"]
                                 if algo == "1":  ## Ring
                                     commId = event["commId"]
                                     ringIx = comm_info[commId]["gpuId_To_rank"][gpuId]  ## local rank index in the communicator
                                     channel_info = comm_info[commId]["rank_To_rankInfo"][ringIx]["channel_info"]["Ring"]
 
-                                    prevIx = channel_info[channel_id]["previous_rank"]  ## local rank index in the communicator
-                                    gpuId_prev = comm_info[commId]["rank_To_rankInfo"][prevIx]["gpuId"]
-                                    goal_rank_prev = comm_info[commId]["rank_To_rankInfo"][prevIx]["goal_rank"]
-                                    nextIx = channel_info[channel_id]["next_rank"]  ## local rank index in the communicator
-                                    gpuId_next = comm_info[commId]["rank_To_rankInfo"][nextIx]["gpuId"]
-                                    goal_rank_next = comm_info[commId]["rank_To_rankInfo"][nextIx]["goal_rank"]
+                                    elems = event["elems"]
+                                    for channel_id, elem in enumerate(elems):
+                                        prevIx = channel_info[channel_id]["previous_rank"]  ## local rank index in the communicator
+                                        gpuId_prev = comm_info[commId]["rank_To_rankInfo"][prevIx]["gpuId"]
+                                        goal_rank_prev = comm_info[commId]["rank_To_rankInfo"][prevIx]["goal_rank"]
+                                        nextIx = channel_info[channel_id]["next_rank"]  ## local rank index in the communicator
+                                        gpuId_next = comm_info[commId]["rank_To_rankInfo"][nextIx]["gpuId"]
+                                        goal_rank_next = comm_info[commId]["rank_To_rankInfo"][nextIx]["goal_rank"]
 
-                                    prev_event_task_counter = SendRecvEvents_To_TaskCounter[goal_rank_prev][gpuId_prev][commId][event["event_type"]][event["seq"]]["send"]
+                                        my_event_task_counter = SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][event["event_type"]][event["seq"]][channel_id]["recv"]
+                                        prev_event_task_counter = SendRecvEvents_To_TaskCounter[goal_rank_prev][gpuId_prev][commId][event["event_type"]][event["seq"]][channel_id]["send"]
 
-                                    if goal_rank_prev == goal_rank:
-                                        for i in range(len(my_event_task_counter)):
-                                            my_receive_task_counter = my_event_task_counter[i]
-                                            prev_send_task_counter = prev_event_task_counter[i]
-                                            file.write(f"l{int(my_receive_task_counter)} requires l{int(prev_send_task_counter)}\n")
+                                        if goal_rank_prev == goal_rank:
+                                            for i in range(len(my_event_task_counter)):
+                                                my_receive_task_counter = my_event_task_counter[i]
+                                                prev_send_task_counter = prev_event_task_counter[i]
+                                                file.write(f"l{int(my_receive_task_counter)} requires l{int(prev_send_task_counter)}\n")
                                     
             file.write("}\n")
 

@@ -3,8 +3,8 @@
 #SBATCH --job-name="nccl_example_allreduce"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[41,44]
-#SBATCH --ntasks-per-node=1
+#SBATCH --nodelist=ault[43-44]
+#SBATCH --ntasks-per-node=2
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_allreduce.%j.o
 #SBATCH --error=example_allreduce.%j.e
@@ -81,6 +81,8 @@ python3 get_traced_events.py
 python3 goal2dot.py
 
 dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
+
+dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg
 
 # python3 ../trace_generator_npkit.py --npkit_dump_dir=$npkit_dump_dir\
 #                                  --npkit_event_header_path="/users/zhu/nccl_nvtx_npkit/nccl/src/include/npkit/npkit_event.h"\

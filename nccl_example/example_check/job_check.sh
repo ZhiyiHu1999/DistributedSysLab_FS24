@@ -3,7 +3,7 @@
 #SBATCH --job-name="check"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[43]
+#SBATCH --nodelist=ault[42-43]
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_check.%j.o
@@ -18,4 +18,4 @@ module load rdma-core/34.0
 
 # srun docker --version
 # srun nvidia-smi
-srun ip addr
+srun ifconfig

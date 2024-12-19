@@ -1,3091 +1,581 @@
 {
-    "0": 3,
-    "1": 3,
-    "2": 3
+    "ault43": 0,
+    "ault44": 1
 }
 
 {
-    "2": 0,
-    "6": 2,
-    "3": 1,
-    "0": 0,
-    "5": 1,
-    "8": 2
+    "0x60ce906bad91337d": {
+        "nranks": 4,
+        "gpuId_To_rank": {
+            "0": "1",
+            "1": "0",
+            "2": "2",
+            "3": "3"
+        },
+        "rank_To_rankInfo": {
+            "1": {
+                "gpuId": 0,
+                "goal_rank": 0,
+                "host_name": "ault43",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "0",
+                            "my_rank": "1",
+                            "next_rank": "2",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "0",
+                            "my_rank": "1",
+                            "next_rank": "2",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "1",
+                            "parent_rank": "0",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "1",
+                            "parent_rank": "0",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "0": {
+                "gpuId": 1,
+                "goal_rank": 0,
+                "host_name": "ault43",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "3",
+                            "my_rank": "0",
+                            "next_rank": "1",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "3",
+                            "my_rank": "0",
+                            "next_rank": "1",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "1",
+                            "child_2_rank": "2",
+                            "child_3_rank": "-1",
+                            "my_rank": "0",
+                            "parent_rank": "-1",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "0",
+                            "parent_rank": "2",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "2": {
+                "gpuId": 2,
+                "goal_rank": 1,
+                "host_name": "ault44",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "1",
+                            "my_rank": "2",
+                            "next_rank": "3",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "1",
+                            "my_rank": "2",
+                            "next_rank": "3",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "3",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "2",
+                            "parent_rank": "0",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "3",
+                            "child_2_rank": "0",
+                            "child_3_rank": "-1",
+                            "my_rank": "2",
+                            "parent_rank": "-1",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "3": {
+                "gpuId": 3,
+                "goal_rank": 1,
+                "host_name": "ault44",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "2",
+                            "my_rank": "3",
+                            "next_rank": "0",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "2",
+                            "my_rank": "3",
+                            "next_rank": "0",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "3",
+                            "parent_rank": "2",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "3",
+                            "parent_rank": "2",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            }
+        },
+        "comm_index": 0,
+        "NumOfP2PChannelsPerPeer": "2"
+    }
 }
 
 {
-    "ault42": 0,
-    "ault43": 1,
-    "ault44": 2
+    "0": {
+        "0": {
+            "14": [
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562519981976,
+                    "ts_gpu_end": 1734562519982996
+                },
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562521998209,
+                    "ts_gpu_end": 1734562521998672
+                }
+            ]
+        },
+        "1": {
+            "14": [
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562519981778,
+                    "ts_gpu_end": 1734562519982351
+                },
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562521981996,
+                    "ts_gpu_end": 1734562522018315
+                }
+            ]
+        }
+    },
+    "1": {
+        "2": {
+            "14": [
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562519996563,
+                    "ts_gpu_end": 1734562519999995
+                },
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562522000281,
+                    "ts_gpu_end": 1734562522013224
+                }
+            ]
+        },
+        "3": {
+            "14": [
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562519994205,
+                    "ts_gpu_end": 1734562520000096
+                },
+                {
+                    "gpu_event_type": "Broadcast",
+                    "ts_gpu_start": 1734562521994420,
+                    "ts_gpu_end": 1734562522013478
+                }
+            ]
+        }
+    }
 }
 
 {
-    "2": [
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539053078675,
-            "timestamp_end": 1729539053127958,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [
+    "0": {
+        "0": {
+            "0": [
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "1",
+                    "gpuId": 0,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "0",
+                    "ts_start": 1734562519979034,
+                    "ts_end": 1734562519997973,
+                    "seq": 0,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539053081490,
-                            "ts_end": 1729539053081501,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539053081503,
-                            "ts_end": 1729539053081504,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053081504,
-                            "ts_end": 1729539053081505,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053081505,
-                            "ts_end": 1729539053081506,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053081507,
-                            "ts_end": 1729539053081507,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053081508,
-                            "ts_end": 1729539053081508,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053081509,
-                            "ts_end": 1729539053081509,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053081510,
-                            "ts_end": 1729539053081510,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053123212,
-                            "ts_end": 1729539053123213,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053123949,
-                            "ts_end": 1729539053123949,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053124461,
-                            "ts_end": 1729539053124461,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053124834,
-                            "ts_end": 1729539053124834,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053124986,
-                            "ts_end": 1729539053124986,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053125719,
-                            "ts_end": 1729539053125719,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053125769,
-                            "ts_end": 1729539053125769,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053126098,
-                            "ts_end": 1729539053126099,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
                     ],
-                    "NVTX_EVENT_NET_IRECV": [],
-                    "NVTX_EVENT_NET_SEND_TEST": [
+                    "ts_kernel": 1734562519981976
+                },
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "1",
+                    "gpuId": 0,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "1",
+                    "ts_start": 1734562521998103,
+                    "ts_end": 1734562521998225,
+                    "seq": 1,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539053081512,
-                            "ts_end": 1729539053081686,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539053123138,
-                            "ts_end": 1729539053123210,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053123897,
-                            "ts_end": 1729539053123912,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053124332,
-                            "ts_end": 1729539053124361,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053124631,
-                            "ts_end": 1729539053124832,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053124890,
-                            "ts_end": 1729539053124984,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053125540,
-                            "ts_end": 1729539053125717,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053125720,
-                            "ts_end": 1729539053125729,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053126038,
-                            "ts_end": 1729539053126096,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053126465,
-                            "ts_end": 1729539053126567,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053126697,
-                            "ts_end": 1729539053126722,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053126894,
-                            "ts_end": 1729539053126903,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053127199,
-                            "ts_end": 1729539053127349,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053127349,
-                            "ts_end": 1729539053127369,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053127562,
-                            "ts_end": 1729539053127635,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053127807,
-                            "ts_end": 1729539053127958,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
                     ],
-                    "NVTX_EVENT_NET_RECV_TEST": []
+                    "ts_kernel": 1734562521998211
                 }
-            }
+            ]
         },
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539055080071,
-            "timestamp_end": 1729539055143974,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [
+        "1": {
+            "0": [
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "0",
+                    "gpuId": 1,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "0",
+                    "ts_start": 1734562519979033,
+                    "ts_end": 1734562519981797,
+                    "seq": 0,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539055087885,
-                            "ts_end": 1729539055087893,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539055087894,
-                            "ts_end": 1729539055087894,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055087895,
-                            "ts_end": 1729539055087896,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055087896,
-                            "ts_end": 1729539055087897,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055087897,
-                            "ts_end": 1729539055087898,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055087899,
-                            "ts_end": 1729539055087899,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055087900,
-                            "ts_end": 1729539055087900,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055087901,
-                            "ts_end": 1729539055087901,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055088400,
-                            "ts_end": 1729539055088401,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055088570,
-                            "ts_end": 1729539055088570,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055088726,
-                            "ts_end": 1729539055088727,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055088901,
-                            "ts_end": 1729539055088901,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055088967,
-                            "ts_end": 1729539055088968,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055133026,
-                            "ts_end": 1729539055133026,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055143034,
-                            "ts_end": 1729539055143035,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055143162,
-                            "ts_end": 1729539055143162,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
                     ],
-                    "NVTX_EVENT_NET_IRECV": [],
-                    "NVTX_EVENT_NET_SEND_TEST": [
+                    "ts_kernel": 1734562519981785
+                },
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "0",
+                    "gpuId": 1,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "1",
+                    "ts_start": 1734562521981904,
+                    "ts_end": 1734562521982033,
+                    "seq": 1,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539055087942,
-                            "ts_end": 1729539055088175,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539055088177,
-                            "ts_end": 1729539055088399,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055088402,
-                            "ts_end": 1729539055088569,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055088572,
-                            "ts_end": 1729539055088725,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055088727,
-                            "ts_end": 1729539055088900,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055088902,
-                            "ts_end": 1729539055088964,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055132972,
-                            "ts_end": 1729539055132995,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055142903,
-                            "ts_end": 1729539055143033,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055143035,
-                            "ts_end": 1729539055143161,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055143163,
-                            "ts_end": 1729539055143277,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055143278,
-                            "ts_end": 1729539055143392,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055143392,
-                            "ts_end": 1729539055143507,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055143508,
-                            "ts_end": 1729539055143541,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055143683,
-                            "ts_end": 1729539055143829,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055143829,
-                            "ts_end": 1729539055143962,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055143963,
-                            "ts_end": 1729539055143974,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
                     ],
-                    "NVTX_EVENT_NET_RECV_TEST": []
+                    "ts_kernel": 1734562521981999
                 }
-            }
+            ]
         }
-    ],
-    "6": [
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539053118152,
-            "timestamp_end": 1729539053130494,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [],
-                    "NVTX_EVENT_NET_IRECV": [
+    },
+    "1": {
+        "2": {
+            "0": [
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "2",
+                    "gpuId": 2,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "0",
+                    "ts_start": 1734562519994006,
+                    "ts_end": 1734562520000048,
+                    "seq": 0,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539053120152,
-                            "ts_end": 1729539053120170,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539053120174,
-                            "ts_end": 1729539053120175,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053120176,
-                            "ts_end": 1729539053120177,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053120177,
-                            "ts_end": 1729539053120178,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053120178,
-                            "ts_end": 1729539053120179,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053120179,
-                            "ts_end": 1729539053120180,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053120180,
-                            "ts_end": 1729539053120181,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053120181,
-                            "ts_end": 1729539053120182,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053124561,
-                            "ts_end": 1729539053124563,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053126143,
-                            "ts_end": 1729539053126144,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053126200,
-                            "ts_end": 1729539053126201,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053126262,
-                            "ts_end": 1729539053126263,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053127578,
-                            "ts_end": 1729539053127579,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053127639,
-                            "ts_end": 1729539053127641,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053127702,
-                            "ts_end": 1729539053127704,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053130014,
-                            "ts_end": 1729539053130016,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
                     ],
-                    "NVTX_EVENT_NET_SEND_TEST": [],
-                    "NVTX_EVENT_NET_RECV_TEST": [
+                    "ts_kernel": 1734562519996563
+                },
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "2",
+                    "gpuId": 2,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "1",
+                    "ts_start": 1734562522000171,
+                    "ts_end": 1734562522000299,
+                    "seq": 1,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539053120189,
-                            "ts_end": 1729539053124506,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539053124507,
-                            "ts_end": 1729539053125496,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053125497,
-                            "ts_end": 1729539053125822,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053125823,
-                            "ts_end": 1729539053126087,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053126087,
-                            "ts_end": 1729539053126779,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053126780,
-                            "ts_end": 1729539053127244,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053127244,
-                            "ts_end": 1729539053127523,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053127524,
-                            "ts_end": 1729539053128141,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053128141,
-                            "ts_end": 1729539053128400,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053128401,
-                            "ts_end": 1729539053128702,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053128703,
-                            "ts_end": 1729539053128949,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053128949,
-                            "ts_end": 1729539053129219,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053129220,
-                            "ts_end": 1729539053129468,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053129469,
-                            "ts_end": 1729539053129748,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053129749,
-                            "ts_end": 1729539053129965,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053130016,
-                            "ts_end": 1729539053130251,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
-                    ]
+                    ],
+                    "ts_kernel": 1734562522000284
                 }
-            }
+            ]
         },
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539055118355,
-            "timestamp_end": 1729539055162161,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [],
-                    "NVTX_EVENT_NET_IRECV": [
+        "3": {
+            "0": [
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "3",
+                    "gpuId": 3,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "0",
+                    "ts_start": 1734562519988608,
+                    "ts_end": 1734562519994220,
+                    "seq": 0,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539055118652,
-                            "ts_end": 1729539055118659,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539055118660,
-                            "ts_end": 1729539055118661,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055118662,
-                            "ts_end": 1729539055118663,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055118663,
-                            "ts_end": 1729539055118665,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055118665,
-                            "ts_end": 1729539055118667,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055118667,
-                            "ts_end": 1729539055118668,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055118669,
-                            "ts_end": 1729539055118670,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055118670,
-                            "ts_end": 1729539055118671,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055145407,
-                            "ts_end": 1729539055145409,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055145466,
-                            "ts_end": 1729539055145468,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055145522,
-                            "ts_end": 1729539055145524,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055145585,
-                            "ts_end": 1729539055145586,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055145652,
-                            "ts_end": 1729539055145653,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055145717,
-                            "ts_end": 1729539055145718,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055161578,
-                            "ts_end": 1729539055161579,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055161793,
-                            "ts_end": 1729539055161796,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
                     ],
-                    "NVTX_EVENT_NET_SEND_TEST": [],
-                    "NVTX_EVENT_NET_RECV_TEST": [
+                    "ts_kernel": 1734562519994209
+                },
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x60ce906bad91337d",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "3",
+                    "gpuId": 3,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "root_rank": "1",
+                    "ts_start": 1734562521994318,
+                    "ts_end": 1734562521994447,
+                    "seq": 1,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "nthreads": 288,
+                    "chunkSteps": 524288,
+                    "sliceSteps": 524288,
+                    "stepSize": 1,
+                    "elems": [
                         {
-                            "ts_start": 1729539055120890,
-                            "ts_end": 1729539055144065,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0
                         },
                         {
-                            "ts_start": 1729539055144067,
-                            "ts_end": 1729539055144359,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055144359,
-                            "ts_end": 1729539055144630,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055144631,
-                            "ts_end": 1729539055144893,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055144893,
-                            "ts_end": 1729539055145120,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055145120,
-                            "ts_end": 1729539055145351,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055145351,
-                            "ts_end": 1729539055159871,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055159872,
-                            "ts_end": 1729539055160118,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055160119,
-                            "ts_end": 1729539055160382,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055160383,
-                            "ts_end": 1729539055160666,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055160666,
-                            "ts_end": 1729539055160896,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055160897,
-                            "ts_end": 1729539055161111,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055161111,
-                            "ts_end": 1729539055161316,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055161316,
-                            "ts_end": 1729539055161531,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055161579,
-                            "ts_end": 1729539055161792,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055161796,
-                            "ts_end": 1729539055162027,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
+                            "count": 8388608,
+                            "chunkCount": 524288,
+                            "workCount": 4194304,
+                            "lastChunkCount": 524288,
+                            "workOffset": 4194304
                         }
-                    ]
+                    ],
+                    "ts_kernel": 1734562521994422
                 }
-            }
+            ]
         }
-    ],
-    "3": [
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539053120613,
-            "timestamp_end": 1729539053128668,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [],
-                    "NVTX_EVENT_NET_IRECV": [
-                        {
-                            "ts_start": 1729539053123048,
-                            "ts_end": 1729539053123076,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539053123081,
-                            "ts_end": 1729539053123082,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053123083,
-                            "ts_end": 1729539053123084,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053123084,
-                            "ts_end": 1729539053123085,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053123085,
-                            "ts_end": 1729539053123086,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053123087,
-                            "ts_end": 1729539053123088,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053123088,
-                            "ts_end": 1729539053123089,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053123089,
-                            "ts_end": 1729539053123090,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053123736,
-                            "ts_end": 1729539053123737,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053125298,
-                            "ts_end": 1729539053125300,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053125300,
-                            "ts_end": 1729539053125301,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053126177,
-                            "ts_end": 1729539053126179,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053126385,
-                            "ts_end": 1729539053126388,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053126388,
-                            "ts_end": 1729539053126390,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053127561,
-                            "ts_end": 1729539053127562,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053127740,
-                            "ts_end": 1729539053127741,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_SEND_TEST": [],
-                    "NVTX_EVENT_NET_RECV_TEST": [
-                        {
-                            "ts_start": 1729539053123097,
-                            "ts_end": 1729539053123678,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539053123678,
-                            "ts_end": 1729539053124142,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053124142,
-                            "ts_end": 1729539053124464,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053124465,
-                            "ts_end": 1729539053125127,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053125127,
-                            "ts_end": 1729539053125473,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053125474,
-                            "ts_end": 1729539053125809,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053125810,
-                            "ts_end": 1729539053126269,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053126269,
-                            "ts_end": 1729539053126562,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053126562,
-                            "ts_end": 1729539053126810,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053126810,
-                            "ts_end": 1729539053127090,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053127091,
-                            "ts_end": 1729539053127318,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053127319,
-                            "ts_end": 1729539053127539,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053127539,
-                            "ts_end": 1729539053127829,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053127830,
-                            "ts_end": 1729539053128084,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053128084,
-                            "ts_end": 1729539053128343,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053128343,
-                            "ts_end": 1729539053128566,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ]
-                }
-            }
+    }
+}
+
+{
+    "0": {
+        "0": {
+            "ts_init_start": 1734562519357172,
+            "ts_init_end": 1734562519978906
         },
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539055128913,
-            "timestamp_end": 1729539055156557,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [],
-                    "NVTX_EVENT_NET_IRECV": [
-                        {
-                            "ts_start": 1729539055137799,
-                            "ts_end": 1729539055137810,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055137811,
-                            "ts_end": 1729539055137812,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055137812,
-                            "ts_end": 1729539055137814,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055137814,
-                            "ts_end": 1729539055137815,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055137816,
-                            "ts_end": 1729539055137817,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055137817,
-                            "ts_end": 1729539055137819,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055137819,
-                            "ts_end": 1729539055137820,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055137821,
-                            "ts_end": 1729539055137822,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055139214,
-                            "ts_end": 1729539055139216,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055139269,
-                            "ts_end": 1729539055139270,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055139329,
-                            "ts_end": 1729539055139331,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055139389,
-                            "ts_end": 1729539055139393,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055139453,
-                            "ts_end": 1729539055139455,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055139519,
-                            "ts_end": 1729539055139520,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055152299,
-                            "ts_end": 1729539055152300,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055152301,
-                            "ts_end": 1729539055152302,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_SEND_TEST": [],
-                    "NVTX_EVENT_NET_RECV_TEST": [
-                        {
-                            "ts_start": 1729539055137824,
-                            "ts_end": 1729539055138108,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055138109,
-                            "ts_end": 1729539055138358,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055138358,
-                            "ts_end": 1729539055138584,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055138584,
-                            "ts_end": 1729539055138786,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055138786,
-                            "ts_end": 1729539055138966,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055138967,
-                            "ts_end": 1729539055139137,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055139138,
-                            "ts_end": 1729539055142894,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055142895,
-                            "ts_end": 1729539055143132,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055143132,
-                            "ts_end": 1729539055143386,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055143386,
-                            "ts_end": 1729539055143631,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055143631,
-                            "ts_end": 1729539055151613,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055151614,
-                            "ts_end": 1729539055151843,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055151844,
-                            "ts_end": 1729539055152069,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055152070,
-                            "ts_end": 1729539055152296,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055152302,
-                            "ts_end": 1729539055152518,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055152518,
-                            "ts_end": 1729539055156508,
-                            "sender_rank": "2",
-                            "receiver_rank": "3",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ]
-                }
-            }
+        "1": {
+            "ts_init_start": 1734562519357172,
+            "ts_init_end": 1734562519978906
         }
-    ],
-    "0": [
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539053077422,
-            "timestamp_end": 1729539053080269,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [],
-                    "NVTX_EVENT_NET_IRECV": [],
-                    "NVTX_EVENT_NET_SEND_TEST": [],
-                    "NVTX_EVENT_NET_RECV_TEST": []
-                }
-            }
+    },
+    "1": {
+        "2": {
+            "ts_init_start": 1734562519357147,
+            "ts_init_end": 1734562519988503
         },
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539055077672,
-            "timestamp_end": 1729539055189130,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [],
-                    "NVTX_EVENT_NET_IRECV": [
-                        {
-                            "ts_start": 1729539055079886,
-                            "ts_end": 1729539055079904,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055079908,
-                            "ts_end": 1729539055079909,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055079910,
-                            "ts_end": 1729539055079911,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055079911,
-                            "ts_end": 1729539055079912,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055079913,
-                            "ts_end": 1729539055079914,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055079914,
-                            "ts_end": 1729539055079915,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055079916,
-                            "ts_end": 1729539055079917,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055079917,
-                            "ts_end": 1729539055079918,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055148169,
-                            "ts_end": 1729539055148170,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055148201,
-                            "ts_end": 1729539055148202,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055148237,
-                            "ts_end": 1729539055148238,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055148269,
-                            "ts_end": 1729539055148270,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055148301,
-                            "ts_end": 1729539055148302,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055148332,
-                            "ts_end": 1729539055148333,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055173561,
-                            "ts_end": 1729539055173563,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055173563,
-                            "ts_end": 1729539055173564,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_SEND_TEST": [],
-                    "NVTX_EVENT_NET_RECV_TEST": [
-                        {
-                            "ts_start": 1729539055086925,
-                            "ts_end": 1729539055146361,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055146362,
-                            "ts_end": 1729539055146752,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055146753,
-                            "ts_end": 1729539055147141,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055147141,
-                            "ts_end": 1729539055147503,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055147504,
-                            "ts_end": 1729539055147846,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055147847,
-                            "ts_end": 1729539055148126,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055148127,
-                            "ts_end": 1729539055172392,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055172392,
-                            "ts_end": 1729539055172686,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055172686,
-                            "ts_end": 1729539055172955,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055172956,
-                            "ts_end": 1729539055173222,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055173222,
-                            "ts_end": 1729539055187512,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055187513,
-                            "ts_end": 1729539055187827,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055187828,
-                            "ts_end": 1729539055188115,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055188116,
-                            "ts_end": 1729539055188423,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055188424,
-                            "ts_end": 1729539055188673,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055188674,
-                            "ts_end": 1729539055188937,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ]
-                }
-            }
+        "3": {
+            "ts_init_start": 1734562519357147,
+            "ts_init_end": 1734562519988503
         }
-    ],
-    "5": [
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539053119297,
-            "timestamp_end": 1729539053129136,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [
-                        {
-                            "ts_start": 1729539053123869,
-                            "ts_end": 1729539053123931,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539053125002,
-                            "ts_end": 1729539053125003,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053125179,
-                            "ts_end": 1729539053125180,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053125476,
-                            "ts_end": 1729539053125477,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053126344,
-                            "ts_end": 1729539053126345,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053126563,
-                            "ts_end": 1729539053126564,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053126565,
-                            "ts_end": 1729539053126565,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053127733,
-                            "ts_end": 1729539053127735,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053127945,
-                            "ts_end": 1729539053127945,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053127946,
-                            "ts_end": 1729539053127947,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053128135,
-                            "ts_end": 1729539053128136,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053128137,
-                            "ts_end": 1729539053128137,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053128314,
-                            "ts_end": 1729539053128315,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053128480,
-                            "ts_end": 1729539053128480,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053128807,
-                            "ts_end": 1729539053128807,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053128808,
-                            "ts_end": 1729539053128808,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_IRECV": [],
-                    "NVTX_EVENT_NET_SEND_TEST": [
-                        {
-                            "ts_start": 1729539053123932,
-                            "ts_end": 1729539053124261,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539053125004,
-                            "ts_end": 1729539053125177,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539053125180,
-                            "ts_end": 1729539053125391,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539053125477,
-                            "ts_end": 1729539053125640,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539053126345,
-                            "ts_end": 1729539053126562,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539053126566,
-                            "ts_end": 1729539053126745,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539053126746,
-                            "ts_end": 1729539053126901,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539053127736,
-                            "ts_end": 1729539053127943,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539053127948,
-                            "ts_end": 1729539053128134,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539053128139,
-                            "ts_end": 1729539053128313,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539053128315,
-                            "ts_end": 1729539053128479,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539053128481,
-                            "ts_end": 1729539053128616,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539053128617,
-                            "ts_end": 1729539053128805,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539053128810,
-                            "ts_end": 1729539053128950,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539053128951,
-                            "ts_end": 1729539053129040,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539053129041,
-                            "ts_end": 1729539053129136,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_RECV_TEST": []
-                }
-            }
-        },
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539055119547,
-            "timestamp_end": 1729539055160212,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [
-                        {
-                            "ts_start": 1729539055139380,
-                            "ts_end": 1729539055139440,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055139759,
-                            "ts_end": 1729539055139760,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055139760,
-                            "ts_end": 1729539055139761,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055139762,
-                            "ts_end": 1729539055139762,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055139763,
-                            "ts_end": 1729539055139763,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055139931,
-                            "ts_end": 1729539055139931,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055150867,
-                            "ts_end": 1729539055150868,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055150869,
-                            "ts_end": 1729539055150869,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055150870,
-                            "ts_end": 1729539055150870,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055150871,
-                            "ts_end": 1729539055150871,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055157383,
-                            "ts_end": 1729539055157384,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055157385,
-                            "ts_end": 1729539055157386,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055157386,
-                            "ts_end": 1729539055157387,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055157387,
-                            "ts_end": 1729539055157388,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055157388,
-                            "ts_end": 1729539055157388,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055157389,
-                            "ts_end": 1729539055157390,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_IRECV": [],
-                    "NVTX_EVENT_NET_SEND_TEST": [
-                        {
-                            "ts_start": 1729539055139441,
-                            "ts_end": 1729539055139757,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055139763,
-                            "ts_end": 1729539055139927,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055139932,
-                            "ts_end": 1729539055140081,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055140081,
-                            "ts_end": 1729539055140239,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055140239,
-                            "ts_end": 1729539055140367,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055140369,
-                            "ts_end": 1729539055140481,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055150871,
-                            "ts_end": 1729539055151017,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055151018,
-                            "ts_end": 1729539055151161,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055157390,
-                            "ts_end": 1729539055157522,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055157523,
-                            "ts_end": 1729539055157654,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055157656,
-                            "ts_end": 1729539055157788,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055157788,
-                            "ts_end": 1729539055157846,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055159713,
-                            "ts_end": 1729539055159879,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055159879,
-                            "ts_end": 1729539055159981,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055159982,
-                            "ts_end": 1729539055160123,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055160124,
-                            "ts_end": 1729539055160212,
-                            "sender_rank": "5",
-                            "receiver_rank": "6",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_RECV_TEST": []
-                }
-            }
-        }
-    ],
-    "8": [
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539053118755,
-            "timestamp_end": 1729539053130714,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [],
-                    "NVTX_EVENT_NET_IRECV": [],
-                    "NVTX_EVENT_NET_SEND_TEST": [],
-                    "NVTX_EVENT_NET_RECV_TEST": []
-                }
-            }
-        },
-        {
-            "event_name": "ncclKernel_Broadcast_RING_LL_Sum_int8_t(ncclDevComm *, unsigned long, ncclWork *)",
-            "timestamp_start": 1729539055125361,
-            "timestamp_end": 1729539055185173,
-            "net_events": {
-                "0": {
-                    "NVTX_EVENT_NET_ISEND": [
-                        {
-                            "ts_start": 1729539055145621,
-                            "ts_end": 1729539055145702,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055146040,
-                            "ts_end": 1729539055146040,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055146041,
-                            "ts_end": 1729539055146042,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055146043,
-                            "ts_end": 1729539055146043,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055146044,
-                            "ts_end": 1729539055146044,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055146045,
-                            "ts_end": 1729539055146046,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055161742,
-                            "ts_end": 1729539055161744,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055162062,
-                            "ts_end": 1729539055162064,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055162065,
-                            "ts_end": 1729539055162066,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055162328,
-                            "ts_end": 1729539055162328,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055162330,
-                            "ts_end": 1729539055162330,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055162331,
-                            "ts_end": 1729539055162332,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055162560,
-                            "ts_end": 1729539055162560,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055162561,
-                            "ts_end": 1729539055162562,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055162562,
-                            "ts_end": 1729539055162563,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055162717,
-                            "ts_end": 1729539055162718,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_IRECV": [],
-                    "NVTX_EVENT_NET_SEND_TEST": [
-                        {
-                            "ts_start": 1729539055145703,
-                            "ts_end": 1729539055146038,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "0"
-                        },
-                        {
-                            "ts_start": 1729539055146047,
-                            "ts_end": 1729539055146238,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "1"
-                        },
-                        {
-                            "ts_start": 1729539055146239,
-                            "ts_end": 1729539055146366,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "2"
-                        },
-                        {
-                            "ts_start": 1729539055146628,
-                            "ts_end": 1729539055146773,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "3"
-                        },
-                        {
-                            "ts_start": 1729539055146773,
-                            "ts_end": 1729539055146927,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "4"
-                        },
-                        {
-                            "ts_start": 1729539055146928,
-                            "ts_end": 1729539055147279,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "5"
-                        },
-                        {
-                            "ts_start": 1729539055161745,
-                            "ts_end": 1729539055162061,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "6"
-                        },
-                        {
-                            "ts_start": 1729539055162067,
-                            "ts_end": 1729539055162327,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "7"
-                        },
-                        {
-                            "ts_start": 1729539055162332,
-                            "ts_end": 1729539055162559,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "8"
-                        },
-                        {
-                            "ts_start": 1729539055162563,
-                            "ts_end": 1729539055162716,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "9"
-                        },
-                        {
-                            "ts_start": 1729539055162719,
-                            "ts_end": 1729539055162772,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "10"
-                        },
-                        {
-                            "ts_start": 1729539055184699,
-                            "ts_end": 1729539055184834,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "11"
-                        },
-                        {
-                            "ts_start": 1729539055184834,
-                            "ts_end": 1729539055184931,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "12"
-                        },
-                        {
-                            "ts_start": 1729539055184932,
-                            "ts_end": 1729539055185028,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "13"
-                        },
-                        {
-                            "ts_start": 1729539055185028,
-                            "ts_end": 1729539055185119,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "14"
-                        },
-                        {
-                            "ts_start": 1729539055185119,
-                            "ts_end": 1729539055185173,
-                            "sender_rank": "8",
-                            "receiver_rank": "0",
-                            "data_size": "524288",
-                            "channel_id": "0",
-                            "sequence_num": "15"
-                        }
-                    ],
-                    "NVTX_EVENT_NET_RECV_TEST": []
-                }
-            }
-        }
-    ]
+    }
 }

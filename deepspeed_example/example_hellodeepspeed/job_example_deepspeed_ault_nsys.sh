@@ -22,6 +22,8 @@ export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
 export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
 
+export NCCL_ALGO=Ring
+
 rm -rf "./results"
 mkdir -p "./results"
 
@@ -54,10 +56,12 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
 done
 
 
-# python3 get_traced_events.py
+python3 get_traced_events.py
 
-# python3 goal2dot.py
+python3 goal2dot.py
 
-# dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
+dot -Tsvg ./results/Events_Dependency.dot -o ./results/Events_Dependency.svg
 
-# dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg
+dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
+
+dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg

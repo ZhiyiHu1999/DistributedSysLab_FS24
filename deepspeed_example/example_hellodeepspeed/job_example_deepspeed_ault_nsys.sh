@@ -3,9 +3,9 @@
 #SBATCH --job-name="deepspeed_example"
 #SBATCH --time=02:00:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[42-43]
+#SBATCH --nodelist=ault[43-44]
 #SBATCH --ntasks-per-node=1
-#SBATCH --gpus-per-task=1
+#SBATCH --gpus-per-task=2
 #SBATCH --mem=200G
 #SBATCH --output=deepspeed_example.%j.o
 #SBATCH --error=deepspeed_example.%j.e
@@ -53,6 +53,11 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-# python3 parser_sqlite2goal.py
 
-# python3 get_collectives_statistics.py
+# python3 get_traced_events.py
+
+# python3 goal2dot.py
+
+# dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
+
+# dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg

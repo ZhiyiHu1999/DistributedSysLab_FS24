@@ -22,8 +22,6 @@ export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
 export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
 
-export NCCL_ALGO=Ring
-
 rm -rf "./results"
 mkdir -p "./results"
 

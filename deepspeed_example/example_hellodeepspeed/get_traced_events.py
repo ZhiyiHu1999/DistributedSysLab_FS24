@@ -952,7 +952,7 @@ def get_nsys_events(dir_path):
                             nccl_events[goal_rank][gpuId][last_Coll_streamId[gpuId]][-1]["ts_end"] = ts_group_end[gpuId]
                             Parse_State[gpuId] = 6
 
-                    elif match_nccl_Send:
+                    elif match_nccl_Send:  ## "ncclSend\(\): comm (\S+), stream (\S+), data_size (\d+), type_size (\d+), receiver_rank (\d+), pid (\d+)"
                         comm = match_nccl_Send.group(1)
                         stream = match_nccl_Send.group(2)
                         data_size = int(match_nccl_Send.group(3))
@@ -962,10 +962,10 @@ def get_nsys_events(dir_path):
 
                         gpuId = pid_to_gpuId[pid]
 
-                        # if Parse_State[gpuId] == 4 or Parse_State[gpuId] == 6:
-                        #     Parse_State[gpuId] = 0
+                        if Parse_State[gpuId] == 4 or Parse_State[gpuId] == 6:
+                            Parse_State[gpuId] = 0
                         
-                        if Parse_State[gpuId] == 1:  ## "ncclSend\(\): comm (\S+), stream (\S+), data_size (\d+), type_size (\d+), receiver_rank: (\d+)"
+                        if Parse_State[gpuId] == 1:
                             commId = comm_to_commId[gpuId][comm]
                             my_rank = comm_info[commId]["gpuId_To_rank"][gpuId]
 
@@ -995,20 +995,14 @@ def get_nsys_events(dir_path):
                                         "my_rank": my_rank,
                                         "gpuId": gpuId,
                                         "ts_start": ts_group_start[gpuId],
-                                        "P2P_events": [
-                                            {
-                                                "event_type": "Send",
-                                                "data_size": data_size,
-                                                "type_size": type_size,
-                                                "peer_rank": peer_rank,
-                                                "seq": events_counter[goal_rank][gpuId][commId]["Send"][peer_rank]
-                                            }
-                                        ], 
-                                        "P2P_elems": []
+                                        "P2P_events": []
                                     }
                                 ) 
                                 
                                 Parse_State[gpuId] = 2
+
+                                last_P2P_streamId[gpuId] = streamId    
+                                last_update[gpuId] = "P2P"
 
                         elif Parse_State[gpuId] == 2:
                             commId = comm_to_commId[gpuId][comm]
@@ -1021,23 +1015,10 @@ def get_nsys_events(dir_path):
                             if peer_rank not in events_counter[goal_rank][gpuId][commId]["Send"]:
                                 events_counter[goal_rank][gpuId][commId]["Send"][peer_rank] = 0
 
-                            nccl_events[goal_rank][gpuId][streamId][-1]["P2P_events"].append(
-                                {
-                                    "event_type": "Send",
-                                    "data_size": data_size,
-                                    "type_size": type_size,
-                                    "peer_rank": peer_rank,
-                                    "seq": events_counter[goal_rank][gpuId][commId]["Send"][peer_rank]
-                                }
-                            )
-
                             Parse_State[gpuId] = 2
 
-                        if comm_info[commId]["nranks"] > 1:
-                            events_counter[goal_rank][gpuId][commId]["Send"][peer_rank] += 1
-
-                        last_P2P_streamId[gpuId] = streamId    
-                        last_update[gpuId] = "P2P"
+                            last_P2P_streamId[gpuId] = streamId    
+                            last_update[gpuId] = "P2P"
 
                     elif match_nccl_Recv:
                         comm = match_nccl_Recv.group(1)
@@ -1048,6 +1029,9 @@ def get_nsys_events(dir_path):
                         pid = match_nccl_Recv.group(6)
 
                         gpuId = pid_to_gpuId[pid]
+
+                        if Parse_State[gpuId] == 4 or Parse_State[gpuId] == 6:
+                            Parse_State[gpuId] = 0
                         
                         if Parse_State[gpuId] == 1:  ## "ncclRecv\(\): comm (\S+), stream (\S+), data_size (\d+), type_size (\d+), sender_rank (\d+)"
                             commId = comm_to_commId[gpuId][comm]
@@ -1079,20 +1063,14 @@ def get_nsys_events(dir_path):
                                         "my_rank": my_rank,
                                         "gpuId": gpuId,
                                         "ts_start": ts_group_start[gpuId],
-                                        "P2P_events": [
-                                            {
-                                                "event_type": "Recv",
-                                                "data_size": data_size,
-                                                "type_size": type_size,
-                                                "peer_rank": peer_rank,
-                                                "seq": events_counter[goal_rank][gpuId][commId]["Recv"][peer_rank]
-                                            }
-                                        ], 
-                                        "P2P_elems": []
+                                        "P2P_events": []
                                     }
                                 ) 
                                 
                                 Parse_State[gpuId] = 2
+
+                                last_P2P_streamId[gpuId] = streamId
+                                last_update[gpuId] = "P2P"
 
                         elif Parse_State[gpuId] == 2:
                             commId = comm_to_commId[gpuId][comm]
@@ -1105,25 +1083,14 @@ def get_nsys_events(dir_path):
                             if peer_rank not in events_counter[goal_rank][gpuId][commId]["Recv"]:
                                 events_counter[goal_rank][gpuId][commId]["Recv"][peer_rank] = 0
 
-                            nccl_events[goal_rank][gpuId][streamId][-1]["P2P_events"].append(
-                                {
-                                    "event_type": "Recv",
-                                    "data_size": data_size,
-                                    "type_size": type_size,
-                                    "peer_rank": peer_rank,
-                                    "seq": events_counter[goal_rank][gpuId][commId]["Recv"][peer_rank]
-                                }
-                            )
-
                             Parse_State[gpuId] = 2
 
-                        if comm_info[commId]["nranks"] > 1:
-                            events_counter[goal_rank][gpuId][commId]["Recv"][peer_rank] +=1
-
-                        last_P2P_streamId[gpuId] = streamId
-                        last_update[gpuId] = "P2P"
+                            last_P2P_streamId[gpuId] = streamId
+                            last_update[gpuId] = "P2P"
 
                     elif match_P2P_Elem:  ## "Bytes (\d+) nWarps (\d+) p2pType (\d+) peer (\d+) proto (\d+) countHi32 (\d+) countLo32 (\d+) chunkSize (\d+) pid (\d+)"
+                        p2pType = match_P2P_Elem.group(3)
+                        peer_rank = match_P2P_Elem.group(4)
                         proto = match_P2P_Elem.group(5)
                         countHi32 = int(match_P2P_Elem.group(6))
                         countLo32 = int(match_P2P_Elem.group(7))
@@ -1131,17 +1098,28 @@ def get_nsys_events(dir_path):
                         pid  = match_P2P_Elem.group(9)
 
                         gpuId = pid_to_gpuId[pid]
+                        commId = nccl_events[goal_rank][gpuId][last_P2P_streamId[gpuId]][-1]["commId"]
+
+                        if p2pType == "1":
+                            p2p_type = "Send" 
+                        elif p2pType == "2":
+                            p2p_type = "Recv" 
 
                         if Parse_State[gpuId] == 4:
-                            nccl_events[goal_rank][gpuId][last_P2P_streamId[gpuId]][-1]["P2P_elems"].append(
+                            nccl_events[goal_rank][gpuId][last_P2P_streamId[gpuId]][-1]["P2P_events"].append(
                                 {
+                                    "p2p_type": p2p_type,
+                                    "peer_rank": peer_rank,
                                     "protocol": proto,
                                     "countHi32": countHi32,
                                     "countLo32": countLo32,
                                     "chunkSize": chunkSize,
-                                    "count": countHi32 * 2**32 + countLo32
+                                    "count": countHi32 * 2**32 + countLo32,
+                                    "seq": events_counter[goal_rank][gpuId][commId][p2p_type][peer_rank]
                                 }
                             )
+
+                            events_counter[goal_rank][gpuId][commId][p2p_type][peer_rank] += 1
 
                     elif match_ncclLaunchKernel:
                         pid = match_ncclLaunchKernel.group(1)
@@ -1155,19 +1133,6 @@ def get_nsys_events(dir_path):
 
                         elif last_update[gpuId] == "P2P":
                             nccl_events[goal_rank][gpuId][last_P2P_streamId[gpuId]][-1]["ts_kernel"] = ts_kernel
-
-            # nccl_real_events = {}
-            # for GoalRank ,nccl_goal_events in nccl_events.items():
-            #     nccl_real_events[GoalRank] = {}
-            #     for gpuId, nccl_gpu_events in nccl_goal_events.items():
-            #         nccl_real_events[GoalRank][gpuId] = {}
-            #         for streamId, nccl_stream_events in nccl_gpu_events.items():
-            #             nccl_real_events[GoalRank][gpuId][streamId] = []
-            #             for event in nccl_stream_events:
-            #                 if "elems" in event or "P2P_elems" in event:
-            #                     nccl_real_events[GoalRank][gpuId][streamId].append(event)
-
-            # nccl_events = nccl_real_events
             
             cursor.execute("SELECT globalPid, pid FROM PROCESSES")
             globalPid_pids = cursor.fetchall()
@@ -1290,7 +1255,30 @@ def expand_group_events(events):
                             )
                     
                     elif event["event_type"] == "GroupP2P":
-                        expanded_events[goal_rank][gpuId][streamId].append(event)
+                        for p2p_event in event["P2P_events"]:
+                            expanded_events[goal_rank][gpuId][streamId].append(
+                                {
+                                    "event_type": p2p_event["p2p_type"],
+                                    "commId": event["commId"],
+                                    "comm_index": event["comm_index"],
+                                    "streamId": event["streamId"],
+                                    "my_rank": event["my_rank"],
+                                    "gpuId": event["gpuId"],
+                                    "ts_start": event["ts_start"],
+                                    "peer_rank": p2p_event["peer_rank"],
+                                    "protocol": p2p_event["protocol"],
+                                    "countHi32": p2p_event["countHi32"],
+                                    "countLo32": p2p_event["countLo32"],
+                                    "chunkSize": p2p_event["chunkSize"],
+                                    "count": p2p_event["count"],
+                                    "data_size": p2p_event["count"],
+                                    "seq": p2p_event["seq"],
+                                    "ts_end": event["ts_end"],
+                                    "ts_kernel": event["ts_kernel"],
+                                    "ts_gpu_start": event["ts_gpu_start"],
+                                    "ts_gpu_end": event["ts_gpu_end"]
+                                }
+                            )
 
                     else:
                         expanded_events[goal_rank][gpuId][streamId].append(event)
@@ -1470,8 +1458,11 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                         last_group_event_end_id = task_counter
 
                         for event in group_event["events"]:
-                            if event["event_type"] == "GroupP2P":
+                            if event["event_type"] == "Send" or event["event_type"] == "Recv":
                                 commId = event["commId"]
+                                p2p_event_type = event["event_type"]
+                                p2p_peer_Ix = event["peer_rank"]
+                                p2p_seq = event["seq"]
 
                                 if commId not in SendRecvEvents_To_TaskCounter[goal_rank][gpuId]:
                                     SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId] = {}
@@ -1486,65 +1477,50 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                 file.write(f"l{group_event_end_calc_id} requires l{task_counter}\n")
                                 p2p_group_end_calc_id = task_counter
 
-                                next_p2p_elem_id = 0
-                                last_p2p_elem_id = 0
-                                for p2p_event in event["P2P_events"]:
-                                    p2p_event_type = p2p_event["event_type"]
-                                    p2p_peer_Ix = p2p_event["peer_rank"]
-                                    p2p_seq = p2p_event["seq"]
+                                if p2p_event_type not in SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId]:
+                                    SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type] = {}  ## send or recv
+                                
+                                if p2p_peer_Ix not in SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type]:
+                                    SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix] = {}
+                                
+                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq] = {}
 
-                                    if p2p_event_type not in SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId]:
-                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type] = {}  ## send or recv
-                                    
-                                    if p2p_peer_Ix not in SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type]:
-                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix] = {}
-                                    
-                                    SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq] = {}
+                                channel_id = 0
+                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id] = []
 
-                                    data_size_processed = 0
-                                    while data_size_processed < p2p_event["data_size"]:  ## A P2P channel
-                                        channel_id = next_p2p_elem_id - last_p2p_elem_id
-                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id] = []
+                                proto = event["protocol"]
+                                chunkSize = event["chunkSize"]
+                                count = event["count"]
 
-                                        p2p_elem = event["P2P_elems"][next_p2p_elem_id]
-                                        proto = p2p_elem["protocol"]
-                                        chunkSize = p2p_elem["chunkSize"]
-                                        count = p2p_elem["count"]
+                                # if proto == "0": ## LL
+                                #     chunkSize //= 2
+                                #     for elemOffset in range(0, count, chunkSize):
+                                #         nelem = int(min(chunkSize, count - elemOffset))
+                                #         nelem = 0 if nelem < 0 else nelem
 
-                                        # if proto == "0": ## LL
-                                        #     chunkSize //= 2
-                                        #     for elemOffset in range(0, count, chunkSize):
-                                        #         nelem = int(min(chunkSize, count - elemOffset))
-                                        #         nelem = 0 if nelem < 0 else nelem
+                                #         task_counter += 1
+                                #         tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event["event_type"]][event["seq"]][channel_id]["send"][nextIx])) + str(channel_id).zfill(2) + str(event["seq"]).zfill(4) + str(get_event_type(event["event_type"])).zfill(1) + str(event["comm_index"]).zfill(2)
+                                #         if p2p_event["event_type"] == "Send":
+                                #             file.write(f"l{task_counter}: send {div_up(nelem, 8) * 16}b to {p2p_event["peer_rank"]}\n")
+                                #         elif p2p_event["event_type"] == "Recv":
+                                #             file.write(f"l{task_counter}: recv {div_up(nelem, 8) * 16}b from {p2p_event["peer_rank"]}\n")
+                                #         file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
+                                #         file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
 
-                                        #         task_counter += 1
-                                        #         tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event["event_type"]][event["seq"]][channel_id]["send"][nextIx])) + str(channel_id).zfill(2) + str(event["seq"]).zfill(4) + str(get_event_type(event["event_type"])).zfill(1) + str(event["comm_index"]).zfill(2)
-                                        #         if p2p_event["event_type"] == "Send":
-                                        #             file.write(f"l{task_counter}: send {div_up(nelem, 8) * 16}b to {p2p_event["peer_rank"]}\n")
-                                        #         elif p2p_event["event_type"] == "Recv":
-                                        #             file.write(f"l{task_counter}: recv {div_up(nelem, 8) * 16}b from {p2p_event["peer_rank"]}\n")
-                                        #         file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
-                                        #         file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
+                                if proto == "2": ## Simple
+                                    for elemOffset in range(0, count, chunkSize):
+                                        nelem = int(min(chunkSize, count - elemOffset))
+                                        nelem = 0 if nelem < 0 else nelem
 
-                                        if proto == "2": ## Simple
-                                            for elemOffset in range(0, count, chunkSize):
-                                                nelem = int(min(chunkSize, count - elemOffset))
-                                                nelem = 0 if nelem < 0 else nelem
-
-                                                task_counter += 1
-                                                tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id])) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event["comm_index"]).zfill(2)
-                                                if p2p_event_type == "Send":
-                                                    file.write(f"l{task_counter}: send {nelem}b to {p2p_event["peer_rank"]} tag {tag}\n")
-                                                elif p2p_event_type == "Recv":
-                                                    file.write(f"l{task_counter}: recv {nelem}b from {p2p_event["peer_rank"]} tag {tag}\n")
-                                                file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
-                                                file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
-                                                SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id].append(task_counter)
-
-                                        data_size_processed += count
-                                        next_p2p_elem_id += 1
-
-                                    last_p2p_elem_id = next_p2p_elem_id
+                                        task_counter += 1
+                                        tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id])) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event["comm_index"]).zfill(2)
+                                        if p2p_event_type == "Send":
+                                            file.write(f"l{task_counter}: send {nelem}b to {p2p_peer_Ix} tag {tag}\n")
+                                        elif p2p_event_type == "Recv":
+                                            file.write(f"l{task_counter}: recv {nelem}b from {p2p_peer_Ix} tag {tag}\n")
+                                        file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
+                                        file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
+                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id].append(task_counter)
                                     
                             else:
                                 commId = event["commId"]
@@ -2632,8 +2608,13 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                         last_group_event_end_id = task_counter
 
                         for event in group_event["events"]:
-                            if event["event_type"] == "GroupP2P":
+                            if event["event_type"] == "Send" or event["event_type"] == "Recv":
                                 commId = event["commId"]
+                                p2p_event_type = event["event_type"]
+                                p2p_peer_Ix = event["peer_rank"]
+                                gpuId_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["gpuId"]
+                                goal_rank_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["goal_rank"]
+                                p2p_seq = event["seq"]
 
                                 task_counter += 1
                                 file.write(f"l{task_counter}: calc {event["ts_kernel"] - event["ts_start"]}\n")  ## Calc between nccl kernel launch end and host event start
@@ -2645,70 +2626,53 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                 file.write(f"l{group_event_end_calc_id} requires l{task_counter}\n")
                                 p2p_group_end_calc_id = task_counter
 
-                                next_p2p_elem_id = 0
-                                last_p2p_elem_id = 0
-                                for p2p_event in event["P2P_events"]:
-                                    p2p_event_type = p2p_event["event_type"]
-                                    p2p_peer_Ix = p2p_event["peer_rank"]
-                                    gpuId_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["gpuId"]
-                                    goal_rank_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["goal_rank"]
-                                    p2p_seq = p2p_event["seq"]
+                                p2p_index = {} 
+                                p2p_index[p2p_peer_Ix] = 0 
+                                channel_id = 0
 
-                                    data_size_processed = 0
-                                    while data_size_processed < p2p_event["data_size"]:  ## A P2P channel
-                                        p2p_index = {} 
-                                        p2p_index[p2p_peer_Ix] = 0 
-                                        channel_id = next_p2p_elem_id - last_p2p_elem_id
+                                proto = event["protocol"]
+                                chunkSize = event["chunkSize"]
+                                count = event["count"]
 
-                                        p2p_elem = event["P2P_elems"][next_p2p_elem_id]
-                                        proto = p2p_elem["protocol"]
-                                        chunkSize = p2p_elem["chunkSize"]
-                                        count = p2p_elem["count"]
+                                # if proto == "0": ## LL
+                                #     chunkSize //= 2
+                                #     for elemOffset in range(0, count, chunkSize):
+                                #         nelem = int(min(chunkSize, count - elemOffset))
+                                #         nelem = 0 if nelem < 0 else nelem
 
-                                        # if proto == "0": ## LL
-                                        #     chunkSize //= 2
-                                        #     for elemOffset in range(0, count, chunkSize):
-                                        #         nelem = int(min(chunkSize, count - elemOffset))
-                                        #         nelem = 0 if nelem < 0 else nelem
+                                #         task_counter += 1
+                                #         tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event["event_type"]][event["seq"]][channel_id]["send"][nextIx])) + str(channel_id).zfill(2) + str(event["seq"]).zfill(4) + str(get_event_type(event["event_type"])).zfill(1) + str(event["comm_index"]).zfill(2)
+                                #         if p2p_event["event_type"] == "Send":
+                                #             file.write(f"l{task_counter}: send {div_up(nelem, 8) * 16}b to {p2p_event["peer_rank"]}\n")
+                                #         elif p2p_event["event_type"] == "Recv":
+                                #             file.write(f"l{task_counter}: recv {div_up(nelem, 8) * 16}b from {p2p_event["peer_rank"]}\n")
+                                #         file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
+                                #         file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
 
-                                        #         task_counter += 1
-                                        #         tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event["event_type"]][event["seq"]][channel_id]["send"][nextIx])) + str(channel_id).zfill(2) + str(event["seq"]).zfill(4) + str(get_event_type(event["event_type"])).zfill(1) + str(event["comm_index"]).zfill(2)
-                                        #         if p2p_event["event_type"] == "Send":
-                                        #             file.write(f"l{task_counter}: send {div_up(nelem, 8) * 16}b to {p2p_event["peer_rank"]}\n")
-                                        #         elif p2p_event["event_type"] == "Recv":
-                                        #             file.write(f"l{task_counter}: recv {div_up(nelem, 8) * 16}b from {p2p_event["peer_rank"]}\n")
-                                        #         file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
-                                        #         file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
+                                if proto == "2": ## Simple
+                                    for elemOffset in range(0, count, chunkSize):
+                                        nelem = int(min(chunkSize, count - elemOffset))
+                                        nelem = 0 if nelem < 0 else nelem
 
-                                        if proto == "2": ## Simple
-                                            for elemOffset in range(0, count, chunkSize):
-                                                nelem = int(min(chunkSize, count - elemOffset))
-                                                nelem = 0 if nelem < 0 else nelem
+                                        task_counter += 1
+                                        if p2p_event_type == "Send":
+                                            if goal_rank_peer != goal_rank:
+                                                tag = str(p2p_index[p2p_peer_Ix]) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event["comm_index"]).zfill(2)
+                                                file.write(f"l{task_counter}: send {nelem}b to {goal_rank_peer} tag {tag}\n")
+                                                p2p_index[p2p_peer_Ix] += 1
+                                            else:
+                                                file.write(f"l{task_counter}: calc {get_copy_time(nelem)}\n")
 
-                                                task_counter += 1
-                                                if p2p_event_type == "Send":
-                                                    if goal_rank_peer != goal_rank:
-                                                        tag = str(p2p_index[p2p_peer_Ix]) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event["comm_index"]).zfill(2)
-                                                        file.write(f"l{task_counter}: send {nelem}b to {p2p_event["peer_rank"]} tag {tag}\n")
-                                                        p2p_index[p2p_peer_Ix] += 1
-                                                    else:
-                                                        file.write(f"l{task_counter}: calc {get_copy_time(nelem)}\n")
+                                        elif p2p_event_type == "Recv":
+                                            if goal_rank_peer != goal_rank:
+                                                tag = str(p2p_index[p2p_peer_Ix]) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event["comm_index"]).zfill(2)
+                                                file.write(f"l{task_counter}: recv {nelem}b from {goal_rank_peer} tag {tag}\n")
+                                                p2p_index[p2p_peer_Ix] += 1
+                                            else:
+                                                file.write(f"l{task_counter}: calc {get_copy_time(nelem)}\n")
 
-                                                elif p2p_event_type == "Recv":
-                                                    if goal_rank_peer != goal_rank:
-                                                        tag = str(p2p_index[p2p_peer_Ix]) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event["comm_index"]).zfill(2)
-                                                        file.write(f"l{task_counter}: recv {nelem}b from {p2p_event["peer_rank"]} tag {tag}\n")
-                                                        p2p_index[p2p_peer_Ix] += 1
-                                                    else:
-                                                        file.write(f"l{task_counter}: calc {get_copy_time(nelem)}\n")
-
-                                                file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
-                                                file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
-
-                                        data_size_processed += count
-                                        next_p2p_elem_id += 1
-
-                                    last_p2p_elem_id = next_p2p_elem_id
+                                        file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
+                                        file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
                             
                             else:
                                 commId = event["commId"]
@@ -4195,64 +4159,46 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     parent_send_task_counter = parent_event_task_counter[i]
                                                     file.write(f"l{int(my_receive_task_counter)} requires l{int(parent_send_task_counter)}\n")
 
-                            elif event["event_type"] == "GroupP2P":
+                            elif event["event_type"] == "Recv":  ## Intra-node Recv requires Send
                                 commId = event["commId"]
 
-                                next_p2p_elem_id = 0
-                                last_p2p_elem_id = 0
-                                for p2p_event in event["P2P_events"]:
-                                    my_Ix = comm_info[commId]["gpuId_To_rank"][gpuId]
-                                    p2p_event_type = p2p_event["event_type"]
-                                    p2p_peer_Ix = p2p_event["peer_rank"]
-                                    gpuId_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["gpuId"]
-                                    goal_rank_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["goal_rank"]
-                                    p2p_seq = p2p_event["seq"]
+                                my_Ix = comm_info[commId]["gpuId_To_rank"][gpuId]
+                                p2p_event_type = event["event_type"]
+                                p2p_peer_Ix = event["peer_rank"]
+                                gpuId_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["gpuId"]
+                                goal_rank_peer = comm_info[commId]["rank_To_rankInfo"][p2p_peer_Ix]["goal_rank"]
+                                p2p_seq = event["seq"]
                                     
-                                    data_size_processed = 0
-                                    while data_size_processed < p2p_event["data_size"]:  ## A P2P channel
-                                        channel_id = next_p2p_elem_id - last_p2p_elem_id
+                                channel_id = 0
 
-                                        p2p_elem = event["P2P_elems"][next_p2p_elem_id]
-                                        proto = p2p_elem["protocol"]
-                                        chunkSize = p2p_elem["chunkSize"]
-                                        count = p2p_elem["count"]
+                                proto = event["protocol"]
+                                chunkSize = event["chunkSize"]
+                                count = event["count"]
 
-                                        # if proto == "0": ## LL
-                                        #     chunkSize //= 2
-                                        #     for elemOffset in range(0, count, chunkSize):
-                                        #         nelem = int(min(chunkSize, count - elemOffset))
-                                        #         nelem = 0 if nelem < 0 else nelem
+                                # if proto == "0": ## LL
+                                #     chunkSize //= 2
+                                #     for elemOffset in range(0, count, chunkSize):
+                                #         nelem = int(min(chunkSize, count - elemOffset))
+                                #         nelem = 0 if nelem < 0 else nelem
 
-                                        #         task_counter += 1
-                                        #         tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event["event_type"]][event["seq"]][channel_id]["send"][nextIx])) + str(channel_id).zfill(2) + str(event["seq"]).zfill(4) + str(get_event_type(event["event_type"])).zfill(1) + str(event["comm_index"]).zfill(2)
-                                        #         if p2p_event["event_type"] == "Send":
-                                        #             file.write(f"l{task_counter}: send {div_up(nelem, 8) * 16}b to {p2p_event["peer_rank"]}\n")
-                                        #         elif p2p_event["event_type"] == "Recv":
-                                        #             file.write(f"l{task_counter}: recv {div_up(nelem, 8) * 16}b from {p2p_event["peer_rank"]}\n")
-                                        #         file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
-                                        #         file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
+                                #         task_counter += 1
+                                #         tag = str(len(SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event["event_type"]][event["seq"]][channel_id]["send"][nextIx])) + str(channel_id).zfill(2) + str(event["seq"]).zfill(4) + str(get_event_type(event["event_type"])).zfill(1) + str(event["comm_index"]).zfill(2)
+                                #         if p2p_event["event_type"] == "Send":
+                                #             file.write(f"l{task_counter}: send {div_up(nelem, 8) * 16}b to {p2p_event["peer_rank"]}\n")
+                                #         elif p2p_event["event_type"] == "Recv":
+                                #             file.write(f"l{task_counter}: recv {div_up(nelem, 8) * 16}b from {p2p_event["peer_rank"]}\n")
+                                #         file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
+                                #         file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
 
-                                        if proto == "2": ## Simple
-                                            for elemOffset in range(0, count, chunkSize):
-                                                nelem = int(min(chunkSize, count - elemOffset))
-                                                nelem = 0 if nelem < 0 else nelem
+                                if proto == "2": ## Simple
+                                    recv_calc_task_counter = SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId]["Recv"][p2p_peer_Ix][p2p_seq][channel_id]
+                                    send_calc_task_counter = SendRecvEvents_To_TaskCounter[goal_rank_peer][gpuId_peer][commId]["Send"][my_Ix][p2p_seq][channel_id]
 
-                                                if p2p_event["event_type"] == "Recv":
-                                                    recv_calc_task_counter = SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId]["Recv"][p2p_peer_Ix][p2p_seq][channel_id]
-                                                    send_calc_task_counter = SendRecvEvents_To_TaskCounter[goal_rank_peer][gpuId_peer][commId]["Send"][my_Ix][p2p_seq][channel_id]
-
-                                                    if goal_rank_peer == goal_rank:
-                                                        for i in range(len(recv_calc_task_counter)):
-                                                            my_receive_task_counter = recv_calc_task_counter[i]
-                                                            peer_send_task_counter = send_calc_task_counter[i]
-                                                            file.write(f"l{int(my_receive_task_counter)} requires l{int(peer_send_task_counter)}\n")
-
-                                        data_size_processed += count
-                                        next_p2p_elem_id += 1
-
-                                    last_p2p_elem_id = next_p2p_elem_id
-
-                                    
+                                    if goal_rank_peer == goal_rank:
+                                        for i in range(len(recv_calc_task_counter)):
+                                            my_receive_task_counter = recv_calc_task_counter[i]
+                                            peer_send_task_counter = send_calc_task_counter[i]
+                                            file.write(f"l{int(my_receive_task_counter)} requires l{int(peer_send_task_counter)}\n")                           
 
             file.write("}\n")
 
@@ -4295,15 +4241,18 @@ def main():
 
     Goal_File_Name = "./results/Events_Dependency.goal"
     get_events_dependency(Events_Parallel_Group, Comm_Init_Events, Goal_File_Name)
+    print("Events goal file has been exported to Events_Dependency.goal")
 
     Goal_File_Name = "./results/InGPU_MicroEvents_Dependency.goal"
     SendRecvEvents_To_TaskCounter = get_in_gpu_microevents_dependency(Events_Parallel_Group, Comm_Init_Events, Comm_Info, Goal_File_Name)
     with open("./results/SendRecvEvents_To_TaskCounter.json", "w") as json_file:
         json.dump(SendRecvEvents_To_TaskCounter, json_file, indent=4)
         json_file.write('\n\n')
+    print("In-GPU goal file has been exported to InGPU_MicroEvents_Dependency.goal")
 
     Goal_File_Name = "./results/InterNode_MicroEvents_Dependency.goal"
     get_inter_node_microevents_dependency(Events_Parallel_Group, Comm_Init_Events, Comm_Info, SendRecvEvents_To_TaskCounter, Goal_File_Name)
+    print("Internode goal file has been exported to InterNode_MicroEvents_Dependency.goal")
 
 if __name__ == '__main__':
     main()

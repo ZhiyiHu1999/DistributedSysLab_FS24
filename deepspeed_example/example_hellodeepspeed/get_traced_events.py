@@ -1,4 +1,5 @@
 import argparse
+import yaml
 import os
 import json
 import math
@@ -1323,6 +1324,76 @@ def get_events_parallel_group(nccl_events):
                         nccl_events_group[goal_rank][gpuId][streamId].append(events_group)
 
     return nccl_events_group
+
+
+def apply_user_config(yaml_file, events_parallel_group, comm_init_events, comm_Info):
+    num_gpus_traced = 0
+    gpu_events_parallel_group = {}
+    gpu_comm_init_events = {}
+
+    for goal_rank, goal_events in comm_init_events.items():
+        num_gpus_traced += len(goal_events)
+        for gpuId, gpu_events in goal_events.items():
+            gpu_comm_init_events[gpuId] = gpu_events
+
+    for goal_rank, goal_events in events_parallel_group.items():
+        for gpuId, gpu_events in goal_events.items():
+            gpu_events_parallel_group[gpuId] = gpu_events
+
+    with open(yaml_file, 'r', encoding='utf-8') as f:
+        config = yaml.safe_load(f)
+        if config is not None:
+            if config.get('num_of_nodes') is not None and config.get('num_gpus_per_node') is not None:
+                num_nodes = config['num_of_nodes']
+                num_gpus_per_node = config['num_gpus_per_node']
+                num_gpus = num_nodes * num_gpus_per_node
+
+                assert num_gpus == num_gpus_traced, 'The number of gpus you configure is not equal to the number of gpus used in tracing'
+
+                gpuId = 0
+                gpuId_to_goal = {}
+                for goal_rank in range(0, num_nodes):
+                    for local_gpu_id in range(0, num_gpus_per_node):
+                        gpuId_to_goal[gpuId] = goal_rank
+                        gpuId += 1
+
+            elif config.get('num_gpus_list') is not None:
+                num_gpus_list = config['num_gpus_list']
+                num_nodes = len(num_gpus_list)
+                num_gpus = 0
+                for num_gpus_node in num_gpus_list:
+                    num_gpus += num_gpus_node
+
+                assert num_gpus == num_gpus_traced, 'The number of gpus you configure is not equal to the number of gpus used in tracing'
+
+                gpuId = 0
+                gpuId_to_goal = {}
+                for goal_rank in range(0, num_nodes):
+                    for local_gpu_id in range(0, num_gpus_list[goal_rank]):
+                        gpuId_to_goal[gpuId] = goal_rank
+                        gpuId += 1
+
+            events_parallel_group = {}
+            comm_init_events = {}
+            for gpuId in range(0, num_gpus):
+                goal_rank = gpuId_to_goal[gpuId]
+                if goal_rank not in events_parallel_group:
+                    events_parallel_group[goal_rank] = {}
+                if goal_rank not in comm_init_events:
+                    comm_init_events[goal_rank] = {}
+                events_parallel_group[goal_rank][gpuId] = gpu_events_parallel_group[gpuId]
+                comm_init_events[goal_rank][gpuId] = gpu_comm_init_events[gpuId]
+
+            for commId in comm_Info.keys():
+                for rank in comm_Info[commId]["rank_To_rankInfo"].keys():
+                    comm_Info[commId]["rank_To_rankInfo"][rank]["goal_rank"] = gpuId_to_goal[comm_Info[commId]["rank_To_rankInfo"][rank]["gpuId"]]
+                    comm_Info[commId]["rank_To_rankInfo"][rank].pop("host_name", None)
+
+        else:
+            print('no configuration in config file')
+
+    return events_parallel_group, comm_init_events, comm_Info
+
 
 def get_events_dependency(nccl_group_events, comm_init_events, goal_file_name):
     num_ranks = len(nccl_group_events)
@@ -4203,6 +4274,10 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
             file.write('}\n')
 
 def main():
+    parser = argparse.ArgumentParser()
+    parser.add_argument('--config_node_gpu', type=str, required=False, help='yaml file for configuration of nodes and GPUs')
+    args = parser.parse_args()
+
     # Get nsys events
     Dir_Path = './results/nsys_reports'
     Comm_Init_Events, NCCL_Events, CUPTI_Kernel_Results, Comm_Info, HostName_To_GoalRank = get_nsys_events(Dir_Path)  ## nccl_events, cupti_kernel_results, comm_info, HostName_To_GoalRank
@@ -4238,6 +4313,9 @@ def main():
     with open('./results/nsys_events_parallel_group_output.json', 'w') as json_file:
         json.dump(Events_Parallel_Group, json_file, indent=4)
         json_file.write('\n\n')
+
+    if args.config_node_gpu is not None:
+        Events_Parallel_Group, Comm_Init_Events, Comm_Info = apply_user_config(args.config_node_gpu, Events_Parallel_Group, Comm_Init_Events, Comm_Info)
 
     Goal_File_Name = './results/Events_Dependency.goal'
     get_events_dependency(Events_Parallel_Group, Comm_Init_Events, Goal_File_Name)

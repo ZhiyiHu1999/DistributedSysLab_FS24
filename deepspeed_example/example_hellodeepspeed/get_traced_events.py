@@ -1490,7 +1490,7 @@ def apply_user_config(yaml_file, events_parallel_group, comm_init_events, comm_I
                 sorted_goal_rank = sorted(comm_config.keys())  ## Build chain within the node from lower gpuId to higher gpuId
                 sorted_comm_config = {goal_rank: sorted(comm_config[goal_rank]) for goal_rank in sorted_goal_rank}
                 comm_config = sorted_comm_config
-                print(comm_config)
+                # print(comm_config)
 
                 ## Build Ring/Tree between nodes
                 topo_info = {}
@@ -1518,7 +1518,7 @@ def apply_user_config(yaml_file, events_parallel_group, comm_init_events, comm_I
                     topo_info[goal_rank]['Tree_1']['child_1_goal_rank'] = goal_list[DTree['d1_0']] if DTree['d1_0'] != -1 else -1
                     topo_info[goal_rank]['Tree_1']['child_2_goal_rank'] = goal_list[DTree['d1_1']] if DTree['d1_1'] != -1 else -1
 
-                print(topo_info)
+                # print(topo_info)
 
                 gpuId_To_rank = comm_Info[commId]["gpuId_To_rank"]
                 nranks = comm_Info[commId]["nranks"]
@@ -4374,7 +4374,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                 prev_send_task_counter = prev_event_task_counter[i]
                                                 file.write(f'l{int(my_receive_task_counter)} requires l{int(prev_send_task_counter)}\n')
                                 
-                                elif algo == '0':  ## Ring
+                                elif algo == '0':  ## Tree
                                     commId = event['commId']
                                     myIx = comm_info[commId]['gpuId_To_rank'][gpuId]  ## local rank index in the communicator
                                     channel_info = comm_info[commId]['rank_To_rankInfo'][myIx]['channel_info']['Tree']

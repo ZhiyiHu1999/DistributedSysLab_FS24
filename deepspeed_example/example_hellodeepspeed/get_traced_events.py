@@ -5,6 +5,9 @@ import json
 import math
 import sqlite3
 import re
+import numpy as np
+import random
+from scipy import interpolate
 
 from collections import defaultdict
 from queue import Queue
@@ -1216,19 +1219,99 @@ def check_events_pair(events):
 
     return events_pair
 
-def expand_group_events(events):
-    expanded_events = {}
+# def expand_group_events(events):
+#     expanded_events = {}
 
-    for goal_rank, goal_events in events.items():
-        expanded_events[goal_rank] = {}
+#     for goal_rank, goal_events in events.items():
+#         expanded_events[goal_rank] = {}
+#         for gpuId, gpu_events in goal_events.items():
+#             expanded_events[goal_rank][gpuId] = {}
+#             for streamId, stream_events in gpu_events.items():
+#                 expanded_events[goal_rank][gpuId][streamId] = []
+#                 for event in stream_events:
+#                     if event['event_type'] == 'GroupColl':
+#                         for coll_event in event['coll_events']:
+#                             expanded_events[goal_rank][gpuId][streamId].append(
+#                                 {
+#                                     'event_type': event['coll_type'],
+#                                     'commId': event['commId'],
+#                                     'comm_index': event['comm_index'],
+#                                     'streamId': event['streamId'],
+#                                     'my_rank': event['my_rank'],
+#                                     'gpuId': event['gpuId'],
+#                                     'ts_start': event['ts_start'],
+#                                     'algorithm': coll_event['algorithm'],
+#                                     'protocol': coll_event['protocol'],
+#                                     'data_size': coll_event['data_size'],
+#                                     'type_size': coll_event['type_size'],
+#                                     'root': coll_event['root'],
+#                                     'red_op': coll_event['red_op'],
+#                                     'seq': coll_event['seq'],
+#                                     'chunkSteps': coll_event['chunkSteps'],
+#                                     'sliceSteps': coll_event['sliceSteps'],
+#                                     'stepSize': coll_event['stepSize'],
+#                                     'elems': coll_event['elems'],
+#                                     'ts_end': event['ts_end'],
+#                                     'ts_kernel': event['ts_kernel'],
+#                                     'ts_gpu_start': event['ts_gpu_start'],
+#                                     'ts_gpu_end': event['ts_gpu_end']
+#                                 }
+#                             )
+                    
+#                     elif event['event_type'] == 'GroupP2P':
+#                         for p2p_event in event['P2P_events']:
+#                             expanded_events[goal_rank][gpuId][streamId].append(
+#                                 {
+#                                     'event_type': p2p_event['p2p_type'],
+#                                     'commId': event['commId'],
+#                                     'comm_index': event['comm_index'],
+#                                     'streamId': event['streamId'],
+#                                     'my_rank': event['my_rank'],
+#                                     'gpuId': event['gpuId'],
+#                                     'ts_start': event['ts_start'],
+#                                     'peer_rank': p2p_event['peer_rank'],
+#                                     'protocol': p2p_event['protocol'],
+#                                     'countHi32': p2p_event['countHi32'],
+#                                     'countLo32': p2p_event['countLo32'],
+#                                     'chunkSize': p2p_event['chunkSize'],
+#                                     'count': p2p_event['count'],
+#                                     'data_size': p2p_event['count'],
+#                                     'seq': p2p_event['seq'],
+#                                     'ts_end': event['ts_end'],
+#                                     'ts_kernel': event['ts_kernel'],
+#                                     'ts_gpu_start': event['ts_gpu_start'],
+#                                     'ts_gpu_end': event['ts_gpu_end']
+#                                 }
+#                             )
+
+#                     else:
+#                         expanded_events[goal_rank][gpuId][streamId].append(event)
+
+#     for goal_rank, goal_events in expanded_events.items():
+#         for gpuId, gpu_events in goal_events.items():
+#             for streamId, stream_events in gpu_events.items():
+#                 print(f'goal_rank: {goal_rank}, gpuId: {gpuId}, streamId: {streamId}, num_events: {len(expanded_events[goal_rank][gpuId][streamId])}')
+
+#     return expanded_events
+
+def get_events_parallel_group(nccl_events):
+    nccl_events_group = {}
+
+    for goal_rank, goal_events in nccl_events.items():
+        nccl_events_group[goal_rank] = {}
         for gpuId, gpu_events in goal_events.items():
-            expanded_events[goal_rank][gpuId] = {}
+            nccl_events_group[goal_rank][gpuId] = {}
             for streamId, stream_events in gpu_events.items():
-                expanded_events[goal_rank][gpuId][streamId] = []
-                for event in stream_events:
+                nccl_events_group[goal_rank][gpuId][streamId] = []
+                for event_index, event in enumerate(stream_events):
                     if event['event_type'] == 'GroupColl':
+                        events_group = {}    
+                        events_group['events'] = []
+                        events_group['ts_group_host_start'] = event['ts_start']
+                        events_group['ts_group_gpu_end'] = event['ts_gpu_end']
+
                         for coll_event in event['coll_events']:
-                            expanded_events[goal_rank][gpuId][streamId].append(
+                            events_group['events'].append(
                                 {
                                     'event_type': event['coll_type'],
                                     'commId': event['commId'],
@@ -1254,10 +1337,17 @@ def expand_group_events(events):
                                     'ts_gpu_end': event['ts_gpu_end']
                                 }
                             )
-                    
+
+                        nccl_events_group[goal_rank][gpuId][streamId].append(events_group)
+
                     elif event['event_type'] == 'GroupP2P':
+                        events_group = {}    
+                        events_group['events'] = []
+                        events_group['ts_group_host_start'] = event['ts_start']
+                        events_group['ts_group_gpu_end'] = event['ts_gpu_end']
+
                         for p2p_event in event['P2P_events']:
-                            expanded_events[goal_rank][gpuId][streamId].append(
+                            events_group['events'].append(
                                 {
                                     'event_type': p2p_event['p2p_type'],
                                     'commId': event['commId'],
@@ -1281,46 +1371,16 @@ def expand_group_events(events):
                                 }
                             )
 
-                    else:
-                        expanded_events[goal_rank][gpuId][streamId].append(event)
-
-    for goal_rank, goal_events in expanded_events.items():
-        for gpuId, gpu_events in goal_events.items():
-            for streamId, stream_events in gpu_events.items():
-                print(f'goal_rank: {goal_rank}, gpuId: {gpuId}, streamId: {streamId}, num_events: {len(expanded_events[goal_rank][gpuId][streamId])}')
-
-    return expanded_events
-
-def get_events_parallel_group(nccl_events):
-    nccl_events_group = {}
-
-    for goal_rank, goal_events in nccl_events.items():
-        nccl_events_group[goal_rank] = {}
-        for gpuId, gpu_events in goal_events.items():
-            nccl_events_group[goal_rank][gpuId] = {}
-            for streamId, stream_events in gpu_events.items():
-                nccl_events_group[goal_rank][gpuId][streamId] = []
-                for event_index, event in enumerate(stream_events):
-                    if event_index == 0:
-                        events_group = {}    
-                        events_group['events'] = []
-                        events_group['events'].append(event)
-                        events_group['ts_group_host_start'] = event['ts_start']
-                        events_group['ts_group_gpu_end'] = event['ts_gpu_end']
-
-                    elif events_group['ts_group_gpu_end'] > event['ts_start']:
-                        events_group['events'].append(event)
-                        events_group['ts_group_gpu_end'] = event['ts_gpu_end']
+                        nccl_events_group[goal_rank][gpuId][streamId].append(events_group)
 
                     else: 
-                        nccl_events_group[goal_rank][gpuId][streamId].append(events_group)
                         events_group = {}    
                         events_group['events'] = []
-                        events_group['events'].append(event)
                         events_group['ts_group_host_start'] = event['ts_start']
                         events_group['ts_group_gpu_end'] = event['ts_gpu_end']
 
-                    if event_index == len(stream_events) - 1:
+                        events_group['events'].append(event)
+
                         nccl_events_group[goal_rank][gpuId][streamId].append(events_group)
 
     return nccl_events_group
@@ -1676,8 +1736,29 @@ def modRanks(r, nranks):
 def div_up(x, y):
     return (x + y - 1) // y       
 
+# def get_reduction_time(data_size):
+#     return data_size//10  ## us
+
 def get_reduction_time(data_size):
-    return data_size//10  ## us
+    with open('npkit_data_summary.json', 'r') as file:
+        data = json.load(file)
+
+    if str(data_size) in data['NPKIT_EVENT_GPU_RECV_REDUCE_SEND']:
+        reduction_times = data['NPKIT_EVENT_GPU_RECV_REDUCE_SEND'][str(data_size)]
+        return random.choice(reduction_times)
+
+    sizes = [int(size) for size in data['NPKIT_EVENT_GPU_RECV_REDUCE_SEND'].keys()]
+    sizes.sort()
+
+    if data_size < sizes[0]:
+        return random.choice(data['NPKIT_EVENT_GPU_RECV_REDUCE_SEND'][str(sizes[0])])
+    if data_size > sizes[-1]:
+        return random.choice(data['NPKIT_EVENT_GPU_RECV_REDUCE_SEND'][str(sizes[-1])])
+
+    f = interpolate.interp1d(sizes, [np.mean(data['NPKIT_EVENT_GPU_RECV_REDUCE_SEND'][str(size)]) for size in sizes], kind='linear', fill_value="extrapolate")
+    interpolated_value = f(data_size)
+    
+    return int(random.gauss(interpolated_value, interpolated_value * 0.1))
 
 def get_copy_time(data_size):
     return data_size//10  ## us
@@ -1725,7 +1806,7 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                     last_group_event_end_id = node_start_calc_id
                     for group_event_index, group_event in enumerate(stream_events): 
                         task_counter += 1
-                        file.write(f'l{task_counter}: calc {group_event['ts_group_host_start'] - last_group_event_end_time}\n')  ## Calc between first group host event start and last group gpu event end
+                        file.write(f'l{task_counter}: calc {max(group_event['ts_group_host_start'] - last_group_event_end_time, 0)}\n')  ## Calc between first group host event start and last group gpu event end
                         file.write(f'l{task_counter} requires l{last_group_event_end_id}\n')
                         group_event_start_calc_id = task_counter
 
@@ -2875,7 +2956,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                     last_group_event_end_id = node_start_calc_id
                     for group_event_index, group_event in enumerate(stream_events): 
                         task_counter += 1
-                        file.write(f'l{task_counter}: calc {group_event['ts_group_host_start'] - last_group_event_end_time}\n')  ## Calc between first group host event start and last group gpu event end
+                        file.write(f'l{task_counter}: calc {max(group_event['ts_group_host_start'] - last_group_event_end_time, 0)}\n')  ## Calc between first group host event start and last group gpu event end
                         file.write(f'l{task_counter} requires l{last_group_event_end_id}\n')
                         group_event_start_calc_id = task_counter
 
@@ -4511,12 +4592,12 @@ def main():
         json.dump(Events_Pair, json_file, indent=4)
         json_file.write('\n\n')
 
-    Expanded_Events = expand_group_events(Merged_Events)
-    with open('./results/nsys_events_expanded_output.json', 'w') as json_file:
-        json.dump(Expanded_Events, json_file, indent=4)
-        json_file.write('\n\n')
+    # Expanded_Events = expand_group_events(Merged_Events)
+    # with open('./results/nsys_events_expanded_output.json', 'w') as json_file:
+    #     json.dump(Expanded_Events, json_file, indent=4)
+    #     json_file.write('\n\n')
 
-    Events_Parallel_Group = get_events_parallel_group(Expanded_Events)
+    Events_Parallel_Group = get_events_parallel_group(Merged_Events)
     with open('./results/nsys_events_parallel_group_output.json', 'w') as json_file:
         json.dump(Events_Parallel_Group, json_file, indent=4)
         json_file.write('\n\n')

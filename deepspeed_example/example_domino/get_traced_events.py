@@ -1866,7 +1866,6 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                 commId = event['commId']
                                 p2p_event_type = event['event_type']
                                 p2p_peer_Ix = event['peer_rank']
-                                gpuId_peer = comm_info[commId]['rank_To_rankInfo'][p2p_peer_Ix]['gpuId']
                                 p2p_seq = event['seq']
 
                                 if commId not in SendRecvEvents_To_TaskCounter[goal_rank][gpuId]:
@@ -1928,9 +1927,7 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
                                             file.write(f'l{task_counter}: recv {nelem}b from {p2p_peer_Ix} tag {tag}\n')
                                         file.write(f'l{task_counter} requires l{p2p_group_start_calc_id}\n')
                                         file.write(f'l{p2p_group_end_calc_id} requires l{task_counter}\n')
-
-                                        if gpuId_peer != gpuId:
-                                            SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id].append(task_counter)
+                                        SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId][p2p_event_type][p2p_peer_Ix][p2p_seq][channel_id].append(task_counter)
                                     
                             else:
                                 commId = event['commId']
@@ -3098,7 +3095,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                         if p2p_event_type == 'Send':
                                             if goal_rank_peer != goal_rank:
                                                 tag = str(p2p_index[p2p_peer_Ix]) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event['comm_index']).zfill(2)
-                                                file.write(f'l{task_counter}: send {nelem}b to {goal_rank_peer} tag {tag} cpu {cpu_counter}\n')
+                                                file.write(f'l{task_counter}: send {nelem}b to {goal_rank_peer} tag {tag}\n')
                                                 p2p_index[p2p_peer_Ix] += 1
                                             else:
                                                 file.write(f'l{task_counter}: calc {get_intra_node_gpu_transfer_time(nelem, 'Send')} cpu {cpu_counter}\n')
@@ -3106,7 +3103,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                         elif p2p_event_type == 'Recv':
                                             if goal_rank_peer != goal_rank:
                                                 tag = str(p2p_index[p2p_peer_Ix]) + str(channel_id).zfill(2) + str(p2p_seq).zfill(4) + str(get_event_type(p2p_event_type)).zfill(1) + str(event['comm_index']).zfill(2)
-                                                file.write(f'l{task_counter}: recv {nelem}b from {goal_rank_peer} tag {tag} cpu {cpu_counter}\n')
+                                                file.write(f'l{task_counter}: recv {nelem}b from {goal_rank_peer} tag {tag}\n')
                                                 p2p_index[p2p_peer_Ix] += 1
                                             else:
                                                 file.write(f'l{task_counter}: calc {get_intra_node_gpu_transfer_time(nelem, 'Recv')} cpu {cpu_counter}\n')
@@ -3201,7 +3198,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_next != goal_rank:
                                                         tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         send_index[nextIx] += 1
@@ -3225,7 +3222,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_next != goal_rank:
                                                                 tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 send_index[nextIx] += 1
@@ -3255,7 +3252,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_prev != goal_rank:
                                                             tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             recv_index[prevIx] += 1
 
@@ -3270,7 +3267,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_next != goal_rank:
                                                             tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             send_index[nextIx] += 1
@@ -3294,7 +3291,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_prev != goal_rank:
                                                                     tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                     recv_index[prevIx] += 1
 
@@ -3309,7 +3306,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_next != goal_rank:
                                                                     tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                     send_index[nextIx] += 1
@@ -3337,7 +3334,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_prev != goal_rank:
                                                         tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         recv_index[prevIx] += 1
                                                     
@@ -3352,7 +3349,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_next != goal_rank:
                                                         tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         send_index[nextIx] += 1
@@ -3376,7 +3373,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_prev != goal_rank:
                                                                 tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 recv_index[prevIx] += 1
 
@@ -3391,7 +3388,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_next != goal_rank:
                                                                 tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 send_index[nextIx] += 1
@@ -3420,7 +3417,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_prev != goal_rank:
                                                             tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             recv_index[prevIx] += 1
 
@@ -3435,7 +3432,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_next != goal_rank:
                                                             tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             send_index[nextIx] += 1
@@ -3459,7 +3456,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_prev != goal_rank:
                                                                     tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                     recv_index[prevIx] += 1
 
@@ -3474,7 +3471,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_next != goal_rank:
                                                                     tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                     send_index[nextIx] += 1
@@ -3502,7 +3499,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_prev != goal_rank:
                                                         tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         recv_index[prevIx] += 1
@@ -3526,7 +3523,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_prev != goal_rank:
                                                                 tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 recv_index[prevIx] += 1
@@ -3612,7 +3609,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank != goal_rank_child:
                                                                     tag = str(recv_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_child} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                     file.write(f'l{calc_task_id} requires l{task_counter}\n')
                                                                     recv_index[child_Ix] += 1
@@ -3625,7 +3622,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank != goal_rank_child:
                                                                     tag = str(send_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_child} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{calc_task_id}\n')
                                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                     send_index[child_Ix] += 1
@@ -3658,7 +3655,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                         task_counter += 1
                                                                         if goal_rank_child != goal_rank:
                                                                             tag = str(recv_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                            file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                            file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_child} tag {tag}\n')
                                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                             file.write(f'l{calc_task_id} requires l{task_counter}\n')
                                                                             recv_index[child_Ix] += 1
@@ -3671,7 +3668,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                         task_counter += 1
                                                                         if goal_rank_child != goal_rank:
                                                                             tag = str(send_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                            file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                            file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_child} tag {tag}\n')
                                                                             file.write(f'l{task_counter} requires l{calc_task_id}\n')
                                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                             send_index[child_Ix] += 1
@@ -3695,7 +3692,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1  ## Send
                                                         if goal_rank_parent != goal_rank:
                                                             tag = str(send_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_parent} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             send_index[parent_Ix] += 1
@@ -3707,7 +3704,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1  ## Recv
                                                         if goal_rank_parent != goal_rank:
                                                             tag = str(recv_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_parent} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             recv_index[parent_Ix] += 1
@@ -3730,7 +3727,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1  ## Send
                                                                 if goal_rank_parent != goal_rank:
                                                                     tag = str(send_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_parent} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                     send_index[parent_Ix] += 1
@@ -3742,7 +3739,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1  ## Recv
                                                                 if goal_rank_parent != goal_rank:
                                                                     tag = str(recv_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_parent} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                     recv_index[parent_Ix] += 1
@@ -3775,7 +3772,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_child != goal_rank:
                                                                     tag = str(recv_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_child} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                     file.write(f'l{calc_task_id} requires l{task_counter}\n')
                                                                     recv_index[child_Ix] += 1
@@ -3787,7 +3784,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_parent != goal_rank:
                                                             tag = str(send_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_parent} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{calc_task_id}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             send_index[parent_Ix] += 1
@@ -3804,7 +3801,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_parent != goal_rank:
                                                             tag = str(recv_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_parent} tag {tag}\n')
                                                             file.write(f'l{calc_task_id} requires l{task_counter}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             recv_index[parent_Ix] += 1
@@ -3822,7 +3819,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_child != goal_rank:
                                                                     tag = str(send_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_child} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{calc_task_id}\n')
                                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                     send_index[child_Ix] += 1
@@ -3855,7 +3852,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                         task_counter += 1
                                                                         if goal_rank_child != goal_rank:
                                                                             tag = str(recv_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                            file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                            file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_child} tag {tag}\n')
                                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                             file.write(f'l{calc_task_id} requires l{task_counter}\n')
                                                                             recv_index[child_Ix] += 1
@@ -3867,7 +3864,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_parent != goal_rank:
                                                                     tag = str(send_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_parent} tag {tag}\n')
                                                                     file.write(f'l{task_counter} requires l{calc_task_id}\n')
                                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                     send_index[parent_Ix] += 1
@@ -3884,7 +3881,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                 task_counter += 1
                                                                 if goal_rank_parent != goal_rank:
                                                                     tag = str(recv_index[parent_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_parent} tag {tag} cpu {cpu_counter}\n')
+                                                                    file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_parent} tag {tag}\n')
                                                                     file.write(f'l{calc_task_id} requires l{task_counter}\n')
                                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                     recv_index[parent_Ix] += 1
@@ -3901,7 +3898,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                                         task_counter += 1
                                                                         if goal_rank_child != goal_rank:
                                                                             tag = str(send_index[child_Ix]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                            file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_child} tag {tag} cpu {cpu_counter}\n')
+                                                                            file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_child} tag {tag}\n')
                                                                             file.write(f'l{task_counter} requires l{calc_task_id}\n')
                                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                             send_index[child_Ix] += 1
@@ -3972,7 +3969,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_next != goal_rank:
                                                         tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         send_index[nextIx] += 1
@@ -3996,7 +3993,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_next != goal_rank:
                                                                 tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 send_index[nextIx] += 1
@@ -4018,7 +4015,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_prev != goal_rank:
                                                         tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         recv_index[prevIx] += 1
@@ -4042,7 +4039,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_prev != goal_rank:
                                                                 tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 recv_index[prevIx] += 1
@@ -4063,7 +4060,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_prev != goal_rank:
                                                         tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         recv_index[prevIx] += 1
 
@@ -4078,7 +4075,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_next != goal_rank:
                                                         tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         send_index[nextIx] += 1
@@ -4102,7 +4099,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_prev != goal_rank:
                                                                 tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 recv_index[prevIx] += 1
 
@@ -4117,7 +4114,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_next != goal_rank:
                                                                 tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 send_index[nextIx] += 1
@@ -4185,7 +4182,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                 task_counter += 1
                                                 if goal_rank_next != goal_rank:
                                                     tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                    file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                    file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                     send_index[nextIx] += 1
@@ -4208,7 +4205,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_next != goal_rank:
                                                             tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             send_index[nextIx] += 1
@@ -4229,7 +4226,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_prev != goal_rank:
                                                         tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         recv_index[prevIx] += 1
                                                     else:
@@ -4243,7 +4240,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_next != goal_rank:
                                                         tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: send {div_up(nelem, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         send_index[nextIx] += 1
@@ -4266,7 +4263,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_prev != goal_rank:
                                                                 tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 recv_index[prevIx] += 1
                                                             else:
@@ -4280,7 +4277,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_next != goal_rank:
                                                                 tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: send {sliceSize}b to {goal_rank_next} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 send_index[nextIx] += 1
@@ -4300,7 +4297,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                 task_counter += 1
                                                 if goal_rank_prev != goal_rank:
                                                     tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                    file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                    file.write(f'l{task_counter}: recv {div_up(nelem, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                     recv_index[prevIx] += 1
@@ -4323,7 +4320,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_prev != goal_rank:
                                                             tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: recv {sliceSize}b from {goal_rank_prev} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             recv_index[prevIx] += 1
@@ -4390,7 +4387,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                 task_counter += 1
                                                 if goal_rank_next != goal_rank:
                                                     tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                    file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                    file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                     file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                     send_index[nextIx] += 1
@@ -4413,7 +4410,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_next != goal_rank:
                                                             tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                             send_index[nextIx] += 1
@@ -4434,7 +4431,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_prev != goal_rank:
                                                         tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                         recv_index[prevIx] += 1
                                                     else:
@@ -4448,7 +4445,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                     task_counter += 1
                                                     if goal_rank_next != goal_rank:
                                                         tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                        file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                        file.write(f'l{task_counter}: send {div_up(nelem * type_size, 8) * 16}b to {goal_rank_next} tag {tag}\n')
                                                         file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                         file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                         send_index[nextIx] += 1
@@ -4471,7 +4468,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_prev != goal_rank:
                                                                 tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                                 recv_index[prevIx] += 1
                                                             else:
@@ -4485,7 +4482,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                             task_counter += 1
                                                             if goal_rank_next != goal_rank:
                                                                 tag = str(send_index[nextIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                                file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag} cpu {cpu_counter}\n')
+                                                                file.write(f'l{task_counter}: send {sliceSize * type_size}b to {goal_rank_next} tag {tag}\n')
                                                                 file.write(f'l{task_counter} requires l{task_counter - 1}\n')
                                                                 file.write(f'l{gpu_event_end_calc_id} requires l{task_counter}\n')
                                                                 send_index[nextIx] += 1
@@ -4505,7 +4502,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                 task_counter += 1
                                                 if goal_rank_prev != goal_rank:
                                                     tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                    file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                    file.write(f'l{task_counter}: recv {div_up(nelem * type_size, 8) * 16}b from {goal_rank_prev} tag {tag}\n')
                                                     file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                     recv_index[prevIx] += 1
 
@@ -4537,7 +4534,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                                         task_counter += 1
                                                         if goal_rank_prev != goal_rank:
                                                             tag = str(recv_index[prevIx]) + str(channel_id).zfill(2) + str(event['seq']).zfill(4) + str(get_event_type(event['event_type'])).zfill(1) + str(event['comm_index']).zfill(2)
-                                                            file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag} cpu {cpu_counter}\n')
+                                                            file.write(f'l{task_counter}: recv {sliceSize * type_size}b from {goal_rank_prev} tag {tag}\n')
                                                             file.write(f'l{task_counter} requires l{gpu_event_start_calc_id}\n')
                                                             recv_index[prevIx] += 1
 
@@ -4697,7 +4694,7 @@ def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, c
                                     recv_calc_task_counter = SendRecvEvents_To_TaskCounter[goal_rank][gpuId][commId]['Recv'][p2p_peer_Ix][p2p_seq][channel_id]
                                     send_calc_task_counter = SendRecvEvents_To_TaskCounter[goal_rank_peer][gpuId_peer][commId]['Send'][my_Ix][p2p_seq][channel_id]
 
-                                    if goal_rank_peer == goal_rank and gpuId_peer != gpuId:
+                                    if goal_rank_peer == goal_rank:
                                         for i in range(len(recv_calc_task_counter)):
                                             my_receive_task_counter = recv_calc_task_counter[i]
                                             peer_send_task_counter = send_calc_task_counter[i]

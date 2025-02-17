@@ -3,3 +3,9 @@ results/
 *.o
 *.sqlite
 *.nsys-rep
+
+*.sqsh
+*.0
+log/
+data/
+data_cache/

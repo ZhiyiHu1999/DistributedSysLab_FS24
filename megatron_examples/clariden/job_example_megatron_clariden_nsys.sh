@@ -127,13 +127,13 @@ REGULATIZATION_ARGS=" \
 TRAINING_ARGS=" \
     --micro-batch-size 1 \
     --global-batch-size 32 \
-    --train-iters 20 \
+    --train-iters 10 \
     --log-interval 1 \
     --disable-bias-linear \
     --cross-entropy-loss-fusion \
     --use-flash-attn \
     --optimizer adam \
-    --exit-interval 30 \
+    --exit-interval 20 \
     --no-check-for-nan-in-loss-and-grad \
     --tensorboard-dir ${BASE_PATH} \
     --profile \
@@ -165,7 +165,7 @@ MIXED_PRECISION_ARGS=" \
        "
 
 VALIDATION_ARGS=" \
-       --eval-interval 1000 \
+       --eval-interval 0 \
        "
 
 DATA_ARGS=" \
@@ -223,7 +223,7 @@ ${RUN} 2>&1 | tee ${LOG_PATH}
 for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   if [ -f "$report_file" ]; then
     sqlite_file="${report_file%.nsys-rep}.sqlite"
-    ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys export --type=sqlite --ts-normalize=true --output="$sqlite_file" "$report_file"
+    nsys export --type=sqlite --ts-normalize=true --output="$sqlite_file" "$report_file"
     echo "Exported $report_file to $sqlite_file"
   fi
 done

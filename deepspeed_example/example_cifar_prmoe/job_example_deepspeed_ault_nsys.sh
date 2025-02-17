@@ -3,10 +3,10 @@
 #SBATCH --job-name="deepspeed_example"
 #SBATCH --time=24:00:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[42-43]
+#SBATCH --nodelist=ault[43-44]
 #SBATCH --ntasks-per-node=1
-#SBATCH --gpus-per-task=1
-#SBATCH --mem=200G
+#SBATCH --gpus-per-task=2
+#SBATCH --mem=240G
 #SBATCH --output=deepspeed_example.%j.o
 #SBATCH --error=deepspeed_example.%j.e
 #SBATCH --account=g34
@@ -32,8 +32,8 @@ mkdir -p $NSYS_REPORT_DIR
 # export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit/nccl/build/lib:$LD_LIBRARY_PATH
 # export LD_PRELOAD=/users/zhu/nccl_nvtx_npkit/nccl/build/lib/libnccl.so
 
-export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
-export LD_PRELOAD=/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib/libnccl.so
+export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cuda-11.8.0-fjdnxm6yggxxp75sb62xrxxmeg4s24ml/lib64:/users/zhu/nccl_nvtx_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
+export LD_PRELOAD=/users/zhu/nccl_nvtx_v2.20.5-1/nccl/build/lib/libnccl.so
 
 rm -rf "/users/zhu/DeepSpeedExamples/training/cifar/experiment_deepspeed"
 mkdir -p "/users/zhu/DeepSpeedExamples/training/cifar/experiment_deepspeed"
@@ -50,6 +50,12 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-# python3 parser_sqlite2goal.py
+python3 get_traced_events.py
 
-# python3 get_collectives_statistics.py
+python3 goal2dot.py
+
+# dot -Tsvg ./results/Events_Dependency.dot -o ./results/Events_Dependency.svg
+
+# dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
+
+# dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg

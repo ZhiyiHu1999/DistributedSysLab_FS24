@@ -4,7 +4,6 @@
       <net dev="0"/>
       <gpu dev="0"/>
       <gpu dev="1"/>
-      <gpu dev="2"/>
       <net dev="0"/>
     </channel>
   </graph>
@@ -13,7 +12,6 @@
       <net dev="0"/>
       <gpu dev="0"/>
       <gpu dev="1"/>
-      <gpu dev="2"/>
       <net dev="0"/>
     </channel>
   </graph>

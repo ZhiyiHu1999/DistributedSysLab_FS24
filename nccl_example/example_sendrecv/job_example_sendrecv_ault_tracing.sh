@@ -14,7 +14,7 @@ module load openmpi/4.1.1
 # module load cuda/11.6.2
 module load cuda/11.8.0
 # module load cuda/12.1.1
-module load rdma-core/34.0
+# module load rdma-core/34.0
 # module load python/3.8.12
 
 srun nvidia-smi -L
@@ -29,14 +29,15 @@ export NCCL_MIN_NCHANNELS=2
 export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
 export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);
+export NCCL_IB_DISABLE=1
 
 export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4.1.1-epxpvnwjl2smjwuwqg67h2wrmdxw6nhj
 
 # export NCCL_ROOT=/users/zhu/nccl_nvtx_npkit/nccl/build
 # export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx_npkit/nccl/build/lib:$LD_LIBRARY_PATH
 
-export NCCL_ROOT=/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build
-export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx_npkit_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
+export NCCL_ROOT=/users/zhu/nccl_nvtx_v2.20.5-1/nccl/build
+export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
 
 nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_sendrecv_all2all.cu -o example_sendrecv
 
@@ -71,9 +72,15 @@ done
 
 python3 get_traced_events.py
 
-# python3 goal_generator.py
+python3 goal2dot.py
 
-# python3 goal2dot.py
+dot -Tsvg ./results/Events_Dependency.dot -o ./results/Events_Dependency.svg
+
+dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
+
+dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg
+
+# python3 goal_generator.py
 
 # python3 ../trace_generator_npkit.py --npkit_dump_dir=$npkit_dump_dir\
 #                                  --npkit_event_header_path="/users/zhu/nccl_nvtx_npkit/nccl/src/include/npkit/npkit_event.h"\

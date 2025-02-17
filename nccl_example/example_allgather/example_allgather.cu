@@ -59,7 +59,8 @@ static void getHostName(char* hostname, int maxlen) {
 
 int main(int argc, char* argv[])
 {
-  int size = 96*1024*1024;
+  // int size = 5; 
+  int size = 2*1024*1024;  // size here is #float, #bytes = size *4B
   // int size = 32*1024*1024;
 
 

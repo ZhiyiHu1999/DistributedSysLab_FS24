@@ -683,6 +683,18 @@ def get_nsys_events(dir_path):
 
                     elif match_nccl_GroupStart:
                         pid = match_nccl_GroupStart.group(1)
+
+                        if pid not in pid_to_gpuId:
+                            known_gpus += 1
+                            gpuId = known_gpus
+                            pid_to_gpuId[pid] = gpuId
+                            commHash_to_commId[gpuId] = {}
+                            stream_to_streamId[gpuId] = {}
+                            Parse_State[gpuId] = 0  ## awaiting P2P or Group operations
+                            nccl_events[goal_rank][gpuId] = {}    
+                            cupti_kernel_results[goal_rank][gpuId] = {}
+                            events_counter[goal_rank][gpuId] = {}
+
                         gpuId = pid_to_gpuId[pid]
 
                         if Parse_State[gpuId] == 4 or Parse_State[gpuId] == 6:
@@ -711,6 +723,9 @@ def get_nsys_events(dir_path):
                             ts_group_end[gpuId] = row[2] // 1000  ## ns to us
                             nccl_events[goal_rank][gpuId][last_Coll_streamId[gpuId]][-1]['ts_end'] = ts_group_end[gpuId]
                             Parse_State[gpuId] = 6
+
+                        elif Parse_State[gpuId] == 1:  ## in case directly call ncclGroupEnd() after ncclGroupStart() 
+                            Parse_State[gpuId] = 0
 
                     elif match_nccl_Send:  ## 'ncclSend\(\): commHash (\S+), stream (\S+), data_size (\d+), type_size (\d+), receiver_rank (\d+), pid (\d+)'
                         commHash = match_nccl_Send.group(1)
@@ -951,7 +966,7 @@ def merge_nsys_events(nccl_events, cupti_kernel_results, comm_info):
                             merged_events[goal_rank][gpuId][streamId][i]['ts_gpu_start'] = cupti_stream_events[i]['ts_gpu_start']
                             merged_events[goal_rank][gpuId][streamId][i]['ts_gpu_end'] = cupti_stream_events[i]['ts_gpu_end']
                         
-                        print(f'goal_rank: {goal_rank}, gpuId: {gpuId}, streamId: {streamId}, num_events: {len(merged_events[goal_rank][gpuId][streamId])}')
+                        print(f'goal_rank: {goal_rank}, gpuId: {gpuId}, streamId: {streamId}, gpu_streamId: {gpu_streamId}, num_events: {len(merged_events[goal_rank][gpuId][streamId])}')
 
     return merged_events
 

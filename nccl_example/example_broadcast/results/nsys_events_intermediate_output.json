@@ -1,20 +1,98 @@
 {
     "ault44": 0,
-    "ault43": 1
+    "ault41": 1
 }
 
 {
-    "0x32fcdba59a9193dd": {
+    "0x6e0b18852acdf794": {
         "nranks": 4,
         "gpuId_To_rank": {
-            "0": "2",
+            "0": "3",
             "1": "1",
-            "2": "0",
-            "3": "3"
+            "2": "2",
+            "3": "0"
         },
         "rank_To_rankInfo": {
-            "2": {
+            "3": {
                 "gpuId": 0,
+                "goal_rank": 0,
+                "host_name": "ault44",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "2",
+                            "my_rank": "3",
+                            "next_rank": "0",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "2",
+                            "my_rank": "3",
+                            "next_rank": "0",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "3",
+                            "parent_rank": "2",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "3",
+                            "parent_rank": "2",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "1": {
+                "gpuId": 1,
+                "goal_rank": 1,
+                "host_name": "ault41",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "0",
+                            "my_rank": "1",
+                            "next_rank": "2",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "0",
+                            "my_rank": "1",
+                            "next_rank": "2",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "1",
+                            "parent_rank": "0",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "1",
+                            "parent_rank": "0",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "2": {
+                "gpuId": 2,
                 "goal_rank": 0,
                 "host_name": "ault44",
                 "channel_info": {
@@ -52,49 +130,10 @@
                     ]
                 }
             },
-            "1": {
-                "gpuId": 1,
-                "goal_rank": 1,
-                "host_name": "ault43",
-                "channel_info": {
-                    "Ring": [
-                        {
-                            "previous_rank": "0",
-                            "my_rank": "1",
-                            "next_rank": "2",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "previous_rank": "0",
-                            "my_rank": "1",
-                            "next_rank": "2",
-                            "channel_Id": "1"
-                        }
-                    ],
-                    "Tree": [
-                        {
-                            "child_1_rank": "-1",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "1",
-                            "parent_rank": "0",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "child_1_rank": "-1",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "1",
-                            "parent_rank": "0",
-                            "channel_Id": "1"
-                        }
-                    ]
-                }
-            },
             "0": {
-                "gpuId": 2,
+                "gpuId": 3,
                 "goal_rank": 1,
-                "host_name": "ault43",
+                "host_name": "ault41",
                 "channel_info": {
                     "Ring": [
                         {
@@ -129,45 +168,6 @@
                         }
                     ]
                 }
-            },
-            "3": {
-                "gpuId": 3,
-                "goal_rank": 0,
-                "host_name": "ault44",
-                "channel_info": {
-                    "Ring": [
-                        {
-                            "previous_rank": "2",
-                            "my_rank": "3",
-                            "next_rank": "0",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "previous_rank": "2",
-                            "my_rank": "3",
-                            "next_rank": "0",
-                            "channel_Id": "1"
-                        }
-                    ],
-                    "Tree": [
-                        {
-                            "child_1_rank": "-1",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "3",
-                            "parent_rank": "2",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "child_1_rank": "-1",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "3",
-                            "parent_rank": "2",
-                            "channel_Id": "1"
-                        }
-                    ]
-                }
             }
         },
         "comm_index": 0,
@@ -181,27 +181,17 @@
             "14": [
                 {
                     "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566784881017,
-                    "ts_gpu_end": 1734566784885195
-                },
-                {
-                    "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566786885402,
-                    "ts_gpu_end": 1734566786896204
+                    "ts_gpu_start": 1738247691247582,
+                    "ts_gpu_end": 1738247691275031
                 }
             ]
         },
-        "3": {
+        "2": {
             "14": [
                 {
                     "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566784881217,
-                    "ts_gpu_end": 1734566784885263
-                },
-                {
-                    "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566786881422,
-                    "ts_gpu_end": 1734566786896553
+                    "ts_gpu_start": 1738247691242253,
+                    "ts_gpu_end": 1738247691274980
                 }
             ]
         }
@@ -211,27 +201,17 @@
             "14": [
                 {
                     "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566784872481,
-                    "ts_gpu_end": 1734566784873767
-                },
-                {
-                    "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566786890968,
-                    "ts_gpu_end": 1734566786891437
+                    "ts_gpu_start": 1738247691238784,
+                    "ts_gpu_end": 1738247691249479
                 }
             ]
         },
-        "2": {
+        "3": {
             "14": [
                 {
                     "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566784872673,
-                    "ts_gpu_end": 1734566784873305
-                },
-                {
-                    "gpu_event_type": "Broadcast",
-                    "ts_gpu_start": 1734566786872893,
-                    "ts_gpu_end": 1734566786898350
+                    "ts_gpu_start": 1738247691244483,
+                    "ts_gpu_end": 1738247691245851
                 }
             ]
         }
@@ -244,155 +224,79 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
+                    "commId": "0x6e0b18852acdf794",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "2",
+                    "my_rank": "3",
                     "gpuId": 0,
-                    "data_size": 8388608,
+                    "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1734566784878197,
-                    "ts_end": 1734566784885240,
+                    "ts_start": 1738247691242813,
+                    "ts_end": 1738247691247634,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
+                    "chunkSteps": 1,
+                    "sliceSteps": 1,
+                    "stepSize": 524288,
                     "elems": [
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
                             "workOffset": 0
                         },
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 4194304
+                            "workOffset": 8388608
                         }
                     ],
-                    "ts_kernel": 1734566784881021
-                },
-                {
-                    "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
-                    "comm_index": 0,
-                    "streamId": 0,
-                    "my_rank": "2",
-                    "gpuId": 0,
-                    "data_size": 8388608,
-                    "type_size": 4,
-                    "root_rank": "1",
-                    "ts_start": 1734566786885341,
-                    "ts_end": 1734566786885413,
-                    "seq": 1,
-                    "algorithm": "1",
-                    "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
-                    "elems": [
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 0
-                        },
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 4194304
-                        }
-                    ],
-                    "ts_kernel": 1734566786885403
+                    "ts_kernel": 1738247691247603
                 }
             ]
         },
-        "3": {
+        "2": {
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
+                    "commId": "0x6e0b18852acdf794",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "3",
-                    "gpuId": 3,
-                    "data_size": 8388608,
+                    "my_rank": "2",
+                    "gpuId": 2,
+                    "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1734566784878214,
-                    "ts_end": 1734566784881231,
+                    "ts_start": 1738247691239434,
+                    "ts_end": 1738247691251116,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
+                    "chunkSteps": 1,
+                    "sliceSteps": 1,
+                    "stepSize": 524288,
                     "elems": [
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
                             "workOffset": 0
                         },
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 4194304
+                            "workOffset": 8388608
                         }
                     ],
-                    "ts_kernel": 1734566784881219
-                },
-                {
-                    "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
-                    "comm_index": 0,
-                    "streamId": 0,
-                    "my_rank": "3",
-                    "gpuId": 3,
-                    "data_size": 8388608,
-                    "type_size": 4,
-                    "root_rank": "1",
-                    "ts_start": 1734566786881330,
-                    "ts_end": 1734566786881455,
-                    "seq": 1,
-                    "algorithm": "1",
-                    "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
-                    "elems": [
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 0
-                        },
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 4194304
-                        }
-                    ],
-                    "ts_kernel": 1734566786881424
+                    "ts_kernel": 1738247691242257
                 }
             ]
         }
@@ -402,155 +306,79 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
+                    "commId": "0x6e0b18852acdf794",
                     "comm_index": 0,
                     "streamId": 0,
                     "my_rank": "1",
                     "gpuId": 1,
-                    "data_size": 8388608,
+                    "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1734566784869740,
-                    "ts_end": 1734566784884951,
+                    "ts_start": 1738247691229842,
+                    "ts_end": 1738247691247469,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
+                    "chunkSteps": 1,
+                    "sliceSteps": 1,
+                    "stepSize": 524288,
                     "elems": [
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
                             "workOffset": 0
                         },
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 4194304
+                            "workOffset": 8388608
                         }
                     ],
-                    "ts_kernel": 1734566784872485
-                },
-                {
-                    "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
-                    "comm_index": 0,
-                    "streamId": 0,
-                    "my_rank": "1",
-                    "gpuId": 1,
-                    "data_size": 8388608,
-                    "type_size": 4,
-                    "root_rank": "1",
-                    "ts_start": 1734566786890852,
-                    "ts_end": 1734566786890988,
-                    "seq": 1,
-                    "algorithm": "1",
-                    "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
-                    "elems": [
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 0
-                        },
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 4194304
-                        }
-                    ],
-                    "ts_kernel": 1734566786890971
+                    "ts_kernel": 1738247691238789
                 }
             ]
         },
-        "2": {
+        "3": {
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
+                    "commId": "0x6e0b18852acdf794",
                     "comm_index": 0,
                     "streamId": 0,
                     "my_rank": "0",
-                    "gpuId": 2,
-                    "data_size": 8388608,
+                    "gpuId": 3,
+                    "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1734566784869739,
-                    "ts_end": 1734566784872686,
+                    "ts_start": 1738247691241652,
+                    "ts_end": 1738247691244499,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
+                    "chunkSteps": 1,
+                    "sliceSteps": 1,
+                    "stepSize": 524288,
                     "elems": [
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
                             "workOffset": 0
                         },
                         {
-                            "count": 8388608,
+                            "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 4194304,
+                            "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 4194304
+                            "workOffset": 8388608
                         }
                     ],
-                    "ts_kernel": 1734566784872674
-                },
-                {
-                    "event_type": "Broadcast",
-                    "commId": "0x32fcdba59a9193dd",
-                    "comm_index": 0,
-                    "streamId": 0,
-                    "my_rank": "0",
-                    "gpuId": 2,
-                    "data_size": 8388608,
-                    "type_size": 4,
-                    "root_rank": "1",
-                    "ts_start": 1734566786872800,
-                    "ts_end": 1734566786872931,
-                    "seq": 1,
-                    "algorithm": "1",
-                    "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 524288,
-                    "sliceSteps": 524288,
-                    "stepSize": 1,
-                    "elems": [
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 0
-                        },
-                        {
-                            "count": 8388608,
-                            "chunkCount": 524288,
-                            "workCount": 4194304,
-                            "lastChunkCount": 524288,
-                            "workOffset": 4194304
-                        }
-                    ],
-                    "ts_kernel": 1734566786872896
+                    "ts_kernel": 1738247691244487
                 }
             ]
         }
@@ -560,22 +388,22 @@
 {
     "0": {
         "0": {
-            "ts_init_start": 1734566784261462,
-            "ts_init_end": 1734566784878087
+            "ts_init_start": 1738247690680682,
+            "ts_init_end": 1738247691242731
         },
-        "3": {
-            "ts_init_start": 1734566784261462,
-            "ts_init_end": 1734566784878087
+        "2": {
+            "ts_init_start": 1738247690675697,
+            "ts_init_end": 1738247691239291
         }
     },
     "1": {
         "1": {
-            "ts_init_start": 1734566784261498,
-            "ts_init_end": 1734566784869636
+            "ts_init_start": 1738247690686264,
+            "ts_init_end": 1738247691229755
         },
-        "2": {
-            "ts_init_start": 1734566784261498,
-            "ts_init_end": 1734566784869636
+        "3": {
+            "ts_init_start": 1738247690680656,
+            "ts_init_end": 1738247691229660
         }
     }
 }

@@ -3,7 +3,7 @@
 #SBATCH --job-name="deepspeed_example"
 #SBATCH --time=24:00:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[42-43]
+#SBATCH --nodelist=ault[43-44]
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=1
 #SBATCH --mem=200G

@@ -1574,10 +1574,10 @@ def get_intra_node_gpu_transfer_time(data_size, transfer_type):
     """
 
     if transfer_type == 'Send':
-        return data_size * 10**9 // (50 * 10**9 * 1)  ## ns
+        return data_size * 10**9 // (50 * 10**9 * 1 * 2)  ## ns
 
     elif transfer_type == 'Recv':
-        return 0
+        return data_size * 10**9 // (50 * 10**9 * 1 * 2)  ## ns
 
 def get_event_type(operation):
     if operation == 'AllReduce':

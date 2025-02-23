@@ -1536,7 +1536,7 @@ def get_reduction_time(data_size, protocol):  ## data_size: size of data, not da
     f = interpolate.interp1d(sizes, [np.mean(data['NPKIT_EVENT_GPU_RECV_REDUCE_SEND'][str(size)]) for size in sizes], kind='linear', fill_value="extrapolate")
     interpolated_value = f(data_size)
     
-    return int(random.gauss(interpolated_value, interpolated_value * 0.1))
+    return int(random.gauss(interpolated_value, interpolated_value * 0.01))
 
 # def get_copy_time(data_size):
 #     return data_size//10  ## us
@@ -1565,16 +1565,16 @@ def get_copy_time(data_size, protocol):  ## data_size: size of data, not data + 
     f = interpolate.interp1d(sizes, [np.mean(data['NPKIT_EVENT_GPU_DIRECT_RECV_COPY_SEND'][str(size)]) for size in sizes], kind='linear', fill_value="extrapolate")
     interpolated_value = f(data_size)
     
-    return int(random.gauss(interpolated_value, interpolated_value * 0.1))
+    return int(random.gauss(interpolated_value, interpolated_value * 0.01))
 
 def get_intra_node_gpu_transfer_time(data_size, transfer_type):  
     """
     data_size [byte]: data + flag, not just data
-    Here we use the bandwidth of NVLink 1.0, which is 20 GT/s , each transfer is 1 byte
+    Here we use the bandwidth of NVLink 3.0, which is 50 GT/s , each transfer is 1 byte
     """
 
     if transfer_type == 'Send':
-        return data_size * 10**9 // (20 * 10**9 * 1)  ## ns
+        return data_size * 10**9 // (50 * 10**9 * 1)  ## ns
 
     elif transfer_type == 'Recv':
         return 0

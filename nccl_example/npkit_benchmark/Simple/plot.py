@@ -39,6 +39,6 @@ def plot_probability_distributions(json_data):
         plt.show()
 
 if __name__ == '__main__':
-    json_file_path = 'npkit_data_summary.json' 
+    json_file_path = 'npkit_data_summary_Simple.json' 
     data = load_json(json_file_path)
     plot_probability_distributions(data)

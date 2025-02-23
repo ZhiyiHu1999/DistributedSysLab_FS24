@@ -34,7 +34,7 @@ def merge_statistics(results_dir, output_file):
 
 def main():
     results_dir = './results'
-    output_file = './npkit_data_summary_LL.json'
+    output_file = './npkit_data_summary_Simple.json'
     merge_statistics(results_dir, output_file)
 
 if __name__ == '__main__':

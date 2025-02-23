@@ -33,7 +33,7 @@ for index in $(seq 0 9); do
     mkdir -p $iteration_dir
 
     size=$((1))
-    while [ $size -le $((2 * 1024 * 1024)) ]; do
+    while [ $size -le $((4 * 1024 * 1024)) ]; do
         size_dir="${iteration_dir}/${size}"
         mkdir -p $size_dir
 
@@ -70,3 +70,5 @@ done
 python3 get_npkit_statistics.py 
 
 python3 summary.py 
+
+python3 plot.py

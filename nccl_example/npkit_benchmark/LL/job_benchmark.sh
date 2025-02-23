@@ -70,3 +70,5 @@ done
 python3 get_npkit_statistics.py 
 
 python3 summary.py 
+
+python3 plot.py

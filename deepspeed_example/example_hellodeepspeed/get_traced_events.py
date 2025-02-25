@@ -1437,11 +1437,13 @@ def apply_user_config(yaml_file, events_parallel_group, comm_init_events, comm_I
 
 def get_events_dependency(nccl_group_events, comm_init_events, goal_file_name):
     num_ranks = len(nccl_group_events)
-    task_counter = 0
+    # task_counter = 0
     with open(goal_file_name, 'w') as file:
         file.write(f"num_ranks {num_ranks}\n")
 
         for goal_rank in range(num_ranks):
+            task_counter = 0
+            
             file.write(f"\nrank {goal_rank}")
             file.write(" {\n")
 
@@ -1455,12 +1457,21 @@ def get_events_dependency(nccl_group_events, comm_init_events, goal_file_name):
             node_end_calc_id = task_counter
 
             for gpuId, gpu_events in goal_events.items():
+                gpu_all_stream_start_time = None
+                for streamId, stream_events in gpu_events.items():
+                    if gpu_all_stream_start_time is None:
+                        gpu_all_stream_start_time = stream_events[0]['ts_group_gpu_start']
+                    else:
+                        gpu_all_stream_start_time = min(gpu_all_stream_start_time, stream_events[0]['ts_group_gpu_start'])
+                        
                 for streamId, stream_events in gpu_events.items():
                     last_group_event_end_time =  comm_init_events[goal_rank][gpuId]['ts_init_end']
                     last_group_event_end_id = node_start_calc_id
                     for group_event_index, group_event in enumerate(stream_events): 
+                        launched = 0
+
                         task_counter += 1
-                        file.write(f"l{task_counter}: calc {group_event['ts_group_host_start'] - last_group_event_end_time}\n")  ## Calc between first group host event start and last group gpu event end
+                        file.write(f"l{task_counter}: calc {group_event['ts_group_gpu_start'] - last_group_event_end_time}\n")  ## Former calc between first group host event start and last group gpu event end
                         file.write(f"l{task_counter} requires l{last_group_event_end_id}\n")
                         group_event_start_calc_id = task_counter
 
@@ -1471,32 +1482,23 @@ def get_events_dependency(nccl_group_events, comm_init_events, goal_file_name):
                         last_group_event_end_id = task_counter
 
                         for event in group_event['events']:
-                            if event['event_type'] == 'GroupP2P':
+                            if launched == 0:
                                 task_counter += 1
-                                file.write(f"l{task_counter}: calc {event['ts_kernel'] - event['ts_start']}\n")  ## Calc between nccl kernel launch end and host event start
+                                file.write(f"l{task_counter}: calc 0\n")  ## Former calc between nccl kernel launch end and host event start
                                 file.write(f"l{task_counter} requires l{group_event_start_calc_id}\n")
-                                p2p_group_start_calc_id = task_counter
+                                group_start_calc_id = task_counter
 
                                 task_counter += 1
                                 file.write(f"l{task_counter}: calc 0\n")
                                 file.write(f"l{group_event_end_calc_id} requires l{task_counter}\n")
-                                p2p_group_end_calc_id = task_counter
+                                group_end_calc_id = task_counter
 
-                                for p2p_event in event['P2P_events']:
-                                    task_counter += 1
-                                    file.write(f"l{task_counter}: {p2p_event['event_type']} {p2p_event['data_size']} bytes peer {p2p_event['peer_rank']} comm {event['comm_index']} gpu {gpuId} stream {streamId} seq {p2p_event['seq']} end\n")
-                                    file.write(f"l{task_counter} requires l{p2p_group_start_calc_id}\n")
-                                    file.write(f"l{p2p_group_end_calc_id} requires l{task_counter}\n")
-                            
-                            else:
-                                task_counter += 1
-                                file.write(f"l{task_counter}: calc {event['ts_kernel'] - event['ts_start']}\n")  ## Calc between nccl kernel launch end and host event start
-                                file.write(f"l{task_counter} requires l{group_event_start_calc_id}\n")
+                                launched = 1
 
-                                task_counter += 1
-                                file.write(f"l{task_counter}: {event['event_type']} {event['data_size']} bytes comm {event['comm_index']} gpu {gpuId} stream {streamId} seq {event['seq']} end\n")  ## gpu event
-                                file.write(f"l{task_counter} requires l{task_counter - 1}\n")
-                                file.write(f"l{group_event_end_calc_id} requires l{task_counter}\n")                     
+                            task_counter += 1
+                            file.write(f"l{task_counter}: {event['event_type']} {event['data_size']} bytes comm {event['comm_index']} gpu {gpuId} stream {streamId} seq {event['seq']} end\n")  ## gpu event
+                            file.write(f"l{task_counter} requires l{group_start_calc_id}\n")
+                            file.write(f"l{group_end_calc_id} requires l{task_counter}\n")                     
 
                         if group_event_index == len(stream_events) - 1:
                             file.write(f"l{node_end_calc_id} requires l{last_group_event_end_id}\n")
@@ -1595,12 +1597,14 @@ def get_event_type(operation):
 
 def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_info, goal_file_name):
     num_ranks = len(nccl_group_events)
-    task_counter = 0
+    # task_counter = 0
     SendRecvEvents_To_TaskCounter = {}
     with open(goal_file_name, 'w') as file:
         file.write(f"num_ranks {num_ranks}\n")
 
         for goal_rank in range(num_ranks):
+            task_counter = 0
+
             file.write(f"\nrank {goal_rank}")
             file.write(" {\n")
 
@@ -2768,11 +2772,13 @@ def get_in_gpu_microevents_dependency(nccl_group_events, comm_init_events, comm_
 
 def get_inter_node_microevents_dependency(nccl_group_events, comm_init_events, comm_info, SendRecvEvents_To_TaskCounter, goal_file_name):
     num_ranks = len(nccl_group_events)
-    task_counter = 0
+    # task_counter = 0
     with open(goal_file_name, 'w') as file:
         file.write(f"num_ranks {num_ranks}\n")
 
         for goal_rank in range(num_ranks):
+            task_counter = 0
+
             file.write(f"\nrank {goal_rank}")
             file.write(" {\n")
 

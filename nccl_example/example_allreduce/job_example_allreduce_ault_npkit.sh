@@ -31,10 +31,8 @@ export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRan
 
 export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4.1.1-epxpvnwjl2smjwuwqg67h2wrmdxw6nhj
 
-# export NCCL_ROOT=/users/zhu/nccl_npkit_dependency/nccl/build
 export NCCL_ROOT=/users/zhu/nccl_npkit_v2.20.5-1/nccl/build
 
-# export LD_LIBRARY_PATH=/users/zhu/nccl_npkit_dependency/nccl/build/lib:$LD_LIBRARY_PATH
 export LD_LIBRARY_PATH=/users/zhu/nccl_npkit_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
 
 

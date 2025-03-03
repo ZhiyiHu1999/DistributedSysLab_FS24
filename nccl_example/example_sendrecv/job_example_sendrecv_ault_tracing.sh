@@ -39,7 +39,7 @@ export MPI_ROOT=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/openmpi-4
 export NCCL_ROOT=/users/zhu/nccl_nvtx_v2.20.5-1/nccl/build
 export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx_v2.20.5-1/nccl/build/lib:$LD_LIBRARY_PATH
 
-nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_sendrecv_all2all.cu -o example_sendrecv
+nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_sendrecv_all2all_InPlace.cu -o example_sendrecv
 
 # export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports"
 export NSYS_REPORT_DIR="./results/nsys_reports"
@@ -70,15 +70,15 @@ for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   fi
 done
 
-python3 get_traced_events.py
+# python3 get_traced_events.py
 
-python3 goal2dot.py
+# python3 goal2dot.py
 
-dot -Tsvg ./results/Events_Dependency.dot -o ./results/Events_Dependency.svg
+# dot -Tsvg ./results/Events_Dependency.dot -o ./results/Events_Dependency.svg
 
-dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
+# dot -Tsvg ./results/InGPU_MicroEvents_Dependency.dot -o ./results/InGPU_MicroEvents_Dependency.svg
 
-dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg
+# dot -Tsvg ./results/InterNode_MicroEvents_Dependency.dot -o ./results/InterNode_MicroEvents_Dependency.svg
 
 # python3 goal_generator.py
 

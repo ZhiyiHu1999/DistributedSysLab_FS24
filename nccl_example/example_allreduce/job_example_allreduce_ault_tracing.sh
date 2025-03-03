@@ -3,7 +3,7 @@
 #SBATCH --job-name="nccl_example_allreduce"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[41-42]
+#SBATCH --nodelist=ault[42,44]
 #SBATCH --ntasks-per-node=2
 #SBATCH --gpus-per-task=1
 #SBATCH --output=example_allreduce.%j.o
@@ -23,9 +23,9 @@ rm -rf "./results"
 mkdir -p "./results"
 
 export NCCL_ALGO=Ring
-export NCCL_PROTO=Simple
-# export NCCL_MIN_NCHANNELS=4
-export NCCL_MAX_NCHANNELS=1
+export NCCL_PROTO=LL
+# export NCCL_MIN_NCHANNELS=2
+# export NCCL_MAX_NCHANNELS=2
 export NCCL_DEBUG=INFO ## For debug
 export NCCL_TOPO_DUMP_FILE="./results/Topology_Intra_Node.txt" ## NCCL_PARAM(TopoDumpFileRank, "TOPO_DUMP_FILE_RANK", 0);
 export NCCL_GRAPH_DUMP_FILE="./results/Graph.txt" ## NCCL_PARAM(GraphDumpFileRank, "GRAPH_DUMP_FILE_RANK", 0);

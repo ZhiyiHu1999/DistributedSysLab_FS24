@@ -1,179 +1,23 @@
 {
-    "ault43": 0,
-    "ault44": 1
+    "ault44": 0,
+    "ault42": 1
 }
 
 {
-    "0x211bbe3a75485a3": {
+    "0x9f5744c37f4c25f0": {
         "nranks": 6,
         "gpuId_To_rank": {
-            "0": "1",
-            "1": "2",
+            "0": "3",
+            "1": "4",
             "2": "0",
-            "3": "4",
-            "4": "3",
-            "5": "5"
+            "3": "5",
+            "4": "2",
+            "5": "1"
         },
         "rank_To_rankInfo": {
-            "1": {
+            "3": {
                 "gpuId": 0,
                 "goal_rank": 0,
-                "host_name": "ault43",
-                "channel_info": {
-                    "Ring": [
-                        {
-                            "previous_rank": "0",
-                            "my_rank": "1",
-                            "next_rank": "2",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "previous_rank": "0",
-                            "my_rank": "1",
-                            "next_rank": "2",
-                            "channel_Id": "1"
-                        }
-                    ],
-                    "Tree": [
-                        {
-                            "child_1_rank": "2",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "1",
-                            "parent_rank": "0",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "child_1_rank": "2",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "1",
-                            "parent_rank": "0",
-                            "channel_Id": "1"
-                        }
-                    ]
-                }
-            },
-            "2": {
-                "gpuId": 1,
-                "goal_rank": 0,
-                "host_name": "ault43",
-                "channel_info": {
-                    "Ring": [
-                        {
-                            "previous_rank": "1",
-                            "my_rank": "2",
-                            "next_rank": "3",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "previous_rank": "1",
-                            "my_rank": "2",
-                            "next_rank": "3",
-                            "channel_Id": "1"
-                        }
-                    ],
-                    "Tree": [
-                        {
-                            "child_1_rank": "-1",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "2",
-                            "parent_rank": "1",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "child_1_rank": "-1",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "2",
-                            "parent_rank": "1",
-                            "channel_Id": "1"
-                        }
-                    ]
-                }
-            },
-            "0": {
-                "gpuId": 2,
-                "goal_rank": 0,
-                "host_name": "ault43",
-                "channel_info": {
-                    "Ring": [
-                        {
-                            "previous_rank": "5",
-                            "my_rank": "0",
-                            "next_rank": "1",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "previous_rank": "5",
-                            "my_rank": "0",
-                            "next_rank": "1",
-                            "channel_Id": "1"
-                        }
-                    ],
-                    "Tree": [
-                        {
-                            "child_1_rank": "1",
-                            "child_2_rank": "3",
-                            "child_3_rank": "-1",
-                            "my_rank": "0",
-                            "parent_rank": "-1",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "child_1_rank": "1",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "0",
-                            "parent_rank": "3",
-                            "channel_Id": "1"
-                        }
-                    ]
-                }
-            },
-            "4": {
-                "gpuId": 3,
-                "goal_rank": 1,
-                "host_name": "ault44",
-                "channel_info": {
-                    "Ring": [
-                        {
-                            "previous_rank": "3",
-                            "my_rank": "4",
-                            "next_rank": "5",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "previous_rank": "3",
-                            "my_rank": "4",
-                            "next_rank": "5",
-                            "channel_Id": "1"
-                        }
-                    ],
-                    "Tree": [
-                        {
-                            "child_1_rank": "5",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "4",
-                            "parent_rank": "3",
-                            "channel_Id": "0"
-                        },
-                        {
-                            "child_1_rank": "5",
-                            "child_2_rank": "-1",
-                            "child_3_rank": "-1",
-                            "my_rank": "4",
-                            "parent_rank": "3",
-                            "channel_Id": "1"
-                        }
-                    ]
-                }
-            },
-            "3": {
-                "gpuId": 4,
-                "goal_rank": 1,
                 "host_name": "ault44",
                 "channel_info": {
                     "Ring": [
@@ -210,9 +54,87 @@
                     ]
                 }
             },
-            "5": {
-                "gpuId": 5,
+            "4": {
+                "gpuId": 1,
+                "goal_rank": 0,
+                "host_name": "ault44",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "3",
+                            "my_rank": "4",
+                            "next_rank": "5",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "3",
+                            "my_rank": "4",
+                            "next_rank": "5",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "5",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "4",
+                            "parent_rank": "3",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "5",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "4",
+                            "parent_rank": "3",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "0": {
+                "gpuId": 2,
                 "goal_rank": 1,
+                "host_name": "ault42",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "5",
+                            "my_rank": "0",
+                            "next_rank": "1",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "5",
+                            "my_rank": "0",
+                            "next_rank": "1",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "1",
+                            "child_2_rank": "3",
+                            "child_3_rank": "-1",
+                            "my_rank": "0",
+                            "parent_rank": "-1",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "0",
+                            "parent_rank": "3",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "5": {
+                "gpuId": 3,
+                "goal_rank": 0,
                 "host_name": "ault44",
                 "channel_info": {
                     "Ring": [
@@ -248,6 +170,84 @@
                         }
                     ]
                 }
+            },
+            "2": {
+                "gpuId": 4,
+                "goal_rank": 1,
+                "host_name": "ault42",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "1",
+                            "my_rank": "2",
+                            "next_rank": "3",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "1",
+                            "my_rank": "2",
+                            "next_rank": "3",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "2",
+                            "parent_rank": "1",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "-1",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "2",
+                            "parent_rank": "1",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
+            },
+            "1": {
+                "gpuId": 5,
+                "goal_rank": 1,
+                "host_name": "ault42",
+                "channel_info": {
+                    "Ring": [
+                        {
+                            "previous_rank": "0",
+                            "my_rank": "1",
+                            "next_rank": "2",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "previous_rank": "0",
+                            "my_rank": "1",
+                            "next_rank": "2",
+                            "channel_Id": "1"
+                        }
+                    ],
+                    "Tree": [
+                        {
+                            "child_1_rank": "2",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "1",
+                            "parent_rank": "0",
+                            "channel_Id": "0"
+                        },
+                        {
+                            "child_1_rank": "2",
+                            "child_2_rank": "-1",
+                            "child_3_rank": "-1",
+                            "my_rank": "1",
+                            "parent_rank": "0",
+                            "channel_Id": "1"
+                        }
+                    ]
+                }
             }
         },
         "comm_index": 0,
@@ -261,8 +261,8 @@
             "15": [
                 {
                     "gpu_event_type": "AllGather",
-                    "ts_gpu_start": 1735494365345911,
-                    "ts_gpu_end": 1735494365415368
+                    "ts_gpu_start": 1740990950987501531,
+                    "ts_gpu_end": 1740990951018044339
                 }
             ]
         },
@@ -270,28 +270,28 @@
             "15": [
                 {
                     "gpu_event_type": "AllGather",
-                    "ts_gpu_start": 1735494365345714,
-                    "ts_gpu_end": 1735494365416845
+                    "ts_gpu_start": 1740990950987352379,
+                    "ts_gpu_end": 1740990951010243178
                 }
             ]
         },
-        "2": {
+        "3": {
             "15": [
                 {
                     "gpu_event_type": "AllGather",
-                    "ts_gpu_start": 1735494365345161,
-                    "ts_gpu_end": 1735494365415473
+                    "ts_gpu_start": 1740990950987438932,
+                    "ts_gpu_end": 1740990951010205075
                 }
             ]
         }
     },
     "1": {
-        "3": {
+        "2": {
             "15": [
                 {
                     "gpu_event_type": "AllGather",
-                    "ts_gpu_start": 1735494365379236,
-                    "ts_gpu_end": 1735494365423349
+                    "ts_gpu_start": 1740990950980361203,
+                    "ts_gpu_end": 1740990951017273882
                 }
             ]
         },
@@ -299,8 +299,8 @@
             "15": [
                 {
                     "gpu_event_type": "AllGather",
-                    "ts_gpu_start": 1735494365380125,
-                    "ts_gpu_end": 1735494365434850
+                    "ts_gpu_start": 1740990950970068149,
+                    "ts_gpu_end": 1740990951017629041
                 }
             ]
         },
@@ -308,8 +308,8 @@
             "15": [
                 {
                     "gpu_event_type": "AllGather",
-                    "ts_gpu_start": 1735494365379443,
-                    "ts_gpu_end": 1735494365423236
+                    "ts_gpu_start": 1740990950980685465,
+                    "ts_gpu_end": 1740990951017748179
                 }
             ]
         }
@@ -322,19 +322,18 @@
             "0": [
                 {
                     "event_type": "AllGather",
-                    "commId": "0x211bbe3a75485a3",
+                    "commId": "0x9f5744c37f4c25f0",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "1",
+                    "my_rank": "3",
                     "gpuId": 0,
                     "data_size": 8388608,
                     "type_size": 4,
-                    "ts_start": 1735494365342403,
-                    "ts_end": 1735494365345965,
+                    "ts_start": 1740990950984760968,
+                    "ts_end": 1740990950987532095,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
                     "chunkSteps": 4,
                     "sliceSteps": 2,
                     "stepSize": 524288,
@@ -344,17 +343,21 @@
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         },
                         {
                             "count": 8388608,
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 4194304
+                            "workOffset": 4194304,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         }
                     ],
-                    "ts_kernel": 1735494365345930
+                    "ts_kernel": 1740990950987503675
                 }
             ]
         },
@@ -362,19 +365,18 @@
             "0": [
                 {
                     "event_type": "AllGather",
-                    "commId": "0x211bbe3a75485a3",
+                    "commId": "0x9f5744c37f4c25f0",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "2",
+                    "my_rank": "4",
                     "gpuId": 1,
                     "data_size": 8388608,
                     "type_size": 4,
-                    "ts_start": 1735494365342481,
-                    "ts_end": 1735494365355533,
+                    "ts_start": 1740990950984573509,
+                    "ts_end": 1740990950987371345,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
                     "chunkSteps": 4,
                     "sliceSteps": 2,
                     "stepSize": 524288,
@@ -384,37 +386,85 @@
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         },
                         {
                             "count": 8388608,
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 4194304
+                            "workOffset": 4194304,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         }
                     ],
-                    "ts_kernel": 1735494365345720
+                    "ts_kernel": 1740990950987355855
                 }
             ]
         },
+        "3": {
+            "0": [
+                {
+                    "event_type": "AllGather",
+                    "commId": "0x9f5744c37f4c25f0",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "5",
+                    "gpuId": 3,
+                    "data_size": 8388608,
+                    "type_size": 4,
+                    "ts_start": 1740990950985929540,
+                    "ts_end": 1740990951013560715,
+                    "seq": 0,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "chunkSteps": 4,
+                    "sliceSteps": 2,
+                    "stepSize": 524288,
+                    "elems": [
+                        {
+                            "count": 8388608,
+                            "chunkCount": 2097152,
+                            "workCount": 4194304,
+                            "lastChunkCount": 2097152,
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
+                        },
+                        {
+                            "count": 8388608,
+                            "chunkCount": 2097152,
+                            "workCount": 4194304,
+                            "lastChunkCount": 2097152,
+                            "workOffset": 4194304,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
+                        }
+                    ],
+                    "ts_kernel": 1740990950987442544
+                }
+            ]
+        }
+    },
+    "1": {
         "2": {
             "0": [
                 {
                     "event_type": "AllGather",
-                    "commId": "0x211bbe3a75485a3",
+                    "commId": "0x9f5744c37f4c25f0",
                     "comm_index": 0,
                     "streamId": 0,
                     "my_rank": "0",
                     "gpuId": 2,
                     "data_size": 8388608,
                     "type_size": 4,
-                    "ts_start": 1735494365342404,
-                    "ts_end": 1735494365353418,
+                    "ts_start": 1740990950969732699,
+                    "ts_end": 1740990950980415575,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
                     "chunkSteps": 4,
                     "sliceSteps": 2,
                     "stepSize": 524288,
@@ -424,59 +474,21 @@
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454113857536,
+                            "recvbuff": 23453843324928
                         },
                         {
                             "count": 8388608,
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 4194304
+                            "workOffset": 4194304,
+                            "sendbuff": 23454113857536,
+                            "recvbuff": 23453843324928
                         }
                     ],
-                    "ts_kernel": 1735494365345169
-                }
-            ]
-        }
-    },
-    "1": {
-        "3": {
-            "0": [
-                {
-                    "event_type": "AllGather",
-                    "commId": "0x211bbe3a75485a3",
-                    "comm_index": 0,
-                    "streamId": 0,
-                    "my_rank": "4",
-                    "gpuId": 3,
-                    "data_size": 8388608,
-                    "type_size": 4,
-                    "ts_start": 1735494365376571,
-                    "ts_end": 1735494365379254,
-                    "seq": 0,
-                    "algorithm": "1",
-                    "protocol": "2",
-                    "nthreads": 288,
-                    "chunkSteps": 4,
-                    "sliceSteps": 2,
-                    "stepSize": 524288,
-                    "elems": [
-                        {
-                            "count": 8388608,
-                            "chunkCount": 2097152,
-                            "workCount": 4194304,
-                            "lastChunkCount": 2097152,
-                            "workOffset": 0
-                        },
-                        {
-                            "count": 8388608,
-                            "chunkCount": 2097152,
-                            "workCount": 4194304,
-                            "lastChunkCount": 2097152,
-                            "workOffset": 4194304
-                        }
-                    ],
-                    "ts_kernel": 1735494365379243
+                    "ts_kernel": 1740990950980371075
                 }
             ]
         },
@@ -484,19 +496,18 @@
             "0": [
                 {
                     "event_type": "AllGather",
-                    "commId": "0x211bbe3a75485a3",
+                    "commId": "0x9f5744c37f4c25f0",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "3",
+                    "my_rank": "2",
                     "gpuId": 4,
                     "data_size": 8388608,
                     "type_size": 4,
-                    "ts_start": 1735494365376767,
-                    "ts_end": 1735494365389932,
+                    "ts_start": 1740990950968470764,
+                    "ts_end": 1740990950970108105,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
                     "chunkSteps": 4,
                     "sliceSteps": 2,
                     "stepSize": 524288,
@@ -506,17 +517,21 @@
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         },
                         {
                             "count": 8388608,
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 4194304
+                            "workOffset": 4194304,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         }
                     ],
-                    "ts_kernel": 1735494365380130
+                    "ts_kernel": 1740990950970072625
                 }
             ]
         },
@@ -524,19 +539,18 @@
             "0": [
                 {
                     "event_type": "AllGather",
-                    "commId": "0x211bbe3a75485a3",
+                    "commId": "0x9f5744c37f4c25f0",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "5",
+                    "my_rank": "1",
                     "gpuId": 5,
                     "data_size": 8388608,
                     "type_size": 4,
-                    "ts_start": 1735494365376496,
-                    "ts_end": 1735494365387653,
+                    "ts_start": 1740990950969770481,
+                    "ts_end": 1740990950980710917,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
-                    "nthreads": 288,
                     "chunkSteps": 4,
                     "sliceSteps": 2,
                     "stepSize": 524288,
@@ -546,17 +560,21 @@
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         },
                         {
                             "count": 8388608,
                             "chunkCount": 2097152,
                             "workCount": 4194304,
                             "lastChunkCount": 2097152,
-                            "workOffset": 4194304
+                            "workOffset": 4194304,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23453910433792
                         }
                     ],
-                    "ts_kernel": 1735494365379450
+                    "ts_kernel": 1740990950980693777
                 }
             ]
         }
@@ -566,30 +584,30 @@
 {
     "0": {
         "0": {
-            "ts_init_start": 1735494364782636,
-            "ts_init_end": 1735494365342391
+            "ts_init_start": 1740990950318608971,
+            "ts_init_end": 1740990950984680248
         },
         "1": {
-            "ts_init_start": 1735494364782636,
-            "ts_init_end": 1735494365342392
+            "ts_init_start": 1740990950318617573,
+            "ts_init_end": 1740990950984546299
         },
-        "2": {
-            "ts_init_start": 1735494364782645,
-            "ts_init_end": 1735494365342392
+        "3": {
+            "ts_init_start": 1740990950318612439,
+            "ts_init_end": 1740990950985909050
         }
     },
     "1": {
-        "3": {
-            "ts_init_start": 1735494364782665,
-            "ts_init_end": 1735494365376552
+        "2": {
+            "ts_init_start": 1740990950318656900,
+            "ts_init_end": 1740990950969666999
         },
         "4": {
-            "ts_init_start": 1735494364782662,
-            "ts_init_end": 1735494365376706
+            "ts_init_start": 1740990950318641506,
+            "ts_init_end": 1740990950968440124
         },
         "5": {
-            "ts_init_start": 1735494364782663,
-            "ts_init_end": 1735494365376465
+            "ts_init_start": 1740990950318633703,
+            "ts_init_end": 1740990950969677381
         }
     }
 }

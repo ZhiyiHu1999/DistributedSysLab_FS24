@@ -4,16 +4,16 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x6e0b18852acdf794",
+                    "commId": "0x92a1511633f477ed",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "3",
+                    "my_rank": "0",
                     "gpuId": 0,
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1738247691242813,
-                    "ts_end": 1738247691247634,
+                    "ts_start": 1740991624435484310,
+                    "ts_end": 1740991624441761250,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -26,19 +26,23 @@
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454046748672,
+                            "recvbuff": 23454120148992
                         },
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 8388608
+                            "workOffset": 8388608,
+                            "sendbuff": 23454046748672,
+                            "recvbuff": 23454120148992
                         }
                     ],
-                    "ts_kernel": 1738247691247603,
-                    "ts_gpu_start": 1738247691247582,
-                    "ts_gpu_end": 1738247691275031
+                    "ts_kernel": 1740991624441743570,
+                    "ts_gpu_start": 1740991624441738479,
+                    "ts_gpu_end": 1740991624443090605
                 }
             ]
         },
@@ -46,16 +50,16 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x6e0b18852acdf794",
+                    "commId": "0x92a1511633f477ed",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "2",
+                    "my_rank": "1",
                     "gpuId": 2,
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1738247691239434,
-                    "ts_end": 1738247691251116,
+                    "ts_start": 1740991624434519120,
+                    "ts_end": 1740991624444723689,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -68,19 +72,23 @@
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23454254366720
                         },
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 8388608
+                            "workOffset": 8388608,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23454254366720
                         }
                     ],
-                    "ts_kernel": 1738247691242257,
-                    "ts_gpu_start": 1738247691242253,
-                    "ts_gpu_end": 1738247691274980
+                    "ts_kernel": 1740991624436585800,
+                    "ts_gpu_start": 1740991624436579368,
+                    "ts_gpu_end": 1740991624457415085
                 }
             ]
         }
@@ -90,16 +98,16 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x6e0b18852acdf794",
+                    "commId": "0x92a1511633f477ed",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "1",
+                    "my_rank": "3",
                     "gpuId": 1,
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1738247691229842,
-                    "ts_end": 1738247691247469,
+                    "ts_start": 1740991624412043583,
+                    "ts_end": 1740991624413801557,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -112,19 +120,23 @@
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23454254366720
                         },
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 8388608
+                            "workOffset": 8388608,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23454254366720
                         }
                     ],
-                    "ts_kernel": 1738247691238789,
-                    "ts_gpu_start": 1738247691238784,
-                    "ts_gpu_end": 1738247691249479
+                    "ts_kernel": 1740991624413785367,
+                    "ts_gpu_start": 1740991624413780050,
+                    "ts_gpu_end": 1740991624488149419
                 }
             ]
         },
@@ -132,16 +144,16 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x6e0b18852acdf794",
+                    "commId": "0x92a1511633f477ed",
                     "comm_index": 0,
                     "streamId": 0,
-                    "my_rank": "0",
+                    "my_rank": "2",
                     "gpuId": 3,
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1738247691241652,
-                    "ts_end": 1738247691244499,
+                    "ts_start": 1740991624412032154,
+                    "ts_end": 1740991624423112580,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -154,19 +166,23 @@
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 0
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23454254366720
                         },
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
                             "workCount": 8388608,
                             "lastChunkCount": 524288,
-                            "workOffset": 8388608
+                            "workOffset": 8388608,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23454254366720
                         }
                     ],
-                    "ts_kernel": 1738247691244487,
-                    "ts_gpu_start": 1738247691244483,
-                    "ts_gpu_end": 1738247691245851
+                    "ts_kernel": 1740991624415014281,
+                    "ts_gpu_start": 1740991624415012399,
+                    "ts_gpu_end": 1740991624488114523
                 }
             ]
         }

@@ -27,10 +27,10 @@
 
 
 #define NCCLCHECK(cmd) do {                         \
-  ncclResult_t r = cmd;                             \
-  if (r!= ncclSuccess) {                            \
+  ncclResult_t re = cmd;                             \
+  if (re!= ncclSuccess) {                            \
     printf("Failed, NCCL error %s:%d '%s'\n",             \
-        __FILE__,__LINE__,ncclGetErrorString(r));   \
+        __FILE__,__LINE__,ncclGetErrorString(re));   \
     exit(EXIT_FAILURE);                             \
   }                                                 \
 } while(0)
@@ -59,7 +59,6 @@ static void getHostName(char* hostname, int maxlen) {
 
 int main(int argc, char* argv[])
 {
-  // int size = 5;
   int size = 2*1024*1024;
   // int size = 32*1024*1024;
 
@@ -89,7 +88,7 @@ int main(int argc, char* argv[])
 
   ncclUniqueId id;
   ncclComm_t comm;
-  float *sendbuff_1, *recvbuff_1, *sendbuff_2, *recvbuff_2;
+  float **sendbuff, **recvbuff;
   cudaStream_t s;
 
 
@@ -97,19 +96,22 @@ int main(int argc, char* argv[])
   if (myRank == 0) ncclGetUniqueId(&id);
   MPICHECK(MPI_Bcast((void *)&id, sizeof(id), MPI_BYTE, 0, MPI_COMM_WORLD));
 
+  sendbuff = (float**)malloc(nRanks * sizeof(float*));
+  recvbuff = (float**)malloc(nRanks * sizeof(float*));
 
   //picking a GPU based on localRank, allocate device buffers
   CUDACHECK(cudaSetDevice(localRank));
-  CUDACHECK(cudaMalloc(&sendbuff_1, size * sizeof(float)));
-  CUDACHECK(cudaMalloc(&recvbuff_1, size * sizeof(float)));
-  CUDACHECK(cudaMalloc(&sendbuff_2, size * sizeof(float)));
-  CUDACHECK(cudaMalloc(&recvbuff_2, size * sizeof(float)));
+
+  for (int r = 0; r < nRanks; r++) {
+    CUDACHECK(cudaMalloc(&sendbuff[r], size * sizeof(float)));
+    CUDACHECK(cudaMalloc(&recvbuff[r], size * sizeof(float)));
+  }
   
-  CUDACHECK(cudaMemset(sendbuff_1, 0, size * sizeof(float)));
-  CUDACHECK(cudaMemset(recvbuff_1, 0, size * sizeof(float)));
-  CUDACHECK(cudaMemset(sendbuff_2, 0, size * sizeof(float)));
-  CUDACHECK(cudaMemset(recvbuff_2, 0, size * sizeof(float)));
- 
+  for (int r = 0; r < nRanks; r++) {
+    CUDACHECK(cudaMemset(sendbuff[r], 0, size * sizeof(float)));
+    CUDACHECK(cudaMemset(recvbuff[r], 0, size * sizeof(float)));
+  }
+
   CUDACHECK(cudaStreamCreate(&s));
 
 
@@ -119,27 +121,30 @@ int main(int argc, char* argv[])
 
   //communicating using NCCL
   ncclGroupStart();
-  NCCLCHECK(ncclAllReduce((const void*)sendbuff_1, (void*)recvbuff_1, size, ncclFloat, ncclSum, comm, s));
-  NCCLCHECK(ncclAllReduce((const void*)sendbuff_2, (void*)recvbuff_2, size, ncclFloat, ncclSum, comm, s));
+  for (int r = 0; r < nRanks; r++) {
+    if (r == myRank) {
+      NCCLCHECK(ncclSend((const void*)sendbuff[r], size, ncclFloat, r, comm, s));
+      NCCLCHECK(ncclRecv((void*)sendbuff[r], size, ncclFloat, r, comm, s));
+    }
+
+    else {
+      NCCLCHECK(ncclSend((const void*)sendbuff[r], size, ncclFloat, r, comm, s));
+      NCCLCHECK(ncclRecv((void*)recvbuff[r], size, ncclFloat, r, comm, s));
+    }
+  }
   ncclGroupEnd();
-
-  sleep(2);
-  NCCLCHECK(ncclAllReduce((const void*)sendbuff_1, (void*)recvbuff_1, size, ncclFloat, ncclSum, comm, s));
-
-//   for (int i = 0; i < 10; i++) {
-//     sleep(2);
-//     NCCLCHECK(ncclAllReduce((const void*)sendbuff_1, (void*)recvbuff_1, size, ncclFloat, ncclSum, comm, s));
-// }
 
   //completing NCCL operation by synchronizing on the CUDA stream
   CUDACHECK(cudaStreamSynchronize(s));
 
 
   //free device buffers
-  CUDACHECK(cudaFree(sendbuff_1));
-  CUDACHECK(cudaFree(recvbuff_1));
-  CUDACHECK(cudaFree(sendbuff_2));
-  CUDACHECK(cudaFree(recvbuff_2));
+  for (int r = 0; r < nRanks; r++) {
+    CUDACHECK(cudaFree(sendbuff[r]));
+    CUDACHECK(cudaFree(recvbuff[r]));
+  }
+  free(sendbuff);
+  free(recvbuff);
 
 
   //finalizing NCCL

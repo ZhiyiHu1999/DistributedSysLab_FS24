@@ -13,7 +13,7 @@
 
 # Setting the environment variables
 export CUDA_DEVICE_MAX_CONNECTIONS=1
-export NCCL_DEBUG=WARN
+# export NCCL_DEBUG=WARN
 export OMP_NUM_THREADS=1
 
 # Extra debugging flags, slow down training
@@ -128,7 +128,7 @@ REGULATIZATION_ARGS=" \
 TRAINING_ARGS=" \
     --micro-batch-size 1 \
     --global-batch-size 32 \
-    --train-iters 10 \
+    --train-iters 1 \
     --log-interval 1 \
     --disable-bias-linear \
     --cross-entropy-loss-fusion \

@@ -1,6 +1,7 @@
 *.o
 *.e
 *.log
+*.txt
 results/
 dataset/
 *.sqlite
@@ -10,6 +11,7 @@ dataset/
 *.dot
 *.svg
 *.pdf
+*.png
 *.sqsh
 *.0
 log/

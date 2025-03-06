@@ -3,7 +3,7 @@
 #SBATCH --job-name="deepspeed_example"
 #SBATCH --time=02:00:00
 #SBATCH --partition=amdrtx
-#SBATCH --nodelist=ault[41,44]
+#SBATCH --nodelist=ault[41-42]
 #SBATCH --ntasks-per-node=1
 #SBATCH --gpus-per-task=2
 #SBATCH --mem=200G
@@ -26,9 +26,11 @@ rm -rf "/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspee
 mkdir -p "/users/zhu/DeepSpeedExamples/training/HelloDeepSpeed/experiment_deepspeed"
 # pip install -r requirements.txt
 
+export MKL_THREADING_LAYER=GNU
+
 export LD_PRELOAD=/users/zhu/nccl_goal_generator/third_party/nccl_nvtx/nccl/build/lib/libnccl.so
 
-cd ../src
+# cd ../src
 
 nccl_goal_generator --training_script run_ds.sh --results_dir results --config_node_gpu node_gpu_config.yaml
 # nccl_goal_generator --training_script ../example/run_ds.sh --results_dir ../example/results

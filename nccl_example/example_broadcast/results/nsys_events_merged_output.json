@@ -4,7 +4,7 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x92a1511633f477ed",
+                    "commId": "0x4473526d93d1d43",
                     "comm_index": 0,
                     "streamId": 0,
                     "my_rank": "0",
@@ -12,8 +12,8 @@
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1740991624435484310,
-                    "ts_end": 1740991624441761250,
+                    "ts_start": 1741905736203909306,
+                    "ts_end": 1741905736206814660,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -24,25 +24,16 @@
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 8388608,
+                            "workCount": 16777216,
                             "lastChunkCount": 524288,
                             "workOffset": 0,
-                            "sendbuff": 23454046748672,
-                            "recvbuff": 23454120148992
-                        },
-                        {
-                            "count": 16777216,
-                            "chunkCount": 524288,
-                            "workCount": 8388608,
-                            "lastChunkCount": 524288,
-                            "workOffset": 8388608,
-                            "sendbuff": 23454046748672,
-                            "recvbuff": 23454120148992
+                            "sendbuff": 23454113857536,
+                            "recvbuff": 23454187257856
                         }
                     ],
-                    "ts_kernel": 1740991624441743570,
-                    "ts_gpu_start": 1740991624441738479,
-                    "ts_gpu_end": 1740991624443090605
+                    "ts_kernel": 1741905736206797420,
+                    "ts_gpu_start": 1741905736206792889,
+                    "ts_gpu_end": 1741905736218981810
                 }
             ]
         },
@@ -50,7 +41,7 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x92a1511633f477ed",
+                    "commId": "0x4473526d93d1d43",
                     "comm_index": 0,
                     "streamId": 0,
                     "my_rank": "1",
@@ -58,8 +49,8 @@
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1740991624434519120,
-                    "ts_end": 1740991624444723689,
+                    "ts_start": 1741905736203894367,
+                    "ts_end": 1741905736213860769,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -70,25 +61,16 @@
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 8388608,
+                            "workCount": 16777216,
                             "lastChunkCount": 524288,
                             "workOffset": 0,
                             "sendbuff": 23454180966400,
                             "recvbuff": 23454254366720
-                        },
-                        {
-                            "count": 16777216,
-                            "chunkCount": 524288,
-                            "workCount": 8388608,
-                            "lastChunkCount": 524288,
-                            "workOffset": 8388608,
-                            "sendbuff": 23454180966400,
-                            "recvbuff": 23454254366720
                         }
                     ],
-                    "ts_kernel": 1740991624436585800,
-                    "ts_gpu_start": 1740991624436579368,
-                    "ts_gpu_end": 1740991624457415085
+                    "ts_kernel": 1741905736205600598,
+                    "ts_gpu_start": 1741905736205596247,
+                    "ts_gpu_end": 1741905736220783195
                 }
             ]
         }
@@ -98,7 +80,7 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x92a1511633f477ed",
+                    "commId": "0x4473526d93d1d43",
                     "comm_index": 0,
                     "streamId": 0,
                     "my_rank": "3",
@@ -106,8 +88,8 @@
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1740991624412043583,
-                    "ts_end": 1740991624413801557,
+                    "ts_start": 1741905736192137357,
+                    "ts_end": 1741905736221145871,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -118,25 +100,16 @@
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 8388608,
+                            "workCount": 16777216,
                             "lastChunkCount": 524288,
                             "workOffset": 0,
                             "sendbuff": 23454180966400,
                             "recvbuff": 23454254366720
-                        },
-                        {
-                            "count": 16777216,
-                            "chunkCount": 524288,
-                            "workCount": 8388608,
-                            "lastChunkCount": 524288,
-                            "workOffset": 8388608,
-                            "sendbuff": 23454180966400,
-                            "recvbuff": 23454254366720
                         }
                     ],
-                    "ts_kernel": 1740991624413785367,
-                    "ts_gpu_start": 1740991624413780050,
-                    "ts_gpu_end": 1740991624488149419
+                    "ts_kernel": 1741905736193866901,
+                    "ts_gpu_start": 1741905736193861959,
+                    "ts_gpu_end": 1741905736275405262
                 }
             ]
         },
@@ -144,7 +117,7 @@
             "0": [
                 {
                     "event_type": "Broadcast",
-                    "commId": "0x92a1511633f477ed",
+                    "commId": "0x4473526d93d1d43",
                     "comm_index": 0,
                     "streamId": 0,
                     "my_rank": "2",
@@ -152,8 +125,8 @@
                     "data_size": 16777216,
                     "type_size": 4,
                     "root_rank": "0",
-                    "ts_start": 1740991624412032154,
-                    "ts_end": 1740991624423112580,
+                    "ts_start": 1741905736192137521,
+                    "ts_end": 1741905736202376254,
                     "seq": 0,
                     "algorithm": "1",
                     "protocol": "2",
@@ -164,25 +137,92 @@
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 8388608,
+                            "workCount": 16777216,
                             "lastChunkCount": 524288,
                             "workOffset": 0,
                             "sendbuff": 23454180966400,
                             "recvbuff": 23454254366720
-                        },
+                        }
+                    ],
+                    "ts_kernel": 1741905736194012446,
+                    "ts_gpu_start": 1741905736194011922,
+                    "ts_gpu_end": 1741905736273724537
+                }
+            ]
+        }
+    },
+    "2": {
+        "4": {
+            "0": [
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x4473526d93d1d43",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "5",
+                    "gpuId": 4,
+                    "data_size": 16777216,
+                    "type_size": 4,
+                    "root_rank": "0",
+                    "ts_start": 1741905736178932388,
+                    "ts_end": 1741905736180738556,
+                    "seq": 0,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "chunkSteps": 1,
+                    "sliceSteps": 1,
+                    "stepSize": 524288,
+                    "elems": [
                         {
                             "count": 16777216,
                             "chunkCount": 524288,
-                            "workCount": 8388608,
+                            "workCount": 16777216,
                             "lastChunkCount": 524288,
-                            "workOffset": 8388608,
+                            "workOffset": 0,
                             "sendbuff": 23454180966400,
                             "recvbuff": 23454254366720
                         }
                     ],
-                    "ts_kernel": 1740991624415014281,
-                    "ts_gpu_start": 1740991624415012399,
-                    "ts_gpu_end": 1740991624488114523
+                    "ts_kernel": 1741905736180723506,
+                    "ts_gpu_start": 1741905736180718586,
+                    "ts_gpu_end": 1741905736291618581
+                }
+            ]
+        },
+        "5": {
+            "0": [
+                {
+                    "event_type": "Broadcast",
+                    "commId": "0x4473526d93d1d43",
+                    "comm_index": 0,
+                    "streamId": 0,
+                    "my_rank": "4",
+                    "gpuId": 5,
+                    "data_size": 16777216,
+                    "type_size": 4,
+                    "root_rank": "0",
+                    "ts_start": 1741905736178997039,
+                    "ts_end": 1741905736189159041,
+                    "seq": 0,
+                    "algorithm": "1",
+                    "protocol": "2",
+                    "chunkSteps": 1,
+                    "sliceSteps": 1,
+                    "stepSize": 524288,
+                    "elems": [
+                        {
+                            "count": 16777216,
+                            "chunkCount": 524288,
+                            "workCount": 16777216,
+                            "lastChunkCount": 524288,
+                            "workOffset": 0,
+                            "sendbuff": 23454180966400,
+                            "recvbuff": 23454254366720
+                        }
+                    ],
+                    "ts_kernel": 1741905736181046227,
+                    "ts_gpu_start": 1741905736181044475,
+                    "ts_gpu_end": 1741905736291586564
                 }
             ]
         }

@@ -2,6 +2,7 @@ import json
 import os
 import matplotlib.pyplot as plt
 import seaborn as sns
+import numpy as np
 
 def load_json(file_path):
     with open(file_path, 'r') as f:
@@ -26,14 +27,14 @@ def plot_probability_distributions(json_data):
             y_values.extend(values)            
 
         sns.violinplot(x=x_keys, y=y_values, inner='quart', density_norm='width', order=sorted_keys)
-        plt.title(f'Value Distribution for {top_key}')
-        plt.xlabel('Keys (Second Level)')
-        plt.ylabel('Values')
+        plt.title(f'Probabilistic Distribution for GPU Reduction Time')
+        plt.xlabel(r'$\log_2$(Size of Bytes for Processing)', fontsize=12)
+        plt.ylabel('GPU Processing Time (ns)', fontsize=12)
         plt.grid(True, linestyle='--', alpha=0.6)
-        plt.xticks(rotation=45) 
+        plt.xticks(ticks=sorted_keys, labels=[str(int(np.log2(int(x)))) for x in sorted_keys])
         plt.tight_layout()
         
-        save_path = os.path.join(output_dir, f'{top_key}_distribution.png')
+        save_path = os.path.join(output_dir, f'{top_key}_distribution.pdf')
         plt.savefig(save_path) 
         print(f'Saved plot: {save_path}')
         plt.show()

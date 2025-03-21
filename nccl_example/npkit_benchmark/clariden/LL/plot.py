@@ -26,9 +26,9 @@ def plot_probability_distributions(json_data):
             y_values.extend(values)            
 
         sns.violinplot(x=x_keys, y=y_values, inner='quart', density_norm='width', order=sorted_keys)
-        plt.title(f'Value Distribution for {top_key}')
-        plt.xlabel('Keys (Second Level)')
-        plt.ylabel('Values')
+        # plt.title(f'Value Distribution for {top_key}')
+        plt.xlabel('Size of Bytes for Processing (Bytes)')
+        plt.ylabel('Processing Time (ns)')
         plt.grid(True, linestyle='--', alpha=0.6)
         plt.xticks(rotation=45) 
         plt.tight_layout()

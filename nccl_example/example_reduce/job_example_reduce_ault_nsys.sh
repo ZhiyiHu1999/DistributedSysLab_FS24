@@ -1,13 +1,13 @@
 #!/bin/bash -l
 #
-#SBATCH --job-name="nccl_example_broadcast"
+#SBATCH --job-name="nccl_example_reduce"
 #SBATCH --time=02:10:00
 #SBATCH --partition=amdrtx
 #SBATCH --nodelist=ault[42-44]
 #SBATCH --ntasks-per-node=2
 #SBATCH --gpus-per-task=1
-#SBATCH --output=example_broadcast.%j.o
-#SBATCH --error=example_broadcast.%j.e
+#SBATCH --output=example_reduce.%j.o
+#SBATCH --error=example_reduce.%j.e
 #SBATCH --account=g34
 
 module load openmpi/4.1.1
@@ -21,7 +21,7 @@ srun nvidia-smi -L
 rm -rf "./results"
 mkdir -p "./results"
 
-export NCCL_ALGO=Ring  ## ncclBroadcast only use Ring topology
+export NCCL_ALGO=Ring  ## ncclreduce only use Ring topology
 export NCCL_PROTO=Simple
 # export NCCL_MIN_NCHANNELS=16
 export NCCL_MAX_NCHANNELS=1
@@ -37,15 +37,15 @@ export LD_LIBRARY_PATH=/apps/ault/spack/opt/spack/linux-centos8-zen/gcc-8.4.1/cu
 # export NCCL_ROOT=/users/zhu/nccl_nvtx/nccl/build
 # export LD_LIBRARY_PATH=/users/zhu/nccl_nvtx/nccl/build/lib:$LD_LIBRARY_PATH
 
-nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_broadcast.cu -o example_broadcast
+nvcc -I${MPI_ROOT}/include -L${MPI_ROOT}/lib -lmpi -I${NCCL_ROOT}/include -L${NCCL_ROOT}/lib -lnccl example_reduce.cu -o example_reduce
 
 # export NSYS_REPORT_DIR="/users/zhu/DistributedSysLab_FS24/nccl_example/results/nsys_reports"
 export NSYS_REPORT_DIR="./results/nsys_reports"
 rm -rf $NSYS_REPORT_DIR
 mkdir -p $NSYS_REPORT_DIR
 
-# # time srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_broadcast_nsys_report_%h_%p ./example_broadcast
-srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_broadcast_nsys_report_%h_%p ./example_broadcast
+# # time srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_reduce_nsys_report_%h_%p ./example_reduce
+srun ~/opt/nvidia/nsight-systems-cli/2024.5.1/bin/nsys profile --trace=nvtx,cuda -s none --output=${NSYS_REPORT_DIR}/example_reduce_nsys_report_%h_%p ./example_reduce
 
 for report_file in ${NSYS_REPORT_DIR}/*.nsys-rep; do
   if [ -f "$report_file" ]; then

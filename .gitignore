@@ -2,7 +2,7 @@
 *.e
 *.log
 *.txt
-results/
+result*/
 dataset/
 *.sqlite
 *.nsys-rep
